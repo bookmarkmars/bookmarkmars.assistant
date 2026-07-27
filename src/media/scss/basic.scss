@@ -150,13 +150,24 @@ body > div#lds_be_panel {
        animation: fadeOut 0.5s ease-in-out; 
     } 
 
-    > span.logo,
+    > span.logo {
+      position: absolute;
+      display: block;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: img('logo/logo-trans.png');
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: $__panelIconSize;
+    }
+
     > span.direct-left,
     > span.direct-right{
       -webkit-mask-position: top;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-size:$__panelIconSize;
-      @include maskImage('icon-bookmarkearth');
       background-color: $__panelIconColor;
       position: absolute;
       display: block;

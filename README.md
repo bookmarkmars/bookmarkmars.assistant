@@ -1,47 +1,54 @@
-### Prerequisition
+# BookmarkMars Assistant
 
-To start with the development of new features for this project you first need to set up your developer environment by installing the following software:
-- Nodejs
+Development setup and build commands for the BookmarkMars browser extension.
+
+## Prerequisites
+
+Install the following before working on this project:
+
+- Node.js
 - Python
-- Visual Studio (with C++ core features!)
+- Visual Studio (with C++ core features)
 - Visual Studio Build Tools
 
-### Commands
+## Setup
 
-**_Init_**
+### Install build tools
 
-This will install build tools
-
-```
+```bash
 npm install --global windows-build-tools
 ```
 
-This will install all dependencies and rebuild node-sass for your environment. After running this once, you can use the other commands listed below.
+### Initialize the project
 
-```
+Installs dependencies and rebuilds `node-sass` for your environment. Run this once before using the commands below.
+
+```bash
 npm run init
 ```
 
-**_Update_**
+## Commands
 
-This will update the versions of the dependencies in the `package.json` and install them afterwards.
+### Update dependencies
 
-```
+Updates dependency versions in `package.json` and installs them.
+
+```bash
 npm run update
 ```
 
-**_Release_**
+### Release
 
-This will create a minified version of the source code and place it in a folder `__dist`.
+Builds a minified copy of the source and outputs it to `__dist`.
 
-```
+```bash
 npm run release
 ```
 
-**_SCSS_**
+### SCSS
 
-This will parse the scss files to create the css files.
+Compiles SCSS files into CSS.
 
-```
+```bash
 npm run scss
 ```

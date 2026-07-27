@@ -60,7 +60,7 @@
         const getInfo = () => {
             return new Promise((resolve) => {
                 
-                let name = "bookmarkearth";
+                let name = "bookmarkmars";
                 let color = "auto";
 
                 resolve({

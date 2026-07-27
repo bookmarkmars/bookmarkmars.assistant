@@ -26,7 +26,7 @@
     let release= true;
     
     //demo deploy positon
-    const target = "C:/Users/Carmen.Y/Downloads/bookmarkearth_helper";
+    const target = "C:/Users/Carmen.Y/Downloads/bookmarkmars_assistant";
 
     /**
      * Starts building the application
