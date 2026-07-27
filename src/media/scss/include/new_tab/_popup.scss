@@ -1,0 +1,316 @@
+
+%checkBox {
+    
+    position: relative;
+    padding: 0 5px 0 32px;
+    
+    > div.checkbox {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+    }
+    
+    > a, > span {
+      display: inline-block;
+      line-height: 32px;
+      font-weight: $__fontWeightMedium;
+      cursor: pointer;
+      transition: color 0.3s;
+    
+      > img {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+    }
+    
+    > span{
+        margin-left:10px;
+    }
+}
+
+
+div.modal[data-type='searchEngine'],div.modal[data-type='link']{
+  
+  width: 500px;
+  height: 400px;
+  max-height: 100%;
+  
+}
+
+
+div.modal[data-type='searchEngine'] {
+
+  > header::before {
+    @include maskImage('icon-search');
+  }
+
+  > div.scroll-box {
+      
+    > div[data-name='searchSuggest'] {
+      
+      position: absolute;
+      top: 15px;
+      width: 100%;
+      text-align: left;
+      margin-left: 30px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #d4cdcd;
+
+      > div.checkbox {
+        display: inline-block;
+
+        &::before {
+          -webkit-mask-size: 18px;
+        }
+
+        + span {
+          font-size: 90%;
+          font-weight: $__fontWeightMedium;
+          vertical-align: top;
+          display: inline-block;
+          margin: 3px 20px 0 5px;
+        }
+      }
+    }
+
+    > ul {
+      margin: 50px 30px 0 30px;
+
+      > li {
+           
+            @extend %checkBox;
+      }
+
+      &[data-type='custom'] {
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding: 0 30px;
+        display: none;
+
+        &.visible {
+          display: block;
+        }
+
+        > li {
+          margin: 0 0 5px 0;
+          padding: 2px;
+
+          > label {
+              
+            display: block;
+            font-size: 100%;
+            font-weight: $__fontWeightMedium;
+            margin-bottom: 5px;
+            
+          }
+
+          > input {
+              
+            width: 100%;
+            max-width: 400px;
+            background: transparent;
+            font-size: 100%;
+            padding: 5px 8px;
+            margin-top: 0px;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: none;
+            transition: border-color 0.5s;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+
+            &:focus {
+              border-color: rgba(0, 0, 0, 0.3);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+div.modal[data-type='link'] {
+  
+  > header::before {
+    @include maskImage('icon-link');
+  }
+
+  > div.scroll-box {
+      
+    > span.suggestions {
+        margin-top: 10px;
+        display: block;
+        margin-left: 25px;
+        font-weight:$__fontWeightMedium;
+    }
+    
+    > span.add{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        padding: 5px 10px;
+        width: max-content;
+        border-radius: 10px;
+        cursor: pointer;
+        
+        > img{
+            width: 18px;
+            height: 18px;
+            object-fit: cover;
+            margin-right:5px;
+        }
+    }
+
+    > ul {
+      margin: 10px 30px 0 30px;
+
+      > li {
+        
+        @extend %checkBox;
+         
+        &.drag-hover {
+              
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 3px;
+            left: -3px;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            border: 2px dotted $__colorScheme;
+            z-index: 2;
+          }
+        }
+         
+      }
+      
+      > li.lock{
+          
+        > div{
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            > img {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+                vertical-align: middle;
+            }
+        }
+      }
+
+      &[data-type='custom'] {
+        
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding: 0 0px;
+        display: none;
+
+        &.visible {
+          display: block;
+        }
+
+        > li {
+          // Override %checkBox padding (custom form has no checkbox column)
+          position: relative;
+          margin: 0 0 5px 0;
+          padding: 2px 0;
+
+          > label {
+            display: block;
+            font-size: 100%;
+            font-weight: $__fontWeightMedium;
+            margin-bottom: 5px;
+            color: #444;
+          }
+
+          > input {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            font-size: 100%;
+            padding: 5px 8px;
+            margin-top: 0px;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: none;
+            transition: border-color 0.5s;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            color: #444;
+
+            &:focus {
+              border-color: rgba(0, 0, 0, 0.3);
+            }
+          }
+          
+          &.favicon-preview {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+            padding: 2px 0;
+
+            > img {
+              width: 32px;
+              height: 32px;
+              object-fit: contain;
+              border-radius: 6px;
+              background: rgba(0, 0, 0, 0.04);
+              flex-shrink: 0;
+            }
+
+            > button.add-shortcut {
+              appearance: none;
+              -webkit-appearance: none;
+              display: inline-block;
+              padding: 8px 16px;
+              min-width: 72px;
+              min-height: 34px;
+              color: #444 !important;
+              background: #fff !important;
+              border: 1px solid rgba(0, 0, 0, 0.25);
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 14px !important;
+              font-weight: 600;
+              line-height: 1.3;
+              text-indent: 0;
+              opacity: 1;
+
+              &:hover {
+                border-color: rgba(0, 0, 0, 0.4);
+                background: #f7f7f7 !important;
+              }
+
+              &[disabled] {
+                opacity: 0.55;
+                cursor: wait;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

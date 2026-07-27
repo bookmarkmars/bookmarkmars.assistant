@@ -1,0 +1,90 @@
+
+div.contextmenu {
+  position: absolute;
+  top: 0;
+  min-width: 240px;
+  background: $__bodyColor;
+  box-shadow: 0 5px 10px $__textColor;
+  border-radius: 10px;
+  transform: translate3d(0, -20px, 0);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 4;
+  @extend %hidden;
+
+  &[data-type='list'], &[data-type='separator'] {
+    left: -99999px;
+    margin: 0 0 0 10px;
+    min-width: 270px;
+  }
+
+  &.visible {
+    transform: translate3d(0, 0, 0);
+    @extend %visible;
+
+    &.top {
+      transform: translate3d(0, -40px, 0);
+    }
+  }
+
+  > ul.list {
+
+    > li {
+      position: relative;
+      
+      > a {
+        @include mask(null, $__textColor, 20px);
+        position: relative;
+        display: block;
+        line-height: 39px;
+        padding: 0 10px 0 38px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        cursor: pointer;
+        transition: color 0.3s;
+        color:$__textColor;
+
+        > span {
+          display: inline-block;
+          margin: 0 0 0 3px;
+          font-size: 80%;
+          opacity: 0.8;
+        }
+
+        &::before {
+          transition: background-color 0.3s, opacity 0.3s;
+          width: 39px;
+          height: 39px;
+        }
+
+        &.hover {
+          color: $__textColor;
+
+          &::before {
+            opacity: 0.8;
+          }
+        }
+
+        &[data-name='delete']::before {
+          @include maskImage('icon-delete');
+        }
+
+        &[data-name='edit']::before {
+          @include maskImage('icon-edit');
+        }
+
+        &[data-name='copyToClipboard']::before {
+          @include maskImage('icon-copy');
+        }
+        
+        &[data-name='pin']::before {
+          @include maskImage('icon-pin');
+        }
+        
+        &[data-name='unpin']::before {
+          @include maskImage('icon-unpin');
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "書籤火星助手"
+    },
+    "extension_short_name": {
+        "message": "書籤助手"
+    },
+    "extension_version": {
+        "message": "版本V"
+    },
+    "extension_new_version": {
+        "message": "新版本V"
+    },
+    "extension_need_upgrade": {
+        "message": "有新版"
+    },
+    "extension_upgrade_address": {
+        "message": "更新地址"
+    },
+    "extension_upgrade": {
+        "message": "新"
+    },
+    "extension_official_web": {
+        "message": "書籤火星"
+    },
+    "extension_privacy": {
+        "message": "隱私條款"
+    },
+    "extension_ball_reset": {
+        "message": "召喚球復位"
+    },
+    "extension_ball_not_open": {
+        "message": "召喚球未打開，請前往設定打開"
+    },
+    "extension_desc": {
+        "message": "多功能瀏覽器書籤管理工具，包含瀏覽器書籤本地和遠程搜索、書籤手動和自動同步、書籤導出和導入、管理界面設置，書籤增刪改、新標籤頁美化等各種功能"
+    },
+    "extension_last_update": {
+        "message": "最後更新於 {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "暫時影藏召喚球"
+    },
+    "header_bookmarks": {
+        "message": "書籤"
+    },
+    "header_toolbox_official": {
+        "message": "官網"
+    },
+    "header_toolbox_ucenter": {
+        "message": "我的"
+    },
+    "header_toolbox_tool": {
+        "message": "工具"
+    },
+    "header_toolbox_setting": {
+        "message": "設置"
+    },
+    "header_search_box_local": {
+        "message": "本地"
+    },
+    "header_search_box_server": {
+        "message": "遠程"
+    },
+    "header_search_box_remote_search": {
+        "message": "搜尋遠程"
+    },
+    "sidebar_search_placeholder": {
+        "message": "搜本地共{1}書籤"
+    },
+    "sidebar_search_no_results": {
+        "message": "空空如野"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "鏈接已復制"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "空文件夾"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "經常使用({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "編輯"
+    },
+    "sidebar_opreate_drag": {
+        "message": "移動"
+    },
+    "sidebar_opreate_add": {
+        "message": "添加"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "刷新"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "没有書籤"
+    },
+    "sidebar_filter": {
+        "message": "過濾"
+    },
+    "sidebar_filter_default": {
+        "message": "默認"
+    },
+    "sidebar_filter_create": {
+        "message": "創建時間"
+    },
+    "sidebar_filter_used": {
+        "message": "最後訪問"
+    },
+    "sidebar_filter_frequency": {
+        "message": "訪問頻率"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "降序"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "升序"
+    },
+    "sidebar_filter_order_default": {
+        "message": "默認"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "編輯書籤"
+    },
+    "contextmenu_edit_dir": {
+        "message": "編輯目錄"
+    },
+    "contextmenu_edit_separator": {
+        "message": "編輯分隔符"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "刪除書籤"
+    },
+    "contextmenu_delete_dir": {
+        "message": "刪除目錄"
+    },
+    "contextmenu_delete_separator": {
+        "message": "刪除分隔符"
+    },
+    "contextmenu_copy": {
+        "message": "複製鏈接"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "添加書籤"
+    },
+    "contextmenu_add_pin": {
+        "message": "加入常用"
+    },
+    "contextmenu_add_unpin": {
+        "message": "取消常用"
+    },
+    "contextmenu_add": {
+        "message": "添加{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "打開書籤火星助手"
+    },
+    "contextmenu_close_helper": {
+        "message": "關閉書籤火星助手"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "開合助手"
+    },
+    "contextmenu_add_website": {
+        "message": "收藏頁面"
+    },
+    "contextmenu_add_folder": {
+        "message": "添加收藏夾"
+    },
+    "contextmenu_edit_folder": {
+        "message": "編輯收藏夾"
+    },
+    "overlay_bookmark_title": {
+        "message": "页面標題"
+    },
+    "overlay_bookmark_url": {
+        "message": "鏈接"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "其他信息"
+    },
+    "overlay_cancel": {
+        "message": "取消"
+    },
+    "overlay_close": {
+        "message": "關閉"
+    },
+    "overlay_save": {
+        "message": "保存"
+    },
+    "overlay_delete": {
+        "message": "刪除"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "您是否真的要打開所有{1}書籤，包括所選文件夾的子文件夾書籤？"
+    },
+    "overlay_open_children": {
+        "message": "打開全部"
+    },
+    "overlay_confirm_open_children": {
+        "message": "您真的要打開所有 {1} 個子文件夾書籤嗎？"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "從側邊欄隱藏"
+    },
+    "overlay_label_bookmark": {
+        "message": "書籤"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*請知曉：部分鏈接可能為我們帶來佣金"
+    },
+    "overlay_label_dir": {
+        "message": "目錄"
+    },
+    "overlay_label_separator": {
+        "message": "分隔符"
+    },
+    "overlay_add_position": {
+        "message": "位置"
+    },
+    "overlay_add_position_prepend": {
+        "message": "插入最前面"
+    },
+    "overlay_add_position_append": {
+        "message": "插入最後面"
+    },
+    "overlay_delete_selected": {
+        "message": "刪除所選條目"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "是否確實要刪除所選條目？選定文件夾的所有子文件夾書籤也將被刪除。"
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "{1}瀏覽器僅支援唯讀模式，您可按Ctrl+D收藏"
+    },
+    "overlay_collect": {
+        "message": "收藏"
+    },
+    "overlay_collect_title": {
+        "message": "頁面標題"
+    },
+    "overlay_collect_url": {
+        "message": "鏈接"
+    },
+    "overlay_collect_folder": {
+        "message": "選擇收藏夾"
+    },
+    "overlay_add_collect_folder": {
+        "message": "添加收藏夾"
+    },
+    "overlay_collect_confirm": {
+        "message": "確定"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "編輯"
+    },
+    "overlay_collect_folder_title": {
+        "message": "收藏夾名稱"
+    },
+    "overlay_collect_folder_description": {
+        "message": "收藏夾描述"
+    },
+    "overlay_collect_folder_public": {
+        "message": "公開(所有人可見)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "私有(僅自己可見)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "初始完成"
+    },
+    "overlay_add_folder_return": {
+        "message": "返回"
+    },
+    "onboarding_title": {
+        "message": "選擇召喚球"
+    },
+    "onboarding_declaration": {
+        "message": "*聲明：本擴展程序包含聯屬營銷鏈接，點擊這些鏈接可能為我們帶來佣金"
+    },
+    "onboarding_headline": {
+        "message": "歡迎使用書籤火星助手"
+    },
+    "onboarding_config_size": {
+        "message": "配置召喚球大小"
+    },
+    "onboarding_auth_newtab": {
+        "message": "授權美化頁"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "建議授權，新標籤更加美麗"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "不授權"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "授權"
+    },
+    "onboarding_auth_or": {
+        "message": "或"
+    },
+    "onboarding_size_tip": {
+        "message": "選擇召喚球大小"
+    },
+    "onboarding_finished": {
+        "message": "開始體驗"
+    },
+    "onboarding_moon": {
+        "message": "神奇月光"
+    },
+    "onboarding_water": {
+        "message": "水波微瀾"
+    },
+    "onboarding_sun": {
+        "message": "晨時日光"
+    },
+    "onboarding_desc": {
+        "message": "您即將配置召方式"
+    },
+    "onboarding_left_side_panel": {
+        "message": "滑鼠放在瀏覽器左側召喚"
+    },
+    "onboarding_noneed_permission": {
+        "message": "該瀏覽器支援自動授權，請對美化頁面「保留變更」"
+    },
+    "manage_title": {
+        "message": "管理"
+    },
+    "manage_beforeunload_desc": {
+        "message": "您有未保存的內容，確定要離開嗎？"
+    },
+    "manage_menu_setting": {
+        "message": "設置"
+    },
+    "manage_need_login": {
+        "message": "該功能需要登錄使用，點我登錄"
+    },
+    "manage_menu_tool": {
+        "message": "工具"
+    },
+    "manage_menu_ucenter": {
+        "message": "我的"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "基本信息"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "插件中心"
+    },
+    "manage_menu_about": {
+        "message": "關於"
+    },
+    "manage_menu_about_intro": {
+        "message": "簡介"
+    },
+    "manage_menu_about_privacy": {
+        "message": "隱私"
+    },
+    "manage_menu_setting_ball": {
+        "message": "開啟"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "小球{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "選擇一個您喜歡的召喚球風格吧"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "中球{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "大球{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "我們建議您將召喚球設置到60px以下，拖拽到網頁的角落，這樣做是為了避免訪問網頁時發生觸碰"
+    },
+    "manage_menu_setting_function": {
+        "message": "功能"
+    },
+    "manage_menu_tool_backup": {
+        "message": "數據同步"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、功能簡潔"
+    },
+    "manage_tool_backup_desc": {
+        "message": "書籤同步功能會將您的書籤同步到我方服務器，我們不會對其做任何修改或者公開，請務必知曉"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "權益：非VIP會員每{1}天可以同步{2}次，最多保留{3}份最新副本，VIP會員不限次數，可保留{4}個副本"
+    },
+    "manage_tool_backup_right": {
+        "message": "權益說明"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、功能授權"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、手動同步書籤"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "點我同步"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、自動同步書籤"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、同步結果"
+    },
+    "manage_tool_backup_fail": {
+        "message": "失敗"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "該功能僅VIP會員可使用"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "檢測到您沒有登錄，請先登錄"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "自動同步需要功能授權"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "書籤火星助手：您沒有開啟書籤的自動同步，為了安全建議開啟！"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "自動同步僅支持{1}條以下的書籤同步，請手動同步"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "需要您功能授權才可做此操作"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "導出書籤中"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "上傳書籤中"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "最大可同步{1}M的書籤"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "同步書籤成功"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "同步書籤失敗"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "鏈接檢查"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "導入導出"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "信息"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "我的書籤"
+    },
+    "manage_setting_ball_style": {
+        "message": "召喚球樣式"
+    },
+    "manage_setting_ball_size": {
+        "message": "召喚球大小"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "選擇開啟方式"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "全開啟"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "召喚球打開"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "召喚面板打開"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "您可以在這裡設定使用那種方式開啟助手，我們建議您都開啟"
+    },
+    "manage_setting_panel_width": {
+        "message": "召喚面板寬度設定"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "您可以在這裡選擇一個適合您的召喚面板寬度，以方便您打開助手"
+    },
+    "manage_setting_style": {
+        "message": "樣式"
+    },
+    "manage_setting_style_default": {
+        "message": "默認"
+    },
+    "manage_setting_style_classcial": {
+        "message": "古典"
+    },
+    "manage_setting_style_young": {
+        "message": "清新"
+    },
+    "manage_setting_style_happy": {
+        "message": "喜慶"
+    },
+    "manage_setting_linkaction": {
+        "message": "書籤打開"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "當前頁面"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "新標籤頁"
+    },
+    "manage_setting_font_family": {
+        "message": "字體設置"
+    },
+    "manage_setting_font_family_default": {
+        "message": "默認"
+    },
+    "manage_save": {
+        "message": "保存修改"
+    },
+    "manage_saved_message": {
+        "message": "更改保存成功"
+    },
+    "manage_recovery": {
+        "message": "恢復默認"
+    },
+    "manage_restore_confirm": {
+        "message": "確認恢復默認配置嗎？"
+    },
+    "manage_restored_message": {
+        "message": "配置恢復成功"
+    },
+    "manage_tool_iexport_all": {
+        "message": "全選"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "反選"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "您的書籤超過{1}條，將只展示目錄，並可能影響操作速度"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "刷新書籤樹"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "導入書籤"
+    },
+    "manage_tool_export": {
+        "message": "導出書籤"
+    },
+    "manage_check_powerful": {
+        "message": "萬能檢查"
+    },
+    "manage_check_powerful_desc": {
+        "message": "瀏覽書籤火星網頁版時，助手會幫你提前檢查所有失效鏈接，避免點擊無效內容，系統已做了優化，不會有太大的性能和頻寬消耗"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "我的所有書籤文件夾"
+    },
+    "manage_check_directions": {
+        "message": "點選資料夾檢測"
+    },
+    "manage_check_modal_name": {
+        "message": "檢測-{1}/參考結果"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "重定向"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "失效"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "重複"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "空目錄"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "共檢測{1}條書籤"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "更新已選"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "清除已選"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "空空如野"
+    },
+    "manage_tool_backup_name": {
+        "message": "書籤火星助手同步"
+    },
+    "manage_setting_newtab": {
+        "message": "美化頁（建議授權）"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "授權"
+    },
+    "manage_setting_newtab_no": {
+        "message": "不授權"
+    },
+    "manage_switch_close_tag": {
+        "message": "關閉"
+    },
+    "manage_switch_open_tag": {
+        "message": "開啟"
+    },
+    "manage_setting_language": {
+        "message": "語言"
+    },
+    "manage_language_default": {
+        "message": "跟隨瀏覽器"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}、雲備份訪問軌跡"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "您必須對該功能有充分認知，打開以後將雲備份您的訪問軌跡，這個數據不會對外公佈，是否允許請自我抉擇"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "關於書籤火星"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "書籤火星的靈感來自知乎，是設計者在瀏覽一篇資源相關的帖子的時候看到有朋友把自己的瀏覽器書簽分享出來，進而聯想到做一個瀏覽器書籤分享 的平台。瀏覽器書籤一般整理了每個人覺得有用的網站，通常情況下會分門別類的整理好，如果按照這個推理來講，自己的書籤也極大可能對別人也有用。 設計者也不知道會不會為大家所接受，算是大膽嘗試。"
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "書籤火星助手"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、強大的書籤管理功能，包括書籤的增刪改"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、強大的查詢功能，可查詢本地和遠程書籤"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、強大的書籤同步功能，可以讓您的書籤不丟失"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、強大的書籤導出分享功能，該功能可結合網站使用"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、強大的鏈接檢查功能，提早為您辨別無效鏈接"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "已禁網絡平台公示"
+    },
+    "search_context_menus_title": {
+        "message": "書籤搜索"
+    },
+    "user_vip_type1": {
+        "message": "高級VIP"
+    },
+    "user_vip_type2": {
+        "message": "超級終生VIP"
+    },
+    "user_vip_suggestion": {
+        "message": "點我開通VIP會員"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "點我續費VIP會員"
+    },
+    "not_found_title": {
+        "message": "404 Not Found"
+    },
+    "not_found_headline": {
+        "message": "書籤火星在該頁面沒法使用"
+    },
+    "not_found_fallback_desc": {
+        "message": "這可能是由於瀏覽器本生的權限限製或者部分網頁內容被加入黑名單所致"
+    },
+    "more_link": {
+        "message": "點我了解更多"
+    },
+    "friendly_suggestion": {
+        "message": "強烈建議您點擊授權書籤火星美化頁"
+    },
+    "ucenter_not_login_desc": {
+        "message": "您還沒有登錄，沒法展示個人信息哦"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "點我登錄吧"
+    },
+    "ucenter_motto_today": {
+        "message": "你說的都對，誰讓你是錯的呢"
+    },
+    "ucenter_welcome": {
+        "message": "歡迎來到書籤火星助手"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "註冊時長"
+    },
+    "ucenter_account_type": {
+        "message": "賬號類型"
+    },
+    "ucenter_open_vip": {
+        "message": "點我開通VIP，享受特權"
+    },
+    "ucenter_greeting": {
+        "message": "Hi，"
+    },
+    "ucenter_logout": {
+        "message": "退出登錄"
+    },
+    "network_error": {
+        "message": "網絡不通或者服務器故障"
+    },
+    "not_login_notice": {
+        "message": "未登錄"
+    },
+    "backup_success_notice": {
+        "message": "助手：書籤自動同步成功"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "已從雲端還原捷徑"
+    },
+    "new_tab_title": {
+        "message": "書籤火星新分頁"
+    },
+    "new_tab_greeting_morning": {
+        "message": "早安，開啟新的一天"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "午安，保持專注"
+    },
+    "new_tab_greeting_evening": {
+        "message": "晚安，找到重要的事"
+    },
+    "new_tab_greeting_night": {
+        "message": "夜深了，靜心瀏覽"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "自定義搜索"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "語音識別中"
+    },
+    "new_tab_speech_search_error": {
+        "message": "不支持語音搜索"
+    },
+    "new_tab_search_placeholder": {
+        "message": "搜點什麼唄"
+    },
+    "new_tab_bookmark_manage": {
+        "message": "書籤管理"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "搜索配置"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "搜索提示"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "書籤提示"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "歷史提示"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "名稱"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "主頁"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "查詢鏈接"
+    },
+    "new_tab_img_change_sug": {
+        "message": "僅VIP用戶可切換牆紙"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "該功能需要登錄後使用"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "快捷方式編輯"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "拖拽可交換順序"
+    },
+    "new_tab_setting": {
+        "message": "設置"
+    },
+    "new_tab_link_edit": {
+        "message": "編輯快捷方式"
+    },
+    "new_tab_bg_server_change": {
+        "message": "切換背景"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "上傳背景"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "自定義添加"
+    },
+    "new_tab_navigation_title": {
+        "message": "名稱"
+    },
+    "new_tab_navigation_url": {
+        "message": "鏈接"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "添加"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "請先登錄再使用"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "名稱不為空且最多{1}個字符"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "描述最多{1}個字符"
+    },
+    "collect_create_folder_first": {
+        "message": "請先至少創建一個收藏夾"
+    },
+    "collect_choose_folder_please": {
+        "message": "請選擇一個收藏夾"
+    },
+    "collect_successfully": {
+        "message": "收藏成功"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    }
+}

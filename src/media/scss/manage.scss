@@ -1,0 +1,208 @@
+@import "include/vars";
+@import "include/mixins";
+@import "include/manage_mixins";
+
+//
+$__colorScheme: $mainColor2;
+$__textColor: $textColor;
+//$__fontFamily:default,Microsoft YaHei;
+
+@import "include/loading";
+@import "include/checkbox";
+
+@import "include/generals";
+@import "include/scroll_box";
+@import "include/manage/content";
+@import "include/manage/ball";
+@import "include/manage/bookmark_manager";
+@import "include/manage/backup";
+@import "include/manage/link_checker";
+@import "include/manage/about";
+@import "include/manage/form";
+@import "include/manage/menu";
+@import "include/manage/ucenter";
+@import "include/manage/footer";
+
+body {
+    
+    // Overlay
+  > iframe#lds_be_linkcheck { 
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      z-index:calc(#{$indicatorZindex} + 1);
+      border: none;
+      speak: none;
+      background: $__overlayMaskColor !important;
+      transition: opacity 0.5s;
+      @extend %hidden;
+    
+      &.visible {
+        @extend %visible;
+      }
+  }
+  
+  background: $bodyBackground;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 1024px;
+  height: 100%;
+  user-select: none;
+  overflow: hidden;
+
+  @media (max-width: 800px) {
+    overflow: auto;
+  }
+
+  &::before, &::after {
+    position: fixed;
+    @extend %hidden;
+  }
+
+  &::after {
+
+    content: attr(data-successtext);
+    bottom:80px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 120%;
+    color: $textColorInverted;
+    background: $colorSuccess;
+    transform: translate3d(0, -50px, 0);
+    transition: opacity 1s, transform 1.5s;
+    z-index: 99;
+  }
+
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:#9f9e9e61;
+    transition: opacity 0.5s;
+    z-index: 98;
+  }
+
+  &.success {
+
+    &::before, &::after {
+      @extend %visible;
+    }
+
+    &::after {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.init-loading {
+
+    &::before {
+      @extend %visible;
+      background: $bodyBackground;
+    }
+  }
+
+  &.loading {
+
+    &::before {
+      @extend %visible;
+    }
+  }
+
+  > svg.loading {
+    position: fixed;
+    display: block !important;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+    filter: invert(47%) sepia(3%) saturate(422%) hue-rotate(298deg) brightness(94%) contrast(90%);
+    z-index: 99;
+  }
+}
+
+// Notice
+div.notice-box {
+  @include mask('icon-info', $textColorLight, 32px);
+
+  &::before {
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 32px;
+    height: 32px;
+    margin: auto;
+  }
+
+  > p {
+    line-height: 150%;
+    padding: 3px 0 3px 40px;
+  }
+
+  > h2 {
+    padding: 0 0 0 40px;
+    margin-bottom: 5px;
+  }
+}
+
+// List
+ul.bullet-list {
+
+  > li {
+    position: relative;
+    padding-left: 10px;
+
+    &::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+// Separator
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+}
+
+// Button
+main button[type='submit'], a.button {
+  @extend %button;
+  margin: 10px 0;
+}
+
+// Image
+img[loading='lazy'] {
+  transition: opacity 0.5s;
+  opacity: 0;
+
+  &.lazyloaded {
+    opacity: 1;
+  }
+}
+
+// External link
+a.external-link {
+  display: inline-block;
+  font-weight: $__fontWeightMedium;
+  color: $mainColor2;
+  font-size: 90%;
+  margin-top: 15px;
+
+  &::before {
+    content: attr(href);
+  }
+}

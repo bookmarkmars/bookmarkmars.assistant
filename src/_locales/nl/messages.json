@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "BookmarkMars Assistent"
+    },
+    "extension_short_name": {
+        "message": "BM Assistent"
+    },
+    "extension_version": {
+        "message": "Versie"
+    },
+    "extension_new_version": {
+        "message": "Nieuwe versie"
+    },
+    "extension_need_upgrade": {
+        "message": "Nieuw"
+    },
+    "extension_upgrade_address": {
+        "message": "Update-adres"
+    },
+    "extension_upgrade": {
+        "message": "Nieuw"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "Privacy"
+    },
+    "extension_ball_reset": {
+        "message": "Magische bal resetten"
+    },
+    "extension_ball_not_open": {
+        "message": "Magische bal is niet ingeschakeld; ga naar instellingen om deze in te schakelen"
+    },
+    "extension_desc": {
+        "message": "Bladwijzers synchroniseren, exporteren en importeren, instellingen beheerinterface, bladwijzers toevoegen, verwijderen en wijzigen"
+    },
+    "extension_last_update": {
+        "message": "Laatste update op {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "Magische bal tijdelijk verbergen"
+    },
+    "header_bookmarks": {
+        "message": "Bladwijzers"
+    },
+    "header_toolbox_official": {
+        "message": "Officieel"
+    },
+    "header_toolbox_ucenter": {
+        "message": "Ik"
+    },
+    "header_toolbox_tool": {
+        "message": "Tools"
+    },
+    "header_toolbox_setting": {
+        "message": "Instellingen"
+    },
+    "header_search_box_local": {
+        "message": "Lokaal"
+    },
+    "header_search_box_server": {
+        "message": "Extern"
+    },
+    "header_search_box_remote_search": {
+        "message": "Extern zoeken"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Zoek {1} lokale bladwijzers"
+    },
+    "sidebar_search_no_results": {
+        "message": "Geen resultaten"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "gekopieerd"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "Lege map"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "Veel gebruikt ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "Bewerken"
+    },
+    "sidebar_opreate_drag": {
+        "message": "Verplaatsen"
+    },
+    "sidebar_opreate_add": {
+        "message": "Toevoegen"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "Vernieuwen"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "Geen bladwijzers"
+    },
+    "sidebar_filter": {
+        "message": "Filter"
+    },
+    "sidebar_filter_default": {
+        "message": "Standaard"
+    },
+    "sidebar_filter_create": {
+        "message": "Aanmaakdatum"
+    },
+    "sidebar_filter_used": {
+        "message": "Laatste bezoek"
+    },
+    "sidebar_filter_frequency": {
+        "message": "Bezoekfrequentie"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "Aflopend"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "Oplopend"
+    },
+    "sidebar_filter_order_default": {
+        "message": "Standaard"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Bladwijzer bewerken"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Map bewerken"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Scheidingsteken bewerken"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Bladwijzer verwijderen"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Map verwijderen"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Scheidingsteken verwijderen"
+    },
+    "contextmenu_copy": {
+        "message": "Link kopiëren"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Bladwijzer toevoegen"
+    },
+    "contextmenu_add_pin": {
+        "message": "Vastmaken"
+    },
+    "contextmenu_add_unpin": {
+        "message": "Losmaken"
+    },
+    "contextmenu_add": {
+        "message": "Toevoegen{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "BookmarkMars Assistent openen"
+    },
+    "contextmenu_close_helper": {
+        "message": "BookmarkMars Assistent sluiten"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "BookmarkMars Assistent in-/uitschakelen"
+    },
+    "contextmenu_add_website": {
+        "message": "Pagina opslaan"
+    },
+    "contextmenu_add_folder": {
+        "message": "Map toevoegen"
+    },
+    "contextmenu_edit_folder": {
+        "message": "Map bewerken"
+    },
+    "overlay_bookmark_title": {
+        "message": "Titel"
+    },
+    "overlay_bookmark_url": {
+        "message": "Link"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Overige info"
+    },
+    "overlay_cancel": {
+        "message": "Annuleren"
+    },
+    "overlay_close": {
+        "message": "Sluiten"
+    },
+    "overlay_save": {
+        "message": "Opslaan"
+    },
+    "overlay_delete": {
+        "message": "Verwijderen"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Wilt u echt alle {1} bladwijzers openen, inclusief bladwijzers in submappen van de geselecteerde map?"
+    },
+    "overlay_open_children": {
+        "message": "Alles openen"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Wilt u echt alle {1} bladwijzers in submappen openen?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Verbergen voor assistent"
+    },
+    "overlay_label_bookmark": {
+        "message": "Bladwijzer"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*Let op: sommige links kunnen ons een commissie opleveren"
+    },
+    "overlay_label_dir": {
+        "message": "Map"
+    },
+    "overlay_label_separator": {
+        "message": "Scheidingsteken"
+    },
+    "overlay_add_position": {
+        "message": "Positie"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Invoegen vóór"
+    },
+    "overlay_add_position_append": {
+        "message": "Invoegen na"
+    },
+    "overlay_delete_selected": {
+        "message": "Alles verwijderen"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Weet u zeker dat u de geselecteerde items wilt verwijderen? Bladwijzers in submappen worden ook verwijderd."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "Browser {1} ondersteunt alleen alleen-lezen modus. Druk op Ctrl+D om een bladwijzer op te slaan."
+    },
+    "overlay_collect": {
+        "message": "Opslaan"
+    },
+    "overlay_collect_title": {
+        "message": "Paginatitel"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "Map kiezen"
+    },
+    "overlay_add_collect_folder": {
+        "message": "Map toevoegen"
+    },
+    "overlay_collect_confirm": {
+        "message": "Bevestigen"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "Bewerken"
+    },
+    "overlay_collect_folder_title": {
+        "message": "Mapnaam"
+    },
+    "overlay_collect_folder_description": {
+        "message": "Mapbeschrijving"
+    },
+    "overlay_collect_folder_public": {
+        "message": "Openbaar (zichtbaar voor iedereen)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "Privé (alleen zichtbaar voor u)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "Voltooien"
+    },
+    "overlay_add_folder_return": {
+        "message": "Terug"
+    },
+    "onboarding_title": {
+        "message": "Kies de magische bal"
+    },
+    "onboarding_declaration": {
+        "message": "*Disclaimer: deze extensie bevat affiliate-links; door erop te klikken kunnen wij een commissie ontvangen"
+    },
+    "onboarding_headline": {
+        "message": "Welkom bij BookmarkMars Assistent"
+    },
+    "onboarding_config_size": {
+        "message": "Grootte van magische bal configureren"
+    },
+    "onboarding_auth_newtab": {
+        "message": "Toestemming geven voor personalisatiepagina"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "Toestemming geven wordt aanbevolen; het nieuwe tabblad wordt mooier"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "Negeren"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "Toestemming geven"
+    },
+    "onboarding_auth_or": {
+        "message": "Of"
+    },
+    "onboarding_size_tip": {
+        "message": "Kies de grootte van de magische bal"
+    },
+    "onboarding_finished": {
+        "message": "Veel plezier!"
+    },
+    "onboarding_moon": {
+        "message": "Maanschijn"
+    },
+    "onboarding_water": {
+        "message": "Lichte golven"
+    },
+    "onboarding_sun": {
+        "message": "Ochtendzon"
+    },
+    "onboarding_desc": {
+        "message": "U configureert de openmethode"
+    },
+    "onboarding_left_side_panel": {
+        "message": "Plaats de muis aan de linkerkant van de browser om op te roepen"
+    },
+    "onboarding_noneed_permission": {
+        "message": "De browser ondersteunt automatische autorisatie. Kies \"Wijzigingen behouden\" voor de personalisatiepagina."
+    },
+    "manage_title": {
+        "message": "Beheer"
+    },
+    "manage_beforeunload_desc": {
+        "message": "U hebt niet-opgeslagen inhoud. Weet u zeker dat u wilt vertrekken?"
+    },
+    "manage_menu_setting": {
+        "message": "Instellingen"
+    },
+    "manage_need_login": {
+        "message": "U moet eerst inloggen om deze functie te gebruiken"
+    },
+    "manage_menu_tool": {
+        "message": "Tools"
+    },
+    "manage_menu_ucenter": {
+        "message": "Ik"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "Basisinformatie"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "Extensiecentrum"
+    },
+    "manage_menu_about": {
+        "message": "Over"
+    },
+    "manage_menu_about_intro": {
+        "message": "Introductie"
+    },
+    "manage_menu_about_privacy": {
+        "message": "Privacy"
+    },
+    "manage_menu_setting_ball": {
+        "message": "Inschakelen"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "Klein{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "Kies een magische balstijl die u leuk vindt"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "Middel{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "Groot{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "We raden aan de magische bal kleiner dan 60 px te houden en naar een hoek van de pagina te slepen om per ongeluk aan te raken tijdens het browsen"
+    },
+    "manage_menu_setting_function": {
+        "message": "Functie"
+    },
+    "manage_menu_tool_backup": {
+        "message": "Synchronisatie"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、Functie-introductie"
+    },
+    "manage_tool_backup_desc": {
+        "message": "Bladwijzers synchroniseren kopieert uw bladwijzers naar onze server; wij wijzigen of openbaren ze op geen enkele manier"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "Voordelen: niet-VIP-leden kunnen elke {1} dagen {2} keer synchroniseren en maximaal {3} recente kopieën bewaren; VIP-leden hebben onbeperkte keren en kunnen {4} kopieën bewaren"
+    },
+    "manage_tool_backup_right": {
+        "message": "Voordelen"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、Toestemming aanvragen"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、Bladwijzers handmatig synchroniseren"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "Klik om te synchroniseren"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、Bladwijzers automatisch synchroniseren"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、Synchronisatieresultaten"
+    },
+    "manage_tool_backup_fail": {
+        "message": "Mislukt"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "Deze functie is alleen beschikbaar voor VIP-leden"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "U bent niet ingelogd; log eerst in"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "Automatische synchronisatie vereist voorafgaande autorisatie"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "BookmarkMars Assistent: u hebt automatische bladwijzersynchronisatie niet ingeschakeld; schakel deze in voor de veiligheid"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "Automatische synchronisatie ondersteunt alleen bladwijzers kleiner dan {1}; synchroniseer handmatig"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "Deze actie vereist uw autorisatie"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "Exporteren"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "Uploaden"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "Maximale grootte van te synchroniseren bladwijzers is {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "Bladwijzers succesvol gesynchroniseerd"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "Synchroniseren van bladwijzers mislukt"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "Linkcontrole"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "Im/Exporteren"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "Informatie"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "Mijn bladwijzers"
+    },
+    "manage_setting_ball_style": {
+        "message": "Magische balstijl"
+    },
+    "manage_setting_ball_size": {
+        "message": "Grootte magische bal"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "Kies hoe te openen"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "Alles openen"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "Via de magische bal"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "Via het magische paneel"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "Hier kunt u kiezen hoe u de assistent opent. We raden aan beide methoden in te schakelen."
+    },
+    "manage_setting_panel_width": {
+        "message": "Breedte magisch paneel"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "Kies hier een paneelbreedte die u uitkomt om de assistent te openen"
+    },
+    "manage_setting_style": {
+        "message": "Stijl"
+    },
+    "manage_setting_style_default": {
+        "message": "Standaard"
+    },
+    "manage_setting_style_classcial": {
+        "message": "Klassiek"
+    },
+    "manage_setting_style_young": {
+        "message": "Jong"
+    },
+    "manage_setting_style_happy": {
+        "message": "Vrolijk"
+    },
+    "manage_setting_linkaction": {
+        "message": "Links openen"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "Huidig tabblad"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "Nieuw tabblad"
+    },
+    "manage_setting_font_family": {
+        "message": "Lettertype"
+    },
+    "manage_setting_font_family_default": {
+        "message": "Standaard"
+    },
+    "manage_save": {
+        "message": "Wijzigingen opslaan"
+    },
+    "manage_saved_message": {
+        "message": "Wijzigingen succesvol opgeslagen"
+    },
+    "manage_recovery": {
+        "message": "Standaard herstellen"
+    },
+    "manage_restore_confirm": {
+        "message": "Weet u zeker dat u de standaardinstellingen wilt herstellen?"
+    },
+    "manage_restored_message": {
+        "message": "Instellingen succesvol hersteld"
+    },
+    "manage_tool_iexport_all": {
+        "message": "Alles selecteren"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "Alles deselecteren"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "U hebt meer dan {1} bladwijzers; alleen de mapstructuur wordt getoond en de snelheid kan worden beïnvloed"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "Vernieuwen"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "Importeren"
+    },
+    "manage_tool_export": {
+        "message": "Exporteren"
+    },
+    "manage_check_powerful": {
+        "message": "Geavanceerde controle"
+    },
+    "manage_check_powerful_desc": {
+        "message": "Bij het browsen in de webversie van BookmarkMars controleert de assistent ongeldige links vooraf om te voorkomen dat u op kapotte content klikt. Het systeem is geoptimaliseerd en verbruikt niet te veel prestaties of bandbreedte"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "Al mijn mappen"
+    },
+    "manage_check_directions": {
+        "message": "Klik op de map om te testen"
+    },
+    "manage_check_modal_name": {
+        "message": "Controle-{1}/Referentieresultaten"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "Omleiding"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "Kapot"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "Duplicaat"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "Leeg"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "Totaal {1} bladwijzers gedetecteerd"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "Geselecteerde bijwerken"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "Geselecteerde verwijderen"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "Geen resultaten"
+    },
+    "manage_tool_backup_name": {
+        "message": "BookmarkMars Assistent Synchronisatie"
+    },
+    "manage_setting_newtab": {
+        "message": "Personalisatiepagina (autorisatie aanbevolen)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "Geautoriseerd"
+    },
+    "manage_setting_newtab_no": {
+        "message": "Niet geautoriseerd"
+    },
+    "manage_switch_close_tag": {
+        "message": "Uit"
+    },
+    "manage_switch_open_tag": {
+        "message": "Aan"
+    },
+    "manage_setting_language": {
+        "message": "Taal"
+    },
+    "manage_language_default": {
+        "message": "Browser volgen"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, Cloudback-up van bezoekgeschiedenis"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "U moet deze functie goed begrijpen. Na inschakeling wordt uw bezoekgeschiedenis in de cloud geback-upt. Deze gegevens worden niet openbaar gemaakt. Beslis of u dit wilt toestaan"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "Over BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars is geïnspireerd door Zhihu. Toen de ontwerper een bericht over bronnen zag, deelde een vriend zijn browserbladwijzers en toen dacht hij aan een platform om bladwijzers te delen. Bladwijzers ordenen doorgaans nuttige websites per categorie; uw bladwijzers kunnen dus ook nuttig zijn voor anderen. De ontwerper wist niet of iedereen dit zou accepteren, dus het was een gewaagde poging."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "BookmarkMars Assistent"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、Krachtig bladwijzerbeheer, inclusief toevoegen, verwijderen en wijzigen"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、Krachtig zoeken in lokale en externe bladwijzers"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、Krachtige synchronisatie om verlies van bladwijzers te voorkomen"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、Krachtige export en delen, integreerbaar met de officiële site"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、Krachtige linkcontrole om ongeldige links te detecteren"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "Reclame voor verboden platforms"
+    },
+    "search_context_menus_title": {
+        "message": "Bladwijzers zoeken"
+    },
+    "user_vip_type1": {
+        "message": "Senior VIP"
+    },
+    "user_vip_type2": {
+        "message": "Levenslang VIP"
+    },
+    "user_vip_suggestion": {
+        "message": "Klik om VIP te activeren"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "Klik om VIP te verlengen"
+    },
+    "not_found_title": {
+        "message": "404 Niet gevonden"
+    },
+    "not_found_headline": {
+        "message": "BookmarkMars Assistent is niet beschikbaar op deze pagina"
+    },
+    "not_found_fallback_desc": {
+        "message": "Dit kan komen door browserbeperkingen of webcontent op de zwarte lijst"
+    },
+    "more_link": {
+        "message": "Meer..."
+    },
+    "friendly_suggestion": {
+        "message": "We raden sterk aan toestemming te geven voor de personalisatiepagina van BookmarkMars Assistent"
+    },
+    "ucenter_not_login_desc": {
+        "message": "U bent niet ingelogd; persoonlijke informatie kan niet worden weergegeven"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "Inloggen"
+    },
+    "ucenter_motto_today": {
+        "message": "Je hebt gelijk, wie heeft je laten dwalen"
+    },
+    "ucenter_welcome": {
+        "message": "Welkom bij BookmarkMars Assistent"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "Registratiedatum"
+    },
+    "ucenter_account_type": {
+        "message": "Accounttype"
+    },
+    "ucenter_open_vip": {
+        "message": "Klik om VIP te activeren en privileges te genieten"
+    },
+    "ucenter_greeting": {
+        "message": "Hallo, "
+    },
+    "ucenter_logout": {
+        "message": "Uitloggen"
+    },
+    "network_error": {
+        "message": "Netwerkfout of interne serverfout"
+    },
+    "not_login_notice": {
+        "message": "Inloggen"
+    },
+    "backup_success_notice": {
+        "message": "Assistent: bladwijzers automatisch succesvol gesynchroniseerd"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "Cloudsnelkoppelingen hersteld"
+    },
+    "new_tab_title": {
+        "message": "Personalisatiepagina BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "Aangepast zoeken"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "Spraakherkenning"
+    },
+    "new_tab_speech_search_error": {
+        "message": "Spraakzoeken niet ondersteund"
+    },
+    "new_tab_search_placeholder": {
+        "message": "Typ iets..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "Bladwijzers"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "Zoeken configureren"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "Zoeken"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "Bladwijzers"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "Geschiedenis"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "Naam"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "Startpagina"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "Zoeklinks"
+    },
+    "new_tab_img_change_sug": {
+        "message": "Alleen VIP-gebruikers kunnen de achtergrond wijzigen"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "U moet inloggen om deze functie te gebruiken"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "Snelkoppeling bewerken"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "Sleep om positie te wijzigen"
+    },
+    "new_tab_setting": {
+        "message": "Instellingen"
+    },
+    "new_tab_link_edit": {
+        "message": "Snelkoppeling bewerken"
+    },
+    "new_tab_bg_server_change": {
+        "message": "Achtergrond wijzigen"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "Achtergrond uploaden"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "Aangepast toevoegen"
+    },
+    "new_tab_navigation_title": {
+        "message": "Titel"
+    },
+    "new_tab_navigation_url": {
+        "message": "Link"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "Toevoegen"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "Log eerst in"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "Naam mag niet leeg zijn en mag maximaal {1} tekens bevatten"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "Beschrijving tot {1} tekens"
+    },
+    "collect_create_folder_first": {
+        "message": "Maak eerst minstens één map aan"
+    },
+    "collect_choose_folder_please": {
+        "message": "Selecteer een map"
+    },
+    "collect_successfully": {
+        "message": "Succesvol opgeslagen"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "Goedemorgen — klaar om te verkennen"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "Goedemiddag — blijf nieuwsgierig"
+    },
+    "new_tab_greeting_evening": {
+        "message": "Goedenavond — vind wat telt"
+    },
+    "new_tab_greeting_night": {
+        "message": "Goedenacht — focusmodus"
+    }
+}

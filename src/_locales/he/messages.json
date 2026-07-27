@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "עוזר BookmarkMars"
+    },
+    "extension_short_name": {
+        "message": "עוזר BM"
+    },
+    "extension_version": {
+        "message": "גרסה"
+    },
+    "extension_new_version": {
+        "message": "גרסה חדשה"
+    },
+    "extension_need_upgrade": {
+        "message": "חדש"
+    },
+    "extension_upgrade_address": {
+        "message": "כתובת עדכון"
+    },
+    "extension_upgrade": {
+        "message": "חדש"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "פרטיות"
+    },
+    "extension_ball_reset": {
+        "message": "איפוס הכדור הקסום"
+    },
+    "extension_ball_not_open": {
+        "message": "הכדור הקסום לא מופעל; עבור להגדרות כדי להפעיל אותו"
+    },
+    "extension_desc": {
+        "message": "סנכרון סימניות, ייצוא וייבוא סימניות, הגדרות ממשק ניהול, הוספה, מחיקה ועריכה של סימניות"
+    },
+    "extension_last_update": {
+        "message": "עדכון אחרון ב-{1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "הסתרת הכדור הקסום זמנית"
+    },
+    "header_bookmarks": {
+        "message": "סימניות"
+    },
+    "header_toolbox_official": {
+        "message": "רשמי"
+    },
+    "header_toolbox_ucenter": {
+        "message": "אני"
+    },
+    "header_toolbox_tool": {
+        "message": "כלים"
+    },
+    "header_toolbox_setting": {
+        "message": "הגדרות"
+    },
+    "header_search_box_local": {
+        "message": "מקומי"
+    },
+    "header_search_box_server": {
+        "message": "מרוחק"
+    },
+    "header_search_box_remote_search": {
+        "message": "חיפוש מרוחק"
+    },
+    "sidebar_search_placeholder": {
+        "message": "חיפוש {1} סימניות מקומיות"
+    },
+    "sidebar_search_no_results": {
+        "message": "אין תוצאות"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "הועתק"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "תיקייה ריקה"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "שימוש תכוף ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "עריכה"
+    },
+    "sidebar_opreate_drag": {
+        "message": "העברה"
+    },
+    "sidebar_opreate_add": {
+        "message": "הוספה"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "רענון"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "אין סימניות"
+    },
+    "sidebar_filter": {
+        "message": "סינון"
+    },
+    "sidebar_filter_default": {
+        "message": "ברירת מחדל"
+    },
+    "sidebar_filter_create": {
+        "message": "תאריך יצירה"
+    },
+    "sidebar_filter_used": {
+        "message": "ביקור אחרון"
+    },
+    "sidebar_filter_frequency": {
+        "message": "תדירות ביקורים"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "יורד"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "עולה"
+    },
+    "sidebar_filter_order_default": {
+        "message": "ברירת מחדל"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "עריכת סימנייה"
+    },
+    "contextmenu_edit_dir": {
+        "message": "עריכת תיקייה"
+    },
+    "contextmenu_edit_separator": {
+        "message": "עריכת מפריד"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "מחיקת סימנייה"
+    },
+    "contextmenu_delete_dir": {
+        "message": "מחיקת תיקייה"
+    },
+    "contextmenu_delete_separator": {
+        "message": "מחיקת מפריד"
+    },
+    "contextmenu_copy": {
+        "message": "העתקת קישור"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "הוספת סימנייה"
+    },
+    "contextmenu_add_pin": {
+        "message": "הצמדה"
+    },
+    "contextmenu_add_unpin": {
+        "message": "ביטול הצמדה"
+    },
+    "contextmenu_add": {
+        "message": "הוספת{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "פתיחת עוזר BookmarkMars"
+    },
+    "contextmenu_close_helper": {
+        "message": "סגירת עוזר BookmarkMars"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "החלפת עוזר BookmarkMars"
+    },
+    "contextmenu_add_website": {
+        "message": "שמירת דף"
+    },
+    "contextmenu_add_folder": {
+        "message": "הוספת תיקייה"
+    },
+    "contextmenu_edit_folder": {
+        "message": "עריכת תיקייה"
+    },
+    "overlay_bookmark_title": {
+        "message": "כותרת"
+    },
+    "overlay_bookmark_url": {
+        "message": "קישור"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "מידע נוסף"
+    },
+    "overlay_cancel": {
+        "message": "ביטול"
+    },
+    "overlay_close": {
+        "message": "סגירה"
+    },
+    "overlay_save": {
+        "message": "שמירה"
+    },
+    "overlay_delete": {
+        "message": "מחיקה"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "האם אתה בטוח שברצונך לפתוח {1} סימניות, כולל סימניות מתיקיות משנה של התיקייה שנבחרה?"
+    },
+    "overlay_open_children": {
+        "message": "פתיחת הכל"
+    },
+    "overlay_confirm_open_children": {
+        "message": "האם אתה בטוח שברצונך לפתוח {1} סימניות מתיקיות משנה?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "הסתרה מהעוזר"
+    },
+    "overlay_label_bookmark": {
+        "message": "סימנייה"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*שים לב: חלק מהקישורים עשויים להניב לנו עמלה"
+    },
+    "overlay_label_dir": {
+        "message": "תיקייה"
+    },
+    "overlay_label_separator": {
+        "message": "מפריד"
+    },
+    "overlay_add_position": {
+        "message": "מיקום"
+    },
+    "overlay_add_position_prepend": {
+        "message": "הוספה לפני"
+    },
+    "overlay_add_position_append": {
+        "message": "הוספה אחרי"
+    },
+    "overlay_delete_selected": {
+        "message": "מחיקת הכל"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "האם אתה בטוח שברצונך למחוק את הפריטים שנבחרו? גם סימניות מתיקיות משנה יימחקו."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "דפדפן {1} תומך רק במצב קריאה בלבד. ניתן ללחוץ Ctrl+D כדי לשמור סימנייה."
+    },
+    "overlay_collect": {
+        "message": "שמירה"
+    },
+    "overlay_collect_title": {
+        "message": "כותרת הדף"
+    },
+    "overlay_collect_url": {
+        "message": "כתובת URL"
+    },
+    "overlay_collect_folder": {
+        "message": "בחירת תיקייה"
+    },
+    "overlay_add_collect_folder": {
+        "message": "הוספת תיקייה"
+    },
+    "overlay_collect_confirm": {
+        "message": "אישור"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "עריכה"
+    },
+    "overlay_collect_folder_title": {
+        "message": "שם תיקייה"
+    },
+    "overlay_collect_folder_description": {
+        "message": "תיאור תיקייה"
+    },
+    "overlay_collect_folder_public": {
+        "message": "ציבורית (גלויה לכולם)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "פרטית (גלויה רק לך)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "סיום"
+    },
+    "overlay_add_folder_return": {
+        "message": "חזרה"
+    },
+    "onboarding_title": {
+        "message": "בחירת הכדור הקסום"
+    },
+    "onboarding_declaration": {
+        "message": "*הודעה: תוסף זה מכיל קישורי שותפים; לחיצה עליהם עשויה להניב לנו עמלה"
+    },
+    "onboarding_headline": {
+        "message": "ברוכים הבאים לעוזר BookmarkMars"
+    },
+    "onboarding_config_size": {
+        "message": "הגדרת גודל הכדור הקסום"
+    },
+    "onboarding_auth_newtab": {
+        "message": "מתן הרשאה לדף ההתאמה האישית"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "מומלץ לתת הרשאה; לשונית חדשה תהיה יפה יותר"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "התעלמות"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "מתן הרשאה"
+    },
+    "onboarding_auth_or": {
+        "message": "או"
+    },
+    "onboarding_size_tip": {
+        "message": "בחר את גודל הכדור הקסום"
+    },
+    "onboarding_finished": {
+        "message": "תהנה!"
+    },
+    "onboarding_moon": {
+        "message": "אור ירח"
+    },
+    "onboarding_water": {
+        "message": "גלים עדינים"
+    },
+    "onboarding_sun": {
+        "message": "שמש בוקר"
+    },
+    "onboarding_desc": {
+        "message": "תגדיר את שיטת הפתיחה"
+    },
+    "onboarding_left_side_panel": {
+        "message": "הנח את העכבר בצד השמאלי של הדפדפן כדי לזמן אותו"
+    },
+    "onboarding_noneed_permission": {
+        "message": "הדפדפן תומך באישור אוטומטי. בחר \"שמירת שינויים\" לדף ההתאמה האישית."
+    },
+    "manage_title": {
+        "message": "ניהול"
+    },
+    "manage_beforeunload_desc": {
+        "message": "יש לך תוכן שלא נשמר, האם אתה בטוח שברצונך לעזוב?"
+    },
+    "manage_menu_setting": {
+        "message": "הגדרות"
+    },
+    "manage_need_login": {
+        "message": "יש להתחבר תחילה כדי להשתמש בפונקציה זו"
+    },
+    "manage_menu_tool": {
+        "message": "כלים"
+    },
+    "manage_menu_ucenter": {
+        "message": "אני"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "מידע בסיסי"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "מרכז תוספים"
+    },
+    "manage_menu_about": {
+        "message": "אודות"
+    },
+    "manage_menu_about_intro": {
+        "message": "מבוא"
+    },
+    "manage_menu_about_privacy": {
+        "message": "פרטיות"
+    },
+    "manage_menu_setting_ball": {
+        "message": "הפעלה"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "קטן{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "בחר סגנון כדור קסום שאהבת"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "בינוני{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "גדול{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "מומלץ שהכדור הקסום יהיה מתחת ל-60 פיקסלים ולגרור אותו לפינת הדף כדי להימנע ממגע בזמן גלישה"
+    },
+    "manage_menu_setting_function": {
+        "message": "פונקציה"
+    },
+    "manage_menu_tool_backup": {
+        "message": "סנכרון"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、הקדמה לפונקציה"
+    },
+    "manage_tool_backup_desc": {
+        "message": "סנכרון סימניות יעתיק את הסימניות שלך לשרת שלנו; לא נשנה או נחשוף אותן בשום אופן"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "הטבות: לא-VIP יכולים לסנכרן {2} פעמים כל {1} ימים ולשמור עד {3} עותקים אחרונים; ל-VIP יש פעמים ללא הגבלה ויכולים לשמור {4} עותקים"
+    },
+    "manage_tool_backup_right": {
+        "message": "הטבות"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、בקשת הרשאה"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、סנכרון סימניות ידני"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "לחץ לסנכרון"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、סנכרון סימניות אוטומטי"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、תוצאות סנכרון"
+    },
+    "manage_tool_backup_fail": {
+        "message": "כישלון"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "פונקציה זו זמינה רק לחברי VIP"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "לא התחברת; התחבר תחילה"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "סנכרון אוטומטי דורש הרשאה מראש"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "עוזר BookmarkMars: לא הפעלת סנכרון אוטומטי של סימניות; מומלץ להפעיל לצורך אבטחה"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "סנכרון אוטומטי תומך רק בסימניות מתחת ל-{1}; סנכרן ידנית"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "פעולה זו דורשת את הרשאתך"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "מייצא"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "מעלה"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "גודל הסימניות המקסימלי שניתן לסנכרן הוא {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "הסימניות סונכרנו בהצלחה"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "סנכרון הסימניות נכשל"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "בדיקת קישורים"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "ייבוא/ייצוא"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "מידע"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "הסימניות שלי"
+    },
+    "manage_setting_ball_style": {
+        "message": "סגנון הכדור הקסום"
+    },
+    "manage_setting_ball_size": {
+        "message": "גודל הכדור הקסום"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "בחירת אופן פתיחה"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "פתיחת הכל"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "באמצעות הכדור הקסום"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "באמצעות הפאנל הקסום"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "כאן ניתן לבחור כיצד לפתוח את העוזר. מומלץ להפעיל את שתי השיטות."
+    },
+    "manage_setting_panel_width": {
+        "message": "רוחב הפאנל הקסום"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "בחר כאן רוחב פאנל שמתאים לך לפתיחת העוזר"
+    },
+    "manage_setting_style": {
+        "message": "סגנון"
+    },
+    "manage_setting_style_default": {
+        "message": "ברירת מחדל"
+    },
+    "manage_setting_style_classcial": {
+        "message": "קלאסי"
+    },
+    "manage_setting_style_young": {
+        "message": "צעיר"
+    },
+    "manage_setting_style_happy": {
+        "message": "שמח"
+    },
+    "manage_setting_linkaction": {
+        "message": "פתיחת קישורים"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "לשונית נוכחית"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "לשונית חדשה"
+    },
+    "manage_setting_font_family": {
+        "message": "גופן"
+    },
+    "manage_setting_font_family_default": {
+        "message": "ברירת מחדל"
+    },
+    "manage_save": {
+        "message": "שמירת שינויים"
+    },
+    "manage_saved_message": {
+        "message": "השינויים נשמרו בהצלחה"
+    },
+    "manage_recovery": {
+        "message": "שחזור ברירת מחדל"
+    },
+    "manage_restore_confirm": {
+        "message": "האם אתה בטוח שברצונך לשחזר את ההגדרות לברירת המחדל?"
+    },
+    "manage_restored_message": {
+        "message": "ההגדרות שוחזרו בהצלחה"
+    },
+    "manage_tool_iexport_all": {
+        "message": "בחירת הכל"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "ביטול בחירת הכל"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "יש לך יותר מ-{1} סימניות; רק המדריך יוצג והמהירות עלולה להיפגע"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "רענון"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "ייבוא"
+    },
+    "manage_tool_export": {
+        "message": "ייצוא"
+    },
+    "manage_check_powerful": {
+        "message": "בדיקה מתקדמת"
+    },
+    "manage_check_powerful_desc": {
+        "message": "בגלישה בגרסת האינטרנט של BookmarkMars, העוזר יבדוק קישורים לא תקינים מראש כדי להימנע מלחיצה על תוכן שבור. המערכת מותאמת ולא תצרוך יותר מדי ביצועים ורוחב פס"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "כל התיקיות שלי"
+    },
+    "manage_check_directions": {
+        "message": "לחץ על התיקייה לבדיקה"
+    },
+    "manage_check_modal_name": {
+        "message": "בדיקה-{1}/תוצאות ייחוס"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "הפניה מחדש"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "שבור"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "כפול"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "ריק"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "זוהו {1} סימניות בסך הכל"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "עדכון הנבחרים"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "מחיקת הנבחרים"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "אין תוצאות"
+    },
+    "manage_tool_backup_name": {
+        "message": "סנכרון עוזר BookmarkMars"
+    },
+    "manage_setting_newtab": {
+        "message": "דף התאמה אישית (מומלץ לתת הרשאה)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "מורשה"
+    },
+    "manage_setting_newtab_no": {
+        "message": "לא מורשה"
+    },
+    "manage_switch_close_tag": {
+        "message": "כבוי"
+    },
+    "manage_switch_open_tag": {
+        "message": "פועל"
+    },
+    "manage_setting_language": {
+        "message": "שפה"
+    },
+    "manage_language_default": {
+        "message": "עקוב אחר הדפדפן"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}、גיבוי ענן של היסטוריית ביקורים"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "עליך להבין היטב את הפונקציה הזו. לאחר ההפעלה, היסטוריית הביקורים שלך תגובה בענן. נתונים אלה לא יפורסמו לציבור. החלט האם לאפשר זאת"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "אודות BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars הושרא מ-Zhihu. כשהמעצב ראה פוסט על משאבים, חבר שיתף את סימניות הדפדפן שלו והוא חשב על יצירת פלטפורמה לשיתוף סימניות. סימניות בדרך כלל מארגנות אתרים שימושיים לפי קטגוריות; לכן גם שלך עשויות להיות שימושיות לאחרים. המעצב לא ידע אם זה יתקבל על ידי כולם, ולכן זו הייתה ניסיון נועז."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "עוזר BookmarkMars"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、ניהול סימניות עוצמתי, כולל הוספה, מחיקה ועריכה"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、חיפוש עוצמתי בסימניות מקומיות ומרוחקות"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、סנכרון עוצמתי למניעת אובדן סימניות"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、ייצוא ושיתוף עוצמתיים, ניתנים לשילוב עם האתר הרשמי"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、בדיקת קישורים עוצמתית לזיהוי קישורים לא תקינים"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "פרסום פלטפורמות אסורות"
+    },
+    "search_context_menus_title": {
+        "message": "חיפוש סימניות"
+    },
+    "user_vip_type1": {
+        "message": "VIP בכיר"
+    },
+    "user_vip_type2": {
+        "message": "VIP לכל החיים"
+    },
+    "user_vip_suggestion": {
+        "message": "לחץ להפעלת VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "לחץ לחידוש VIP"
+    },
+    "not_found_title": {
+        "message": "404 לא נמצא"
+    },
+    "not_found_headline": {
+        "message": "עוזר BookmarkMars אינו זמין בדף זה"
+    },
+    "not_found_fallback_desc": {
+        "message": "ייתכן שזה בגלל מגבלות הדפדפן או תוכן אינטרנט ברשימה השחורה"
+    },
+    "more_link": {
+        "message": "עוד..."
+    },
+    "friendly_suggestion": {
+        "message": "מומלץ מאוד לתת הרשאה לדף ההתאמה האישית של עוזר BookmarkMars"
+    },
+    "ucenter_not_login_desc": {
+        "message": "לא התחברת; לא ניתן להציג מידע אישי"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "התחברות"
+    },
+    "ucenter_motto_today": {
+        "message": "אתה צודק, מי גרם לך לטעות"
+    },
+    "ucenter_welcome": {
+        "message": "ברוכים הבאים לעוזר BookmarkMars"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "תאריך הרשמה"
+    },
+    "ucenter_account_type": {
+        "message": "סוג חשבון"
+    },
+    "ucenter_open_vip": {
+        "message": "לחץ להפעלת VIP וליהנות מהטבות"
+    },
+    "ucenter_greeting": {
+        "message": "שלום, "
+    },
+    "ucenter_logout": {
+        "message": "התנתקות"
+    },
+    "network_error": {
+        "message": "שגיאת רשת או שרת פנימי"
+    },
+    "not_login_notice": {
+        "message": "התחברות"
+    },
+    "backup_success_notice": {
+        "message": "עוזר: הסימניות סונכרנו אוטומטית בהצלחה"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "הקיצורים שוחזרו מהענן"
+    },
+    "new_tab_title": {
+        "message": "דף התאמה אישית BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "חיפוש מותאם אישית"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "זיהוי קול"
+    },
+    "new_tab_speech_search_error": {
+        "message": "לא תומך בחיפוש קולי"
+    },
+    "new_tab_search_placeholder": {
+        "message": "הקלד משהו..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "סימניות"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "הגדרת חיפוש"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "חיפוש"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "סימניות"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "היסטוריה"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "שם"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "דף הבית"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "קישורי שאילתה"
+    },
+    "new_tab_img_change_sug": {
+        "message": "רק משתמשי VIP יכולים לשנות רקע"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "יש להתחבר כדי להשתמש בפונקציה זו"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "עריכת קיצור דרך"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "גרור כדי לשנות מיקום"
+    },
+    "new_tab_setting": {
+        "message": "הגדרות"
+    },
+    "new_tab_link_edit": {
+        "message": "עריכת קיצור דרך"
+    },
+    "new_tab_bg_server_change": {
+        "message": "שינוי רקע"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "העלאת רקע"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "הוספה מותאמת אישית"
+    },
+    "new_tab_navigation_title": {
+        "message": "כותרת"
+    },
+    "new_tab_navigation_url": {
+        "message": "קישור"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "הוספה"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "התחבר תחילה"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "השם לא יכול להיות ריק וחייב להיות לכל היותר {1} תווים"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "תיאור עד {1} תווים"
+    },
+    "collect_create_folder_first": {
+        "message": "צור לפחות תיקייה אחת תחילה"
+    },
+    "collect_choose_folder_please": {
+        "message": "בחר תיקייה"
+    },
+    "collect_successfully": {
+        "message": "נשמר בהצלחה"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "בוקר טוב — מוכנים לחקור"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "צהריים טובים — הישארו סקרנים"
+    },
+    "new_tab_greeting_evening": {
+        "message": "ערב טוב — מצאו את החשוב"
+    },
+    "new_tab_greeting_night": {
+        "message": "לילה טוב — מצב מיקוד"
+    }
+}

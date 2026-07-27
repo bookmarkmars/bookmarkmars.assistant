@@ -1,0 +1,550 @@
+{
+    "children": [
+        {
+            "title": "谷歌",
+            "url": "https://www.google.com/",
+            "icon": "https://www.google.com/favicon.ico",
+            "selected": true,
+            "fixed": true,
+            "remove": false,
+            "origin": 1,
+            "weight": 0,
+            "lang": {
+                "en": {
+                    "title": "Google"
+                },
+                "zh_TW": {
+                    "title": "谷歌"
+                },
+                "es": {
+                    "title": "Google"
+                },
+                "fr": {
+                    "title": "Google"
+                },
+                "pt": {
+                    "title": "Google"
+                },
+                "ru": {
+                    "title": "Google"
+                },
+                "ja": {
+                    "title": "Google"
+                },
+                "de": {
+                    "title": "Google"
+                },
+                "ko": {
+                    "title": "Google"
+                },
+                "it": {
+                    "title": "Google"
+                },
+                "id": {
+                    "title": "Google"
+                },
+                "tr": {
+                    "title": "Google"
+                },
+                "pl": {
+                    "title": "Google"
+                },
+                "uk": {
+                    "title": "Google"
+                },
+                "nl": {
+                    "title": "Google"
+                },
+                "vi": {
+                    "title": "Google"
+                },
+                "th": {
+                    "title": "Google"
+                },
+                "ar": {
+                    "title": "Google"
+                },
+                "he": {
+                    "title": "Google"
+                },
+                "hi": {
+                    "title": "Google"
+                },
+                "cl": {
+                    "title": "Google"
+                },
+                "mx": {
+                    "title": "Google"
+                }
+            }
+        },
+        {
+            "title": "必应",
+            "url": "https://www.bing.com/",
+            "icon": "https://www.bing.com/favicon.ico",
+            "selected": true,
+            "fixed": false,
+            "remove": false,
+            "origin": 1,
+            "weight": 10,
+            "lang": {
+                "en": {
+                    "title": "Bing"
+                },
+                "zh_TW": {
+                    "title": "必應"
+                },
+                "es": {
+                    "title": "Bing"
+                },
+                "fr": {
+                    "title": "Bing"
+                },
+                "pt": {
+                    "title": "Bing"
+                },
+                "ru": {
+                    "title": "Bing"
+                },
+                "ja": {
+                    "title": "Bing"
+                },
+                "de": {
+                    "title": "Bing"
+                },
+                "ko": {
+                    "title": "Bing"
+                },
+                "it": {
+                    "title": "Bing"
+                },
+                "id": {
+                    "title": "Bing"
+                },
+                "tr": {
+                    "title": "Bing"
+                },
+                "pl": {
+                    "title": "Bing"
+                },
+                "uk": {
+                    "title": "Bing"
+                },
+                "nl": {
+                    "title": "Bing"
+                },
+                "vi": {
+                    "title": "Bing"
+                },
+                "th": {
+                    "title": "Bing"
+                },
+                "ar": {
+                    "title": "Bing"
+                },
+                "he": {
+                    "title": "Bing"
+                },
+                "hi": {
+                    "title": "Bing"
+                },
+                "cl": {
+                    "title": "Bing"
+                },
+                "mx": {
+                    "title": "Bing"
+                }
+            }
+        },
+        {
+            "title": "亚马逊",
+            "url": "https://www.amazon.com/",
+            "icon": "https://www.amazon.com/favicon.ico",
+            "selected": true,
+            "fixed": false,
+            "remove": false,
+            "origin": 1,
+            "weight": 20,
+            "lang": {
+                "en": {
+                    "title": "Amazon"
+                },
+                "zh_TW": {
+                    "title": "亞馬遜"
+                },
+                "es": {
+                    "title": "Amazon"
+                },
+                "fr": {
+                    "title": "Amazon"
+                },
+                "pt": {
+                    "title": "Amazon"
+                },
+                "ru": {
+                    "title": "Amazon"
+                },
+                "ja": {
+                    "title": "Amazon"
+                },
+                "de": {
+                    "title": "Amazon"
+                },
+                "ko": {
+                    "title": "Amazon"
+                },
+                "it": {
+                    "title": "Amazon"
+                },
+                "id": {
+                    "title": "Amazon"
+                },
+                "tr": {
+                    "title": "Amazon"
+                },
+                "pl": {
+                    "title": "Amazon"
+                },
+                "uk": {
+                    "title": "Amazon"
+                },
+                "nl": {
+                    "title": "Amazon"
+                },
+                "vi": {
+                    "title": "Amazon"
+                },
+                "th": {
+                    "title": "Amazon"
+                },
+                "ar": {
+                    "title": "Amazon"
+                },
+                "he": {
+                    "title": "Amazon"
+                },
+                "hi": {
+                    "title": "Amazon"
+                },
+                "cl": {
+                    "title": "Amazon"
+                },
+                "mx": {
+                    "title": "Amazon"
+                }
+            }
+        },
+        {
+            "title": "eBay",
+            "url": "https://www.ebay.com/",
+            "icon": "https://www.ebay.com/favicon.ico",
+            "selected": true,
+            "fixed": false,
+            "remove": false,
+            "origin": 1,
+            "weight": 30,
+            "lang": {
+                "en": {
+                    "title": "eBay"
+                },
+                "zh_TW": {
+                    "title": "eBay"
+                },
+                "es": {
+                    "title": "eBay"
+                },
+                "fr": {
+                    "title": "eBay"
+                },
+                "pt": {
+                    "title": "eBay"
+                },
+                "ru": {
+                    "title": "eBay"
+                },
+                "ja": {
+                    "title": "eBay"
+                },
+                "de": {
+                    "title": "eBay"
+                },
+                "ko": {
+                    "title": "eBay"
+                },
+                "it": {
+                    "title": "eBay"
+                },
+                "id": {
+                    "title": "eBay"
+                },
+                "tr": {
+                    "title": "eBay"
+                },
+                "pl": {
+                    "title": "eBay"
+                },
+                "uk": {
+                    "title": "eBay"
+                },
+                "nl": {
+                    "title": "eBay"
+                },
+                "vi": {
+                    "title": "eBay"
+                },
+                "th": {
+                    "title": "eBay"
+                },
+                "ar": {
+                    "title": "eBay"
+                },
+                "he": {
+                    "title": "eBay"
+                },
+                "hi": {
+                    "title": "eBay"
+                },
+                "cl": {
+                    "title": "eBay"
+                },
+                "mx": {
+                    "title": "eBay"
+                }
+            }
+        },
+        {
+            "title": "YouTube",
+            "url": "https://www.youtube.com/",
+            "icon": "https://www.youtube.com/favicon.ico",
+            "selected": true,
+            "fixed": false,
+            "remove": false,
+            "origin": 1,
+            "weight": 40,
+            "lang": {
+                "en": {
+                    "title": "YouTube"
+                },
+                "zh_TW": {
+                    "title": "YouTube"
+                },
+                "es": {
+                    "title": "YouTube"
+                },
+                "fr": {
+                    "title": "YouTube"
+                },
+                "pt": {
+                    "title": "YouTube"
+                },
+                "ru": {
+                    "title": "YouTube"
+                },
+                "ja": {
+                    "title": "YouTube"
+                },
+                "de": {
+                    "title": "YouTube"
+                },
+                "ko": {
+                    "title": "YouTube"
+                },
+                "it": {
+                    "title": "YouTube"
+                },
+                "id": {
+                    "title": "YouTube"
+                },
+                "tr": {
+                    "title": "YouTube"
+                },
+                "pl": {
+                    "title": "YouTube"
+                },
+                "uk": {
+                    "title": "YouTube"
+                },
+                "nl": {
+                    "title": "YouTube"
+                },
+                "vi": {
+                    "title": "YouTube"
+                },
+                "th": {
+                    "title": "YouTube"
+                },
+                "ar": {
+                    "title": "YouTube"
+                },
+                "he": {
+                    "title": "YouTube"
+                },
+                "hi": {
+                    "title": "YouTube"
+                },
+                "cl": {
+                    "title": "YouTube"
+                },
+                "mx": {
+                    "title": "YouTube"
+                }
+            }
+        },
+        {
+            "title": "ChatGPT",
+            "url": "https://chatgpt.com/",
+            "icon": "https://chatgpt.com/favicon.ico",
+            "selected": true,
+            "fixed": false,
+            "remove": false,
+            "origin": 1,
+            "weight": 50,
+            "lang": {
+                "en": {
+                    "title": "ChatGPT"
+                },
+                "zh_TW": {
+                    "title": "ChatGPT"
+                },
+                "es": {
+                    "title": "ChatGPT"
+                },
+                "fr": {
+                    "title": "ChatGPT"
+                },
+                "pt": {
+                    "title": "ChatGPT"
+                },
+                "ru": {
+                    "title": "ChatGPT"
+                },
+                "ja": {
+                    "title": "ChatGPT"
+                },
+                "de": {
+                    "title": "ChatGPT"
+                },
+                "ko": {
+                    "title": "ChatGPT"
+                },
+                "it": {
+                    "title": "ChatGPT"
+                },
+                "id": {
+                    "title": "ChatGPT"
+                },
+                "tr": {
+                    "title": "ChatGPT"
+                },
+                "pl": {
+                    "title": "ChatGPT"
+                },
+                "uk": {
+                    "title": "ChatGPT"
+                },
+                "nl": {
+                    "title": "ChatGPT"
+                },
+                "vi": {
+                    "title": "ChatGPT"
+                },
+                "th": {
+                    "title": "ChatGPT"
+                },
+                "ar": {
+                    "title": "ChatGPT"
+                },
+                "he": {
+                    "title": "ChatGPT"
+                },
+                "hi": {
+                    "title": "ChatGPT"
+                },
+                "cl": {
+                    "title": "ChatGPT"
+                },
+                "mx": {
+                    "title": "ChatGPT"
+                }
+            }
+        },
+        {
+            "title": "Reddit",
+            "url": "https://www.reddit.com/",
+            "icon": "https://www.reddit.com/favicon.ico",
+            "selected": true,
+            "fixed": false,
+            "remove": false,
+            "origin": 1,
+            "weight": 60,
+            "lang": {
+                "en": {
+                    "title": "Reddit"
+                },
+                "zh_TW": {
+                    "title": "Reddit"
+                },
+                "es": {
+                    "title": "Reddit"
+                },
+                "fr": {
+                    "title": "Reddit"
+                },
+                "pt": {
+                    "title": "Reddit"
+                },
+                "ru": {
+                    "title": "Reddit"
+                },
+                "ja": {
+                    "title": "Reddit"
+                },
+                "de": {
+                    "title": "Reddit"
+                },
+                "ko": {
+                    "title": "Reddit"
+                },
+                "it": {
+                    "title": "Reddit"
+                },
+                "id": {
+                    "title": "Reddit"
+                },
+                "tr": {
+                    "title": "Reddit"
+                },
+                "pl": {
+                    "title": "Reddit"
+                },
+                "uk": {
+                    "title": "Reddit"
+                },
+                "nl": {
+                    "title": "Reddit"
+                },
+                "vi": {
+                    "title": "Reddit"
+                },
+                "th": {
+                    "title": "Reddit"
+                },
+                "ar": {
+                    "title": "Reddit"
+                },
+                "he": {
+                    "title": "Reddit"
+                },
+                "hi": {
+                    "title": "Reddit"
+                },
+                "cl": {
+                    "title": "Reddit"
+                },
+                "mx": {
+                    "title": "Reddit"
+                }
+            }
+        }
+    ]
+}

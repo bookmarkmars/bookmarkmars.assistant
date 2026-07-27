@@ -1,0 +1,119 @@
+
+section#content {
+
+  > nav {
+    position: absolute;
+    top: 22px;
+    right: 28px;
+    padding-left: 0;
+    z-index: 5;
+
+    > ul {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      gap: 8px;
+
+      > li {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 0;
+
+        > a:hover {
+          @extend %shadowHover;
+        }
+
+        > a.link {
+          position: relative;
+          color: #fff;
+          display: block;
+          cursor: pointer;
+          padding: 8px 14px;
+          border-radius: 999px;
+          white-space: nowrap;
+          transition: background 0.25s ease, border-color 0.25s ease;
+          background: $newTabGlass;
+          border: 1px solid $newTabGlassBorder;
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          text-shadow: none;
+        }
+
+        > a.icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 999px;
+          margin-right: 0;
+          padding: 8px 14px;
+          color: #fff;
+          background: $newTabGlass;
+          border: 1px solid $newTabGlassBorder;
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          font-size: 13px;
+          font-weight: 500;
+
+          > img {
+            width: 18px;
+            height: 18px;
+            object-fit: cover;
+            margin-right: 6px;
+            border-radius: 4px;
+          }
+        }
+      }
+
+      > li.is-login {
+        > a {
+          position: relative;
+          display: block;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.15);
+          border: 1px solid $newTabGlassBorder;
+          transition: box-shadow 0.35s ease, transform 0.2s ease;
+          cursor: pointer;
+          text-align: center;
+          padding: 0;
+          overflow: visible;
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+          }
+
+          > span.notify {
+            position: absolute;
+            top: -3px;
+            right: -8px;
+            text-align: center;
+            border-radius: 3px;
+            background: #1cd421;
+            width: 17px;
+            height: 17px;
+
+            &[data-type='vip'] {
+              @include mask('icon/header/vip', $__headerIconBadgeColor, 14px);
+            }
+
+            &[data-type='supervip'] {
+              @include mask('icon/header/supervip', $__headerIconBadgeColor, 14px);
+            }
+          }
+
+          > img {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+          }
+        }
+      }
+    }
+  }
+}

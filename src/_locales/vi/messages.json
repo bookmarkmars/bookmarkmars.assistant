@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "Trợ lý BookmarkMars"
+    },
+    "extension_short_name": {
+        "message": "Trợ lý BM"
+    },
+    "extension_version": {
+        "message": "Phiên bản"
+    },
+    "extension_new_version": {
+        "message": "Phiên bản mới"
+    },
+    "extension_need_upgrade": {
+        "message": "Mới"
+    },
+    "extension_upgrade_address": {
+        "message": "Địa chỉ cập nhật"
+    },
+    "extension_upgrade": {
+        "message": "Mới"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "Quyền riêng tư"
+    },
+    "extension_ball_reset": {
+        "message": "Đặt lại quả cầu ma thuật"
+    },
+    "extension_ball_not_open": {
+        "message": "Quả cầu ma thuật chưa được bật; hãy vào cài đặt để bật"
+    },
+    "extension_desc": {
+        "message": "Đồng bộ dấu trang, xuất và nhập dấu trang, cài đặt giao diện quản lý, thêm, xóa và sửa dấu trang"
+    },
+    "extension_last_update": {
+        "message": "Cập nhật lần cuối lúc {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "Ẩn tạm thời quả cầu ma thuật"
+    },
+    "header_bookmarks": {
+        "message": "Dấu trang"
+    },
+    "header_toolbox_official": {
+        "message": "Chính thức"
+    },
+    "header_toolbox_ucenter": {
+        "message": "Tôi"
+    },
+    "header_toolbox_tool": {
+        "message": "Công cụ"
+    },
+    "header_toolbox_setting": {
+        "message": "Cài đặt"
+    },
+    "header_search_box_local": {
+        "message": "Cục bộ"
+    },
+    "header_search_box_server": {
+        "message": "Từ xa"
+    },
+    "header_search_box_remote_search": {
+        "message": "Tìm kiếm từ xa"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Tìm {1} dấu trang cục bộ"
+    },
+    "sidebar_search_no_results": {
+        "message": "Không có kết quả"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "đã sao chép"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "Thư mục trống"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "Thường dùng ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "Chỉnh sửa"
+    },
+    "sidebar_opreate_drag": {
+        "message": "Di chuyển"
+    },
+    "sidebar_opreate_add": {
+        "message": "Thêm"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "Làm mới"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "Không có dấu trang"
+    },
+    "sidebar_filter": {
+        "message": "Lọc"
+    },
+    "sidebar_filter_default": {
+        "message": "Mặc định"
+    },
+    "sidebar_filter_create": {
+        "message": "Ngày tạo"
+    },
+    "sidebar_filter_used": {
+        "message": "Lần truy cập cuối"
+    },
+    "sidebar_filter_frequency": {
+        "message": "Tần suất truy cập"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "Giảm dần"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "Tăng dần"
+    },
+    "sidebar_filter_order_default": {
+        "message": "Mặc định"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Chỉnh sửa dấu trang"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Chỉnh sửa thư mục"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Chỉnh sửa dấu phân cách"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Xóa dấu trang"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Xóa thư mục"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Xóa dấu phân cách"
+    },
+    "contextmenu_copy": {
+        "message": "Sao chép liên kết"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Thêm dấu trang"
+    },
+    "contextmenu_add_pin": {
+        "message": "Ghim"
+    },
+    "contextmenu_add_unpin": {
+        "message": "Bỏ ghim"
+    },
+    "contextmenu_add": {
+        "message": "Thêm{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "Mở Trợ lý BookmarkMars"
+    },
+    "contextmenu_close_helper": {
+        "message": "Đóng Trợ lý BookmarkMars"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "Bật/tắt Trợ lý BookmarkMars"
+    },
+    "contextmenu_add_website": {
+        "message": "Lưu trang"
+    },
+    "contextmenu_add_folder": {
+        "message": "Thêm thư mục"
+    },
+    "contextmenu_edit_folder": {
+        "message": "Chỉnh sửa thư mục"
+    },
+    "overlay_bookmark_title": {
+        "message": "Tiêu đề"
+    },
+    "overlay_bookmark_url": {
+        "message": "Liên kết"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Thông tin khác"
+    },
+    "overlay_cancel": {
+        "message": "Hủy"
+    },
+    "overlay_close": {
+        "message": "Đóng"
+    },
+    "overlay_save": {
+        "message": "Lưu"
+    },
+    "overlay_delete": {
+        "message": "Xóa"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Bạn có thực sự muốn mở {1} dấu trang, bao gồm cả dấu trang trong thư mục con của thư mục đã chọn?"
+    },
+    "overlay_open_children": {
+        "message": "Mở tất cả"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Bạn có thực sự muốn mở {1} dấu trang trong thư mục con?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Ẩn khỏi trợ lý"
+    },
+    "overlay_label_bookmark": {
+        "message": "Dấu trang"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*Lưu ý: một số liên kết có thể mang lại hoa hồng cho chúng tôi"
+    },
+    "overlay_label_dir": {
+        "message": "Thư mục"
+    },
+    "overlay_label_separator": {
+        "message": "Dấu phân cách"
+    },
+    "overlay_add_position": {
+        "message": "Vị trí"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Chèn trước"
+    },
+    "overlay_add_position_append": {
+        "message": "Chèn sau"
+    },
+    "overlay_delete_selected": {
+        "message": "Xóa tất cả"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Bạn có chắc muốn xóa các mục đã chọn? Dấu trang trong thư mục con cũng sẽ bị xóa."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "Trình duyệt {1} chỉ hỗ trợ chế độ chỉ đọc. Bạn có thể nhấn Ctrl+D để lưu dấu trang."
+    },
+    "overlay_collect": {
+        "message": "Lưu"
+    },
+    "overlay_collect_title": {
+        "message": "Tiêu đề trang"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "Chọn thư mục"
+    },
+    "overlay_add_collect_folder": {
+        "message": "Thêm thư mục"
+    },
+    "overlay_collect_confirm": {
+        "message": "Xác nhận"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "Chỉnh sửa"
+    },
+    "overlay_collect_folder_title": {
+        "message": "Tên thư mục"
+    },
+    "overlay_collect_folder_description": {
+        "message": "Mô tả thư mục"
+    },
+    "overlay_collect_folder_public": {
+        "message": "Công khai (mọi người đều thấy)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "Riêng tư (chỉ bạn thấy)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "Hoàn tất"
+    },
+    "overlay_add_folder_return": {
+        "message": "Quay lại"
+    },
+    "onboarding_title": {
+        "message": "Chọn quả cầu ma thuật"
+    },
+    "onboarding_declaration": {
+        "message": "*Lưu ý: tiện ích này chứa liên kết liên kết; nhấp vào chúng có thể mang lại hoa hồng cho chúng tôi"
+    },
+    "onboarding_headline": {
+        "message": "Chào mừng đến với Trợ lý BookmarkMars"
+    },
+    "onboarding_config_size": {
+        "message": "Cấu hình kích thước quả cầu ma thuật"
+    },
+    "onboarding_auth_newtab": {
+        "message": "Cấp quyền cho trang cá nhân hóa"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "Nên cấp quyền; tab mới sẽ đẹp hơn"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "Bỏ qua"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "Cấp quyền"
+    },
+    "onboarding_auth_or": {
+        "message": "Hoặc"
+    },
+    "onboarding_size_tip": {
+        "message": "Chọn kích thước quả cầu ma thuật"
+    },
+    "onboarding_finished": {
+        "message": "Chúc bạn trải nghiệm vui vẻ!"
+    },
+    "onboarding_moon": {
+        "message": "Ánh trăng"
+    },
+    "onboarding_water": {
+        "message": "Sóng nhẹ"
+    },
+    "onboarding_sun": {
+        "message": "Nắng sớm"
+    },
+    "onboarding_desc": {
+        "message": "Bạn sẽ cấu hình cách mở"
+    },
+    "onboarding_left_side_panel": {
+        "message": "Đặt chuột ở bên trái trình duyệt để gọi"
+    },
+    "onboarding_noneed_permission": {
+        "message": "Trình duyệt hỗ trợ ủy quyền tự động. Vui lòng chọn \"Giữ thay đổi\" cho trang cá nhân hóa."
+    },
+    "manage_title": {
+        "message": "Quản lý"
+    },
+    "manage_beforeunload_desc": {
+        "message": "Bạn có nội dung chưa lưu, bạn có chắc muốn rời đi?"
+    },
+    "manage_menu_setting": {
+        "message": "Cài đặt"
+    },
+    "manage_need_login": {
+        "message": "Bạn cần đăng nhập trước để dùng tính năng này"
+    },
+    "manage_menu_tool": {
+        "message": "Công cụ"
+    },
+    "manage_menu_ucenter": {
+        "message": "Tôi"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "Thông tin cơ bản"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "Trung tâm tiện ích"
+    },
+    "manage_menu_about": {
+        "message": "Giới thiệu"
+    },
+    "manage_menu_about_intro": {
+        "message": "Giới thiệu"
+    },
+    "manage_menu_about_privacy": {
+        "message": "Quyền riêng tư"
+    },
+    "manage_menu_setting_ball": {
+        "message": "Bật"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "Nhỏ{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "Chọn kiểu quả cầu ma thuật bạn thích"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "Vừa{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "Lớn{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "Chúng tôi khuyên đặt quả cầu ma thuật dưới 60 px và kéo vào góc trang để tránh chạm nhầm khi duyệt web"
+    },
+    "manage_menu_setting_function": {
+        "message": "Chức năng"
+    },
+    "manage_menu_tool_backup": {
+        "message": "Đồng bộ"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、Giới thiệu chức năng"
+    },
+    "manage_tool_backup_desc": {
+        "message": "Đồng bộ dấu trang sẽ sao chép dấu trang của bạn lên máy chủ; chúng tôi không sửa đổi hay tiết lộ theo bất kỳ cách nào"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "Quyền lợi: thành viên không VIP có thể đồng bộ {2} lần mỗi {1} ngày và giữ tối đa {3} bản sao gần nhất; VIP không giới hạn số lần và có thể giữ {4} bản sao"
+    },
+    "manage_tool_backup_right": {
+        "message": "Quyền lợi"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、Yêu cầu quyền"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、Đồng bộ dấu trang thủ công"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "Nhấn để đồng bộ"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、Đồng bộ dấu trang tự động"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、Kết quả đồng bộ"
+    },
+    "manage_tool_backup_fail": {
+        "message": "Thất bại"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "Tính năng này chỉ dành cho thành viên VIP"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "Bạn chưa đăng nhập; hãy đăng nhập trước"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "Đồng bộ tự động cần ủy quyền trước"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "Trợ lý BookmarkMars: bạn chưa bật đồng bộ dấu trang tự động; nên bật để an toàn"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "Đồng bộ tự động chỉ hỗ trợ dấu trang dưới {1}; hãy đồng bộ thủ công"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "Thao tác này cần sự ủy quyền của bạn"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "Đang xuất"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "Đang tải lên"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "Kích thước tối đa dấu trang có thể đồng bộ là {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "Đồng bộ dấu trang thành công"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "Đồng bộ dấu trang thất bại"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "Kiểm tra liên kết"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "Nhập/Xuất"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "Thông tin"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "Dấu trang của tôi"
+    },
+    "manage_setting_ball_style": {
+        "message": "Kiểu quả cầu ma thuật"
+    },
+    "manage_setting_ball_size": {
+        "message": "Kích thước quả cầu ma thuật"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "Chọn cách mở"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "Mở tất cả"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "Bằng quả cầu ma thuật"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "Bằng bảng ma thuật"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "Bạn có thể chọn cách mở trợ lý tại đây. Chúng tôi khuyên bật cả hai phương thức."
+    },
+    "manage_setting_panel_width": {
+        "message": "Chiều rộng bảng ma thuật"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "Chọn chiều rộng bảng phù hợp để mở trợ lý"
+    },
+    "manage_setting_style": {
+        "message": "Kiểu"
+    },
+    "manage_setting_style_default": {
+        "message": "Mặc định"
+    },
+    "manage_setting_style_classcial": {
+        "message": "Cổ điển"
+    },
+    "manage_setting_style_young": {
+        "message": "Trẻ trung"
+    },
+    "manage_setting_style_happy": {
+        "message": "Vui vẻ"
+    },
+    "manage_setting_linkaction": {
+        "message": "Mở liên kết"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "Tab hiện tại"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "Tab mới"
+    },
+    "manage_setting_font_family": {
+        "message": "Phông chữ"
+    },
+    "manage_setting_font_family_default": {
+        "message": "Mặc định"
+    },
+    "manage_save": {
+        "message": "Lưu thay đổi"
+    },
+    "manage_saved_message": {
+        "message": "Đã lưu thay đổi thành công"
+    },
+    "manage_recovery": {
+        "message": "Khôi phục mặc định"
+    },
+    "manage_restore_confirm": {
+        "message": "Bạn có chắc muốn khôi phục cấu hình mặc định?"
+    },
+    "manage_restored_message": {
+        "message": "Đã khôi phục cấu hình thành công"
+    },
+    "manage_tool_iexport_all": {
+        "message": "Chọn tất cả"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "Bỏ chọn tất cả"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "Bạn có hơn {1} dấu trang; chỉ hiển thị thư mục và tốc độ có thể bị ảnh hưởng"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "Làm mới"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "Nhập"
+    },
+    "manage_tool_export": {
+        "message": "Xuất"
+    },
+    "manage_check_powerful": {
+        "message": "Kiểm tra nâng cao"
+    },
+    "manage_check_powerful_desc": {
+        "message": "Khi duyệt phiên bản web BookmarkMars, trợ lý sẽ kiểm tra trước các liên kết không hợp lệ để tránh nhấp vào nội dung hỏng. Hệ thống đã được tối ưu và không tiêu tốn quá nhiều hiệu năng hay băng thông"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "Tất cả thư mục của tôi"
+    },
+    "manage_check_directions": {
+        "message": "Nhấp vào thư mục để kiểm tra"
+    },
+    "manage_check_modal_name": {
+        "message": "Kiểm tra-{1}/Kết quả tham chiếu"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "Chuyển hướng"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "Hỏng"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "Trùng lặp"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "Trống"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "Tổng cộng phát hiện {1} dấu trang"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "Cập nhật đã chọn"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "Xóa đã chọn"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "Không có kết quả"
+    },
+    "manage_tool_backup_name": {
+        "message": "Đồng bộ Trợ lý BookmarkMars"
+    },
+    "manage_setting_newtab": {
+        "message": "Trang cá nhân hóa (nên cấp quyền)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "Đã ủy quyền"
+    },
+    "manage_setting_newtab_no": {
+        "message": "Chưa ủy quyền"
+    },
+    "manage_switch_close_tag": {
+        "message": "Tắt"
+    },
+    "manage_switch_open_tag": {
+        "message": "Bật"
+    },
+    "manage_setting_language": {
+        "message": "Ngôn ngữ"
+    },
+    "manage_language_default": {
+        "message": "Theo trình duyệt"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, Sao lưu đám mây lịch sử truy cập"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "Bạn phải hiểu rõ tính năng này. Khi bật, lịch sử truy cập sẽ được sao lưu lên đám mây. Dữ liệu này sẽ không công khai. Hãy quyết định có cho phép hay không"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "Giới thiệu BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars lấy cảm hứng từ Zhihu. Khi nhà thiết kế thấy bài viết về tài nguyên, một người bạn chia sẻ dấu trang trình duyệt và anh ấy nghĩ đến việc xây dựng nền tảng chia sẻ dấu trang. Dấu trang thường sắp xếp các trang web hữu ích theo danh mục; vì vậy dấu trang của bạn cũng có thể hữu ích cho người khác. Nhà thiết kế không biết liệu mọi người có chấp nhận hay không, nên đây là một thử nghiệm táo bạo."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "Trợ lý BookmarkMars"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、Quản lý dấu trang mạnh mẽ, bao gồm thêm, xóa và sửa"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、Tìm kiếm dấu trang cục bộ và từ xa mạnh mẽ"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、Đồng bộ mạnh mẽ để tránh mất dấu trang"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、Xuất và chia sẻ mạnh mẽ, tích hợp với trang chính thức"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、Kiểm tra liên kết mạnh mẽ để phát hiện liên kết không hợp lệ"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "Quảng cáo nền tảng bị cấm"
+    },
+    "search_context_menus_title": {
+        "message": "Tìm kiếm dấu trang"
+    },
+    "user_vip_type1": {
+        "message": "VIP cao cấp"
+    },
+    "user_vip_type2": {
+        "message": "VIP trọn đời"
+    },
+    "user_vip_suggestion": {
+        "message": "Nhấn để kích hoạt VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "Nhấn để gia hạn VIP"
+    },
+    "not_found_title": {
+        "message": "404 Không tìm thấy"
+    },
+    "not_found_headline": {
+        "message": "Trợ lý BookmarkMars không khả dụng trên trang này"
+    },
+    "not_found_fallback_desc": {
+        "message": "Có thể do hạn chế của trình duyệt hoặc nội dung web trong danh sách đen"
+    },
+    "more_link": {
+        "message": "Thêm..."
+    },
+    "friendly_suggestion": {
+        "message": "Rất khuyến nghị cấp quyền cho trang cá nhân hóa Trợ lý BookmarkMars"
+    },
+    "ucenter_not_login_desc": {
+        "message": "Bạn chưa đăng nhập; không thể hiển thị thông tin cá nhân"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "Đăng nhập"
+    },
+    "ucenter_motto_today": {
+        "message": "Bạn đúng, ai khiến bạn sai lầm"
+    },
+    "ucenter_welcome": {
+        "message": "Chào mừng đến với Trợ lý BookmarkMars"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "Ngày đăng ký"
+    },
+    "ucenter_account_type": {
+        "message": "Loại tài khoản"
+    },
+    "ucenter_open_vip": {
+        "message": "Nhấn để kích hoạt VIP và hưởng đặc quyền"
+    },
+    "ucenter_greeting": {
+        "message": "Xin chào, "
+    },
+    "ucenter_logout": {
+        "message": "Đăng xuất"
+    },
+    "network_error": {
+        "message": "Lỗi mạng hoặc máy chủ nội bộ"
+    },
+    "not_login_notice": {
+        "message": "Đăng nhập"
+    },
+    "backup_success_notice": {
+        "message": "Trợ lý: đồng bộ dấu trang tự động thành công"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "Đã khôi phục lối tắt từ đám mây"
+    },
+    "new_tab_title": {
+        "message": "Trang cá nhân hóa BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "Tìm kiếm tùy chỉnh"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "Nhận dạng giọng nói"
+    },
+    "new_tab_speech_search_error": {
+        "message": "Không hỗ trợ tìm kiếm bằng giọng nói"
+    },
+    "new_tab_search_placeholder": {
+        "message": "Nhập gì đó..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "Dấu trang"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "Cấu hình tìm kiếm"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "Tìm kiếm"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "Dấu trang"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "Lịch sử"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "Tên"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "Trang chủ"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "Liên kết truy vấn"
+    },
+    "new_tab_img_change_sug": {
+        "message": "Chỉ người dùng VIP mới có thể đổi hình nền"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "Bạn cần đăng nhập để dùng tính năng này"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "Chỉnh sửa lối tắt"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "Kéo để đổi vị trí"
+    },
+    "new_tab_setting": {
+        "message": "Cài đặt"
+    },
+    "new_tab_link_edit": {
+        "message": "Chỉnh sửa lối tắt"
+    },
+    "new_tab_bg_server_change": {
+        "message": "Đổi hình nền"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "Tải lên hình nền"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "Thêm tùy chỉnh"
+    },
+    "new_tab_navigation_title": {
+        "message": "Tiêu đề"
+    },
+    "new_tab_navigation_url": {
+        "message": "Liên kết"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "Thêm"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "Hãy đăng nhập trước"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "Tên không được để trống và tối đa {1} ký tự"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "Mô tả tối đa {1} ký tự"
+    },
+    "collect_create_folder_first": {
+        "message": "Hãy tạo ít nhất một thư mục trước"
+    },
+    "collect_choose_folder_please": {
+        "message": "Vui lòng chọn thư mục"
+    },
+    "collect_successfully": {
+        "message": "Lưu thành công"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "Chào buổi sáng — sẵn sàng khám phá"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "Chào buổi chiều — giữ sự tò mò"
+    },
+    "new_tab_greeting_evening": {
+        "message": "Chào buổi tối — tìm điều quan trọng"
+    },
+    "new_tab_greeting_night": {
+        "message": "Chúc ngủ ngon — chế độ tập trung"
+    }
+}

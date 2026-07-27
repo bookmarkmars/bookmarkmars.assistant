@@ -1,0 +1,88 @@
+@import "../circle";
+
+body > section#wrapper > main div.tab[data-name='setting'] {
+
+  > div[data-name='ball']{
+
+      > div.box-wrapper {
+        
+        $boxHeight:300px;
+
+        > div.box {
+            
+          &.ball-style,&.ball-size{   
+            height:$boxHeight;
+          }
+          
+          >span:first-child,
+          >label:first-child{
+            font-size:120%;
+            font-weight: $__fontWeightMedium; 
+          }
+    
+          &.ball-style {
+
+            > span{
+                height:10%;
+            }
+            
+            & > div.choose{
+                
+                width: 100%;
+                height:90%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 30px 20px;
+                margin-top: -20px;
+
+                > a{
+                     
+                   @extend %ball;
+            
+                   @for $i from 1 through length($__indicatorColor) {
+                      
+                      //当前颜色
+                      $color: nth($__indicatorColor, $i);
+                      
+                      &:nth-child(#{$i}){
+                        @include circle($color,infinite);
+                      };
+                   }
+            
+                   @extend %desc;
+                   
+                   &::after{
+                      bottom: -45px;
+                      color: #5c5858;
+                   }
+            
+                   & > .choose{
+                      position: absolute;
+                      top: -3px;
+                      right: -3px;
+                      width: 20px;
+                      height: 20px;
+                      
+                      @include mask('icon-choose',#191818,18px);
+                      
+                      display: none;
+                   }
+                }
+                
+                //显示出来
+                & > a.active{
+                  & > .choose{
+                    display: block;
+                  }
+                }
+            }
+          }
+          
+          &.ball-size{
+              
+          }
+        }
+      }
+  }
+}

@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "BookmarkMars アシスタント"
+    },
+    "extension_short_name": {
+        "message": "BM アシスタント"
+    },
+    "extension_version": {
+        "message": "バージョン"
+    },
+    "extension_new_version": {
+        "message": "新しいバージョン"
+    },
+    "extension_need_upgrade": {
+        "message": "新規"
+    },
+    "extension_upgrade_address": {
+        "message": "アップグレード先"
+    },
+    "extension_upgrade": {
+        "message": "新規"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "プライバシー"
+    },
+    "extension_ball_reset": {
+        "message": "マジックボールをリセット"
+    },
+    "extension_ball_not_open": {
+        "message": "マジックボールが有効になっていません。設定で有効にしてください"
+    },
+    "extension_desc": {
+        "message": "ブックマークの同期、エクスポート・インポート、管理画面の設定、ブックマークの追加・削除・変更"
+    },
+    "extension_last_update": {
+        "message": "{1} に最新更新"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "マジックボールを一時的に非表示"
+    },
+    "header_bookmarks": {
+        "message": "ブックマーク"
+    },
+    "header_toolbox_official": {
+        "message": "公式"
+    },
+    "header_toolbox_ucenter": {
+        "message": "マイページ"
+    },
+    "header_toolbox_tool": {
+        "message": "ツール"
+    },
+    "header_toolbox_setting": {
+        "message": "設定"
+    },
+    "header_search_box_local": {
+        "message": "ローカル"
+    },
+    "header_search_box_server": {
+        "message": "リモート"
+    },
+    "header_search_box_remote_search": {
+        "message": "リモート検索"
+    },
+    "sidebar_search_placeholder": {
+        "message": "ローカルの {1} 件のブックマークを検索"
+    },
+    "sidebar_search_no_results": {
+        "message": "結果なし"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "コピーしました"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "空のフォルダ"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "よく使う ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "編集"
+    },
+    "sidebar_opreate_drag": {
+        "message": "移動"
+    },
+    "sidebar_opreate_add": {
+        "message": "追加"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "更新"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "ブックマークなし"
+    },
+    "sidebar_filter": {
+        "message": "フィルター"
+    },
+    "sidebar_filter_default": {
+        "message": "デフォルト"
+    },
+    "sidebar_filter_create": {
+        "message": "作成日"
+    },
+    "sidebar_filter_used": {
+        "message": "最終訪問"
+    },
+    "sidebar_filter_frequency": {
+        "message": "訪問頻度"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "降順"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "昇順"
+    },
+    "sidebar_filter_order_default": {
+        "message": "デフォルト"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "ブックマークを編集"
+    },
+    "contextmenu_edit_dir": {
+        "message": "フォルダを編集"
+    },
+    "contextmenu_edit_separator": {
+        "message": "区切り線を編集"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "ブックマークを削除"
+    },
+    "contextmenu_delete_dir": {
+        "message": "フォルダを削除"
+    },
+    "contextmenu_delete_separator": {
+        "message": "区切り線を削除"
+    },
+    "contextmenu_copy": {
+        "message": "リンクをコピー"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "ブックマークを追加"
+    },
+    "contextmenu_add_pin": {
+        "message": "ピン留め"
+    },
+    "contextmenu_add_unpin": {
+        "message": "ピン留め解除"
+    },
+    "contextmenu_add": {
+        "message": "{1}を追加"
+    },
+    "contextmenu_open_helper": {
+        "message": "BookmarkMars アシスタントを開く"
+    },
+    "contextmenu_close_helper": {
+        "message": "BookmarkMars アシスタントを閉じる"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "BookmarkMars アシスタントの切り替え"
+    },
+    "contextmenu_add_website": {
+        "message": "ページを保存"
+    },
+    "contextmenu_add_folder": {
+        "message": "フォルダを追加"
+    },
+    "contextmenu_edit_folder": {
+        "message": "フォルダを編集"
+    },
+    "overlay_bookmark_title": {
+        "message": "タイトル"
+    },
+    "overlay_bookmark_url": {
+        "message": "リンク"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "その他の情報"
+    },
+    "overlay_cancel": {
+        "message": "キャンセル"
+    },
+    "overlay_close": {
+        "message": "閉じる"
+    },
+    "overlay_save": {
+        "message": "保存"
+    },
+    "overlay_delete": {
+        "message": "削除"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "選択したフォルダのサブフォルダ内のブックマークを含む {1} 件すべてを開きますか？"
+    },
+    "overlay_open_children": {
+        "message": "すべて開く"
+    },
+    "overlay_confirm_open_children": {
+        "message": "サブフォルダ内の {1} 件のブックマークをすべて開きますか？"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "アシスタントから非表示"
+    },
+    "overlay_label_bookmark": {
+        "message": "ブックマーク"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*ご注意：一部のリンクから当社が手数料を得る場合があります"
+    },
+    "overlay_label_dir": {
+        "message": "フォルダ"
+    },
+    "overlay_label_separator": {
+        "message": "区切り線"
+    },
+    "overlay_add_position": {
+        "message": "位置"
+    },
+    "overlay_add_position_prepend": {
+        "message": "前に挿入"
+    },
+    "overlay_add_position_append": {
+        "message": "後に挿入"
+    },
+    "overlay_delete_selected": {
+        "message": "すべて削除"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "選択した項目を削除しますか？サブフォルダ内のブックマークも削除されます。"
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "{1} ブラウザは読み取り専用モードのみサポートしています。Ctrl+D でブックマークできます。"
+    },
+    "overlay_collect": {
+        "message": "保存"
+    },
+    "overlay_collect_title": {
+        "message": "ページタイトル"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "フォルダを選択"
+    },
+    "overlay_add_collect_folder": {
+        "message": "フォルダを追加"
+    },
+    "overlay_collect_confirm": {
+        "message": "確認"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "編集"
+    },
+    "overlay_collect_folder_title": {
+        "message": "フォルダ名"
+    },
+    "overlay_collect_folder_description": {
+        "message": "フォルダの説明"
+    },
+    "overlay_collect_folder_public": {
+        "message": "公開（全員に表示）"
+    },
+    "overlay_collect_folder_private": {
+        "message": "非公開（自分のみ表示）"
+    },
+    "overlay_add_folder_finished": {
+        "message": "完了"
+    },
+    "overlay_add_folder_return": {
+        "message": "戻る"
+    },
+    "onboarding_title": {
+        "message": "マジックボールを選択"
+    },
+    "onboarding_declaration": {
+        "message": "*免責事項：この拡張機能にはアフィリエイトリンクが含まれており、クリックすると当社が手数料を得る場合があります"
+    },
+    "onboarding_headline": {
+        "message": "BookmarkMars アシスタントへようこそ"
+    },
+    "onboarding_config_size": {
+        "message": "マジックボールのサイズを設定"
+    },
+    "onboarding_auth_newtab": {
+        "message": "カスタマイズページの権限を付与"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "権限の付与をおすすめします。新しいタブがより美しくなります"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "スキップ"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "付与"
+    },
+    "onboarding_auth_or": {
+        "message": "または"
+    },
+    "onboarding_size_tip": {
+        "message": "マジックボールのサイズを選択"
+    },
+    "onboarding_finished": {
+        "message": "お楽しみください！"
+    },
+    "onboarding_moon": {
+        "message": "月光"
+    },
+    "onboarding_water": {
+        "message": "穏やかな波"
+    },
+    "onboarding_sun": {
+        "message": "朝日"
+    },
+    "onboarding_desc": {
+        "message": "開き方を設定します"
+    },
+    "onboarding_left_side_panel": {
+        "message": "ブラウザの左側にマウスを置くと呼び出せます"
+    },
+    "onboarding_noneed_permission": {
+        "message": "ブラウザは自動承認をサポートしています。カスタマイズページで「変更を保持」を選択してください。"
+    },
+    "manage_title": {
+        "message": "管理"
+    },
+    "manage_beforeunload_desc": {
+        "message": "未保存の内容があります。本当に離れますか？"
+    },
+    "manage_menu_setting": {
+        "message": "設定"
+    },
+    "manage_need_login": {
+        "message": "この機能を使用するには先にログインしてください"
+    },
+    "manage_menu_tool": {
+        "message": "ツール"
+    },
+    "manage_menu_ucenter": {
+        "message": "マイページ"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "基本情報"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "拡張機能センター"
+    },
+    "manage_menu_about": {
+        "message": "について"
+    },
+    "manage_menu_about_intro": {
+        "message": "紹介"
+    },
+    "manage_menu_about_privacy": {
+        "message": "プライバシー"
+    },
+    "manage_menu_setting_ball": {
+        "message": "有効化"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "小{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "お好みのマジックボールのスタイルを選択"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "中{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "大{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "マジックボールは60px未満に設定し、ページの隅にドラッグすることをおすすめします。閲覧中に触れないようにするためです"
+    },
+    "manage_menu_setting_function": {
+        "message": "機能"
+    },
+    "manage_menu_tool_backup": {
+        "message": "同期"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、機能の紹介"
+    },
+    "manage_tool_backup_desc": {
+        "message": "ブックマーク同期機能はブックマークをサーバーに同期します。変更や開示は一切行いません"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "特典：非VIPは {1} 日ごとに {2} 回同期でき、最新 {3} 件まで保持；VIPは無制限で {4} 件まで保持"
+    },
+    "manage_tool_backup_right": {
+        "message": "特典"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、権限をリクエスト"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、手動でブックマークを同期"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "クリックして同期"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、自動でブックマークを同期"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、同期結果"
+    },
+    "manage_tool_backup_fail": {
+        "message": "失敗"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "この機能はVIP会員のみ利用可能です"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "ログインしていません。先にログインしてください"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "自動同期には事前の承認が必要です"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "BookmarkMars アシスタント：ブックマークの自動同期が有効になっていません。安全のため有効化をおすすめします"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "自動同期は {1} 未満のブックマークのみ対応しています。手動で同期してください"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "この操作には承認が必要です"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "エクスポート中"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "アップロード中"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "同期できるブックマークの最大サイズは {1}M です"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "ブックマークの同期に成功しました"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "ブックマークの同期に失敗しました"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "リンクチェック"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "インポート/エクスポート"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "情報"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "マイブックマーク"
+    },
+    "manage_setting_ball_style": {
+        "message": "マジックボールのスタイル"
+    },
+    "manage_setting_ball_size": {
+        "message": "マジックボールのサイズ"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "開き方を選択"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "すべて開く"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "マジックボールで"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "マジックパネルで"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "アシスタントの開き方をここで設定できます。両方を有効にすることをおすすめします。"
+    },
+    "manage_setting_panel_width": {
+        "message": "マジックパネルの幅"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "アシスタントを開くのに適したパネル幅をここで選択できます"
+    },
+    "manage_setting_style": {
+        "message": "スタイル"
+    },
+    "manage_setting_style_default": {
+        "message": "デフォルト"
+    },
+    "manage_setting_style_classcial": {
+        "message": "クラシック"
+    },
+    "manage_setting_style_young": {
+        "message": "ヤング"
+    },
+    "manage_setting_style_happy": {
+        "message": "ハッピー"
+    },
+    "manage_setting_linkaction": {
+        "message": "リンクの開き方"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "現在のタブ"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "新しいタブ"
+    },
+    "manage_setting_font_family": {
+        "message": "フォント"
+    },
+    "manage_setting_font_family_default": {
+        "message": "デフォルト"
+    },
+    "manage_save": {
+        "message": "変更を保存"
+    },
+    "manage_saved_message": {
+        "message": "変更を正常に保存しました"
+    },
+    "manage_recovery": {
+        "message": "デフォルトに復元"
+    },
+    "manage_restore_confirm": {
+        "message": "デフォルト設定に復元しますか？"
+    },
+    "manage_restored_message": {
+        "message": "設定を正常に復元しました"
+    },
+    "manage_tool_iexport_all": {
+        "message": "すべて選択"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "選択解除"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "ブックマークが {1} 件を超えています。ディレクトリのみ表示され、操作速度に影響する場合があります"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "更新"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "インポート"
+    },
+    "manage_tool_export": {
+        "message": "エクスポート"
+    },
+    "manage_check_powerful": {
+        "message": "高度なチェック"
+    },
+    "manage_check_powerful_desc": {
+        "message": "BookmarkMars のWeb版を閲覧する際、アシスタントが無効なリンクを事前にチェックし、壊れたコンテンツのクリックを防ぎます。システムは最適化されており、パフォーマンスや帯域幅を過度に消費しません"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "すべてのフォルダ"
+    },
+    "manage_check_directions": {
+        "message": "フォルダをクリックしてテスト"
+    },
+    "manage_check_modal_name": {
+        "message": "チェック-{1}/参考結果"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "リダイレクト"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "リンク切れ"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "重複"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "空"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "合計 {1} 件のブックマークを検出"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "選択項目を更新"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "選択項目を削除"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "結果なし"
+    },
+    "manage_tool_backup_name": {
+        "message": "BookmarkMars アシスタント同期"
+    },
+    "manage_setting_newtab": {
+        "message": "カスタマイズページ（権限付与を推奨）"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "承認済み"
+    },
+    "manage_setting_newtab_no": {
+        "message": "未承認"
+    },
+    "manage_switch_close_tag": {
+        "message": "オフ"
+    },
+    "manage_switch_open_tag": {
+        "message": "オン"
+    },
+    "manage_setting_language": {
+        "message": "言語"
+    },
+    "manage_language_default": {
+        "message": "ブラウザに従う"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}、アクセス履歴のクラウドバックアップ"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "この機能を十分に理解してください。有効にするとアクセス履歴がクラウドにバックアップされます。このデータは公開されません。許可するかどうかご判断ください"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "BookmarkMars について"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars は Zhihu に触発されました。デザイナーがリソース関連の投稿を見たとき、友人がブラウザのブックマークを共有し、ブックマーク共有プラットフォームを作ろうと考えました。ブラウザのブックマークは通常、有用なサイトをカテゴリ別に整理します。したがって、あなたのブックマークも他の人に役立つ可能性があります。デザイナーは皆に受け入れられるかわからなかったので、大胆な試みでした。"
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "BookmarkMars アシスタント"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、追加・削除・変更を含む強力なブックマーク管理"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、ローカルおよびリモートブックマークの強力な検索"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、ブックマークの紛失を防ぐ強力な同期"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、公式サイトと連携できる強力なエクスポート・共有"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、無効なリンクを事前に検出する強力なリンクチェック"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "禁止プラットフォームの広告"
+    },
+    "search_context_menus_title": {
+        "message": "ブックマーク検索"
+    },
+    "user_vip_type1": {
+        "message": "シニアVIP"
+    },
+    "user_vip_type2": {
+        "message": "生涯VIP"
+    },
+    "user_vip_suggestion": {
+        "message": "クリックしてVIPを有効化"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "クリックしてVIPを更新"
+    },
+    "not_found_title": {
+        "message": "404 見つかりません"
+    },
+    "not_found_headline": {
+        "message": "BookmarkMars アシスタントはこのページでは利用できません"
+    },
+    "not_found_fallback_desc": {
+        "message": "ブラウザの制限またはブラックリストに登録されたWebコンテンツが原因の可能性があります"
+    },
+    "more_link": {
+        "message": "もっと見る..."
+    },
+    "friendly_suggestion": {
+        "message": "BookmarkMars アシスタントのカスタマイズページの権限付与を強くおすすめします"
+    },
+    "ucenter_not_login_desc": {
+        "message": "ログインしていないため、個人情報を表示できません"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "ログイン"
+    },
+    "ucenter_motto_today": {
+        "message": "あなたは正しい、誰があなたを間違えさせたの"
+    },
+    "ucenter_welcome": {
+        "message": "BookmarkMars アシスタントへようこそ"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "登録日"
+    },
+    "ucenter_account_type": {
+        "message": "アカウントタイプ"
+    },
+    "ucenter_open_vip": {
+        "message": "クリックしてVIPを有効化し特典を享受"
+    },
+    "ucenter_greeting": {
+        "message": "こんにちは、"
+    },
+    "ucenter_logout": {
+        "message": "ログアウト"
+    },
+    "network_error": {
+        "message": "ネットワーク障害または内部サーバーエラー"
+    },
+    "not_login_notice": {
+        "message": "ログイン"
+    },
+    "backup_success_notice": {
+        "message": "アシスタント：ブックマークが自動同期されました"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "クラウドのショートカットを復元しました"
+    },
+    "new_tab_title": {
+        "message": "BookmarkMars カスタマイズページ"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "カスタム検索"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "音声認識"
+    },
+    "new_tab_speech_search_error": {
+        "message": "音声検索はサポートされていません"
+    },
+    "new_tab_search_placeholder": {
+        "message": "何か入力..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "ブックマーク"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "検索を設定"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "検索"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "ブックマーク"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "履歴"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "名前"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "ホームページ"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "クエリリンク"
+    },
+    "new_tab_img_change_sug": {
+        "message": "VIPユーザーのみ壁紙を変更できます"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "この機能を使用するにはログインが必要です"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "ショートカットを編集"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "ドラッグして位置を変更"
+    },
+    "new_tab_setting": {
+        "message": "設定"
+    },
+    "new_tab_link_edit": {
+        "message": "ショートカットを編集"
+    },
+    "new_tab_bg_server_change": {
+        "message": "壁紙を変更"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "壁紙をアップロード"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "カスタム追加"
+    },
+    "new_tab_navigation_title": {
+        "message": "タイトル"
+    },
+    "new_tab_navigation_url": {
+        "message": "リンク"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "追加"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "先にログインしてください"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "名前は空にできず、最大 {1} 文字です"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "説明は最大 {1} 文字"
+    },
+    "collect_create_folder_first": {
+        "message": "先に少なくとも1つのフォルダを作成してください"
+    },
+    "collect_choose_folder_please": {
+        "message": "フォルダを選択してください"
+    },
+    "collect_successfully": {
+        "message": "正常に保存しました"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "おはようございます"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "こんにちは"
+    },
+    "new_tab_greeting_evening": {
+        "message": "こんばんは"
+    },
+    "new_tab_greeting_night": {
+        "message": "おやすみなさい"
+    }
+}

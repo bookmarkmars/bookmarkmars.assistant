@@ -1,0 +1,27 @@
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body, input, textarea, select, button {
+  font-size: $baseFontSize;
+  font-family: $__fontFamily,arial,sans-serif;
+  color: $textColor;
+  font-weight: $__fontWeightNormal;
+}
+
+ul, menu {
+  list-style: none;
+}
+
+strong {
+  font-weight: $__fontWeightBold;
+}
+
+a {
+  color: $textColor;
+  text-decoration: none;
+}

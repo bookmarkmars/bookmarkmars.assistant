@@ -1,0 +1,62 @@
+
+body > section#wrapper > footer {
+  
+  position: fixed;
+  bottom:20px;
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+  
+  display: none;
+
+  &.active{
+      display: flex;
+  }
+
+  > menu {
+    display: inline-block;
+    margin: 12px 0 0 40px;
+    vertical-align: top;
+
+    > li {
+      display: inline-block;
+
+      > button {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+
+        &.save {
+          
+          @extend %highlightButton;
+          transition: box-shadow 1s, padding 0.5s;
+
+          &::before {
+            -webkit-mask-position-x: 8px;
+            @extend %hidden;
+            transition: opacity 0.5s;
+          }
+
+          &.highlight {
+            box-shadow: 0 2px 10px #000000c7, 0 0 0 15px $colorNotice;
+          }
+        }
+
+        &.recovery {
+          @include mask('icon-recovery', $textColorLight, 24px);
+          background: transparent;
+          margin: 2px 0 0 10px;
+          width: 24px;
+          height: 24px;
+        }
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}

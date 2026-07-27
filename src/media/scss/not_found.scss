@@ -1,0 +1,79 @@
+@import "include/vars";
+@import "include/mixins";
+//
+@import "include/loading";
+
+$textColor: $__textColor;
+@import "include/generals";
+@import "include/not_found/fallback";
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: $__colorScheme;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $__colorScheme;
+    transition: opacity 0.3s;
+    z-index: 98;
+    @extend %hidden;
+  }
+
+  &.init-loading {
+
+    &::before {
+      @extend %visible;
+    }
+  }
+
+  &.loading {
+
+    &::before {
+      background: rgba(255, 255, 255, 0.9);
+      @extend %visible;
+    }
+  }
+
+  > svg.loading {
+    position: fixed;
+    display: block !important;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+    z-index: 99;
+  }
+}
+
+section#content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: height 0.5s;
+
+  > section.mid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+
+    > * {
+      pointer-events: auto;
+    }
+  }
+}

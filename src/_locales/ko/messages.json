@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "BookmarkMars 어시스턴트"
+    },
+    "extension_short_name": {
+        "message": "BM 어시스턴트"
+    },
+    "extension_version": {
+        "message": "버전"
+    },
+    "extension_new_version": {
+        "message": "새 버전"
+    },
+    "extension_need_upgrade": {
+        "message": "새로운"
+    },
+    "extension_upgrade_address": {
+        "message": "업그레이드 주소"
+    },
+    "extension_upgrade": {
+        "message": "새로운"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "개인정보"
+    },
+    "extension_ball_reset": {
+        "message": "매직 볼 재설정"
+    },
+    "extension_ball_not_open": {
+        "message": "매직 볼이 켜져 있지 않습니다. 설정에서 켜 주세요"
+    },
+    "extension_desc": {
+        "message": "북마크 동기화, 내보내기 및 가져오기, 관리 인터페이스 설정, 북마크 추가·삭제·수정"
+    },
+    "extension_last_update": {
+        "message": "{1}에 최신 업데이트"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "매직 볼 일시적으로 숨기기"
+    },
+    "header_bookmarks": {
+        "message": "북마크"
+    },
+    "header_toolbox_official": {
+        "message": "공식"
+    },
+    "header_toolbox_ucenter": {
+        "message": "나"
+    },
+    "header_toolbox_tool": {
+        "message": "도구"
+    },
+    "header_toolbox_setting": {
+        "message": "설정"
+    },
+    "header_search_box_local": {
+        "message": "로컬"
+    },
+    "header_search_box_server": {
+        "message": "원격"
+    },
+    "header_search_box_remote_search": {
+        "message": "원격 검색"
+    },
+    "sidebar_search_placeholder": {
+        "message": "로컬 북마크 {1}개 검색"
+    },
+    "sidebar_search_no_results": {
+        "message": "결과 없음"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "복사됨"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "빈 폴더"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "자주 사용 ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "편집"
+    },
+    "sidebar_opreate_drag": {
+        "message": "이동"
+    },
+    "sidebar_opreate_add": {
+        "message": "추가"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "새로고침"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "북마크 없음"
+    },
+    "sidebar_filter": {
+        "message": "필터"
+    },
+    "sidebar_filter_default": {
+        "message": "기본값"
+    },
+    "sidebar_filter_create": {
+        "message": "생성일"
+    },
+    "sidebar_filter_used": {
+        "message": "마지막 방문"
+    },
+    "sidebar_filter_frequency": {
+        "message": "방문 빈도"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "내림차순"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "오름차순"
+    },
+    "sidebar_filter_order_default": {
+        "message": "기본값"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "북마크 편집"
+    },
+    "contextmenu_edit_dir": {
+        "message": "폴더 편집"
+    },
+    "contextmenu_edit_separator": {
+        "message": "구분선 편집"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "북마크 삭제"
+    },
+    "contextmenu_delete_dir": {
+        "message": "폴더 삭제"
+    },
+    "contextmenu_delete_separator": {
+        "message": "구분선 삭제"
+    },
+    "contextmenu_copy": {
+        "message": "링크 복사"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "북마크 추가"
+    },
+    "contextmenu_add_pin": {
+        "message": "고정"
+    },
+    "contextmenu_add_unpin": {
+        "message": "고정 해제"
+    },
+    "contextmenu_add": {
+        "message": "{1} 추가"
+    },
+    "contextmenu_open_helper": {
+        "message": "BookmarkMars 어시스턴트 열기"
+    },
+    "contextmenu_close_helper": {
+        "message": "BookmarkMars 어시스턴트 닫기"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "BookmarkMars 어시스턴트 전환"
+    },
+    "contextmenu_add_website": {
+        "message": "페이지 저장"
+    },
+    "contextmenu_add_folder": {
+        "message": "폴더 추가"
+    },
+    "contextmenu_edit_folder": {
+        "message": "폴더 편집"
+    },
+    "overlay_bookmark_title": {
+        "message": "제목"
+    },
+    "overlay_bookmark_url": {
+        "message": "링크"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "기타 정보"
+    },
+    "overlay_cancel": {
+        "message": "취소"
+    },
+    "overlay_close": {
+        "message": "닫기"
+    },
+    "overlay_save": {
+        "message": "저장"
+    },
+    "overlay_delete": {
+        "message": "삭제"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "선택한 폴더의 하위 폴더 북마크를 포함하여 {1}개의 북마크를 모두 여시겠습니까?"
+    },
+    "overlay_open_children": {
+        "message": "모두 열기"
+    },
+    "overlay_confirm_open_children": {
+        "message": "하위 폴더의 {1}개 북마크를 모두 여시겠습니까?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "어시스턴트에서 숨기기"
+    },
+    "overlay_label_bookmark": {
+        "message": "북마크"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*참고: 일부 링크를 통해 수수료를 받을 수 있습니다"
+    },
+    "overlay_label_dir": {
+        "message": "폴더"
+    },
+    "overlay_label_separator": {
+        "message": "구분선"
+    },
+    "overlay_add_position": {
+        "message": "위치"
+    },
+    "overlay_add_position_prepend": {
+        "message": "앞에 삽입"
+    },
+    "overlay_add_position_append": {
+        "message": "뒤에 삽입"
+    },
+    "overlay_delete_selected": {
+        "message": "모두 삭제"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "선택한 항목을 삭제하시겠습니까? 하위 폴더의 북마크도 삭제됩니다."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "{1} 브라우저는 읽기 전용 모드만 지원합니다. Ctrl+D로 북마크할 수 있습니다."
+    },
+    "overlay_collect": {
+        "message": "저장"
+    },
+    "overlay_collect_title": {
+        "message": "페이지 제목"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "폴더 선택"
+    },
+    "overlay_add_collect_folder": {
+        "message": "폴더 추가"
+    },
+    "overlay_collect_confirm": {
+        "message": "확인"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "편집"
+    },
+    "overlay_collect_folder_title": {
+        "message": "폴더 이름"
+    },
+    "overlay_collect_folder_description": {
+        "message": "폴더 설명"
+    },
+    "overlay_collect_folder_public": {
+        "message": "공개 (모두에게 표시)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "비공개 (나만 표시)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "완료"
+    },
+    "overlay_add_folder_return": {
+        "message": "돌아가기"
+    },
+    "onboarding_title": {
+        "message": "매직 볼 선택"
+    },
+    "onboarding_declaration": {
+        "message": "*안내: 이 확장 프로그램에는 제휴 링크가 포함되어 있으며, 클릭 시 수수료를 받을 수 있습니다"
+    },
+    "onboarding_headline": {
+        "message": "BookmarkMars 어시스턴트에 오신 것을 환영합니다"
+    },
+    "onboarding_config_size": {
+        "message": "매직 볼 크기 구성"
+    },
+    "onboarding_auth_newtab": {
+        "message": "개인화 페이지 권한 부여"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "권한 부여를 권장합니다. 새 탭이 더 아름다워집니다"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "건너뛰기"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "부여"
+    },
+    "onboarding_auth_or": {
+        "message": "또는"
+    },
+    "onboarding_size_tip": {
+        "message": "매직 볼 크기 선택"
+    },
+    "onboarding_finished": {
+        "message": "즐기세요!"
+    },
+    "onboarding_moon": {
+        "message": "달빛"
+    },
+    "onboarding_water": {
+        "message": "잔잔한 파도"
+    },
+    "onboarding_sun": {
+        "message": "아침 햇살"
+    },
+    "onboarding_desc": {
+        "message": "열기 방법을 구성합니다"
+    },
+    "onboarding_left_side_panel": {
+        "message": "브라우저 왼쪽에 마우스를 올리면 호출됩니다"
+    },
+    "onboarding_noneed_permission": {
+        "message": "브라우저가 자동 승인을 지원합니다. 개인화 페이지에서 \"변경 사항 유지\"를 선택해 주세요."
+    },
+    "manage_title": {
+        "message": "관리"
+    },
+    "manage_beforeunload_desc": {
+        "message": "저장되지 않은 내용이 있습니다. 정말 나가시겠습니까?"
+    },
+    "manage_menu_setting": {
+        "message": "설정"
+    },
+    "manage_need_login": {
+        "message": "이 기능을 사용하려면 먼저 로그인해야 합니다"
+    },
+    "manage_menu_tool": {
+        "message": "도구"
+    },
+    "manage_menu_ucenter": {
+        "message": "나"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "기본 정보"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "확장 프로그램 센터"
+    },
+    "manage_menu_about": {
+        "message": "정보"
+    },
+    "manage_menu_about_intro": {
+        "message": "소개"
+    },
+    "manage_menu_about_privacy": {
+        "message": "개인정보"
+    },
+    "manage_menu_setting_ball": {
+        "message": "활성화"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "작음{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "마음에 드는 매직 볼 스타일을 선택하세요"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "중간{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "큼{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "매직 볼을 60px 미만으로 설정하고 페이지 모서리로 끌어다 놓는 것을 권장합니다. 탐색 중 실수로 터치하지 않도록 하기 위함입니다"
+    },
+    "manage_menu_setting_function": {
+        "message": "기능"
+    },
+    "manage_menu_tool_backup": {
+        "message": "동기화"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、기능 소개"
+    },
+    "manage_tool_backup_desc": {
+        "message": "북마크 동기화 기능은 북마크를 서버에 동기화합니다. 어떤 방식으로도 수정하거나 공개하지 않습니다"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "혜택: 비VIP는 {1}일마다 {2}회 동기화, 최대 {3}개 최신 복사본 보관; VIP는 무제한, {4}개까지 보관"
+    },
+    "manage_tool_backup_right": {
+        "message": "혜택"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、권한 요청"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、수동으로 북마크 동기화"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "클릭하여 동기화"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、자동으로 북마크 동기화"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、동기화 결과"
+    },
+    "manage_tool_backup_fail": {
+        "message": "실패"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "이 기능은 VIP 회원만 사용할 수 있습니다"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "로그인하지 않았습니다. 먼저 로그인해 주세요"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "자동 동기화에는 사전 승인이 필요합니다"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "BookmarkMars 어시스턴트: 북마크 자동 동기화가 활성화되지 않았습니다. 보안을 위해 활성화를 권장합니다"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "자동 동기화는 {1} 미만의 북마크만 지원합니다. 수동으로 동기화해 주세요"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "이 작업에는 승인이 필요합니다"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "내보내는 중"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "업로드 중"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "동기화 가능한 북마크 최대 크기는 {1}M입니다"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "북마크 동기화 성공"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "북마크 동기화 실패"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "링크 확인"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "가져오기/내보내기"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "정보"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "내 북마크"
+    },
+    "manage_setting_ball_style": {
+        "message": "매직 볼 스타일"
+    },
+    "manage_setting_ball_size": {
+        "message": "매직 볼 크기"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "열기 방법 선택"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "모두 열기"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "매직 볼로"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "매직 패널로"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "어시스턴트를 여는 방법을 여기서 선택할 수 있습니다. 두 방법 모두 활성화하는 것을 권장합니다."
+    },
+    "manage_setting_panel_width": {
+        "message": "매직 패널 너비"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "어시스턴트를 열기에 적합한 패널 너비를 여기서 선택하세요"
+    },
+    "manage_setting_style": {
+        "message": "스타일"
+    },
+    "manage_setting_style_default": {
+        "message": "기본값"
+    },
+    "manage_setting_style_classcial": {
+        "message": "클래식"
+    },
+    "manage_setting_style_young": {
+        "message": "영"
+    },
+    "manage_setting_style_happy": {
+        "message": "해피"
+    },
+    "manage_setting_linkaction": {
+        "message": "링크 열기"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "현재 탭"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "새 탭"
+    },
+    "manage_setting_font_family": {
+        "message": "글꼴"
+    },
+    "manage_setting_font_family_default": {
+        "message": "기본값"
+    },
+    "manage_save": {
+        "message": "변경 사항 저장"
+    },
+    "manage_saved_message": {
+        "message": "변경 사항이 성공적으로 저장되었습니다"
+    },
+    "manage_recovery": {
+        "message": "기본값 복원"
+    },
+    "manage_restore_confirm": {
+        "message": "기본 구성을 복원하시겠습니까?"
+    },
+    "manage_restored_message": {
+        "message": "구성이 성공적으로 복원되었습니다"
+    },
+    "manage_tool_iexport_all": {
+        "message": "모두 선택"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "선택 해제"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "북마크가 {1}개를 초과합니다. 디렉터리만 표시되며 작업 속도에 영향을 줄 수 있습니다"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "새로고침"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "가져오기"
+    },
+    "manage_tool_export": {
+        "message": "내보내기"
+    },
+    "manage_check_powerful": {
+        "message": "고급 확인"
+    },
+    "manage_check_powerful_desc": {
+        "message": "BookmarkMars 웹 버전을 탐색할 때 어시스턴트가 무효한 링크를 미리 확인하여 깨진 콘텐츠 클릭을 방지합니다. 시스템이 최적화되어 성능과 대역폭을 과도하게 소비하지 않습니다"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "내 모든 폴더"
+    },
+    "manage_check_directions": {
+        "message": "폴더를 클릭하여 테스트"
+    },
+    "manage_check_modal_name": {
+        "message": "확인-{1}/참조 결과"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "리디렉션"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "깨짐"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "중복"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "비어 있음"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "총 {1}개의 북마크가 감지되었습니다"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "선택 항목 업데이트"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "선택 항목 제거"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "결과 없음"
+    },
+    "manage_tool_backup_name": {
+        "message": "BookmarkMars 어시스턴트 동기화"
+    },
+    "manage_setting_newtab": {
+        "message": "개인화 페이지 (권한 부여 권장)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "승인됨"
+    },
+    "manage_setting_newtab_no": {
+        "message": "승인되지 않음"
+    },
+    "manage_switch_close_tag": {
+        "message": "끔"
+    },
+    "manage_switch_open_tag": {
+        "message": "켬"
+    },
+    "manage_setting_language": {
+        "message": "언어"
+    },
+    "manage_language_default": {
+        "message": "브라우저 따르기"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, 방문 기록 클라우드 백업"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "이 기능을 충분히 이해해야 합니다. 활성화하면 방문 기록이 클라우드에 백업됩니다. 이 데이터는 공개되지 않습니다. 허용할지 결정해 주세요"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "BookmarkMars 소개"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars는 Zhihu에서 영감을 받았습니다. 디자이너가 리소스 관련 게시물을 보았을 때 친구가 브라우저 북마크를 공유했고, 북마크 공유 플랫폼을 만들 생각을 했습니다. 브라우저 북마크는 일반적으로 유용한 사이트를 카테고리별로 정리합니다. 따라서 여러분의 북마크도 다른 사람에게 유용할 수 있습니다. 디자이너는 모두가 받아들일지 몰라 대담한 시도였습니다."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "BookmarkMars 어시스턴트"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、추가·삭제·수정을 포함한 강력한 북마크 관리"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、로컬 및 원격 북마크의 강력한 검색"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、북마크 손실을 방지하는 강력한 동기화"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、공식 사이트와 연동 가능한 강력한 내보내기 및 공유"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、무효 링크를 미리 식별하는 강력한 링크 확인"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "금지 플랫폼 광고"
+    },
+    "search_context_menus_title": {
+        "message": "북마크 검색"
+    },
+    "user_vip_type1": {
+        "message": "시니어 VIP"
+    },
+    "user_vip_type2": {
+        "message": "평생 VIP"
+    },
+    "user_vip_suggestion": {
+        "message": "클릭하여 VIP 활성화"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "클릭하여 VIP 갱신"
+    },
+    "not_found_title": {
+        "message": "404 찾을 수 없음"
+    },
+    "not_found_headline": {
+        "message": "BookmarkMars 어시스턴트는 이 페이지에서 사용할 수 없습니다"
+    },
+    "not_found_fallback_desc": {
+        "message": "브라우저 제한 또는 블랙리스트에 등록된 웹 콘텐츠 때문일 수 있습니다"
+    },
+    "more_link": {
+        "message": "더보기..."
+    },
+    "friendly_suggestion": {
+        "message": "BookmarkMars 어시스턴트 개인화 페이지 권한 부여를 강력히 권장합니다"
+    },
+    "ucenter_not_login_desc": {
+        "message": "로그인하지 않아 개인 정보를 표시할 수 없습니다"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "로그인"
+    },
+    "ucenter_motto_today": {
+        "message": "네가 맞아, 누가 너를 틀리게 했니"
+    },
+    "ucenter_welcome": {
+        "message": "BookmarkMars 어시스턴트에 오신 것을 환영합니다"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "가입일"
+    },
+    "ucenter_account_type": {
+        "message": "계정 유형"
+    },
+    "ucenter_open_vip": {
+        "message": "클릭하여 VIP를 활성화하고 혜택을 누리세요"
+    },
+    "ucenter_greeting": {
+        "message": "안녕하세요, "
+    },
+    "ucenter_logout": {
+        "message": "로그아웃"
+    },
+    "network_error": {
+        "message": "네트워크 오류 또는 내부 서버 오류"
+    },
+    "not_login_notice": {
+        "message": "로그인"
+    },
+    "backup_success_notice": {
+        "message": "어시스턴트: 북마크가 자동으로 성공적으로 동기화되었습니다"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "클라우드 바로가기가 복원되었습니다"
+    },
+    "new_tab_title": {
+        "message": "BookmarkMars 개인화 페이지"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "사용자 지정 검색"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "음성 인식"
+    },
+    "new_tab_speech_search_error": {
+        "message": "음성 검색을 지원하지 않습니다"
+    },
+    "new_tab_search_placeholder": {
+        "message": "무언가 입력..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "북마크"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "검색 구성"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "검색"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "북마크"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "기록"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "이름"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "홈페이지"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "쿼리 링크"
+    },
+    "new_tab_img_change_sug": {
+        "message": "VIP 사용자만 배경을 변경할 수 있습니다"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "이 기능을 사용하려면 로그인이 필요합니다"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "바로가기 편집"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "드래그하여 위치 변경"
+    },
+    "new_tab_setting": {
+        "message": "설정"
+    },
+    "new_tab_link_edit": {
+        "message": "바로가기 편집"
+    },
+    "new_tab_bg_server_change": {
+        "message": "배경 변경"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "배경 업로드"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "사용자 지정 추가"
+    },
+    "new_tab_navigation_title": {
+        "message": "제목"
+    },
+    "new_tab_navigation_url": {
+        "message": "링크"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "추가"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "먼저 로그인해 주세요"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "이름은 비워 둘 수 없으며 최대 {1}자여야 합니다"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "설명은 최대 {1}자"
+    },
+    "collect_create_folder_first": {
+        "message": "먼저 폴더를 하나 이상 만드세요"
+    },
+    "collect_choose_folder_please": {
+        "message": "폴더를 선택해 주세요"
+    },
+    "collect_successfully": {
+        "message": "성공적으로 저장됨"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "좋은 아침입니다"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "좋은 오후입니다"
+    },
+    "new_tab_greeting_evening": {
+        "message": "좋은 저녁입니다"
+    },
+    "new_tab_greeting_night": {
+        "message": "편안한 밤 되세요"
+    }
+}

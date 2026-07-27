@@ -1,0 +1,130 @@
+
+div.checkbox {
+  position: relative;
+  cursor: pointer;
+
+  > input[type='checkbox'] {
+    display: none;
+  }
+
+  &[data-style="default"] {
+    @include mask(null, $__textColor, 20px);
+    width: 20px;
+    height: 20px;
+
+    &::before {
+      transition: -webkit-mask 0.3s, background-color 0.3s;
+    }
+
+    &[data-type='checkbox']::before {
+      @include maskImage('icon-checkbox-inactive');
+    }
+
+    &[data-type='radio']::before {
+      @include maskImage('icon-radio-inactive');
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 1px);
+      left: calc(50% - 1px);
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+      transition: background 0.2s, box-shadow 0.2s, opacity 0.5s;
+      opacity: 0.2;
+    }
+
+    &.focus::after, &.clicked::after {
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    &.clicked::after {
+      opacity: 0;
+    }
+
+    &.active {
+
+      &::before {
+        background-color: $__textColor;
+      }
+
+      &[data-type='checkbox']::before {
+        @include maskImage('icon-checkbox');
+      }
+
+      &[data-type='radio']::before {
+        @include maskImage('icon-radio');
+      }
+
+      &::after {
+        box-shadow: 0 0 0 0 $__textColor;
+      }
+
+      &.focus::after, &.clicked::after {
+        background: $__textColor;
+        box-shadow: 0 0 0 20px $__textColor;
+      }
+    }
+  }
+
+  //switch 转换
+  &[data-style="switch"] {
+    
+    &::before{
+        content: $__switchOpenTag;
+        position: absolute;
+        font-weight:$__fontWeightSemiBold;
+        top: 8px;
+        left:35px;
+        -webkit-mask: no-repeat center/20px;
+        background-color: transparent;
+    }
+    
+    border-radius: 20px;
+    height: 40px;
+    width: 80px;
+    transition: width 0.3s;
+    border: 2px solid $textColor;
+    background-color: transparent;
+
+    &::before {
+      -webkit-mask-position-x: 32px;
+      transition: -webkit-mask 0.3s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: $textColorLight;
+      box-shadow: none;
+      opacity: 0.7;
+      -webkit-mask: none;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    &.active {
+        
+      &::before{
+          content:$__switchCloseTag;
+          left:5px;
+      }
+
+      &::after {
+        transform: translate3d(30px, 0, 0);
+        opacity: 0.9;
+        left: 15px;
+        background: $colorSuccess;
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title data-i18n="new_tab_title"></title>
+    <style>
+        body.building > * {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="building">
+<section id="content">
+   
+    <nav></nav>
+    
+    <!--alert-->
+    <div class="toast">
+    	<div class="text"></div>
+    </div>
+
+    <section class="mid">
+        <div class="hero" aria-hidden="false">
+            <div class="clock" data-nt-clock></div>
+            <div class="date" data-nt-date></div>
+            <div class="greeting" data-nt-greeting></div>
+        </div>
+        <form id="search">
+        	<div class="engine"></div>
+            <input type="text" autofocus spellcheck="false" />
+            <button type="submit"></button>
+        </form>
+        <div id="grid"></div>
+    </section>
+    
+</section>
+
+<script src="/media/js/lib/jst.js"></script>
+<script src="/media/js/lib/jscs.js"></script>
+<script src="/media/js/opts.js"></script>
+
+<!-- [START REPLACE] -->
+<script src='/media/js/helper/i18n.js'></script>
+<script src='/media/js/helper/font_add.js'></script>
+<script src='/media/js/helper/style_helper.js'></script>
+<script src='/media/js/helper/template.js'></script>
+<script src='/media/js/helper/util.js'></script>
+<script src='/media/js/helper/dao.js'></script>
+<!-- [END REPLACE] -->
+
+<script src='/media/js/helper/user.js'></script>
+<script src='/media/js/helper/confirm.js'></script>
+<script src='/media/js/helper/checkbox.js'></script>
+
+<!-- [START REMOVE] -->
+<script src='/media/js/new_tab/grid.js'></script>
+<script src='/media/js/new_tab/search.js'></script>
+<script src='/media/js/new_tab/top_urls.js'></script>
+<script src='/media/js/new_tab/popup.js'></script>
+<script src='/media/js/new_tab/operate.js'></script>
+<!-- [END REMOVE] -->
+
+<script src='/media/js/new_tab.js'></script>
+</body>
+</html>

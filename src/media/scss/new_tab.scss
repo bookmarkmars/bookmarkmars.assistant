@@ -1,0 +1,260 @@
+@import "include/vars";
+@import "include/mixins";
+
+@import "include/loading";
+@import "include/checkbox";
+
+@import "include/generals";
+
+%shadowHover {
+  background: $newTabGlassHover;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+%glassSurface {
+  background: $newTabGlass;
+  border: 1px solid $newTabGlassBorder;
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
+}
+
+//new tab
+@import "include/new_tab/grid";
+@import "include/new_tab/top_urls";
+@import "include/new_tab/search";
+@import "include/new_tab/edit";
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1a1512;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Bahnschrift", "Segoe UI Variable Display", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: $textColorDeep;
+  -webkit-font-smoothing: antialiased;
+
+  // Soft vignette + warm atmosphere over wallpaper (wallpaper stays visible)
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 18%, rgba(224, 122, 61, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 120% 80% at 50% 100%, rgba(0, 0, 0, 0.45) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(10, 8, 12, 0.22) 0%, rgba(10, 8, 12, 0.08) 40%, rgba(10, 8, 12, 0.35) 100%);
+  }
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $bodyBackground;
+    transition: opacity 0.3s;
+    z-index: 98;
+    @extend %hidden;
+  }
+
+  &.init-loading {
+    &::before {
+      @extend %visible;
+    }
+  }
+
+  &.loading {
+    &::before {
+      background: rgba(255, 255, 255, 0.9);
+      @extend %visible;
+    }
+  }
+
+  > svg.loading {
+    position: fixed;
+    display: block !important;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+    z-index: 99;
+  }
+
+  // Entrance motion
+  &:not(.building):not(.init-loading) {
+    section#content > section.mid > .hero,
+    section#content > section.mid > form#search,
+    section#content > section.mid > div#grid,
+    section#content > nav,
+    > a.setting {
+      animation: ntFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    section#content > section.mid > form#search {
+      animation-delay: 0.08s;
+    }
+
+    section#content > section.mid > div#grid {
+      animation-delay: 0.16s;
+    }
+
+    section#content > nav {
+      animation-delay: 0.05s;
+    }
+
+    > a.setting {
+      animation-delay: 0.28s;
+    }
+  }
+}
+
+@keyframes ntFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section#content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: height 0.5s;
+  z-index: 1;
+
+  > div.toast {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: $indicatorZindex;
+    display: none;
+
+    > .text {
+      @extend %glassSurface;
+      background: rgba(34, 120, 72, 0.88);
+      border-color: rgba(255, 255, 255, 0.2);
+      margin: 0 auto;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 110%;
+      font-weight: $__fontWeightSemiBold;
+      padding: 16px 28px;
+      color: white;
+      letter-spacing: 0.02em;
+    }
+
+    &.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  > section.mid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 42%;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px;
+    box-sizing: border-box;
+    // Only wrap content — do NOT cover the tool buttons in the corner
+    pointer-events: none;
+    z-index: 2;
+
+    > * {
+      pointer-events: auto;
+    }
+
+    > .hero {
+      text-align: center;
+      margin-bottom: 28px;
+      max-width: 90vw;
+      user-select: none;
+
+      > .clock {
+        font-size: clamp(52px, 8vw, 88px);
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: 0.04em;
+        color: #fff;
+        text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
+        font-variant-numeric: tabular-nums;
+      }
+
+      > .date {
+        margin-top: 10px;
+        font-size: clamp(13px, 1.4vw, 16px);
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.78);
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+      }
+
+      > .greeting {
+        margin-top: 8px;
+        font-size: clamp(15px, 1.6vw, 18px);
+        font-weight: 400;
+        color: rgba(255, 236, 220, 0.92);
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          margin-right: 8px;
+          border-radius: 50%;
+          background: $newTabAccent;
+          box-shadow: 0 0 10px rgba(224, 122, 61, 0.7);
+          vertical-align: middle;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 640px) {
+  section#content > section.mid {
+    top: 46%;
+
+    > .hero {
+      margin-bottom: 16px;
+
+      > .clock {
+        font-size: 48px;
+      }
+
+      > .date,
+      > .greeting {
+        font-size: 13px;
+      }
+    }
+  }
+}

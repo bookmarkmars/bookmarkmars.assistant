@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "Asystent BookmarkMars"
+    },
+    "extension_short_name": {
+        "message": "Asystent BM"
+    },
+    "extension_version": {
+        "message": "Wersja"
+    },
+    "extension_new_version": {
+        "message": "Nowa wersja"
+    },
+    "extension_need_upgrade": {
+        "message": "Nowe"
+    },
+    "extension_upgrade_address": {
+        "message": "Adres aktualizacji"
+    },
+    "extension_upgrade": {
+        "message": "Nowe"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "Prywatność"
+    },
+    "extension_ball_reset": {
+        "message": "Resetuj magiczną kulę"
+    },
+    "extension_ball_not_open": {
+        "message": "Magiczna kula nie jest włączona; przejdź do ustawień, aby ją włączyć"
+    },
+    "extension_desc": {
+        "message": "Synchronizacja zakładek, eksport i import, ustawienia interfejsu zarządzania, dodawanie, usuwanie i modyfikacja zakładek"
+    },
+    "extension_last_update": {
+        "message": "Ostatnia aktualizacja {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "Tymczasowo ukryj magiczną kulę"
+    },
+    "header_bookmarks": {
+        "message": "Zakładki"
+    },
+    "header_toolbox_official": {
+        "message": "Oficjalne"
+    },
+    "header_toolbox_ucenter": {
+        "message": "Ja"
+    },
+    "header_toolbox_tool": {
+        "message": "Narzędzia"
+    },
+    "header_toolbox_setting": {
+        "message": "Ustawienia"
+    },
+    "header_search_box_local": {
+        "message": "Lokalne"
+    },
+    "header_search_box_server": {
+        "message": "Zdalne"
+    },
+    "header_search_box_remote_search": {
+        "message": "Szukaj zdalnie"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Szukaj {1} lokalnych zakładek"
+    },
+    "sidebar_search_no_results": {
+        "message": "Brak wyników"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "skopiowano"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "Pusty folder"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "Często używane ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "Edytuj"
+    },
+    "sidebar_opreate_drag": {
+        "message": "Przenieś"
+    },
+    "sidebar_opreate_add": {
+        "message": "Dodaj"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "Odśwież"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "Brak zakładek"
+    },
+    "sidebar_filter": {
+        "message": "Filtruj"
+    },
+    "sidebar_filter_default": {
+        "message": "Domyślny"
+    },
+    "sidebar_filter_create": {
+        "message": "Data utworzenia"
+    },
+    "sidebar_filter_used": {
+        "message": "Ostatnia wizyta"
+    },
+    "sidebar_filter_frequency": {
+        "message": "Częstotliwość odwiedzin"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "Malejąco"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "Rosnąco"
+    },
+    "sidebar_filter_order_default": {
+        "message": "Domyślny"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Edytuj zakładkę"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Edytuj folder"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Edytuj separator"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Usuń zakładkę"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Usuń folder"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Usuń separator"
+    },
+    "contextmenu_copy": {
+        "message": "Kopiuj link"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Dodaj zakładkę"
+    },
+    "contextmenu_add_pin": {
+        "message": "Przypnij"
+    },
+    "contextmenu_add_unpin": {
+        "message": "Odepnij"
+    },
+    "contextmenu_add": {
+        "message": "Dodaj{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "Otwórz Asystent BookmarkMars"
+    },
+    "contextmenu_close_helper": {
+        "message": "Zamknij Asystent BookmarkMars"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "Przełącz Asystent BookmarkMars"
+    },
+    "contextmenu_add_website": {
+        "message": "Zapisz stronę"
+    },
+    "contextmenu_add_folder": {
+        "message": "Dodaj folder"
+    },
+    "contextmenu_edit_folder": {
+        "message": "Edytuj folder"
+    },
+    "overlay_bookmark_title": {
+        "message": "Tytuł"
+    },
+    "overlay_bookmark_url": {
+        "message": "Link"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Inne informacje"
+    },
+    "overlay_cancel": {
+        "message": "Anuluj"
+    },
+    "overlay_close": {
+        "message": "Zamknij"
+    },
+    "overlay_save": {
+        "message": "Zapisz"
+    },
+    "overlay_delete": {
+        "message": "Usuń"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Czy na pewno chcesz otworzyć {1} zakładek, w tym z podfolderów wybranego folderu?"
+    },
+    "overlay_open_children": {
+        "message": "Otwórz wszystko"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Czy na pewno chcesz otworzyć {1} zakładek z podfolderów?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Ukryj w asystencie"
+    },
+    "overlay_label_bookmark": {
+        "message": "Zakładka"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*Uwaga: niektóre linki mogą przynieść nam prowizję"
+    },
+    "overlay_label_dir": {
+        "message": "Folder"
+    },
+    "overlay_label_separator": {
+        "message": "Separator"
+    },
+    "overlay_add_position": {
+        "message": "Pozycja"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Wstaw przed"
+    },
+    "overlay_add_position_append": {
+        "message": "Wstaw po"
+    },
+    "overlay_delete_selected": {
+        "message": "Usuń wszystko"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Czy na pewno chcesz usunąć wybrane wpisy? Zakładki z podfolderów również zostaną usunięte."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "Przeglądarka {1} obsługuje tylko tryb tylko do odczytu. Możesz nacisnąć Ctrl+D, aby dodać zakładkę."
+    },
+    "overlay_collect": {
+        "message": "Zapisz"
+    },
+    "overlay_collect_title": {
+        "message": "Tytuł strony"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "Wybierz folder"
+    },
+    "overlay_add_collect_folder": {
+        "message": "Dodaj folder"
+    },
+    "overlay_collect_confirm": {
+        "message": "Potwierdź"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "Edytuj"
+    },
+    "overlay_collect_folder_title": {
+        "message": "Nazwa folderu"
+    },
+    "overlay_collect_folder_description": {
+        "message": "Opis folderu"
+    },
+    "overlay_collect_folder_public": {
+        "message": "Publiczny (widoczny dla wszystkich)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "Prywatny (widoczny tylko dla Ciebie)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "Zakończ"
+    },
+    "overlay_add_folder_return": {
+        "message": "Wstecz"
+    },
+    "onboarding_title": {
+        "message": "Wybierz magiczną kulę"
+    },
+    "onboarding_declaration": {
+        "message": "*Uwaga: to rozszerzenie zawiera linki partnerskie; kliknięcie w nie może przynieść nam prowizję"
+    },
+    "onboarding_headline": {
+        "message": "Witamy w Asystent BookmarkMars"
+    },
+    "onboarding_config_size": {
+        "message": "Skonfiguruj rozmiar magicznej kuli"
+    },
+    "onboarding_auth_newtab": {
+        "message": "Przyznaj uprawnienie do strony personalizacji"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "Zalecamy przyznanie uprawnienia; nowa karta będzie ładniejsza"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "Ignoruj"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "Przyznaj"
+    },
+    "onboarding_auth_or": {
+        "message": "Lub"
+    },
+    "onboarding_size_tip": {
+        "message": "Wybierz rozmiar magicznej kuli"
+    },
+    "onboarding_finished": {
+        "message": "Miłego korzystania!"
+    },
+    "onboarding_moon": {
+        "message": "Księżycowa poświata"
+    },
+    "onboarding_water": {
+        "message": "Lekkie fale"
+    },
+    "onboarding_sun": {
+        "message": "Poranne słońce"
+    },
+    "onboarding_desc": {
+        "message": "Skonfigurujesz sposób otwierania"
+    },
+    "onboarding_left_side_panel": {
+        "message": "Umieść kursor po lewej stronie przeglądarki, aby ją przywołać"
+    },
+    "onboarding_noneed_permission": {
+        "message": "Przeglądarka obsługuje automatyczną autoryzację. Wybierz „Zachowaj zmiany” dla strony personalizacji."
+    },
+    "manage_title": {
+        "message": "Zarządzanie"
+    },
+    "manage_beforeunload_desc": {
+        "message": "Masz niezapisane treści, czy na pewno chcesz wyjść?"
+    },
+    "manage_menu_setting": {
+        "message": "Ustawienia"
+    },
+    "manage_need_login": {
+        "message": "Aby użyć tej funkcji, musisz się najpierw zalogować"
+    },
+    "manage_menu_tool": {
+        "message": "Narzędzia"
+    },
+    "manage_menu_ucenter": {
+        "message": "Ja"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "Podstawowe informacje"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "Centrum wtyczek"
+    },
+    "manage_menu_about": {
+        "message": "O programie"
+    },
+    "manage_menu_about_intro": {
+        "message": "Wprowadzenie"
+    },
+    "manage_menu_about_privacy": {
+        "message": "Prywatność"
+    },
+    "manage_menu_setting_ball": {
+        "message": "Włącz"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "Mała{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "Wybierz styl magicznej kuli, który Ci się podoba"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "Średnia{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "Duża{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "Zalecamy ustawienie magicznej kuli poniżej 60 px i przeciągnięcie jej w róg strony, aby uniknąć przypadkowego dotknięcia podczas przeglądania"
+    },
+    "manage_menu_setting_function": {
+        "message": "Funkcja"
+    },
+    "manage_menu_tool_backup": {
+        "message": "Synchronizacja"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、Wprowadzenie do funkcji"
+    },
+    "manage_tool_backup_desc": {
+        "message": "Synchronizacja zakładek skopiuje je na nasz serwer; nie będziemy ich modyfikować ani ujawniać w żaden sposób"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "Korzyści: użytkownicy bez VIP mogą synchronizować {2} razy co {1} dni i przechowywać maksymalnie {3} ostatnie kopie; VIP ma nieograniczoną liczbę synchronizacji i może przechowywać {4} kopie"
+    },
+    "manage_tool_backup_right": {
+        "message": "Korzyści"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、Poproś o uprawnienie"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、Synchronizuj zakładki ręcznie"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "Kliknij, aby synchronizować"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、Synchronizuj zakładki automatycznie"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、Wyniki synchronizacji"
+    },
+    "manage_tool_backup_fail": {
+        "message": "Błąd"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "Ta funkcja jest dostępna tylko dla członków VIP"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "Nie jesteś zalogowany; zaloguj się najpierw"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "Synchronizacja automatyczna wymaga wcześniejszej autoryzacji"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "Asystent BookmarkMars: nie włączyłeś automatycznej synchronizacji zakładek; ze względów bezpieczeństwa zalecamy ją włączyć"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "Synchronizacja automatyczna obsługuje tylko zakładki poniżej {1}; synchronizuj ręcznie"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "Ta operacja wymaga Twojej autoryzacji"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "Eksportowanie"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "Przesyłanie"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "Maksymalny rozmiar synchronizowanych zakładek to {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "Zakładki zsynchronizowane pomyślnie"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "Nie udało się zsynchronizować zakładek"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "Sprawdzanie linków"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "Im/Eksport"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "Informacje"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "Moje zakładki"
+    },
+    "manage_setting_ball_style": {
+        "message": "Styl magicznej kuli"
+    },
+    "manage_setting_ball_size": {
+        "message": "Rozmiar magicznej kuli"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "Wybierz sposób otwierania"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "Otwórz wszystko"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "Magiczną kulą"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "Magicznym panelem"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "Tutaj możesz wybrać sposób otwierania asystenta. Zalecamy włączenie obu metod."
+    },
+    "manage_setting_panel_width": {
+        "message": "Szerokość magicznego panelu"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "Wybierz tutaj szerokość panelu odpowiednią dla Ciebie, aby wygodnie otwierać asystenta"
+    },
+    "manage_setting_style": {
+        "message": "Styl"
+    },
+    "manage_setting_style_default": {
+        "message": "Domyślny"
+    },
+    "manage_setting_style_classcial": {
+        "message": "Klasyczny"
+    },
+    "manage_setting_style_young": {
+        "message": "Młodzieżowy"
+    },
+    "manage_setting_style_happy": {
+        "message": "Wesoły"
+    },
+    "manage_setting_linkaction": {
+        "message": "Otwieranie linków"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "Bieżąca karta"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "Nowa karta"
+    },
+    "manage_setting_font_family": {
+        "message": "Czcionka"
+    },
+    "manage_setting_font_family_default": {
+        "message": "Domyślna"
+    },
+    "manage_save": {
+        "message": "Zapisz zmiany"
+    },
+    "manage_saved_message": {
+        "message": "Zmiany zapisane pomyślnie"
+    },
+    "manage_recovery": {
+        "message": "Przywróć domyślne"
+    },
+    "manage_restore_confirm": {
+        "message": "Czy na pewno chcesz przywrócić domyślną konfigurację?"
+    },
+    "manage_restored_message": {
+        "message": "Konfiguracja przywrócona pomyślnie"
+    },
+    "manage_tool_iexport_all": {
+        "message": "Zaznacz wszystko"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "Odznacz wszystko"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "Masz więcej niż {1} zakładek; wyświetlony zostanie tylko katalog, a szybkość może być niższa"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "Odśwież"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "Importuj"
+    },
+    "manage_tool_export": {
+        "message": "Eksportuj"
+    },
+    "manage_check_powerful": {
+        "message": "Zaawansowane sprawdzanie"
+    },
+    "manage_check_powerful_desc": {
+        "message": "Podczas przeglądania wersji webowej BookmarkMars asystent wcześniej sprawdzi nieprawidłowe linki, aby uniknąć kliknięć w uszkodzoną treść. System jest zoptymalizowany i nie zużyje zbyt wielu zasobów ani pasma"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "Wszystkie moje foldery"
+    },
+    "manage_check_directions": {
+        "message": "Kliknij folder, aby przetestować"
+    },
+    "manage_check_modal_name": {
+        "message": "Sprawdź-{1}/Wyniki referencyjne"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "Przekierowanie"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "Uszkodzony"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "Duplikat"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "Pusty"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "Wykryto łącznie {1} zakładek"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "Aktualizuj wybrane"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "Usuń wybrane"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "Brak wyników"
+    },
+    "manage_tool_backup_name": {
+        "message": "Synchronizacja Asystent BookmarkMars"
+    },
+    "manage_setting_newtab": {
+        "message": "Strona personalizacji (zalecane przyznanie autoryzacji)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "Autoryzowano"
+    },
+    "manage_setting_newtab_no": {
+        "message": "Nie autoryzowano"
+    },
+    "manage_switch_close_tag": {
+        "message": "Wył."
+    },
+    "manage_switch_open_tag": {
+        "message": "Wł."
+    },
+    "manage_setting_language": {
+        "message": "Język"
+    },
+    "manage_language_default": {
+        "message": "Zgodnie z przeglądarką"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, Kopie zapasowe historii odwiedzin w chmurze"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "Musisz dobrze zrozumieć tę funkcję. Po włączeniu historia odwiedzin będzie zapisywana w chmurze. Te dane nie będą publicznie udostępniane. Zdecyduj, czy na to pozwalasz"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "O BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars zainspirowało Zhihu. Gdy projektant zobaczył post o zasobach, przyjaciel podzielił się swoimi zakładkami przeglądarki i pomyślał o stworzeniu platformy do udostępniania zakładek. Zakładki zwykle organizują przydatne strony według kategorii; Twoje również mogą być przydatne innym. Projektant nie wiedział, czy zostanie to zaakceptowane przez wszystkich, więc była to odważna próba."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "Asystent BookmarkMars"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、Zaawansowane zarządzanie zakładkami, w tym dodawanie, usuwanie i modyfikacja"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、Zaawansowane wyszukiwanie zakładek lokalnych i zdalnych"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、Zaawansowana synchronizacja zapobiegająca utracie zakładek"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、Zaawansowany eksport i udostępnianie, integracja ze stroną oficjalną"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、Zaawansowane sprawdzanie linków w celu wykrycia nieprawidłowych odnośników"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "Reklama zabronionych platform"
+    },
+    "search_context_menus_title": {
+        "message": "Wyszukiwanie zakładek"
+    },
+    "user_vip_type1": {
+        "message": "VIP senior"
+    },
+    "user_vip_type2": {
+        "message": "VIP dożywotni"
+    },
+    "user_vip_suggestion": {
+        "message": "Kliknij, aby aktywować VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "Kliknij, aby odnowić VIP"
+    },
+    "not_found_title": {
+        "message": "404 Nie znaleziono"
+    },
+    "not_found_headline": {
+        "message": "Asystent BookmarkMars nie jest dostępny na tej stronie"
+    },
+    "not_found_fallback_desc": {
+        "message": "Może to wynikać z ograniczeń przeglądarki lub treści na czarnej liście"
+    },
+    "more_link": {
+        "message": "Więcej..."
+    },
+    "friendly_suggestion": {
+        "message": "Zdecydowanie zalecamy przyznanie uprawnienia do strony personalizacji Asystent BookmarkMars"
+    },
+    "ucenter_not_login_desc": {
+        "message": "Nie jesteś zalogowany; nie można wyświetlić informacji osobistych"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "Zaloguj się"
+    },
+    "ucenter_motto_today": {
+        "message": "Masz rację, kto cię skłonił do błędu"
+    },
+    "ucenter_welcome": {
+        "message": "Witamy w Asystent BookmarkMars"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "Data rejestracji"
+    },
+    "ucenter_account_type": {
+        "message": "Typ konta"
+    },
+    "ucenter_open_vip": {
+        "message": "Kliknij, aby aktywować VIP i korzystać z przywilejów"
+    },
+    "ucenter_greeting": {
+        "message": "Cześć, "
+    },
+    "ucenter_logout": {
+        "message": "Wyloguj się"
+    },
+    "network_error": {
+        "message": "Błąd sieci lub serwera wewnętrznego"
+    },
+    "not_login_notice": {
+        "message": "Zaloguj się"
+    },
+    "backup_success_notice": {
+        "message": "Asystent: zakładki zsynchronizowane automatycznie pomyślnie"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "Przywrócono skróty z chmury"
+    },
+    "new_tab_title": {
+        "message": "Strona personalizacji BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "Wyszukiwanie niestandardowe"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "Rozpoznawanie mowy"
+    },
+    "new_tab_speech_search_error": {
+        "message": "Nie obsługuje wyszukiwania głosowego"
+    },
+    "new_tab_search_placeholder": {
+        "message": "Wpisz coś..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "Zakładki"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "Konfiguracja wyszukiwania"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "Wyszukiwanie"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "Zakładki"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "Historia"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "Nazwa"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "Strona główna"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "Linki zapytań"
+    },
+    "new_tab_img_change_sug": {
+        "message": "Tylko użytkownicy VIP mogą zmieniać tapetę"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "Musisz się zalogować, aby użyć tej funkcji"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "Edytuj skrót"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "Przeciągnij, aby zmienić pozycję"
+    },
+    "new_tab_setting": {
+        "message": "Ustawienia"
+    },
+    "new_tab_link_edit": {
+        "message": "Edytuj skrót"
+    },
+    "new_tab_bg_server_change": {
+        "message": "Zmień tapetę"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "Prześlij tapetę"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "Dodaj niestandardowy"
+    },
+    "new_tab_navigation_title": {
+        "message": "Tytuł"
+    },
+    "new_tab_navigation_url": {
+        "message": "Link"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "Dodaj"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "Najpierw się zaloguj"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "Nazwa nie może być pusta i może mieć maksymalnie {1} znaków"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "Opis do {1} znaków"
+    },
+    "collect_create_folder_first": {
+        "message": "Najpierw utwórz co najmniej jeden folder"
+    },
+    "collect_choose_folder_please": {
+        "message": "Wybierz folder"
+    },
+    "collect_successfully": {
+        "message": "Zapisano pomyślnie"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "Dzień dobry — gotowy do odkrywania"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "Dzień dobry — bądź ciekawy"
+    },
+    "new_tab_greeting_evening": {
+        "message": "Dobry wieczór — znajdź ważne"
+    },
+    "new_tab_greeting_night": {
+        "message": "Dobranoc — tryb skupienia"
+    }
+}

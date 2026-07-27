@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "BookmarkMars Asistanı"
+    },
+    "extension_short_name": {
+        "message": "BM Asistanı"
+    },
+    "extension_version": {
+        "message": "Sürüm"
+    },
+    "extension_new_version": {
+        "message": "Yeni sürüm"
+    },
+    "extension_need_upgrade": {
+        "message": "Yeni"
+    },
+    "extension_upgrade_address": {
+        "message": "Güncelleme adresi"
+    },
+    "extension_upgrade": {
+        "message": "Yeni"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "Gizlilik"
+    },
+    "extension_ball_reset": {
+        "message": "Sihirli topu sıfırla"
+    },
+    "extension_ball_not_open": {
+        "message": "Sihirli top etkin değil; etkinleştirmek için ayarlara gidin"
+    },
+    "extension_desc": {
+        "message": "Yer imi senkronizasyonu, dışa ve içe aktarma, yönetim arayüzü ayarları, yer imi ekleme, silme ve düzenleme"
+    },
+    "extension_last_update": {
+        "message": "Son güncelleme {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "Sihirli topu geçici olarak gizle"
+    },
+    "header_bookmarks": {
+        "message": "Yer imleri"
+    },
+    "header_toolbox_official": {
+        "message": "Resmi"
+    },
+    "header_toolbox_ucenter": {
+        "message": "Ben"
+    },
+    "header_toolbox_tool": {
+        "message": "Araçlar"
+    },
+    "header_toolbox_setting": {
+        "message": "Ayarlar"
+    },
+    "header_search_box_local": {
+        "message": "Yerel"
+    },
+    "header_search_box_server": {
+        "message": "Uzak"
+    },
+    "header_search_box_remote_search": {
+        "message": "Uzakta ara"
+    },
+    "sidebar_search_placeholder": {
+        "message": "{1} yerel yer iminde ara"
+    },
+    "sidebar_search_no_results": {
+        "message": "Sonuç yok"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "kopyalandı"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "Boş klasör"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "Sık kullanılan ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "Düzenle"
+    },
+    "sidebar_opreate_drag": {
+        "message": "Taşı"
+    },
+    "sidebar_opreate_add": {
+        "message": "Ekle"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "Yenile"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "Yer imi yok"
+    },
+    "sidebar_filter": {
+        "message": "Filtrele"
+    },
+    "sidebar_filter_default": {
+        "message": "Varsayılan"
+    },
+    "sidebar_filter_create": {
+        "message": "Oluşturulma tarihi"
+    },
+    "sidebar_filter_used": {
+        "message": "Son ziyaret"
+    },
+    "sidebar_filter_frequency": {
+        "message": "Ziyaret sıklığı"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "Azalan"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "Artan"
+    },
+    "sidebar_filter_order_default": {
+        "message": "Varsayılan"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Yer imini düzenle"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Klasörü düzenle"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Ayırıcıyı düzenle"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Yer imini sil"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Klasörü sil"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Ayırıcıyı sil"
+    },
+    "contextmenu_copy": {
+        "message": "Bağlantıyı kopyala"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Yer imi ekle"
+    },
+    "contextmenu_add_pin": {
+        "message": "Sabitle"
+    },
+    "contextmenu_add_unpin": {
+        "message": "Sabitlemeyi kaldır"
+    },
+    "contextmenu_add": {
+        "message": "Ekle{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "BookmarkMars Asistanını aç"
+    },
+    "contextmenu_close_helper": {
+        "message": "BookmarkMars Asistanını kapat"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "BookmarkMars Asistanını aç/kapat"
+    },
+    "contextmenu_add_website": {
+        "message": "Sayfayı kaydet"
+    },
+    "contextmenu_add_folder": {
+        "message": "Klasör ekle"
+    },
+    "contextmenu_edit_folder": {
+        "message": "Klasörü düzenle"
+    },
+    "overlay_bookmark_title": {
+        "message": "Başlık"
+    },
+    "overlay_bookmark_url": {
+        "message": "Bağlantı"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Diğer bilgiler"
+    },
+    "overlay_cancel": {
+        "message": "İptal"
+    },
+    "overlay_close": {
+        "message": "Kapat"
+    },
+    "overlay_save": {
+        "message": "Kaydet"
+    },
+    "overlay_delete": {
+        "message": "Sil"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Seçili klasörün alt klasörleri dahil {1} yer imini gerçekten açmak istiyor musunuz?"
+    },
+    "overlay_open_children": {
+        "message": "Tümünü aç"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Alt klasörlerdeki {1} yer imini gerçekten açmak istiyor musunuz?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Asistandan gizle"
+    },
+    "overlay_label_bookmark": {
+        "message": "Yer imi"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*Lütfen dikkat: bazı bağlantılar bize komisyon kazandırabilir"
+    },
+    "overlay_label_dir": {
+        "message": "Klasör"
+    },
+    "overlay_label_separator": {
+        "message": "Ayırıcı"
+    },
+    "overlay_add_position": {
+        "message": "Konum"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Öncesine ekle"
+    },
+    "overlay_add_position_append": {
+        "message": "Sonrasına ekle"
+    },
+    "overlay_delete_selected": {
+        "message": "Tümünü sil"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Seçili girdileri silmek istediğinizden emin misiniz? Alt klasör yer imleri de silinecektir."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "{1} tarayıcısı yalnızca salt okunur modu destekler. Yer imi eklemek için Ctrl+D tuşlarına basabilirsiniz."
+    },
+    "overlay_collect": {
+        "message": "Kaydet"
+    },
+    "overlay_collect_title": {
+        "message": "Sayfa başlığı"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "Klasör seç"
+    },
+    "overlay_add_collect_folder": {
+        "message": "Klasör ekle"
+    },
+    "overlay_collect_confirm": {
+        "message": "Onayla"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "Düzenle"
+    },
+    "overlay_collect_folder_title": {
+        "message": "Klasör adı"
+    },
+    "overlay_collect_folder_description": {
+        "message": "Klasör açıklaması"
+    },
+    "overlay_collect_folder_public": {
+        "message": "Herkese açık (herkes görebilir)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "Özel (yalnızca siz görebilirsiniz)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "Bitir"
+    },
+    "overlay_add_folder_return": {
+        "message": "Geri"
+    },
+    "onboarding_title": {
+        "message": "Sihirli topu seçin"
+    },
+    "onboarding_declaration": {
+        "message": "*Uyarı: bu uzantı ortaklık bağlantıları içerir; bu bağlantılara tıklamak bize komisyon kazandırabilir"
+    },
+    "onboarding_headline": {
+        "message": "BookmarkMars Asistanına hoş geldiniz"
+    },
+    "onboarding_config_size": {
+        "message": "Sihirli top boyutunu yapılandır"
+    },
+    "onboarding_auth_newtab": {
+        "message": "Kişiselleştirme sayfası için izin ver"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "İzin vermeniz önerilir; yeni sekme daha güzel olacaktır"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "Yoksay"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "İzin ver"
+    },
+    "onboarding_auth_or": {
+        "message": "Veya"
+    },
+    "onboarding_size_tip": {
+        "message": "Sihirli top boyutunu seçin"
+    },
+    "onboarding_finished": {
+        "message": "Keyfini çıkarın!"
+    },
+    "onboarding_moon": {
+        "message": "Ay ışığı"
+    },
+    "onboarding_water": {
+        "message": "Hafif dalgalar"
+    },
+    "onboarding_sun": {
+        "message": "Sabah güneşi"
+    },
+    "onboarding_desc": {
+        "message": "Açma yöntemini yapılandıracaksınız"
+    },
+    "onboarding_left_side_panel": {
+        "message": "Çağırmak için fareyi tarayıcının sol tarafına getirin"
+    },
+    "onboarding_noneed_permission": {
+        "message": "Tarayıcı otomatik yetkilendirmeyi destekler. Kişiselleştirme sayfası için \"Değişiklikleri koru\" seçeneğini seçin."
+    },
+    "manage_title": {
+        "message": "Yönetim"
+    },
+    "manage_beforeunload_desc": {
+        "message": "Kaydedilmemiş içeriğiniz var, ayrılmak istediğinizden emin misiniz?"
+    },
+    "manage_menu_setting": {
+        "message": "Ayarlar"
+    },
+    "manage_need_login": {
+        "message": "Bu işlevi kullanmak için önce giriş yapmalısınız"
+    },
+    "manage_menu_tool": {
+        "message": "Araçlar"
+    },
+    "manage_menu_ucenter": {
+        "message": "Ben"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "Temel bilgiler"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "Eklenti merkezi"
+    },
+    "manage_menu_about": {
+        "message": "Hakkında"
+    },
+    "manage_menu_about_intro": {
+        "message": "Giriş"
+    },
+    "manage_menu_about_privacy": {
+        "message": "Gizlilik"
+    },
+    "manage_menu_setting_ball": {
+        "message": "Etkinleştir"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "Küçük{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "Beğendiğiniz bir sihirli top stili seçin"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "Orta{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "Büyük{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "Sihirli topu 60 px altında tutmanızı ve gezinirken yanlışlıkla dokunmamak için sayfanın köşesine sürüklemenizi öneririz"
+    },
+    "manage_menu_setting_function": {
+        "message": "İşlev"
+    },
+    "manage_menu_tool_backup": {
+        "message": "Senkronizasyon"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、İşlev tanıtımı"
+    },
+    "manage_tool_backup_desc": {
+        "message": "Yer imi senkronizasyonu yer imlerinizi sunucumuza kopyalar; bunları hiçbir şekilde değiştirmeyiz veya ifşa etmeyiz"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "Avantajlar: VIP olmayanlar her {1} günde {2} kez senkronize edebilir ve en fazla {3} son kopyayı saklayabilir; VIP'ler sınırsızdır ve {4} kopya saklayabilir"
+    },
+    "manage_tool_backup_right": {
+        "message": "Avantajlar"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、İzin iste"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、Yer imlerini manuel senkronize et"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "Senkronize etmek için tıklayın"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、Yer imlerini otomatik senkronize et"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、Senkronizasyon sonuçları"
+    },
+    "manage_tool_backup_fail": {
+        "message": "Başarısız"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "Bu özellik yalnızca VIP üyeler için kullanılabilir"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "Giriş yapmadınız; lütfen önce giriş yapın"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "Otomatik senkronizasyon önce yetkilendirme gerektirir"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "BookmarkMars Asistanı: otomatik yer imi senkronizasyonunu etkinleştirmediniz; güvenlik için etkinleştirmeniz önerilir"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "Otomatik senkronizasyon yalnızca {1} altındaki yer imlerini destekler; lütfen manuel senkronize edin"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "Bu işlem yetkinizi gerektirir"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "Dışa aktarılıyor"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "Yükleniyor"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "Senkronize edilebilecek maksimum yer imi boyutu {1}M'dir"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "Yer imleri başarıyla senkronize edildi"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "Yer imleri senkronize edilemedi"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "Bağlantı kontrolü"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "İç/Dışa aktar"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "Bilgi"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "Yer imlerim"
+    },
+    "manage_setting_ball_style": {
+        "message": "Sihirli top stili"
+    },
+    "manage_setting_ball_size": {
+        "message": "Sihirli top boyutu"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "Açma yöntemini seç"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "Tümünü aç"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "Sihirli top ile"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "Sihirli panel ile"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "Asistanı açma yöntemini buradan seçebilirsiniz. Her iki yöntemi de etkinleştirmenizi öneririz."
+    },
+    "manage_setting_panel_width": {
+        "message": "Sihirli panel genişliği"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "Asistanı açmak için buradan size uygun bir panel genişliği seçin"
+    },
+    "manage_setting_style": {
+        "message": "Stil"
+    },
+    "manage_setting_style_default": {
+        "message": "Varsayılan"
+    },
+    "manage_setting_style_classcial": {
+        "message": "Klasik"
+    },
+    "manage_setting_style_young": {
+        "message": "Genç"
+    },
+    "manage_setting_style_happy": {
+        "message": "Neşeli"
+    },
+    "manage_setting_linkaction": {
+        "message": "Bağlantı açma"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "Geçerli sekme"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "Yeni sekme"
+    },
+    "manage_setting_font_family": {
+        "message": "Yazı tipi"
+    },
+    "manage_setting_font_family_default": {
+        "message": "Varsayılan"
+    },
+    "manage_save": {
+        "message": "Değişiklikleri kaydet"
+    },
+    "manage_saved_message": {
+        "message": "Değişiklikler başarıyla kaydedildi"
+    },
+    "manage_recovery": {
+        "message": "Varsayılanları geri yükle"
+    },
+    "manage_restore_confirm": {
+        "message": "Varsayılan yapılandırmayı geri yüklemek istediğinizden emin misiniz?"
+    },
+    "manage_restored_message": {
+        "message": "Yapılandırma başarıyla geri yüklendi"
+    },
+    "manage_tool_iexport_all": {
+        "message": "Tümünü seç"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "Seçimi kaldır"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "{1}'den fazla yer iminiz var; yalnızca dizin gösterilecek ve hız etkilenebilir"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "Yenile"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "İçe aktar"
+    },
+    "manage_tool_export": {
+        "message": "Dışa aktar"
+    },
+    "manage_check_powerful": {
+        "message": "Gelişmiş kontrol"
+    },
+    "manage_check_powerful_desc": {
+        "message": "BookmarkMars web sürümünde gezinirken asistan, bozuk içeriğe tıklamanızı önlemek için geçersiz bağlantıları önceden kontrol eder. Sistem optimize edilmiştir ve fazla performans veya bant genişliği tüketmez"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "Tüm klasörlerim"
+    },
+    "manage_check_directions": {
+        "message": "Test etmek için klasöre tıklayın"
+    },
+    "manage_check_modal_name": {
+        "message": "Kontrol-{1}/Referans sonuçları"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "Yönlendirme"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "Bozuk"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "Yinelenen"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "Boş"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "Toplam {1} yer imi tespit edildi"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "Seçilenleri güncelle"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "Seçilenleri kaldır"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "Sonuç yok"
+    },
+    "manage_tool_backup_name": {
+        "message": "BookmarkMars Asistanı Senkronizasyonu"
+    },
+    "manage_setting_newtab": {
+        "message": "Kişiselleştirme sayfası (yetkilendirme vermeniz önerilir)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "Yetkilendirildi"
+    },
+    "manage_setting_newtab_no": {
+        "message": "Yetkilendirilmedi"
+    },
+    "manage_switch_close_tag": {
+        "message": "Kapalı"
+    },
+    "manage_switch_open_tag": {
+        "message": "Açık"
+    },
+    "manage_setting_language": {
+        "message": "Dil"
+    },
+    "manage_language_default": {
+        "message": "Tarayıcıyı izle"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, Ziyaret geçmişi bulut yedeklemesi"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "Bu işlevi iyi anlamalısınız. Etkinleştirildiğinde ziyaret geçmişiniz bulutta yedeklenir. Bu veriler herkese açıklanmaz. İzin verip vermeyeceğinize siz karar verin"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "BookmarkMars Hakkında"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars, Zhihu'dan ilham aldı. Tasarımcı kaynaklarla ilgili bir gönderi gördüğünde bir arkadaşının tarayıcı yer imlerini paylaştığını gördü ve bir yer imi paylaşım platformu kurmayı düşündü. Yer imleri genellikle faydalı siteleri kategorilere ayırır; bu nedenle sizinkiler de başkaları için faydalı olabilir. Tasarımcı herkes tarafından kabul edilip edilmeyeceğini bilmiyordu, bu yüzden cesur bir denemeydi."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "BookmarkMars Asistanı"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、Ekleme, silme ve düzenleme dahil güçlü yer imi yönetimi"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、Yerel ve uzak yer imlerinde güçlü arama"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、Yer imlerinin kaybolmasını önleyen güçlü senkronizasyon"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、Resmi siteyle entegre edilebilen güçlü dışa aktarma ve paylaşım"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、Geçersiz bağlantıları tespit eden güçlü bağlantı kontrolü"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "Yasak platform reklamı"
+    },
+    "search_context_menus_title": {
+        "message": "Yer imi arama"
+    },
+    "user_vip_type1": {
+        "message": "Kıdemli VIP"
+    },
+    "user_vip_type2": {
+        "message": "Ömür boyu VIP"
+    },
+    "user_vip_suggestion": {
+        "message": "VIP etkinleştirmek için tıklayın"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "VIP yenilemek için tıklayın"
+    },
+    "not_found_title": {
+        "message": "404 Bulunamadı"
+    },
+    "not_found_headline": {
+        "message": "BookmarkMars Asistanı bu sayfada kullanılamıyor"
+    },
+    "not_found_fallback_desc": {
+        "message": "Bu, tarayıcı kısıtlamalarından veya kara listedeki web içeriğinden kaynaklanıyor olabilir"
+    },
+    "more_link": {
+        "message": "Daha fazla..."
+    },
+    "friendly_suggestion": {
+        "message": "BookmarkMars Asistanı kişiselleştirme sayfası için izin vermeniz şiddetle önerilir"
+    },
+    "ucenter_not_login_desc": {
+        "message": "Giriş yapmadınız; kişisel bilgiler gösterilemiyor"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "Giriş yap"
+    },
+    "ucenter_motto_today": {
+        "message": "Haklısın, seni kim yanlış yaptı"
+    },
+    "ucenter_welcome": {
+        "message": "BookmarkMars Asistanına hoş geldiniz"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "Kayıt tarihi"
+    },
+    "ucenter_account_type": {
+        "message": "Hesap türü"
+    },
+    "ucenter_open_vip": {
+        "message": "VIP etkinleştirmek ve ayrıcalıklardan yararlanmak için tıklayın"
+    },
+    "ucenter_greeting": {
+        "message": "Merhaba, "
+    },
+    "ucenter_logout": {
+        "message": "Çıkış yap"
+    },
+    "network_error": {
+        "message": "Ağ hatası veya dahili sunucu hatası"
+    },
+    "not_login_notice": {
+        "message": "Giriş yap"
+    },
+    "backup_success_notice": {
+        "message": "Asistan: yer imleri otomatik olarak başarıyla senkronize edildi"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "Bulut kısayolları geri yüklendi"
+    },
+    "new_tab_title": {
+        "message": "BookmarkMars kişiselleştirme sayfası"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "Özel arama"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "Konuşma tanıma"
+    },
+    "new_tab_speech_search_error": {
+        "message": "Sesli arama desteklenmiyor"
+    },
+    "new_tab_search_placeholder": {
+        "message": "Bir şey yazın..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "Yer imleri"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "Aramayı yapılandır"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "Arama"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "Yer imleri"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "Geçmiş"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "Ad"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "Ana sayfa"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "Sorgu bağlantıları"
+    },
+    "new_tab_img_change_sug": {
+        "message": "Duvar kağıdını yalnızca VIP kullanıcılar değiştirebilir"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "Bu işlevi kullanmak için giriş yapmalısınız"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "Kısayolu düzenle"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "Konumu değiştirmek için sürükleyin"
+    },
+    "new_tab_setting": {
+        "message": "Ayarlar"
+    },
+    "new_tab_link_edit": {
+        "message": "Kısayolu düzenle"
+    },
+    "new_tab_bg_server_change": {
+        "message": "Duvar kağıdını değiştir"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "Duvar kağıdı yükle"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "Özel ekle"
+    },
+    "new_tab_navigation_title": {
+        "message": "Başlık"
+    },
+    "new_tab_navigation_url": {
+        "message": "Bağlantı"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "Ekle"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "Önce giriş yapın"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "Ad boş olamaz ve en fazla {1} karakter olmalıdır"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "Açıklama en fazla {1} karakter"
+    },
+    "collect_create_folder_first": {
+        "message": "Lütfen önce en az bir klasör oluşturun"
+    },
+    "collect_choose_folder_please": {
+        "message": "Lütfen bir klasör seçin"
+    },
+    "collect_successfully": {
+        "message": "Başarıyla kaydedildi"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "Günaydın — keşfetmeye hazır"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "Tünaydın — meraklı kalın"
+    },
+    "new_tab_greeting_evening": {
+        "message": "İyi akşamlar — önemli olanı bulun"
+    },
+    "new_tab_greeting_night": {
+        "message": "İyi geceler — odak modu"
+    }
+}

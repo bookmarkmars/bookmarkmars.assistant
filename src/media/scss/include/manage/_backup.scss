@@ -1,0 +1,31 @@
+body[data-type^='tool_backup'] {
+
+  > section#wrapper > main {
+
+    div.content-box {
+        
+        > .backup{
+          @extend %highlightButton;
+          margin-top: 15px;
+        }
+        
+        &.result{
+            
+            display: none;
+            
+            &.visible{
+                display: block;
+            }
+            
+            > div.stress{
+                color: $colorSuccess;
+                padding: 10px 0 5px 10px;
+                display: block;
+                font-weight: $__fontWeightSemiBold;
+            }
+        }
+        
+        @extend %titleHandler;
+    }
+  } 
+}

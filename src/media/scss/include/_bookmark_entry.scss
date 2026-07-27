@@ -1,0 +1,254 @@
+@mixin bookmarkEntry {
+  
+  display: flex;
+  align-items: center;
+  font-size: $__bookmarksFontSize;
+  line-height: $__bookmarksLineHeight;
+  padding: 0 $__bookmarksHorizontalPadding;
+  white-space: nowrap;
+  cursor: pointer;
+  color: $__textColor;
+  transition: background 0.3s, color 0.3s;
+
+  &.hover:not(.separator) {
+    background: $hoverColor;
+  }
+
+  &.drag-hover {
+    background: $hoverColor;
+  }
+
+  &.mark {
+    background: $__colorScheme;
+    color: $textColorInverted;
+  }
+
+  &.active {
+    font-weight: $__fontWeightMedium;
+  }
+
+  &.dir {
+    font-weight: $__fontWeightBold;
+  }
+
+  &.selected:not(.separator) {
+    background: $hoverColor;
+  }
+
+  &.separator {
+    height: $__bookmarksLineHeight;
+    cursor: default;
+
+    > span.label {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $separatorColor;
+      }
+
+      &[data-name]::before {
+        content: attr(data-name);
+        position: relative;
+        margin: 0 calc(#{$__bookmarksHorizontalPadding} + #{$__directoriesIconSize});
+        font-style: italic;
+        z-index: 2;
+        background: $__bodyColor;
+      }
+    }
+  }
+
+  > span.copied, span.dir-bare {
+    position: absolute;
+    top: -2px;
+    left: calc(#{$__bookmarksIconSize} + #{$__bookmarksHorizontalPadding} + 5px);
+    background: $colorSuccess;
+    color: $textColorInverted;
+    font-size: 80%;
+    font-weight: $__fontWeightBold;
+    line-height: normal;
+    padding: 3px 5px;
+    pointer-events: none;
+    border-radius:5px;
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index:3;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0;
+      border: 5px solid transparent;
+      border-top-color: $colorSuccess;
+    }
+  }
+
+  &.copied {
+    background: #867c7c1c !important;
+
+    > span.copied {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  &.dir-bare{
+     
+     > span.dir-bare {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  > img, > span.icon {
+    position: relative;
+    display: inline-block;
+    width: $__bookmarksIconSize;
+    height: $__bookmarksIconSize;
+    margin: 0 $__bookmarksHorizontalPadding 0 0;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  > div.checkbox {
+    margin: 0 $__bookmarksHorizontalPadding 0 0;
+    flex-shrink: 0;
+    display: none;
+  }
+
+  > img {
+    visibility: hidden;
+
+    &[src] {
+      visibility: visible;
+    }
+  }
+
+  &.dir {
+
+    > span.icon {
+      @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, $__directoriesIconSize);
+      width: $__directoriesIconSize;
+      height: $__directoriesIconSize;
+      
+      &.star{
+         @include mask('icon-star', $__bookmarksDirColor, $__directoriesIconSize);
+      }
+    }
+
+    &.has-arrow {
+      padding-left: 15px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        width: 0;
+        height: 0;
+        margin: auto;
+        border: 4px solid transparent;
+        border-left-color: $__textColor;
+        opacity: 0.6;
+        transform-origin: 25% 50%;
+        transition: transform 0.3s;
+      }
+
+      &.opened:not(.animated), &.animated:not(.opened) {
+
+        &::before {
+          transform: rotateZ(90deg);
+        }
+      }
+    }
+  }
+
+  > span.label {
+    position: relative;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    pointer-events: none;
+
+    &::after {
+      content: "\200B"; // maintain height even with empty label
+    }
+
+    &[data-num]::after { // for appearance preview
+      content: " " attr(data-num);
+    }
+  }
+
+  > span.drag, > span.add, > span.edit, > span.refresh {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: $__bookmarksLineHeight;
+    height: $__bookmarksLineHeight;
+    max-width: 24px;
+    max-height: 22px;
+    border-radius:2px;
+    background: transparent;
+    transition: background-color 0.5s, opacity 0.5s;
+    @extend %hidden;
+
+    &::before {
+      transition: inherit;
+    }
+
+    &:hover {
+      
+      background-color: #aba5a561;
+      border-radius: 5px;
+
+      &::before {
+        background-color: $reorderIconColorActive;
+      }
+    }
+  }
+  
+  > span.drag {
+    right: 15px;
+    cursor: grab;
+    @include mask('icon-drag', $reorderIconColorActive, calc(#{$__bookmarksLineHeight} * 0.4));
+  }
+  
+  > span.edit {
+    right: 40px;
+    cursor:pointer;
+    @include mask('icon-operate', $reorderIconColorActive, calc(#{$__bookmarksLineHeight} * 0.4));
+  }
+
+  > span.add {
+    right: 70px;
+    cursor:pointer;
+    @include mask('icon-add', $reorderIconColorActive, calc(#{$__bookmarksLineHeight} * 0.4));
+  }
+  
+  > span.refresh {
+      right: 15px;
+      cursor:pointer;
+      @include mask('icon-refresh', #c9c7c2, calc(#{$__bookmarksLineHeight} * 0.4));
+      @extend %visible;
+  }
+
+  &:hover {
+
+    > span.drag, > span.add, > span.edit {
+      @extend %visible;
+    }
+  }
+}

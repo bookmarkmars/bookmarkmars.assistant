@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "书签火星助手"
+    },
+    "extension_short_name": {
+        "message": "书签助手"
+    },
+    "extension_version": {
+        "message": "版本V"
+    },
+    "extension_new_version": {
+        "message": "新版本V"
+    },
+    "extension_need_upgrade": {
+        "message": "有新版"
+    },
+    "extension_upgrade_address": {
+        "message": "更新地址"
+    },
+    "extension_upgrade": {
+        "message": "新"
+    },
+    "extension_official_web": {
+        "message": "书签火星"
+    },
+    "extension_privacy": {
+        "message": "隐私条款"
+    },
+    "extension_ball_reset": {
+        "message": "召唤球复位"
+    },
+    "extension_ball_not_open": {
+        "message": "召唤球未打开，请前往设置打开"
+    },
+    "extension_desc": {
+        "message": "多功能浏览器书签管理工具，包含浏览器书签本地和远程搜索、书签手动和自动同步、书签导出和导入、管理界面设置，书签增删改、新标签页美化等各种功能"
+    },
+    "extension_last_update": {
+        "message": "最后更新于 {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "暂时影藏召唤球"
+    },
+    "header_bookmarks": {
+        "message": "书签"
+    },
+    "header_toolbox_official": {
+        "message": "官网"
+    },
+    "header_toolbox_ucenter": {
+        "message": "我的"
+    },
+    "header_toolbox_tool": {
+        "message": "工具"
+    },
+    "header_toolbox_setting": {
+        "message": "设置"
+    },
+    "header_search_box_local": {
+        "message": "本地"
+    },
+    "header_search_box_server": {
+        "message": "远程"
+    },
+    "header_search_box_remote_search": {
+        "message": "搜索远程"
+    },
+    "sidebar_search_placeholder": {
+        "message": "搜本地共{1}书签"
+    },
+    "sidebar_search_no_results": {
+        "message": "空空如野"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "链接已复制"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "空文件夹"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "经常使用({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "编辑"
+    },
+    "sidebar_opreate_drag": {
+        "message": "移动"
+    },
+    "sidebar_opreate_add": {
+        "message": "添加"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "刷新"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "没有书签"
+    },
+    "sidebar_filter": {
+        "message": "过滤"
+    },
+    "sidebar_filter_default": {
+        "message": "默认"
+    },
+    "sidebar_filter_create": {
+        "message": "创建时间"
+    },
+    "sidebar_filter_used": {
+        "message": "最后访问"
+    },
+    "sidebar_filter_frequency": {
+        "message": "访问频率"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "降序"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "升序"
+    },
+    "sidebar_filter_order_default": {
+        "message": "默认"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "编辑书签"
+    },
+    "contextmenu_edit_dir": {
+        "message": "编辑目录"
+    },
+    "contextmenu_edit_separator": {
+        "message": "编辑分隔符"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "删除书签"
+    },
+    "contextmenu_delete_dir": {
+        "message": "删除目录"
+    },
+    "contextmenu_delete_separator": {
+        "message": "删除分隔符"
+    },
+    "contextmenu_copy": {
+        "message": "复制链接"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "添加书签"
+    },
+    "contextmenu_add_pin": {
+        "message": "加入常用"
+    },
+    "contextmenu_add_unpin": {
+        "message": "取消常用"
+    },
+    "contextmenu_add": {
+        "message": "添加{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "打开书签火星助手"
+    },
+    "contextmenu_close_helper": {
+        "message": "关闭书签火星助手"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "开合助手"
+    },
+    "contextmenu_add_website": {
+        "message": "收藏页面"
+    },
+    "contextmenu_add_folder": {
+        "message": "添加收藏夹"
+    },
+    "contextmenu_edit_folder": {
+        "message": "编辑收藏夹"
+    },
+    "overlay_bookmark_title": {
+        "message": "标题"
+    },
+    "overlay_bookmark_url": {
+        "message": "链接"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "其他信息"
+    },
+    "overlay_cancel": {
+        "message": "取消"
+    },
+    "overlay_close": {
+        "message": "关闭"
+    },
+    "overlay_save": {
+        "message": "保存"
+    },
+    "overlay_delete": {
+        "message": "删除"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "您是否真的要打开所有{1}书签，包括所选文件夹的子文件夹书签？"
+    },
+    "overlay_open_children": {
+        "message": "打开全部"
+    },
+    "overlay_confirm_open_children": {
+        "message": "您真的要打开所有 {1} 个子文件夹书签吗？"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "从侧边栏隐藏"
+    },
+    "overlay_label_bookmark": {
+        "message": "书签"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*请知晓：部分链接可能为我们带来佣"
+    },
+    "overlay_label_dir": {
+        "message": "目录"
+    },
+    "overlay_label_separator": {
+        "message": "分隔符"
+    },
+    "overlay_add_position": {
+        "message": "位置"
+    },
+    "overlay_add_position_prepend": {
+        "message": "插入最前面"
+    },
+    "overlay_add_position_append": {
+        "message": "插入最后面"
+    },
+    "overlay_delete_selected": {
+        "message": "删除所选条目"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "是否确实要删除所选条目？选定文件夹的所有子文件夹书签也将被删除。"
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "{1}浏览器仅支持只读模式，您可按Ctrl+D收藏"
+    },
+    "overlay_collect": {
+        "message": "收藏"
+    },
+    "overlay_collect_title": {
+        "message": "页面标题"
+    },
+    "overlay_collect_url": {
+        "message": "链接"
+    },
+    "overlay_collect_folder": {
+        "message": "选择收藏夹"
+    },
+    "overlay_add_collect_folder": {
+        "message": "添加收藏夹"
+    },
+    "overlay_collect_confirm": {
+        "message": "确定"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "编辑"
+    },
+    "overlay_collect_folder_title": {
+        "message": "收藏夹名称"
+    },
+    "overlay_collect_folder_description": {
+        "message": "收藏夹描述"
+    },
+    "overlay_collect_folder_public": {
+        "message": "公开(所有人可见)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "私有(仅自己可见)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "完成"
+    },
+    "overlay_add_folder_return": {
+        "message": "返回"
+    },
+    "onboarding_title": {
+        "message": "选择召唤球"
+    },
+    "onboarding_declaration": {
+        "message": "*申明：本扩展程序包含联属营销链接，点击这些链接可能为我们带来佣金"
+    },
+    "onboarding_headline": {
+        "message": "欢迎使用书签火星助手"
+    },
+    "onboarding_config_size": {
+        "message": "配置召唤球大小"
+    },
+    "onboarding_auth_newtab": {
+        "message": "授权美化页"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "建议授权，新标签更加美丽"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "不授权"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "授权"
+    },
+    "onboarding_auth_or": {
+        "message": "或"
+    },
+    "onboarding_size_tip": {
+        "message": "选择召唤球大小"
+    },
+    "onboarding_finished": {
+        "message": "开始体验"
+    },
+    "onboarding_moon": {
+        "message": "神奇月光"
+    },
+    "onboarding_water": {
+        "message": "水波微澜"
+    },
+    "onboarding_sun": {
+        "message": "晨时日光"
+    },
+    "onboarding_desc": {
+        "message": "您即将配置召唤方式"
+    },
+    "onboarding_left_side_panel": {
+        "message": "鼠标放在浏览器左侧召唤"
+    },
+    "onboarding_noneed_permission": {
+        "message": "该浏览器支持自动授权，请对美化页「保持现状」"
+    },
+    "manage_title": {
+        "message": "管理"
+    },
+    "manage_beforeunload_desc": {
+        "message": "您有未保存的内容，确定要离开吗？"
+    },
+    "manage_menu_setting": {
+        "message": "设置"
+    },
+    "manage_need_login": {
+        "message": "该功能需要登录使用，点我登录"
+    },
+    "manage_menu_tool": {
+        "message": "工具"
+    },
+    "manage_menu_ucenter": {
+        "message": "我的"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "基本信息"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "插件中心"
+    },
+    "manage_menu_about": {
+        "message": "关于"
+    },
+    "manage_menu_about_intro": {
+        "message": "简介"
+    },
+    "manage_menu_about_privacy": {
+        "message": "隐私"
+    },
+    "manage_menu_setting_ball": {
+        "message": "打开"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "小球{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "选择一个您喜欢的召唤球风格吧"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "中球{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "大球{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "我们建议您将召唤球设置到60px以下，拖拽到网页的角落，这样做是为了避免访问网页时发生触碰"
+    },
+    "manage_menu_setting_function": {
+        "message": "功能"
+    },
+    "manage_menu_tool_backup": {
+        "message": "数据同步"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、功能简洁"
+    },
+    "manage_tool_backup_desc": {
+        "message": "书签同步功能会将您的书签同步到我方服务器，我们不会对其做任何修改或者公开，请务必知晓"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "权益：非VIP会员每{1}天可以同步{2}次，最多保留{3}份最新副本，VIP会员不限次数，可保留{4}个副本"
+    },
+    "manage_tool_backup_right": {
+        "message": "权益说明"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、功能授权"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、手动同步书签"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "点我同步"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、自动同步书签"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、同步结果"
+    },
+    "manage_tool_backup_fail": {
+        "message": "失败"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "该功能仅VIP会员可使用"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "检测到您没有登录，请先登录"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "自动同步需要功能授权"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "书签火星助手：您没有开启书签的自动同步，为了安全建议开启！"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "自动同步仅支持{1}条以下的书签同步，请手动同步"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "需要您功能授权才可做此操作"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "导出书签中"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "上传书签中"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "最大可同步{1}M的书签"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "同步书签成功"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "同步书签失败"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "链接检查"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "导入导出"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "信息"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "我的书签"
+    },
+    "manage_setting_ball_style": {
+        "message": "召唤球样式"
+    },
+    "manage_setting_ball_size": {
+        "message": "召唤球大小"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "选择打开方式"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "所有方式"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "召唤球打开"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "召唤面板打开"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "您可以在这里设置使用那种方式打开助手，我们建议您都开启"
+    },
+    "manage_setting_panel_width": {
+        "message": "召唤面板宽度设置"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "您可以在这里选择一个适合您的召唤面板宽度，以方便您打开助手"
+    },
+    "manage_setting_style": {
+        "message": "样式"
+    },
+    "manage_setting_style_default": {
+        "message": "默认"
+    },
+    "manage_setting_style_classcial": {
+        "message": "古典"
+    },
+    "manage_setting_style_young": {
+        "message": "清新"
+    },
+    "manage_setting_style_happy": {
+        "message": "喜庆"
+    },
+    "manage_setting_linkaction": {
+        "message": "书签打开"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "当前页面"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "新标签页"
+    },
+    "manage_setting_font_family": {
+        "message": "字体设置"
+    },
+    "manage_setting_font_family_default": {
+        "message": "默认"
+    },
+    "manage_save": {
+        "message": "保存修改"
+    },
+    "manage_saved_message": {
+        "message": "更改保存成功"
+    },
+    "manage_recovery": {
+        "message": "恢复默认"
+    },
+    "manage_restore_confirm": {
+        "message": "确认恢复默认配置吗？"
+    },
+    "manage_restored_message": {
+        "message": "配置恢复成功"
+    },
+    "manage_tool_iexport_all": {
+        "message": "全选"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "反选"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "您的书签超过{1}条，将只展示目录，并可能影响操作速度"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "刷新书签树"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "导入书签"
+    },
+    "manage_tool_export": {
+        "message": "导出书签"
+    },
+    "manage_check_powerful": {
+        "message": "万能检查"
+    },
+    "manage_check_powerful_desc": {
+        "message": "浏览书签火星网页版时，助手会帮你提前检查所有失效链接，避免点击无效内容，系统已做了优化，不会有太大的性能和带宽消耗"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "我的所有书签文件夹"
+    },
+    "manage_check_directions": {
+        "message": "点击文件夹检测"
+    },
+    "manage_check_modal_name": {
+        "message": "检测-{1}/参考结果"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "重定向"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "失效"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "重复"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "空目录"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "共检测{1}条书签"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "更新已选"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "清除已选"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "空空如野"
+    },
+    "manage_tool_backup_name": {
+        "message": "书签火星助手同步"
+    },
+    "manage_setting_newtab": {
+        "message": "美化页（建议授权）"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "授权"
+    },
+    "manage_setting_newtab_no": {
+        "message": "不授权"
+    },
+    "manage_switch_close_tag": {
+        "message": "关闭"
+    },
+    "manage_switch_open_tag": {
+        "message": "开启"
+    },
+    "manage_setting_language": {
+        "message": "语言"
+    },
+    "manage_language_default": {
+        "message": "跟随浏览器"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}、云备份访问轨迹"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "您必须对该功能有充分认知，打开以后将云备份您的访问轨迹，这个数据不会对外公布，是否允许请自我抉择"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "关于书签火星"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "书签火星的灵感来自知乎，是设计者在浏览一篇资源相关的帖子的时候看到有朋友把自己的浏览器书签分享出来，进而联想到做一个浏览器书签分享 的平台。浏览器书签一般整理了每个人觉得有用的网站，通常情况下会分门别类的整理好，如果按照这个推理来讲，自己的书签也极大可能对别人也有用。 设计者也不知道会不会为大家所接受，算是大胆尝试。"
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "书签火星助手"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、强大的书签管理功能，包括书签的增删改"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、强大的查询功能，可查询本地和远程书签"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、强大的书签同步功能，可以让您的书签不丢失"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、强大的书签导出分享功能，该功能可结合网站使用"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、强大的链接检查功能，提早为您辨别无效链接"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "已禁网络平台公示"
+    },
+    "search_context_menus_title": {
+        "message": "书签搜索"
+    },
+    "user_vip_type1": {
+        "message": "高级VIP"
+    },
+    "user_vip_type2": {
+        "message": "超级终生VIP"
+    },
+    "user_vip_suggestion": {
+        "message": "点我开通VIP会员"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "点我续费VIP会员"
+    },
+    "not_found_title": {
+        "message": "404 Not Found"
+    },
+    "not_found_headline": {
+        "message": "书签火星在该页面没法使用"
+    },
+    "not_found_fallback_desc": {
+        "message": "这可能是由于浏览器本生的权限限制或者部分网页内容被加入黑名单所致"
+    },
+    "more_link": {
+        "message": "点我了解更多"
+    },
+    "friendly_suggestion": {
+        "message": "强烈建议您点击授权书签火星美化页"
+    },
+    "ucenter_not_login_desc": {
+        "message": "您还没有登录，没法展示个人信息哦"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "点我登录吧"
+    },
+    "ucenter_motto_today": {
+        "message": "你说的都对，谁让你是错的呢"
+    },
+    "ucenter_welcome": {
+        "message": "欢迎来到书签火星助手"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "注册时长"
+    },
+    "ucenter_account_type": {
+        "message": "账号类型"
+    },
+    "ucenter_open_vip": {
+        "message": "点我开通VIP，享受特权"
+    },
+    "ucenter_greeting": {
+        "message": "Hi，"
+    },
+    "ucenter_logout": {
+        "message": "退出登录"
+    },
+    "network_error": {
+        "message": "网络不通或者服务器故障"
+    },
+    "not_login_notice": {
+        "message": "未登录"
+    },
+    "backup_success_notice": {
+        "message": "助手：书签自动同步成功"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "已从云端恢复快捷方式"
+    },
+    "new_tab_title": {
+        "message": "书签火星新标签页"
+    },
+    "new_tab_greeting_morning": {
+        "message": "早上好，开启新的一天"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "下午好，保持专注"
+    },
+    "new_tab_greeting_evening": {
+        "message": "晚上好，找到重要的事"
+    },
+    "new_tab_greeting_night": {
+        "message": "夜深了，静心浏览"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "自定义搜索"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "语音识别中"
+    },
+    "new_tab_speech_search_error": {
+        "message": "不支持语音搜索"
+    },
+    "new_tab_search_placeholder": {
+        "message": "搜点什么呗"
+    },
+    "new_tab_bookmark_manage": {
+        "message": "书签管理"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "搜索配置"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "搜索提示"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "书签提示"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "历史提示"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "名称"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "主页"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "查询链接"
+    },
+    "new_tab_img_change_sug": {
+        "message": "仅VIP用户可切换墙纸"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "该功能需要登录后使用"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "快捷方式编辑"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "拖拽可交换顺序"
+    },
+    "new_tab_setting": {
+        "message": "设置"
+    },
+    "new_tab_link_edit": {
+        "message": "编辑快捷方式"
+    },
+    "new_tab_bg_server_change": {
+        "message": "切换背景"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "上传背景"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "自定义添加"
+    },
+    "new_tab_navigation_title": {
+        "message": "名称"
+    },
+    "new_tab_navigation_url": {
+        "message": "链接"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "添加"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "请先登录再使用"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "名称不为空且最多{1}个字符"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "描述最多{1}个字符"
+    },
+    "collect_create_folder_first": {
+        "message": "请先至少创建一个收藏夹"
+    },
+    "collect_choose_folder_please": {
+        "message": "请选择一个收藏夹"
+    },
+    "collect_successfully": {
+        "message": "收藏成功"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    }
+}

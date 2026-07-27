@@ -1,0 +1,235 @@
+
+form#search {
+  position: relative;
+  z-index: 20; // above shortcut grid so suggest panel covers tiles
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: $newTabSearchWidth;
+  padding: 0;
+  height: $newTabSearchHeight;
+
+  &.hidden {
+    display: none;
+  }
+
+  > div.engine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    z-index: 3;
+    margin: auto;
+    outline: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2px 0 8px;
+    height: calc(#{$newTabSearchHeight} - 12px);
+    transition: background 0.2s ease;
+    pointer-events: auto;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    > img {
+      width: 18px;
+      height: 18px;
+      border-radius: 3px;
+      pointer-events: none;
+    }
+
+    > span.angle {
+      display: block;
+      position: relative;
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      pointer-events: none;
+      @include mask('icon-angle-down', rgba(255, 255, 255, 0.8), 14px);
+    }
+
+    > span.angle::before {
+      left: 0;
+    }
+  }
+
+  > input[type='text'] {
+    width: 100%;
+    height: 100%;
+    border-radius: $newTabSearchHeight / 2;
+    padding: 0 52px 0 78px;
+    border: 1px solid $newTabGlassBorder;
+    outline: none;
+    font-size: 112%;
+    letter-spacing: 0.01em;
+    color: #fff;
+    background: $newTabGlass;
+    backdrop-filter: blur(20px) saturate(1.25);
+    -webkit-backdrop-filter: blur(20px) saturate(1.25);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+    &:focus {
+      border-color: rgba(224, 122, 61, 0.55);
+      box-shadow:
+        0 14px 44px rgba(0, 0, 0, 0.32),
+        0 0 0 3px rgba(224, 122, 61, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      background: rgba(18, 16, 20, 0.55);
+    }
+
+    &::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.45);
+      opacity: 1;
+    }
+
+    &::-moz-placeholder {
+      color: rgba(255, 255, 255, 0.45);
+      opacity: 1;
+    }
+  }
+
+  > button, > a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+      background: rgba(224, 122, 61, 0.22);
+      transform: scale(1.04);
+    }
+  }
+
+  > button[type="submit"] {
+    @include mask('icon-search', #fff, 22px);
+    right: 10px;
+    width: calc(#{$newTabSearchHeight} - 14px);
+    height: calc(#{$newTabSearchHeight} - 14px);
+  }
+
+  > ul.suggestions {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc(100% + 10px);
+    padding: 8px;
+    pointer-events: none;
+    z-index: 30;
+    border-radius: 18px;
+    // Near-opaque — glass alone lets shortcut icons bleed through
+    background: rgba(22, 18, 24, 0.97);
+    border: 1px solid $newTabGlassBorder;
+    backdrop-filter: blur(22px) saturate(1.2);
+    -webkit-backdrop-filter: blur(22px) saturate(1.2);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+
+    > li {
+      @include mask(null, rgba(255, 255, 255, 0.7), 16px);
+      position: relative;
+      background: transparent;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      pointer-events: auto;
+      font-size: 105%;
+      color: rgba(255, 255, 255, 0.92);
+      padding: 10px 12px 10px 36px;
+      border-radius: 12px;
+      transition: background 0.12s ease;
+
+      > div.thumbnail {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+        overflow: hidden;
+        display: inline-block;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 4px;
+        vertical-align: middle;
+      }
+
+      &::after {
+        content: none;
+      }
+
+      > span {
+        display: block;
+        margin: 3px 0 0 0;
+        font-size: 72%;
+        color: rgba(255, 255, 255, 0.45);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &.active {
+        cursor: pointer;
+        background: rgba(224, 122, 61, 0.22) !important;
+      }
+
+      &::before {
+        width: 16px;
+        height: 16px;
+        left: 10px;
+        top: 12px;
+      }
+
+      &[data-type='bookmark']::before {
+        @include maskImage('icon-bookmark');
+      }
+
+      &[data-type='history']::before {
+        @include maskImage('icon-history');
+        -webkit-mask-size: 18px;
+      }
+
+      &[data-type='word']::before {
+        @include maskImage('icon-search');
+      }
+    }
+  }
+
+  &.listening {
+    > input[type='text'] {
+      pointer-events: none;
+      font-style: italic;
+      color: transparent;
+      text-shadow: 0 0 0 gray;
+    }
+
+    > a.speech-search {
+      @include mask('icon-close', $textColorLight, 20px);
+      right: 20px;
+    }
+
+    > ul.suggestions, > button[type="submit"] {
+      display: none;
+    }
+  }
+}
+
+body.my-bg form#search {
+  > input[type='text'] {
+    background: $newTabGlass;
+  }
+
+  > button[type="submit"]::before, > a.speech-search::before {
+    background-color: #fff;
+  }
+}

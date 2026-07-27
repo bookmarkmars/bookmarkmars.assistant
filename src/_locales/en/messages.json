@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "BookmarkMars Assistant"
+    },
+    "extension_short_name": {
+        "message": "BM Assistant"
+    },
+    "extension_version": {
+        "message": "Version"
+    },
+    "extension_new_version": {
+        "message": "New Version"
+    },
+    "extension_need_upgrade": {
+        "message": "New"
+    },
+    "extension_upgrade_address": {
+        "message": "Upgrade Address"
+    },
+    "extension_upgrade": {
+        "message": "New"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "Privacy"
+    },
+    "extension_ball_reset": {
+        "message": "Magical ball reset"
+    },
+    "extension_ball_not_open": {
+        "message": "Magical ball is not turned on, please go to settings to turn it on"
+    },
+    "extension_desc": {
+        "message": "Bookmark synchronization, bookmark export and import, management interface settings, bookmark addition, deletion and modification"
+    },
+    "extension_last_update": {
+        "message": "Latest update at {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "Temporarily hide magical ball"
+    },
+    "header_bookmarks": {
+        "message": "Bookmark"
+    },
+    "header_toolbox_official": {
+        "message": "Official"
+    },
+    "header_toolbox_ucenter": {
+        "message": "Me"
+    },
+    "header_toolbox_tool": {
+        "message": "Tool"
+    },
+    "header_toolbox_setting": {
+        "message": "Setting"
+    },
+    "header_search_box_local": {
+        "message": "Local"
+    },
+    "header_search_box_server": {
+        "message": "Remote"
+    },
+    "header_search_box_remote_search": {
+        "message": "Search remote"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Search local {1} ​​bookmarks"
+    },
+    "sidebar_search_no_results": {
+        "message": "No result"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "copied"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "Bare folder"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "Frequently use({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "Edit"
+    },
+    "sidebar_opreate_drag": {
+        "message": "Move"
+    },
+    "sidebar_opreate_add": {
+        "message": "Add"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "Refresh"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "No bookmarks"
+    },
+    "sidebar_filter": {
+        "message": "Filter"
+    },
+    "sidebar_filter_default": {
+        "message": "Default"
+    },
+    "sidebar_filter_create": {
+        "message": "Created time"
+    },
+    "sidebar_filter_used": {
+        "message": "Last visit"
+    },
+    "sidebar_filter_frequency": {
+        "message": "Visit Frequency"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "Desc"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "Asc"
+    },
+    "sidebar_filter_order_default": {
+        "message": "Default"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Edit bookmark"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Edit Folder"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Edit seperator"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Delete bookmark"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Delete folder"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Delete seperator"
+    },
+    "contextmenu_copy": {
+        "message": "Copy link"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Add bookmark"
+    },
+    "contextmenu_add_pin": {
+        "message": "Add pin"
+    },
+    "contextmenu_add_unpin": {
+        "message": "Cancel pin"
+    },
+    "contextmenu_add": {
+        "message": "Add{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "Open BookmarkMars Assistant"
+    },
+    "contextmenu_close_helper": {
+        "message": "Close BookmarkMars Assistant"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "Toggle BookmarkMars Assistant"
+    },
+    "contextmenu_add_website": {
+        "message": "Collect page"
+    },
+    "contextmenu_add_folder": {
+        "message": "Add folder"
+    },
+    "contextmenu_edit_folder": {
+        "message": "Edit folder"
+    },
+    "overlay_bookmark_title": {
+        "message": "Title"
+    },
+    "overlay_bookmark_url": {
+        "message": "Link"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Other info"
+    },
+    "overlay_cancel": {
+        "message": "Cancel"
+    },
+    "overlay_close": {
+        "message": "Close"
+    },
+    "overlay_save": {
+        "message": "Save"
+    },
+    "overlay_delete": {
+        "message": "Delete"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Do you really want to open all {1} ​​bookmarks, including subfolder bookmarks of the selected folder?"
+    },
+    "overlay_open_children": {
+        "message": "Open all"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Do you really want to open all {1} ​​subfolder bookmarks?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Hide from helper"
+    },
+    "overlay_label_bookmark": {
+        "message": "Bookmark"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*Please be aware: Some links may earn us a commission"
+    },
+    "overlay_label_dir": {
+        "message": "Folder"
+    },
+    "overlay_label_separator": {
+        "message": "Seperator"
+    },
+    "overlay_add_position": {
+        "message": "Position"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Insert ahead"
+    },
+    "overlay_add_position_append": {
+        "message": "Insert after"
+    },
+    "overlay_delete_selected": {
+        "message": "Delete all"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Are you sure you want to delete the selected entries? All subfolder bookmarks of the selected folder will also be deleted."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "{1} browser only supports read-only mode. You can press Ctrl+D to bookmark."
+    },
+    "overlay_collect": {
+        "message": "Collect"
+    },
+    "overlay_collect_title": {
+        "message": "Page title"
+    },
+    "overlay_collect_url": {
+        "message": "Url"
+    },
+    "overlay_collect_folder": {
+        "message": "Choose folder"
+    },
+    "overlay_add_collect_folder": {
+        "message": "Add folder"
+    },
+    "overlay_collect_confirm": {
+        "message": "Confirm"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "Edit"
+    },
+    "overlay_collect_folder_title": {
+        "message": "Folder name"
+    },
+    "overlay_collect_folder_description": {
+        "message": "Folder description"
+    },
+    "overlay_collect_folder_public": {
+        "message": "Public (visible to all)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "Private (only visible to you)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "Finish"
+    },
+    "overlay_add_folder_return": {
+        "message": "Back"
+    },
+    "onboarding_title": {
+        "message": "Choose magical ball"
+    },
+    "onboarding_declaration": {
+        "message": "*Disclaimer: This extension contains affiliate links, and clicking on these links may earn us a commission"
+    },
+    "onboarding_headline": {
+        "message": "Welcome to use BookmarkMars Assistant"
+    },
+    "onboarding_config_size": {
+        "message": "Configure magical ball size"
+    },
+    "onboarding_auth_newtab": {
+        "message": "Grant permission for beautification page"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "Permission allow is recommended, the new tab is more beautiful"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "Ignore"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "Grant"
+    },
+    "onboarding_auth_or": {
+        "message": "Or"
+    },
+    "onboarding_size_tip": {
+        "message": "Choose magical ball size"
+    },
+    "onboarding_finished": {
+        "message": "Enjoy it"
+    },
+    "onboarding_moon": {
+        "message": "Moonlight"
+    },
+    "onboarding_water": {
+        "message": "Slight waves"
+    },
+    "onboarding_sun": {
+        "message": "Morning sun"
+    },
+    "onboarding_desc": {
+        "message": "You will configure open method"
+    },
+    "onboarding_left_side_panel": {
+        "message": "Place the mouse on the left side of the browser to summon"
+    },
+    "onboarding_noneed_permission": {
+        "message": "Automatic authorization is supported by the browser. Please \"Keep changes\" for the beautification page."
+    },
+    "manage_title": {
+        "message": "manage"
+    },
+    "manage_beforeunload_desc": {
+        "message": "You have unsaved content, are you sure you want to leave?"
+    },
+    "manage_menu_setting": {
+        "message": "settings"
+    },
+    "manage_need_login": {
+        "message": "Need to login firstly to use this function"
+    },
+    "manage_menu_tool": {
+        "message": "Tool"
+    },
+    "manage_menu_ucenter": {
+        "message": "Me"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "Basic information"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "Plugin center"
+    },
+    "manage_menu_about": {
+        "message": "About"
+    },
+    "manage_menu_about_intro": {
+        "message": "Introduction"
+    },
+    "manage_menu_about_privacy": {
+        "message": "Privacy"
+    },
+    "manage_menu_setting_ball": {
+        "message": "Open"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "Small{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "Choose a magical ball style you like"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "Medium{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "Large{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "We recommend that you set the magical ball below 60px and drag it to the corner of the webpage, this is to avoid touching when visiting the webpage"
+    },
+    "manage_menu_setting_function": {
+        "message": "Function"
+    },
+    "manage_menu_tool_backup": {
+        "message": "Synchronization"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、Function introduction"
+    },
+    "manage_tool_backup_desc": {
+        "message": "The bookmark synchronization function will synchronize your bookmarks to our server, and we will not modify or disclose them in any way, please be aware"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "Benefits: Non-VIP members can synchronize {2} times every {1} day, and keep {3} latest copies at most; VIP members have unlimited times, and can keep {4} copies"
+    },
+    "manage_tool_backup_right": {
+        "message": "Benefits"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、Request permission"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、Manual sync bookmarks"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "Click me to sync"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、Auto sync bookmarks"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、Sync results"
+    },
+    "manage_tool_backup_fail": {
+        "message": "Fail"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "This feature is only available to VIP members"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "It is detected that you are not logged in, please log in first"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "Automatic synchronization requires authorize firstly"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "BookmarkMars Assistant: You have not enabled automatic synchronization of bookmarks, it is recommended to enable it for security!"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "Automatic synchronization only supports the synchronization of bookmarks below {1}, please synchronize manually"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "This operation requires your authorize"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "Exporting"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "Uploading"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "The maximum size of bookmarks can be synchronized is {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "Synchronized bookmarks successfully"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "Failed to sync bookmarks"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "Link check"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "Ex(Im)port"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "Information"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "My bookmarks"
+    },
+    "manage_setting_ball_style": {
+        "message": "Magical ball style"
+    },
+    "manage_setting_ball_size": {
+        "message": "Magical ball size"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "Choose how to open"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "Open all"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "By the magical ball"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "By the magical panel"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "You can set which method to use to open the helper here. We recommend that you enable both."
+    },
+    "manage_setting_panel_width": {
+        "message": "Magical panel width setting"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "You can choose a magical panel width that suits you here to facilitate you to open the helper"
+    },
+    "manage_setting_style": {
+        "message": "Style"
+    },
+    "manage_setting_style_default": {
+        "message": "Default"
+    },
+    "manage_setting_style_classcial": {
+        "message": "Classical"
+    },
+    "manage_setting_style_young": {
+        "message": "Young"
+    },
+    "manage_setting_style_happy": {
+        "message": "Happy"
+    },
+    "manage_setting_linkaction": {
+        "message": "Link open"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "Current tab"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "New tab"
+    },
+    "manage_setting_font_family": {
+        "message": "Font setting"
+    },
+    "manage_setting_font_family_default": {
+        "message": "Default"
+    },
+    "manage_save": {
+        "message": "Save changes"
+    },
+    "manage_saved_message": {
+        "message": "Change saved successfully"
+    },
+    "manage_recovery": {
+        "message": "Recovery default"
+    },
+    "manage_restore_confirm": {
+        "message": "Are you sure to restore the default configuration?"
+    },
+    "manage_restored_message": {
+        "message": "Configuration restored successfully"
+    },
+    "manage_tool_iexport_all": {
+        "message": "Select all"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "Deselect all"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "You have more than {1} bookmarks, only the directory will be displayed, and the operation speed may be affected"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "Refresh"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "Import"
+    },
+    "manage_tool_export": {
+        "message": "Export"
+    },
+    "manage_check_powerful": {
+        "message": "Powerful check"
+    },
+    "manage_check_powerful_desc": {
+        "message": "When browsing the BookmarkMars web version, the helper will help you check all invalid links in advance to avoid clicking on invalid content. The system has been optimized and will not consume too much performance and bandwidth"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "All my folders"
+    },
+    "manage_check_directions": {
+        "message": "Click on the folder to test"
+    },
+    "manage_check_modal_name": {
+        "message": "Check-{1}/Reference results"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "Redirect"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "Broken"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "Duplicate"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "Bare"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "Total {1} bookmarks were detected"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "Update selected"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "Remove choose"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "No result"
+    },
+    "manage_tool_backup_name": {
+        "message": "BookmarkMars Assistant Synchronization"
+    },
+    "manage_setting_newtab": {
+        "message": "Beautify page (recommended to grant authorization)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "Authorized"
+    },
+    "manage_setting_newtab_no": {
+        "message": "Not authorized"
+    },
+    "manage_switch_close_tag": {
+        "message": "Off"
+    },
+    "manage_switch_open_tag": {
+        "message": "On"
+    },
+    "manage_setting_language": {
+        "message": "Language"
+    },
+    "manage_language_default": {
+        "message": "Follow browser"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, Cloud backup access track"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "You must have a full understanding of this function. After opening, your access track will be backed up in the cloud. This data will not be released to the public. Please decide whether to allow it"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "About BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars was inspired by Zhihu. When the designer saw a resource-related post, he saw a friend share his browser bookmark, and then thought of building a browser bookmark sharing platform. Browser bookmarks generally organize the websites that everyone finds useful, and usually organize them into categories. According to this reasoning, your own bookmarks are also likely to be useful to others. The designer doesn't know whether it will be accepted by everyone, so it is a bold attempt."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "BookmarkMars Assistant"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、Powerful bookmark management function, including addition, deletion and modification of bookmarks"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、Powerful query function to query local and remote bookmarks"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、Powerful bookmark synchronization function, which can keep your bookmarks from being lost"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、Powerful bookmark export and sharing function, which can be used in conjunction with official website"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、Powerful link checking function to identify invalid links for you in advance"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "Prohibited network platform publicity"
+    },
+    "search_context_menus_title": {
+        "message": "Bookmarks search"
+    },
+    "user_vip_type1": {
+        "message": "Senior VIP"
+    },
+    "user_vip_type2": {
+        "message": "Super lifetime VIP"
+    },
+    "user_vip_suggestion": {
+        "message": "Click me to open VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "Click me to renew VIP"
+    },
+    "not_found_title": {
+        "message": "404 Not Found"
+    },
+    "not_found_headline": {
+        "message": "BookmarkMars Assistant is not available on this page"
+    },
+    "not_found_fallback_desc": {
+        "message": "This may be due to the browser's native permission restrictions or some web content being blacklisted"
+    },
+    "more_link": {
+        "message": "More..."
+    },
+    "friendly_suggestion": {
+        "message": "Highly recommended that you grant permission for BookmarkMars Assistant beautification  page"
+    },
+    "ucenter_not_login_desc": {
+        "message": "You have not logged in, so you cannot display personal information"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "Login"
+    },
+    "ucenter_motto_today": {
+        "message": "You are right, who made you wrong"
+    },
+    "ucenter_welcome": {
+        "message": "Welcome to BookmarkMars Assistant"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "Registration time"
+    },
+    "ucenter_account_type": {
+        "message": "Account type"
+    },
+    "ucenter_open_vip": {
+        "message": "Click me to open VIP and enjoy privileges"
+    },
+    "ucenter_greeting": {
+        "message": "Hi，"
+    },
+    "ucenter_logout": {
+        "message": "Logout"
+    },
+    "network_error": {
+        "message": "Network failure or internal server error"
+    },
+    "not_login_notice": {
+        "message": "Login"
+    },
+    "backup_success_notice": {
+        "message": "Helper: Bookmarks are automatically synchronized successfully"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "Cloud shortcuts restored"
+    },
+    "new_tab_title": {
+        "message": "BookmarkMars New Tab"
+    },
+    "new_tab_greeting_morning": {
+        "message": "Good morning — ready to explore"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "Good afternoon — stay curious"
+    },
+    "new_tab_greeting_evening": {
+        "message": "Good evening — find what matters"
+    },
+    "new_tab_greeting_night": {
+        "message": "Good night — quiet focus mode"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "Custom search"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "Speech recognition"
+    },
+    "new_tab_speech_search_error": {
+        "message": "Does not support voice search"
+    },
+    "new_tab_search_placeholder": {
+        "message": "Type something..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "Bookmarks"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "Search configure"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "Search"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "Bookmark"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "History"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "Name"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "Homepage"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "Query links"
+    },
+    "new_tab_img_change_sug": {
+        "message": "Only vip users can change wallpaper"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "You need login to use the function"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "Shortcut edit"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "Drag to swap position"
+    },
+    "new_tab_setting": {
+        "message": "Setting"
+    },
+    "new_tab_link_edit": {
+        "message": "Edit shortcut"
+    },
+    "new_tab_bg_server_change": {
+        "message": "Chage wallpaper"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "Upload wallpaper"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "Custom add"
+    },
+    "new_tab_navigation_title": {
+        "message": "Title"
+    },
+    "new_tab_navigation_url": {
+        "message": "Link"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "Add"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "Please login first"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "The name is not empty and must be at most {1} characters"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "Description up to {1} characters"
+    },
+    "collect_create_folder_first": {
+        "message": "Please create at least one folder first"
+    },
+    "collect_choose_folder_please": {
+        "message": "Please select a folder"
+    },
+    "collect_successfully": {
+        "message": "Saved successfully"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    }
+}

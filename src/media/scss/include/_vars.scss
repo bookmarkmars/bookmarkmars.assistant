@@ -1,0 +1,106 @@
+// General
+$baseFontSize: 14px;
+
+$mainColor: #8741ed;
+$mainColor2: #322e2f;
+$gradient: linear-gradient(45deg, $mainColor 0%, $mainColor2 100%);
+
+$textColor: #666;
+$textColorLight: #918f8f;
+$textColorLight2: #ccc;
+$textColorInverted: #fff;
+$textColorDeep:#f4f2f2;
+$contentBackground: #efefef;
+$bodyBackground: #f5f5f5;
+
+//提示
+$colorSuccess: #32ac52;
+$colorNotice:#e3a21d;
+$colorError: #fb0000;
+
+//manage
+$manageLogoHeight:65px;
+$manageMenuWidth: 180px;
+$manageMenuBackground: #322e2f;
+$manageMenuHoverBackground: #ffffff12;
+
+// New tab
+$newTabSearchWidth: 560px;
+$newTabSearchHeight: 52px;
+$newTabAccent: #e07a3d;
+$newTabGlass: rgba(18, 16, 20, 0.42);
+$newTabGlassBorder: rgba(255, 255, 255, 0.16);
+$newTabGlassHover: rgba(255, 255, 255, 0.18);
+
+//modal
+$modalWidth:450px;
+$modalHeight:350px;
+$modalHeaderBgColor:#524949;
+
+// Sidebar
+$contentBackground2: #f5f5f5;
+$scrollBarBackground: #969696;
+$reorderIconColorActive:#060505;
+$tooltipTextColor: #fff;
+$tooltipBackground: #444;
+$separatorColor: #00000042;
+$hoverColor:#ffffff7a;
+$indicatorZindex:2147483644;
+
+// Dynamic
+$__colorScheme: "%colorScheme";
+$__foregroundColor:"%foregroundColor";
+$__textColor:"%textColor";
+$__bodyColor:"%bodyColor";
+$__sidebarWidth:"%sidebarWidth";
+$__sidebarHeaderHeight:"%sidebarHeaderHeight";
+$__overlayHeaderHeight:"%overlayHeaderHeight";
+$__overlayMaskColor:"%overlayMaskColor";
+$__scrollBarWidth: "%scrollBarWidth";
+$__directoriesIconSize:"%directoriesIconSize";
+$__hoverColor:"%hoverColor";
+
+//bookmark
+$__bookmarksFontSize:"%bookmarksFontSize";
+$__bookmarksIconSize:"%bookmarksIconSize";
+$__bookmarksLineHeight:"%bookmarksLineHeight";
+$__bookmarksDirIcon:"%bookmarksDirIcon";
+$__bookmarksDirColor:"%bookmarksDirColor";
+$__bookmarksDirIndentation:"%bookmarksDirIndentation";
+$__bookmarksHorizontalPadding:"%bookmarksHorizontalPadding";
+
+//indicator
+$__indicatorColor:"%indicatorMoon","%indicatorWater","%indicatorSun";//长度需要固定
+$__indicatorStyle:"%indicatorStyle";
+$__indicatorBallExeTimes:"%indicatorBallExeTimes";
+
+//panel
+$__panelWidth:"%panelWidth";
+$__panelIconColor:"%panelIconColor";
+$__panelIconSize:"%panelIconSize";
+
+//search
+$__searchInputHeight:"%searchInputHeight";
+
+//header，命名不要太简单，否则可能替换错
+$__headerIconBackground:"%headerIconBackground";
+$__headerIconBadgeColor:"%headerIconBadgeColor";
+
+//comfirm
+$__modalHeaderBgColor:"%modalHeaderBgColor";  
+
+//switch
+$__switchCloseTag:"%switchCloseTag";
+$__switchOpenTag:"%switchOpenTag";
+
+//font
+$__fontFamily: "%fontFamily";
+$__fontWeightThin: "%fontWeightThin"; // 100
+$__fontWeightExtraLight: "%fontWeightExtraLight"; // 200
+$__fontWeightLight: "%fontWeightLight"; // 300
+$__fontWeightNormal: "%fontWeightNormal"; // 400
+$__fontWeightMedium: "%fontWeightMedium"; // 500
+$__fontWeightSemiBold: "%fontWeightSemiBold"; // 600
+$__fontWeightBold: "%fontWeightBold"; // 700
+$__fontWeightExtraBold: "%fontWeightExtraBold"; // 800
+$__fontWeightBlack: "%fontWeightBlack"; // 900

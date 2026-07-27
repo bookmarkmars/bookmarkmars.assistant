@@ -1,0 +1,48 @@
+
+%hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+%visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+%modalFooterBackground {
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 57px;
+    z-index: 2;
+    background: $contentBackground2;
+  }
+}
+
+@mixin maskImage($icon) {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/media/img/#{$icon}.svg);
+}
+
+@mixin mask($icon,$color,$size) {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center / $size;
+    @if ($icon) {
+      @include maskImage($icon);
+    }
+    background-color: $color;
+  }
+}
+
+@function img($path) {
+  @return url(chrome-extension://__MSG_@@extension_id__/media/img/#{$path});
+}

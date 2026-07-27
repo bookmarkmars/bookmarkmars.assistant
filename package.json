@@ -1,0 +1,31 @@
+{
+  "name": "bookmarkearth_helper",
+  "version": "3.5.1",
+  "versionName": "3.5.1.{name}.released",
+  "author": "lds",
+  "license": "Copyright Reserved",
+  "homepage": "https://www.bookmarkmars.com",
+  "scripts": {
+    "init": "npm install && npm install -g npm-check-updates && npm rebuild node-sass",
+    "update": "ncu -u --packageFile package.json && npm install",
+    "release": "node build.js",
+    "updateAndRelease": "npm run update && npm run release",
+    "scss": "node-sass -o src/css src/scss"
+  },
+  "devDependencies": {
+    "concat": "^1.0.3",
+    "create-file": "^1.0.1",
+    "del": "^6.1.1",
+    "eslint": "^8.19.0",
+    "fs-extra": "^10.1.0",
+    "glob-concat": "^1.0.2",
+    "html-minifier": "^4.0.0",
+    "jsonminify": "^0.4.2",
+    "node-sass": "^7.0.1",
+    "npm-check-updates": "^15.2.0",
+    "read-file": "^0.2.0",
+    "request": "^2.88.2",
+    "terser": "^5.14.1",
+    "zip-dir": "^2.0.0"
+  }
+}

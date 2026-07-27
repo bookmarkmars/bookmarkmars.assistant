@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title data-i18n="onboarding_title"></title>
+    <style>
+        body.building > * {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="building">
+	
+<section class="slide" data-name="welcome">
+	
+	<div class="video">
+		<video autoplay muted loop>
+	        <source src="https://bookmark-1251739678.cos.ap-chengdu.myqcloud.com/plugin/video/be_helper_sidepanel.mp4" type="video/mp4">
+	    </video>
+	    <div class="declaration" data-i18n="onboarding_declaration"></div>
+	</div>
+
+	<div class="func">
+		<p class="large" data-i18n="onboarding_headline"></p>
+	    <p class="medium" data-i18n="onboarding_desc"></p>
+	    <a class="go">go</a>
+	</div>
+</section>
+
+<section class="slide" data-name="choose">
+	
+	<div class="panel">
+		<video autoplay muted loop>
+	        <source src="https://bookmark-1251739678.cos.ap-chengdu.myqcloud.com/plugin/video/be_panel_open_eg.mp4" type="video/mp4">
+	    </video>
+	    <span data-i18n="onboarding_left_side_panel"></span>
+	</div>
+	
+	<div class="ball">
+		<div class="choose">
+	        <a href="#"  title="" data-i18n="onboarding_moon" data-type="moon"></a>
+	        <a href="#"  title="" data-i18n="onboarding_water" data-type="water"></a>
+	        <a href="#"  title="" data-i18n="onboarding_sun" data-type="sun"></a>
+	    </div>
+	    <a class="next-step" data-i18n="onboarding_config_size"></a>
+	</div>
+
+</section>
+
+<section class="slide" data-name="size">
+    <p class="large" data-i18n="onboarding_size_tip"></p>
+    <div class="size">
+    	<a href="#"  title="30 * 30" data-type="water" style="width:30px;height:30px;"></a>
+    	<a href="#"  title="40 * 40" data-type="water" style="width:40px;height:40px;"></a>
+    	<a href="#"  title="50 * 50" data-type="water" style="width:50px;height:50px;"></a>
+    	<a href="#"  title="60 * 60" data-type="water" style="width:60px;height:60px;"></a>
+    	<a href="#"  title="70 * 70" data-type="water" style="width:70px;height:70px;"></a>
+    	<a href="#"  title="80 * 80" data-type="water" style="width:80px;height:80px;"></a>
+    	<a href="#"  title="90 * 90" data-type="water" style="width:90px;height:90px;"></a>
+    </div>
+    <!--如果是360浏览器则结束-->
+	<a class="next-step" data-i18n="onboarding_auth_newtab" data-stop="360se|" data-type="0" data-i18nReplaces="onboarding_finished"></a>
+</section>
+
+<section class="slide" data-name="newtab">
+    
+    <p class="large" data-i18n="onboarding_auth_newtab_tip" data-overrides="true" data-i18nReplaces="onboarding_noneed_permission"></p>
+    
+    <div class="grant">    	
+	    <a class="finish" data-type="1" data-i18n="onboarding_auth_newtab_confirm"></a>
+	    <span class="or" data-i18n="onboarding_auth_or"></span>
+	    <a class="finish" data-type="0" data-i18n="onboarding_auth_newtab_cancel"></a>
+    </div>
+    <!--如果overide被启动，则不用配置美化页面了-->
+    <a class="finish" data-type="2" data-i18n="onboarding_finished"></a>
+</section>
+
+<script src="/media/js/lib/jst.js"></script>
+<script src="/media/js/lib/jscs.js"></script>
+<script src="/media/js/opts.js"></script>
+
+<!-- [START REPLACE] -->
+<script src='/media/js/helper/i18n.js'></script>
+<script src='/media/js/helper/font_add.js'></script>
+<script src='/media/js/helper/style_helper.js'></script>
+<script src='/media/js/helper/template.js'></script>
+<script src='/media/js/helper/util.js'></script>
+<script src='/media/js/helper/dao.js'></script>
+<!-- [END REPLACE] -->
+
+<script src='/media/js/init.js'></script>
+
+</body>
+</html>

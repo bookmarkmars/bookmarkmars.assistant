@@ -1,0 +1,63 @@
+
+@mixin circle($color,$time) {
+    
+    //border
+    border:2px dotted $color;
+    
+    //伪before
+    @include mask('logo/logo',#f9f2f2fc,50%);
+    
+    &::before{
+        z-index:1;
+    }
+    
+    //circle
+    & > .be-circle {
+      
+      border-radius: 50%;
+      background-color:$color;
+      width:45%;
+      height:45%;
+      position: absolute;
+      opacity: 1;
+      animation: lds-be-scale-in 3s $time cubic-bezier(.36, .11, .89, .32);
+      animation-play-state:running;
+      
+      @keyframes lds-be-scale-in {
+          from {
+            transform: scale(.5, .5);
+            opacity: .6;
+          }
+          to {
+            transform: scale(3,3);
+            opacity: 0;
+          }
+      }
+    }
+}
+
+%desc {
+    &::after{
+        content:attr(title);
+        position: absolute;
+        display: block;
+        bottom: -25px;
+        left: -50%;
+        width: 200%;
+        padding: 20px 0 0 0;
+        font-size: 100%;
+        text-align: center;
+        color: #fff;
+        transition: color 0.5s;
+   }
+}
+
+%ball {
+   position: relative;
+   display: flex;
+   border-radius: 50%;
+   transition: box-shadow 0.5s;
+   cursor: pointer;
+   align-items: center;//垂直居中
+   justify-content: center;//水平居中
+}

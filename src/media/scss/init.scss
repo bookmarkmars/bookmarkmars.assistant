@@ -1,0 +1,372 @@
+@import "include/vars";
+@import "include/mixins";
+@import "include/loading";
+@import "include/generals";
+@import "include/circle";
+
+%button {
+  display: inline-block;
+  background: #1daaaa;
+  box-shadow: 0 5px 20px #e7e7e733;
+  color: #ffffff;
+  font-size: 120%;
+  font-weight: 300;
+  text-decoration: none;
+  margin: 10px 0;
+  padding: 10px 0px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+body {
+  background: $__colorScheme;
+  height: 100vh;
+  overflow: hidden;
+
+  > svg.loading {
+    position: absolute;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+  }
+}
+
+section.slide {
+  
+  position: absolute;
+  width: 1000px;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  transition: opacity 0.3s, transform 0.3s;
+  display: none;
+
+  &.visible {
+    display:block;
+  }
+  
+  p.large {
+    font-size: 180%;
+    font-weight: $__fontWeightNormal;
+    color: $textColorInverted;
+    margin: 0 0 40px 0;
+  }
+  
+  p.medium {
+    font-size: 120%;
+    font-weight: 400;
+    color: #ada3a3;
+    margin: 0 0 40px 0;
+  }
+
+  &[data-name='welcome']{
+      
+      &.visible{
+          
+          display: flex;                  /* establish flex container */
+          flex-direction: row;            /* default value; can be omitted */
+          flex-wrap: nowrap;              /* default value; can be omitted */
+          justify-content: space-between; /* switched from default (flex-start, see below) */
+    
+          & > div.video{
+              
+            width: 50%;
+             
+            >video{
+                width:420px;
+                height:236px;
+            }
+            
+            >div.declaration{
+                margin-top: 10px;
+                font-size: 12px;
+                color: #c1bcbc;
+            }
+          }
+          
+          & > div.func{
+              
+              display: flex;
+              flex-direction: column;
+              width: 50%;
+              align-self: center;
+ 
+              & > a.go{
+        
+                @extend %button;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                margin: 0 auto 0;
+                border-radius: 50%;
+                font-size: 180%;
+                padding-top: 5px;
+            
+                &:hover + p.desc {
+                  background: #0d9292;
+                  color: #ffffff;
+                  transform: translate3d(0, 0, 0);
+                }
+            }
+          }
+      }
+  }
+  
+  &[data-name='choose']{
+      
+      &.visible{
+          
+          display: flex;                  /* establish flex container */
+          flex-direction: row;            /* default value; can be omitted */
+          flex-wrap: nowrap;              /* default value; can be omitted */
+          justify-content: space-between; /* switched from default (flex-start, see below) */
+    
+          & > div.panel{
+              
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+             
+            >video{
+                width:420px;
+                height:236px;
+            }
+            
+            >span{
+                margin-top: 5px;
+                color: #ffffff;
+            }
+          }
+          
+          & > div.ball{
+              
+              display: flex;
+              flex-direction: column;
+              width: 50%;
+              align-self: center;
+              
+              & > div.choose{
+                  
+                  height:150%;
+                  width: 80%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-around;
+                  padding: 0 0;
+                  margin: 10px auto;
+                  margin-bottom: 20px;
+                  background: transparent;
+                  
+                  & > a{
+         
+                       @extend %ball;
+                
+                       @for $i from 1 through length($__indicatorColor) {
+                          
+                          //当前颜色
+                          $color: nth($__indicatorColor, $i);
+                          
+                          &:nth-child(#{$i}){
+                            @include circle($color,infinite);
+                          };
+                       }
+                
+                       @extend %desc;
+                
+                       & > .choose{
+                          position: absolute;
+                          top: -3px;
+                          right: -3px;
+                          width: 20px;
+                          height: 20px;
+                          
+                          @include mask('icon-choose',#ffffff,18px);
+                          
+                          display: none;
+                       }
+                  }
+                  
+                  //显示出来
+                  & > a.active{
+                    & > .choose{
+                        display: block;
+                    }
+                  }
+              }
+          }
+      }
+  }
+  
+  &[data-name='newtab']{
+      
+      > div.grant{
+              
+          > span.or{
+              margin-top: 30px;
+              display: block;
+              color: #ffffff;
+          }
+      }
+      
+      a.finish,
+      a.complete{ 
+        @extend %button;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        margin: 30px auto 0;
+        font-size: 100%;
+        border-radius: 50%;
+    
+        &:hover{
+          background: #0d9292;
+          color: #ffffff;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+      
+      a.finish{
+          
+          &[data-type='0']{
+            width: 70px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 100%;
+            border-radius: 20%;
+          }
+          
+          &[data-type='2']{
+            display:none;
+            width: 70px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 100%;
+            border-radius: 20%;
+            padding: 0 0;
+            margin-top: 100px;
+          }
+      }
+  }
+
+  &[data-name='choose'] > div.ball > a.next-step,
+  &[data-name='size'] > a.next-step,
+  &[data-name='size'] > a.finish{
+    
+    @extend %button;
+    @include mask('icon-horizontal-arrow', $textColor, 25px);
+    
+    &::before{
+        left:50%;
+        margin-left: -25px;
+    }
+    
+    padding:10px 50px 10px 30px;
+    position: relative;
+    display: block;
+    width: max-content;
+    margin: 70px auto 0;
+    border-radius: 10px;
+    text-align:left;
+
+    &:hover{
+      background: #0d9292;
+      color: #ffffff;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  & > p.desc {
+    
+    position: relative;
+    background: $contentBackground;
+    color: $textColor;
+    width: 400px;
+    font-size: 90%;
+    line-height: 160%;
+    margin: 50px auto 0;
+    padding: 7px 10px;
+    box-shadow: 0 5px 20px #c6b7b7a8;
+    border-radius: 10px;
+    transform: translate3d(0, -7px, 0);
+    transition: opacity 0.3s, transform 0.3s;
+    font-weight:$__fontWeightSemiBold;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0;
+      border: 7px solid transparent;
+      border-bottom-color: $contentBackground;
+    }
+  }
+  
+  & > div.size{
+    height:150%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0;
+    margin: 10px auto;
+    margin-bottom: 20px;
+    background: transparent;
+  }
+  
+  & > div.size{
+      
+    & >a[data-type='moon']{
+       @include circle(nth($__indicatorColor,1),infinite);
+    }
+    
+    & >a[data-type='water']{
+       @include circle(nth($__indicatorColor,2),infinite);
+    }
+    
+    & >a[data-type='sun']{
+       @include circle(nth($__indicatorColor,3),infinite);
+    }
+
+    & > a{
+         
+       @extend %ball;
+
+       @extend %desc;
+       
+       & > .choose{
+          position: absolute;
+          top: -3px;
+          right: -3px;
+          width: 20px;
+          height: 20px;
+          
+          @include mask('icon-choose',#ffffff,18px);
+          
+          display: none;
+       }
+    }
+    
+    //显示出来
+    & > a.active{
+      & > .choose{
+        display: block;
+      }
+    }
+  }
+}

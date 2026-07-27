@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title data-i18n="manage_title"></title>
+    <style>
+        body.building > * {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="building">
+	
+<section id="wrapper">
+    
+    <!--aside-->
+    <aside class="scroll-box">
+        <nav></nav>
+    </aside>
+    
+    <!--mask-->
+    <div class="mask">
+    	<div class="go" data-i18n="manage_need_login"></div>
+    </div>
+    
+    <!--alert-->
+    <div class="toast">
+    	<div class="text"></div>
+    </div>
+
+	<!--content-->
+    <main class="scroll-box">
+    	
+        <!--setting-->
+        <div class="tab" data-name="setting">
+
+            <!-- ball -->
+            <div data-name="ball">
+                <div class="box-wrapper">
+                    
+                    <div class="box ball-style">
+                    	<span data-i18n="manage_setting_ball_style"></span>
+                        <div class="choose">
+					        <a href="#"  title="" data-i18n="onboarding_moon" data-type="moon"></a>
+					        <a href="#"  title="" data-i18n="onboarding_water" data-type="water"></a>
+					        <a href="#"  title="" data-i18n="onboarding_sun" data-type="sun"></a>
+					    </div>
+					    <p class="desc" data-i18n="manage_menu_setting_ball_desc"></p>
+                    </div>
+
+                    <div class="box ball-size">
+                        <div class="form-element" data-type="select" data-name="size" data-i18n="manage_setting_ball_size">
+                            <span data-value="30" data-i18n="manage_menu_setting_ball_small" data-i18nReplaces=" 30*30"></span>
+                            <span data-value="40" data-i18n="manage_menu_setting_ball_small" data-i18nReplaces=" 40*40"></span>
+                            <span data-value="50" data-i18n="manage_menu_setting_ball_medium" data-i18nReplaces=" 50*50"></span>
+                            <span data-value="60" data-i18n="manage_menu_setting_ball_medium" data-i18nReplaces=" 60*60"></span>
+                            <span data-value="70" data-i18n="manage_menu_setting_ball_medium" data-i18nReplaces=" 70*70"></span>
+                            <span data-value="80" data-i18n="manage_menu_setting_ball_big" data-i18nReplaces=" 80*80"></span>
+                            <span data-value="90" data-i18n="manage_menu_setting_ball_big" data-i18nReplaces=" 90*90"></span>
+                        </div>
+                        <p class="desc" data-i18n="manage_menu_setting_ball_size_desc"></p>
+                    </div>
+                    
+                    <div class="box panel-width">
+                    	<!--最小为5，为logo尺寸的最小值-->
+						<div class="form-element" data-type="range" data-name="panelWidth" data-min="5" data-value="10" data-max="65" data-step="1" data-unit="px" data-i18n="manage_setting_panel_width">
+                        </div>  
+                        <p class="desc" data-i18n="manage_setting_panel_width_desc"></p>
+                    </div>
+                    
+                    <div class="box ball-panel-choose">
+                        <div class="form-element" data-type="select" data-name="openWay" data-i18n="manage_setting_ball_panel_choose">
+                            <span data-value="all" data-i18n="manage_menu_setting_ball_panel_default"></span>
+                            <span data-value="ball" data-i18n="manage_menu_setting_ball_choose"></span>
+                            <span data-value="panel" data-i18n="manage_menu_setting_panel_choose"></span>
+                        </div>
+                        <p class="desc" data-i18n="manage_menu_setting_ball_panel_desc"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- function -->
+            <div data-name="function">
+                <div class="box-wrapper">
+                	
+                	<div class="box auth-newtab" data-hidden="360se">
+                        <div class="form-element" data-type="select" data-name="newtab" data-i18n="manage_setting_newtab">
+                            <span data-value="true" data-i18n="manage_setting_newtab_yes"></span>
+                            <span data-value="false" data-i18n="manage_setting_newtab_no"></span>
+                        </div>
+                    </div>
+                    
+                   <div class="box">
+                        <div class="form-element" data-type="language" data-name="language" data-i18n="manage_setting_language"></div>
+                    </div>
+                    
+                    <div class="box">
+                        <div class="form-element" data-type="select" data-name="theme" data-i18n="manage_setting_style">
+                            <span data-value="default" data-i18n="manage_setting_style_default"></span>
+                            <span data-value="classcial" data-i18n="manage_setting_style_classcial"></span>
+                            <span data-value="young" data-i18n="manage_setting_style_young"></span>
+                            <span data-value="happy" data-i18n="manage_setting_style_happy"></span>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="form-element" data-type="select" data-name="linkAction" data-i18n="manage_setting_linkaction">
+                            <span data-value="newtab" data-i18n="manage_setting_linkaction_new_tab"></span>
+                            <span data-value="current" data-i18n="manage_setting_linkaction_current_tab"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="box">
+                        <div class="form-element" data-type="font" data-name="fontFamily" data-i18n="manage_setting_font_family"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <!--tool-->
+        <div class="tab" data-name="tool">
+
+            <!-- backup -->
+            <div data-name="backup">
+                
+                <div class="content-box title">
+                    <label class="title-handler" data-i18n="manage_tool_backup_intro" data-i18nReplaces="1"></label>
+                    <p class="desc" data-i18n="manage_tool_backup_desc"></p>
+                </div>
+                
+                <div class="content-box">
+                    <label data-i18n="manage_tool_backup_authorize" data-i18nReplaces="2"></label>
+					<div class="authorize">
+                        <div class="form-element" data-style="switch"  data-type="checkbox" data-name="authorize"></div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <label data-i18n="manage_tool_backup_manual" data-i18nReplaces="3"></label>
+                    
+					<button class="backup manual">
+						<span data-i18n="manage_tool_backup_manual_button"></span>
+					</button>
+                </div>
+                
+                <div class="content-box">
+                    <label data-i18n="manage_tool_backup_auto" data-i18nReplaces="4"></label>
+                    <div class="auto-backup">
+                        <div class="form-element" data-style="switch"  data-type="checkbox" data-name="autoBackup"></div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <label data-i18n="manage_tool_record_visit" data-i18nReplaces="5"></label>
+                    <div class="record-visit">
+                        <div class="form-element" data-style="switch"  data-type="checkbox" data-name="recordVisit"></div>
+                    </div>
+                    <p class="desc" data-i18n="manage_tool_record_visit_desc"></p>
+                </div>
+                
+                <div class="content-box result">
+                    <label data-i18n="manage_tool_backup_result" data-i18nReplaces="6"></label>
+                    <div class="stress"></div>
+                    
+                </div>
+                
+                <p class="desc stress"></p>
+            </div>
+
+            <!-- linkcheck -->
+            <div data-name="linkcheck">
+                
+                <div class="content-box">
+                    <label data-i18n="manage_check_powerful"></label>
+                    <p class="desc" data-i18n="manage_check_powerful_desc"></p>
+                    <div class="powerful-check">
+                        <div class="form-element" data-style="switch" data-type="checkbox" data-name="powerfulCheck"></div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <label class="title-handler" data-i18n="manage_check_all_bookmarks"></label>
+                    <p class="desc" data-i18n="manage_check_directions"></p>
+					<ul class="all-bookmarks"></ul>
+                </div>
+            </div>
+
+            <!-- iexport -->
+            <div data-name="iexport">
+                <div class="bookmarks">
+					<div class="opreate">
+						<span data-name="all" data-i18n="manage_tool_iexport_all"></span>
+						<span data-name="clear" data-i18n="manage_tool_iexport_clear"></span>
+						<span data-name="refresh" data-i18n="manage_tool_iexport_refresh"></span>
+					</div>
+					<div class="ieport">
+						<span data-name="import" data-i18n="manage_tool_import"></span>
+						<span data-name="export" data-i18n="manage_tool_export"></span>
+					</div>
+					<div class="show"></div>
+				</div>
+            </div>
+        </div>
+
+        <!--ucenter -->
+        <div class="tab" data-name="ucenter">
+        	
+        	<!-- info -->
+            <div data-name="basic">
+        	
+	        	<!-- 显示会员或者非会员 -->
+				<section data-type="user">
+					
+					<div class="not-login">
+						<p data-i18n="ucenter_not_login_desc"></p>
+						<p class="stress" data-i18n="ucenter_click_me_to_login"></p>
+					</div>
+				</section>
+				
+	            <section data-type="motto">
+	                <img loading="lazy" data-src="" src="" />
+	                <div>
+	                    <p class="large" data-i18n="ucenter_motto_today"></p>
+	                </div>
+	            </section>
+	        </div>
+	        
+	        <!-- backup -->
+	        <div data-name="data" data-src="main.official|scope|servletMain.backup"></div>
+	        
+        </div>
+
+        <!-- about -->
+        <div class="tab" data-name="about">
+			
+			<!-- 简介 -->
+            <div data-name="intro">
+			
+				<div class="row">
+					<h1 data-i18n="about_bookmarkmars_intro"></h1>
+					<p data-i18n="about_bookmarkmars_intro_desc"></p>
+				</div>
+				<div class="row">
+					<h1 data-i18n="about_bookmarkmars_helper_function"></h1>
+					<div class="function">
+						<p data-i18n="about_bookmarkmars_helper_funtion_1" data-i18nReplaces="1"></p>
+						<p data-i18n="about_bookmarkmars_helper_funtion_2" data-i18nReplaces="2"></p>
+						<p data-i18n="about_bookmarkmars_helper_funtion_3" data-i18nReplaces="3"></p>
+						<p data-i18n="about_bookmarkmars_helper_funtion_4" data-i18nReplaces="4"></p>
+						<p data-i18n="about_bookmarkmars_helper_funtion_5" data-i18nReplaces="5"></p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- privacy -->
+			<div data-name="privacy" data-src="main.official|scope|servletMain.privacy"></div>
+			
+        </div>
+        
+    </main>
+    
+    <footer class="footer" data-register="setting_*">
+    	<menu>
+	        <li>
+	            <button class="save" data-i18n="manage_save"></button>
+	        </li>
+	        <li style="display:none;">
+	            <button class="recovery" title="" data-i18n="manage_recovery"></button>
+	        </li>
+	    </menu>
+    </footer>
+</section>
+
+<script src="/media/js/lib/jst.js"></script>
+<script src="/media/js/lib/jscs.js"></script>
+<script src="/media/js/lib/file_saver.min.js"></script>
+<script src="/media/js/opts.js"></script>
+
+<!-- [START REPLACE] -->
+<script src='/media/js/helper/i18n.js'></script>
+<script src='/media/js/helper/font_add.js'></script>
+<script src='/media/js/helper/style_helper.js'></script>
+<script src='/media/js/helper/template.js'></script>
+<script src='/media/js/helper/util.js'></script>
+<script src='/media/js/helper/dao.js'></script>
+<!-- [END REPLACE] -->
+
+<script src='/media/js/helper/confirm.js'></script>
+<script src='/media/js/helper/user.js'></script>
+<script src='/media/js/helper/checkbox.js'></script>
+<script src='/media/js/helper/bookmark.js'></script>
+<script src='/media/js/helper/official_website.js'></script>
+<script src='/media/js/helper/scroll.js'></script>
+<script src='/media/js/helper/entry.js'></script>
+<script src='/media/js/helper/privilege.js'></script>
+
+
+<!-- [START REMOVE] -->
+<script src='/media/js/manage/form.js'></script>
+<script src='/media/js/manage/ball.js'></script>
+<script src='/media/js/manage/link_checker.js'></script>
+<script src='/media/js/manage/backup.js'></script>
+<script src='/media/js/manage/menu.js'></script>
+<script src='/media/js/manage/function.js'></script>
+<script src='/media/js/manage/bookmark_manage.js'></script>
+<script src='/media/js/manage/about.js'></script>
+<script src='/media/js/manage/asy_user.js'></script>
+<script src='/media/js/manage/ucenter.js'></script>
+<!-- [END REMOVE] -->
+
+<script src='/media/js/manage.js'></script>
+</body>
+</html>

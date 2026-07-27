@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "Asisten BookmarkMars"
+    },
+    "extension_short_name": {
+        "message": "Asisten BM"
+    },
+    "extension_version": {
+        "message": "Versi"
+    },
+    "extension_new_version": {
+        "message": "Versi baru"
+    },
+    "extension_need_upgrade": {
+        "message": "Baru"
+    },
+    "extension_upgrade_address": {
+        "message": "Alamat pembaruan"
+    },
+    "extension_upgrade": {
+        "message": "Baru"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "Privasi"
+    },
+    "extension_ball_reset": {
+        "message": "Atur ulang bola ajaib"
+    },
+    "extension_ball_not_open": {
+        "message": "Bola ajaib belum diaktifkan; buka pengaturan untuk mengaktifkannya"
+    },
+    "extension_desc": {
+        "message": "Sinkronisasi bookmark, ekspor dan impor bookmark, pengaturan antarmuka manajemen, penambahan, penghapusan, dan pengubahan bookmark"
+    },
+    "extension_last_update": {
+        "message": "Pembaruan terakhir pada {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "Sembunyikan bola ajaib sementara"
+    },
+    "header_bookmarks": {
+        "message": "Bookmark"
+    },
+    "header_toolbox_official": {
+        "message": "Resmi"
+    },
+    "header_toolbox_ucenter": {
+        "message": "Saya"
+    },
+    "header_toolbox_tool": {
+        "message": "Alat"
+    },
+    "header_toolbox_setting": {
+        "message": "Pengaturan"
+    },
+    "header_search_box_local": {
+        "message": "Lokal"
+    },
+    "header_search_box_server": {
+        "message": "Jarak jauh"
+    },
+    "header_search_box_remote_search": {
+        "message": "Cari jarak jauh"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Cari {1} bookmark lokal"
+    },
+    "sidebar_search_no_results": {
+        "message": "Tidak ada hasil"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "disalin"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "Folder kosong"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "Sering digunakan ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "Edit"
+    },
+    "sidebar_opreate_drag": {
+        "message": "Pindah"
+    },
+    "sidebar_opreate_add": {
+        "message": "Tambah"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "Segarkan"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "Tidak ada bookmark"
+    },
+    "sidebar_filter": {
+        "message": "Filter"
+    },
+    "sidebar_filter_default": {
+        "message": "Default"
+    },
+    "sidebar_filter_create": {
+        "message": "Tanggal dibuat"
+    },
+    "sidebar_filter_used": {
+        "message": "Kunjungan terakhir"
+    },
+    "sidebar_filter_frequency": {
+        "message": "Frekuensi kunjungan"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "Turun"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "Naik"
+    },
+    "sidebar_filter_order_default": {
+        "message": "Default"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Edit bookmark"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Edit folder"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Edit pemisah"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Hapus bookmark"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Hapus folder"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Hapus pemisah"
+    },
+    "contextmenu_copy": {
+        "message": "Salin tautan"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Tambah bookmark"
+    },
+    "contextmenu_add_pin": {
+        "message": "Sematkan"
+    },
+    "contextmenu_add_unpin": {
+        "message": "Batalkan semat"
+    },
+    "contextmenu_add": {
+        "message": "Tambah{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "Buka Asisten BookmarkMars"
+    },
+    "contextmenu_close_helper": {
+        "message": "Tutup Asisten BookmarkMars"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "Alihkan Asisten BookmarkMars"
+    },
+    "contextmenu_add_website": {
+        "message": "Simpan halaman"
+    },
+    "contextmenu_add_folder": {
+        "message": "Tambah folder"
+    },
+    "contextmenu_edit_folder": {
+        "message": "Edit folder"
+    },
+    "overlay_bookmark_title": {
+        "message": "Judul"
+    },
+    "overlay_bookmark_url": {
+        "message": "Tautan"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Informasi lain"
+    },
+    "overlay_cancel": {
+        "message": "Batal"
+    },
+    "overlay_close": {
+        "message": "Tutup"
+    },
+    "overlay_save": {
+        "message": "Simpan"
+    },
+    "overlay_delete": {
+        "message": "Hapus"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Apakah Anda benar-benar ingin membuka {1} bookmark, termasuk bookmark subfolder dari folder yang dipilih?"
+    },
+    "overlay_open_children": {
+        "message": "Buka semua"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Apakah Anda benar-benar ingin membuka {1} bookmark subfolder?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Sembunyikan dari asisten"
+    },
+    "overlay_label_bookmark": {
+        "message": "Bookmark"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*Perhatian: beberapa tautan mungkin memberi kami komisi"
+    },
+    "overlay_label_dir": {
+        "message": "Folder"
+    },
+    "overlay_label_separator": {
+        "message": "Pemisah"
+    },
+    "overlay_add_position": {
+        "message": "Posisi"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Sisipkan sebelum"
+    },
+    "overlay_add_position_append": {
+        "message": "Sisipkan setelah"
+    },
+    "overlay_delete_selected": {
+        "message": "Hapus semua"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Yakin ingin menghapus entri yang dipilih? Bookmark subfolder juga akan dihapus."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "Browser {1} hanya mendukung mode baca saja. Anda dapat menekan Ctrl+D untuk menyimpan bookmark."
+    },
+    "overlay_collect": {
+        "message": "Simpan"
+    },
+    "overlay_collect_title": {
+        "message": "Judul halaman"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "Pilih folder"
+    },
+    "overlay_add_collect_folder": {
+        "message": "Tambah folder"
+    },
+    "overlay_collect_confirm": {
+        "message": "Konfirmasi"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "Edit"
+    },
+    "overlay_collect_folder_title": {
+        "message": "Nama folder"
+    },
+    "overlay_collect_folder_description": {
+        "message": "Deskripsi folder"
+    },
+    "overlay_collect_folder_public": {
+        "message": "Publik (terlihat oleh semua)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "Privat (hanya terlihat oleh Anda)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "Selesai"
+    },
+    "overlay_add_folder_return": {
+        "message": "Kembali"
+    },
+    "onboarding_title": {
+        "message": "Pilih bola ajaib"
+    },
+    "onboarding_declaration": {
+        "message": "*Peringatan: ekstensi ini berisi tautan afiliasi; mengklik tautan tersebut dapat memberi kami komisi"
+    },
+    "onboarding_headline": {
+        "message": "Selamat datang di Asisten BookmarkMars"
+    },
+    "onboarding_config_size": {
+        "message": "Atur ukuran bola ajaib"
+    },
+    "onboarding_auth_newtab": {
+        "message": "Berikan izin untuk halaman kustomisasi"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "Disarankan untuk memberikan izin; tab baru akan lebih indah"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "Abaikan"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "Berikan"
+    },
+    "onboarding_auth_or": {
+        "message": "Atau"
+    },
+    "onboarding_size_tip": {
+        "message": "Pilih ukuran bola ajaib"
+    },
+    "onboarding_finished": {
+        "message": "Nikmati!"
+    },
+    "onboarding_moon": {
+        "message": "Cahaya bulan"
+    },
+    "onboarding_water": {
+        "message": "Gelombang lembut"
+    },
+    "onboarding_sun": {
+        "message": "Matahari pagi"
+    },
+    "onboarding_desc": {
+        "message": "Anda akan mengatur metode pembukaan"
+    },
+    "onboarding_left_side_panel": {
+        "message": "Letakkan mouse di sisi kiri browser untuk memanggilnya"
+    },
+    "onboarding_noneed_permission": {
+        "message": "Browser mendukung otorisasi otomatis. Pilih \"Simpan perubahan\" untuk halaman kustomisasi."
+    },
+    "manage_title": {
+        "message": "Manajemen"
+    },
+    "manage_beforeunload_desc": {
+        "message": "Anda memiliki konten yang belum disimpan, yakin ingin keluar?"
+    },
+    "manage_menu_setting": {
+        "message": "Pengaturan"
+    },
+    "manage_need_login": {
+        "message": "Anda harus masuk terlebih dahulu untuk menggunakan fungsi ini"
+    },
+    "manage_menu_tool": {
+        "message": "Alat"
+    },
+    "manage_menu_ucenter": {
+        "message": "Saya"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "Informasi dasar"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "Pusat plugin"
+    },
+    "manage_menu_about": {
+        "message": "Tentang"
+    },
+    "manage_menu_about_intro": {
+        "message": "Pengenalan"
+    },
+    "manage_menu_about_privacy": {
+        "message": "Privasi"
+    },
+    "manage_menu_setting_ball": {
+        "message": "Aktifkan"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "Kecil{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "Pilih gaya bola ajaib yang Anda suka"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "Sedang{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "Besar{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "Kami menyarankan bola ajaib di bawah 60 px dan seret ke sudut halaman agar tidak tersentuh saat menjelajah"
+    },
+    "manage_menu_setting_function": {
+        "message": "Fungsi"
+    },
+    "manage_menu_tool_backup": {
+        "message": "Sinkronisasi"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、Pengenalan fungsi"
+    },
+    "manage_tool_backup_desc": {
+        "message": "Sinkronisasi bookmark akan menyalin bookmark Anda ke server kami; kami tidak akan mengubah atau mengungkapkannya dengan cara apa pun"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "Manfaat: non-VIP dapat sinkronisasi {2} kali setiap {1} hari dan menyimpan maksimal {3} salinan terbaru; VIP tanpa batas dan dapat menyimpan {4} salinan"
+    },
+    "manage_tool_backup_right": {
+        "message": "Manfaat"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、Minta izin"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、Sinkronisasi bookmark manual"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "Klik untuk sinkronisasi"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、Sinkronisasi bookmark otomatis"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、Hasil sinkronisasi"
+    },
+    "manage_tool_backup_fail": {
+        "message": "Gagal"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "Fungsi ini hanya tersedia untuk anggota VIP"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "Anda belum masuk; silakan masuk terlebih dahulu"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "Sinkronisasi otomatis memerlukan otorisasi terlebih dahulu"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "Asisten BookmarkMars: Anda belum mengaktifkan sinkronisasi bookmark otomatis; disarankan untuk mengaktifkannya demi keamanan"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "Sinkronisasi otomatis hanya mendukung bookmark di bawah {1}; sinkronisasi secara manual"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "Operasi ini memerlukan otorisasi Anda"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "Mengekspor"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "Mengunggah"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "Ukuran maksimum bookmark yang dapat disinkronkan adalah {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "Bookmark berhasil disinkronkan"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "Gagal menyinkronkan bookmark"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "Pemeriksaan tautan"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "Im/Ekspor"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "Informasi"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "Bookmark saya"
+    },
+    "manage_setting_ball_style": {
+        "message": "Gaya bola ajaib"
+    },
+    "manage_setting_ball_size": {
+        "message": "Ukuran bola ajaib"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "Pilih cara membuka"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "Buka semua"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "Dengan bola ajaib"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "Dengan panel ajaib"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "Di sini Anda dapat memilih cara membuka asisten. Kami menyarankan mengaktifkan keduanya."
+    },
+    "manage_setting_panel_width": {
+        "message": "Lebar panel ajaib"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "Pilih lebar panel yang sesuai di sini untuk membuka asisten"
+    },
+    "manage_setting_style": {
+        "message": "Gaya"
+    },
+    "manage_setting_style_default": {
+        "message": "Default"
+    },
+    "manage_setting_style_classcial": {
+        "message": "Klasik"
+    },
+    "manage_setting_style_young": {
+        "message": "Muda"
+    },
+    "manage_setting_style_happy": {
+        "message": "Ceria"
+    },
+    "manage_setting_linkaction": {
+        "message": "Pembukaan tautan"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "Tab saat ini"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "Tab baru"
+    },
+    "manage_setting_font_family": {
+        "message": "Font"
+    },
+    "manage_setting_font_family_default": {
+        "message": "Default"
+    },
+    "manage_save": {
+        "message": "Simpan perubahan"
+    },
+    "manage_saved_message": {
+        "message": "Perubahan berhasil disimpan"
+    },
+    "manage_recovery": {
+        "message": "Pulihkan default"
+    },
+    "manage_restore_confirm": {
+        "message": "Yakin ingin memulihkan konfigurasi default?"
+    },
+    "manage_restored_message": {
+        "message": "Konfigurasi berhasil dipulihkan"
+    },
+    "manage_tool_iexport_all": {
+        "message": "Pilih semua"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "Batalkan pilihan"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "Anda memiliki lebih dari {1} bookmark; hanya direktori yang akan ditampilkan dan kecepatan mungkin terpengaruh"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "Segarkan"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "Impor"
+    },
+    "manage_tool_export": {
+        "message": "Ekspor"
+    },
+    "manage_check_powerful": {
+        "message": "Pemeriksaan lanjutan"
+    },
+    "manage_check_powerful_desc": {
+        "message": "Saat menjelajahi versi web BookmarkMars, asisten akan memeriksa tautan tidak valid terlebih dahulu agar Anda tidak mengklik konten rusak. Sistem telah dioptimalkan dan tidak akan memakan terlalu banyak performa atau bandwidth"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "Semua folder saya"
+    },
+    "manage_check_directions": {
+        "message": "Klik folder untuk menguji"
+    },
+    "manage_check_modal_name": {
+        "message": "Periksa-{1}/Hasil referensi"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "Pengalihan"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "Rusak"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "Duplikat"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "Kosong"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "Total {1} bookmark terdeteksi"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "Perbarui yang dipilih"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "Hapus yang dipilih"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "Tidak ada hasil"
+    },
+    "manage_tool_backup_name": {
+        "message": "Sinkronisasi Asisten BookmarkMars"
+    },
+    "manage_setting_newtab": {
+        "message": "Halaman kustomisasi (disarankan memberikan otorisasi)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "Diotorisasi"
+    },
+    "manage_setting_newtab_no": {
+        "message": "Tidak diotorisasi"
+    },
+    "manage_switch_close_tag": {
+        "message": "Mati"
+    },
+    "manage_switch_open_tag": {
+        "message": "Nyala"
+    },
+    "manage_setting_language": {
+        "message": "Bahasa"
+    },
+    "manage_language_default": {
+        "message": "Ikuti browser"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, Cadangan cloud riwayat kunjungan"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "Anda harus memahami fungsi ini dengan baik. Saat diaktifkan, riwayat kunjungan Anda akan dicadangkan ke cloud. Data ini tidak akan dipublikasikan. Tentukan apakah Anda mengizinkannya"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "Tentang BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars terinspirasi oleh Zhihu. Ketika desainer melihat posting tentang sumber daya, seorang teman membagikan bookmark browsernya dan ia terpikir untuk membuat platform berbagi bookmark. Bookmark biasanya mengorganisir situs berguna menurut kategori; bookmark Anda juga mungkin berguna bagi orang lain. Desainer tidak tahu apakah ini akan diterima semua orang, jadi ini adalah percobaan yang berani."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "Asisten BookmarkMars"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、Manajemen bookmark canggih, termasuk penambahan, penghapusan, dan pengubahan"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、Pencarian bookmark lokal dan jarak jauh yang canggih"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、Sinkronisasi canggih untuk mencegah kehilangan bookmark"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、Ekspor dan berbagi canggih, dapat diintegrasikan dengan situs resmi"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、Pemeriksaan tautan canggih untuk mendeteksi tautan tidak valid"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "Iklan platform terlarang"
+    },
+    "search_context_menus_title": {
+        "message": "Pencarian bookmark"
+    },
+    "user_vip_type1": {
+        "message": "VIP senior"
+    },
+    "user_vip_type2": {
+        "message": "VIP seumur hidup"
+    },
+    "user_vip_suggestion": {
+        "message": "Klik untuk mengaktifkan VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "Klik untuk memperpanjang VIP"
+    },
+    "not_found_title": {
+        "message": "404 Tidak ditemukan"
+    },
+    "not_found_headline": {
+        "message": "Asisten BookmarkMars tidak tersedia di halaman ini"
+    },
+    "not_found_fallback_desc": {
+        "message": "Ini mungkin karena batasan browser atau konten web dalam daftar hitam"
+    },
+    "more_link": {
+        "message": "Lainnya..."
+    },
+    "friendly_suggestion": {
+        "message": "Sangat disarankan untuk memberikan izin halaman kustomisasi Asisten BookmarkMars"
+    },
+    "ucenter_not_login_desc": {
+        "message": "Anda belum masuk; informasi pribadi tidak dapat ditampilkan"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "Masuk"
+    },
+    "ucenter_motto_today": {
+        "message": "Kamu benar, siapa yang membuatmu salah"
+    },
+    "ucenter_welcome": {
+        "message": "Selamat datang di Asisten BookmarkMars"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "Tanggal pendaftaran"
+    },
+    "ucenter_account_type": {
+        "message": "Jenis akun"
+    },
+    "ucenter_open_vip": {
+        "message": "Klik untuk mengaktifkan VIP dan nikmati hak istimewa"
+    },
+    "ucenter_greeting": {
+        "message": "Halo, "
+    },
+    "ucenter_logout": {
+        "message": "Keluar"
+    },
+    "network_error": {
+        "message": "Kesalahan jaringan atau server internal"
+    },
+    "not_login_notice": {
+        "message": "Masuk"
+    },
+    "backup_success_notice": {
+        "message": "Asisten: bookmark berhasil disinkronkan otomatis"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "Pintasan cloud dipulihkan"
+    },
+    "new_tab_title": {
+        "message": "Halaman kustomisasi BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "Pencarian kustom"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "Pengenalan suara"
+    },
+    "new_tab_speech_search_error": {
+        "message": "Tidak mendukung pencarian suara"
+    },
+    "new_tab_search_placeholder": {
+        "message": "Ketik sesuatu..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "Bookmark"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "Atur pencarian"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "Pencarian"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "Bookmark"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "Riwayat"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "Nama"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "Beranda"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "Tautan kueri"
+    },
+    "new_tab_img_change_sug": {
+        "message": "Hanya pengguna VIP yang dapat mengubah wallpaper"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "Anda harus masuk untuk menggunakan fungsi ini"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "Edit pintasan"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "Seret untuk mengubah posisi"
+    },
+    "new_tab_setting": {
+        "message": "Pengaturan"
+    },
+    "new_tab_link_edit": {
+        "message": "Edit pintasan"
+    },
+    "new_tab_bg_server_change": {
+        "message": "Ubah wallpaper"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "Unggah wallpaper"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "Tambah kustom"
+    },
+    "new_tab_navigation_title": {
+        "message": "Judul"
+    },
+    "new_tab_navigation_url": {
+        "message": "Tautan"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "Tambah"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "Masuk terlebih dahulu"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "Nama tidak boleh kosong dan maksimal {1} karakter"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "Deskripsi maksimal {1} karakter"
+    },
+    "collect_create_folder_first": {
+        "message": "Buat setidaknya satu folder terlebih dahulu"
+    },
+    "collect_choose_folder_please": {
+        "message": "Pilih folder"
+    },
+    "collect_successfully": {
+        "message": "Berhasil disimpan"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "Selamat pagi — siap menjelajah"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "Selamat siang — tetap ingin tahu"
+    },
+    "new_tab_greeting_evening": {
+        "message": "Selamat malam — temukan yang penting"
+    },
+    "new_tab_greeting_night": {
+        "message": "Selamat malam — mode fokus"
+    }
+}

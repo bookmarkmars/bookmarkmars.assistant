@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "BookmarkMars Ассистент"
+    },
+    "extension_short_name": {
+        "message": "BM Ассистент"
+    },
+    "extension_version": {
+        "message": "Версия"
+    },
+    "extension_new_version": {
+        "message": "Новая версия"
+    },
+    "extension_need_upgrade": {
+        "message": "Новое"
+    },
+    "extension_upgrade_address": {
+        "message": "Адрес обновления"
+    },
+    "extension_upgrade": {
+        "message": "Новое"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "Конфиденциальность"
+    },
+    "extension_ball_reset": {
+        "message": "Сбросить магический шар"
+    },
+    "extension_ball_not_open": {
+        "message": "Магический шар не включён; перейдите в настройки, чтобы включить его"
+    },
+    "extension_desc": {
+        "message": "Синхронизация закладок, экспорт и импорт, настройка интерфейса управления, добавление, удаление и изменение закладок"
+    },
+    "extension_last_update": {
+        "message": "Последнее обновление {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "Временно скрыть магический шар"
+    },
+    "header_bookmarks": {
+        "message": "Закладки"
+    },
+    "header_toolbox_official": {
+        "message": "Официальный"
+    },
+    "header_toolbox_ucenter": {
+        "message": "Я"
+    },
+    "header_toolbox_tool": {
+        "message": "Инструменты"
+    },
+    "header_toolbox_setting": {
+        "message": "Настройки"
+    },
+    "header_search_box_local": {
+        "message": "Локально"
+    },
+    "header_search_box_server": {
+        "message": "Удалённо"
+    },
+    "header_search_box_remote_search": {
+        "message": "Искать удалённо"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Поиск {1} локальных закладок"
+    },
+    "sidebar_search_no_results": {
+        "message": "Нет результатов"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "скопировано"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "Пустая папка"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "Часто используемые ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "Редактировать"
+    },
+    "sidebar_opreate_drag": {
+        "message": "Переместить"
+    },
+    "sidebar_opreate_add": {
+        "message": "Добавить"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "Обновить"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "Нет закладок"
+    },
+    "sidebar_filter": {
+        "message": "Фильтр"
+    },
+    "sidebar_filter_default": {
+        "message": "По умолчанию"
+    },
+    "sidebar_filter_create": {
+        "message": "Дата создания"
+    },
+    "sidebar_filter_used": {
+        "message": "Последнее посещение"
+    },
+    "sidebar_filter_frequency": {
+        "message": "Частота посещений"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "Убыв."
+    },
+    "sidebar_filter_order_asc": {
+        "message": "Возр."
+    },
+    "sidebar_filter_order_default": {
+        "message": "По умолчанию"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Редактировать закладку"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Редактировать папку"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Редактировать разделитель"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Удалить закладку"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Удалить папку"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Удалить разделитель"
+    },
+    "contextmenu_copy": {
+        "message": "Копировать ссылку"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Добавить закладку"
+    },
+    "contextmenu_add_pin": {
+        "message": "Закрепить"
+    },
+    "contextmenu_add_unpin": {
+        "message": "Открепить"
+    },
+    "contextmenu_add": {
+        "message": "Добавить{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "Открыть BookmarkMars Ассистент"
+    },
+    "contextmenu_close_helper": {
+        "message": "Закрыть BookmarkMars Ассистент"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "Переключить BookmarkMars Ассистент"
+    },
+    "contextmenu_add_website": {
+        "message": "Сохранить страницу"
+    },
+    "contextmenu_add_folder": {
+        "message": "Добавить папку"
+    },
+    "contextmenu_edit_folder": {
+        "message": "Редактировать папку"
+    },
+    "overlay_bookmark_title": {
+        "message": "Заголовок"
+    },
+    "overlay_bookmark_url": {
+        "message": "Ссылка"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Другая информация"
+    },
+    "overlay_cancel": {
+        "message": "Отмена"
+    },
+    "overlay_close": {
+        "message": "Закрыть"
+    },
+    "overlay_save": {
+        "message": "Сохранить"
+    },
+    "overlay_delete": {
+        "message": "Удалить"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Вы действительно хотите открыть все {1} закладок, включая закладки из подпапок выбранной папки?"
+    },
+    "overlay_open_children": {
+        "message": "Открыть все"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Вы действительно хотите открыть все {1} закладок из подпапок?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Скрыть из ассистента"
+    },
+    "overlay_label_bookmark": {
+        "message": "Закладка"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*Обратите внимание: по некоторым ссылкам мы можем получать комиссию"
+    },
+    "overlay_label_dir": {
+        "message": "Папка"
+    },
+    "overlay_label_separator": {
+        "message": "Разделитель"
+    },
+    "overlay_add_position": {
+        "message": "Позиция"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Вставить перед"
+    },
+    "overlay_add_position_append": {
+        "message": "Вставить после"
+    },
+    "overlay_delete_selected": {
+        "message": "Удалить все"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Вы уверены, что хотите удалить выбранные записи? Закладки из подпапок также будут удалены."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "Браузер {1} поддерживает только режим только для чтения. Вы можете нажать Ctrl+D, чтобы добавить закладку."
+    },
+    "overlay_collect": {
+        "message": "Сохранить"
+    },
+    "overlay_collect_title": {
+        "message": "Заголовок страницы"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "Выбрать папку"
+    },
+    "overlay_add_collect_folder": {
+        "message": "Добавить папку"
+    },
+    "overlay_collect_confirm": {
+        "message": "Подтвердить"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "Редактировать"
+    },
+    "overlay_collect_folder_title": {
+        "message": "Имя папки"
+    },
+    "overlay_collect_folder_description": {
+        "message": "Описание папки"
+    },
+    "overlay_collect_folder_public": {
+        "message": "Публичная (видна всем)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "Приватная (видна только вам)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "Готово"
+    },
+    "overlay_add_folder_return": {
+        "message": "Назад"
+    },
+    "onboarding_title": {
+        "message": "Выберите магический шар"
+    },
+    "onboarding_declaration": {
+        "message": "*Уведомление: это расширение содержит партнёрские ссылки; при переходе по ним мы можем получать комиссию"
+    },
+    "onboarding_headline": {
+        "message": "Добро пожаловать в BookmarkMars Ассистент"
+    },
+    "onboarding_config_size": {
+        "message": "Настроить размер магического шара"
+    },
+    "onboarding_auth_newtab": {
+        "message": "Предоставить разрешение для страницы персонализации"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "Рекомендуется предоставить разрешение; новая вкладка станет красивее"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "Пропустить"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "Предоставить"
+    },
+    "onboarding_auth_or": {
+        "message": "Или"
+    },
+    "onboarding_size_tip": {
+        "message": "Выберите размер магического шара"
+    },
+    "onboarding_finished": {
+        "message": "Наслаждайтесь!"
+    },
+    "onboarding_moon": {
+        "message": "Лунный свет"
+    },
+    "onboarding_water": {
+        "message": "Лёгкие волны"
+    },
+    "onboarding_sun": {
+        "message": "Утреннее солнце"
+    },
+    "onboarding_desc": {
+        "message": "Вы настроите способ открытия"
+    },
+    "onboarding_left_side_panel": {
+        "message": "Наведите мышь на левую сторону браузера, чтобы вызвать его"
+    },
+    "onboarding_noneed_permission": {
+        "message": "Браузер поддерживает автоматическую авторизацию. Пожалуйста, выберите «Сохранить изменения» для страницы персонализации."
+    },
+    "manage_title": {
+        "message": "Управление"
+    },
+    "manage_beforeunload_desc": {
+        "message": "У вас есть несохранённое содержимое. Вы уверены, что хотите выйти?"
+    },
+    "manage_menu_setting": {
+        "message": "Настройки"
+    },
+    "manage_need_login": {
+        "message": "Для использования этой функции сначала необходимо войти"
+    },
+    "manage_menu_tool": {
+        "message": "Инструменты"
+    },
+    "manage_menu_ucenter": {
+        "message": "Я"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "Основная информация"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "Центр расширений"
+    },
+    "manage_menu_about": {
+        "message": "О программе"
+    },
+    "manage_menu_about_intro": {
+        "message": "Введение"
+    },
+    "manage_menu_about_privacy": {
+        "message": "Конфиденциальность"
+    },
+    "manage_menu_setting_ball": {
+        "message": "Включить"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "Маленький{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "Выберите стиль магического шара, который вам нравится"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "Средний{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "Большой{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "Рекомендуем установить размер магического шара менее 60 px и перетащить его в угол страницы, чтобы не задевать при просмотре"
+    },
+    "manage_menu_setting_function": {
+        "message": "Функция"
+    },
+    "manage_menu_tool_backup": {
+        "message": "Синхронизация"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、Описание функции"
+    },
+    "manage_tool_backup_desc": {
+        "message": "Синхронизация закладок скопирует ваши закладки на наш сервер; мы не будем изменять или раскрывать их каким-либо образом"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "Преимущества: не-VIP могут синхронизировать {2} раз(а) каждые {1} дн.; хранить не более {3} последних копий; VIP — без ограничений и до {4} копий"
+    },
+    "manage_tool_backup_right": {
+        "message": "Преимущества"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、Запросить разрешение"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、Синхронизировать закладки вручную"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "Нажмите для синхронизации"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、Автоматически синхронизировать закладки"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、Результаты синхронизации"
+    },
+    "manage_tool_backup_fail": {
+        "message": "Ошибка"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "Эта функция доступна только участникам VIP"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "Вы не вошли в систему; сначала войдите"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "Автоматическая синхронизация требует предварительной авторизации"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "BookmarkMars Ассистент: вы не включили автоматическую синхронизацию закладок; рекомендуется включить её для безопасности"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "Автоматическая синхронизация поддерживает только закладки менее {1}; синхронизируйте вручную"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "Для этой операции требуется ваше разрешение"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "Экспорт"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "Загрузка"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "Максимальный размер синхронизируемых закладок — {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "Закладки успешно синхронизированы"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "Не удалось синхронизировать закладки"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "Проверка ссылок"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "Им/Экспорт"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "Информация"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "Мои закладки"
+    },
+    "manage_setting_ball_style": {
+        "message": "Стиль магического шара"
+    },
+    "manage_setting_ball_size": {
+        "message": "Размер магического шара"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "Выберите способ открытия"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "Открыть все"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "Через магический шар"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "Через магическую панель"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "Здесь вы можете выбрать способ открытия ассистента. Рекомендуем включить оба метода."
+    },
+    "manage_setting_panel_width": {
+        "message": "Ширина магической панели"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "Выберите здесь удобную ширину панели для открытия ассистента"
+    },
+    "manage_setting_style": {
+        "message": "Стиль"
+    },
+    "manage_setting_style_default": {
+        "message": "По умолчанию"
+    },
+    "manage_setting_style_classcial": {
+        "message": "Классический"
+    },
+    "manage_setting_style_young": {
+        "message": "Молодой"
+    },
+    "manage_setting_style_happy": {
+        "message": "Весёлый"
+    },
+    "manage_setting_linkaction": {
+        "message": "Открытие ссылок"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "Текущая вкладка"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "Новая вкладка"
+    },
+    "manage_setting_font_family": {
+        "message": "Шрифт"
+    },
+    "manage_setting_font_family_default": {
+        "message": "По умолчанию"
+    },
+    "manage_save": {
+        "message": "Сохранить изменения"
+    },
+    "manage_saved_message": {
+        "message": "Изменения успешно сохранены"
+    },
+    "manage_recovery": {
+        "message": "Восстановить по умолчанию"
+    },
+    "manage_restore_confirm": {
+        "message": "Вы уверены, что хотите восстановить настройки по умолчанию?"
+    },
+    "manage_restored_message": {
+        "message": "Настройки успешно восстановлены"
+    },
+    "manage_tool_iexport_all": {
+        "message": "Выбрать все"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "Снять выделение"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "У вас более {1} закладок; будет отображаться только каталог, скорость работы может снизиться"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "Обновить"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "Импорт"
+    },
+    "manage_tool_export": {
+        "message": "Экспорт"
+    },
+    "manage_check_powerful": {
+        "message": "Расширенная проверка"
+    },
+    "manage_check_powerful_desc": {
+        "message": "При просмотре веб-версии BookmarkMars ассистент заранее проверит недействительные ссылки, чтобы избежать перехода по нерабочему контенту. Система оптимизирована и не потребляет слишком много ресурсов и трафика"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "Все мои папки"
+    },
+    "manage_check_directions": {
+        "message": "Нажмите на папку для проверки"
+    },
+    "manage_check_modal_name": {
+        "message": "Проверка-{1}/Справочные результаты"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "Перенаправление"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "Нерабочая"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "Дубликат"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "Пустая"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "Всего обнаружено {1} закладок"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "Обновить выбранные"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "Удалить выбранные"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "Нет результатов"
+    },
+    "manage_tool_backup_name": {
+        "message": "Синхронизация BookmarkMars Ассистент"
+    },
+    "manage_setting_newtab": {
+        "message": "Страница персонализации (рекомендуется предоставить разрешение)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "Разрешено"
+    },
+    "manage_setting_newtab_no": {
+        "message": "Не разрешено"
+    },
+    "manage_switch_close_tag": {
+        "message": "Выкл."
+    },
+    "manage_switch_open_tag": {
+        "message": "Вкл."
+    },
+    "manage_setting_language": {
+        "message": "Язык"
+    },
+    "manage_language_default": {
+        "message": "Как в браузере"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, Облачное резервное копирование истории посещений"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "Вы должны хорошо понимать эту функцию. При включении история ваших посещений будет сохраняться в облаке. Эти данные не будут опубликованы. Решите, разрешить ли это"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "О BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars был вдохновлён Zhihu. Когда дизайнер увидел публикацию о ресурсах, друг поделился своими закладками браузера, и он подумал о создании платформы для обмена закладками. Закладки обычно организуют полезные сайты по категориям; поэтому ваши тоже могут быть полезны другим. Дизайнер не знал, примут ли это все, поэтому это было смелой попыткой."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "BookmarkMars Ассистент"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、Мощное управление закладками, включая добавление, удаление и изменение"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、Мощный поиск локальных и удалённых закладок"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、Мощная синхронизация для предотвращения потери закладок"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、Мощный экспорт и обмен, интеграция с официальным сайтом"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、Мощная проверка ссылок для обнаружения недействительных ссылок"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "Реклама запрещённых платформ"
+    },
+    "search_context_menus_title": {
+        "message": "Поиск закладок"
+    },
+    "user_vip_type1": {
+        "message": "Старший VIP"
+    },
+    "user_vip_type2": {
+        "message": "Пожизненный VIP"
+    },
+    "user_vip_suggestion": {
+        "message": "Нажмите, чтобы активировать VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "Нажмите, чтобы продлить VIP"
+    },
+    "not_found_title": {
+        "message": "404 Не найдено"
+    },
+    "not_found_headline": {
+        "message": "BookmarkMars Ассистент недоступен на этой странице"
+    },
+    "not_found_fallback_desc": {
+        "message": "Это может быть связано с ограничениями браузера или с тем, что веб-контент в чёрном списке"
+    },
+    "more_link": {
+        "message": "Ещё..."
+    },
+    "friendly_suggestion": {
+        "message": "Настоятельно рекомендуем предоставить разрешение для страницы персонализации BookmarkMars Ассистент"
+    },
+    "ucenter_not_login_desc": {
+        "message": "Вы не вошли в систему; невозможно отобразить личную информацию"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "Войти"
+    },
+    "ucenter_motto_today": {
+        "message": "Ты прав, кто заставил тебя ошибиться"
+    },
+    "ucenter_welcome": {
+        "message": "Добро пожаловать в BookmarkMars Ассистент"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "Дата регистрации"
+    },
+    "ucenter_account_type": {
+        "message": "Тип аккаунта"
+    },
+    "ucenter_open_vip": {
+        "message": "Нажмите, чтобы активировать VIP и получить привилегии"
+    },
+    "ucenter_greeting": {
+        "message": "Привет, "
+    },
+    "ucenter_logout": {
+        "message": "Выйти"
+    },
+    "network_error": {
+        "message": "Ошибка сети или внутреннего сервера"
+    },
+    "not_login_notice": {
+        "message": "Войти"
+    },
+    "backup_success_notice": {
+        "message": "Ассистент: закладки автоматически синхронизированы успешно"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "Ярлыки восстановлены из облака"
+    },
+    "new_tab_title": {
+        "message": "Страница персонализации BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "Пользовательский поиск"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "Распознавание речи"
+    },
+    "new_tab_speech_search_error": {
+        "message": "Голосовой поиск не поддерживается"
+    },
+    "new_tab_search_placeholder": {
+        "message": "Введите что-нибудь..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "Закладки"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "Настроить поиск"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "Поиск"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "Закладки"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "История"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "Название"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "Домашняя страница"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "Ссылки запроса"
+    },
+    "new_tab_img_change_sug": {
+        "message": "Только VIP-пользователи могут менять обои"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "Для использования этой функции необходимо войти"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "Редактировать ярлык"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "Перетащите, чтобы изменить позицию"
+    },
+    "new_tab_setting": {
+        "message": "Настройки"
+    },
+    "new_tab_link_edit": {
+        "message": "Редактировать ярлык"
+    },
+    "new_tab_bg_server_change": {
+        "message": "Сменить обои"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "Загрузить обои"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "Добавить пользовательский"
+    },
+    "new_tab_navigation_title": {
+        "message": "Заголовок"
+    },
+    "new_tab_navigation_url": {
+        "message": "Ссылка"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "Добавить"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "Сначала войдите"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "Имя не может быть пустым и должно содержать не более {1} символов"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "Описание до {1} символов"
+    },
+    "collect_create_folder_first": {
+        "message": "Сначала создайте хотя бы одну папку"
+    },
+    "collect_choose_folder_please": {
+        "message": "Выберите папку"
+    },
+    "collect_successfully": {
+        "message": "Успешно сохранено"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "Доброе утро — готовы исследовать"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "Добрый день — оставайтесь любопытными"
+    },
+    "new_tab_greeting_evening": {
+        "message": "Добрый вечер — найдите важное"
+    },
+    "new_tab_greeting_night": {
+        "message": "Доброй ночи — тихий режим"
+    }
+}

@@ -1,0 +1,93 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_extension_name__",
+    "short_name": "__MSG_extension_short_name__",
+    "description": "__MSG_extension_desc__",
+    "default_locale": "en",
+    "version": "9.9.9",
+    "version_name": "Dev",
+    "minimum_chrome_version": "114",//114以上版本支持sidepanel,104以上支持favicon
+    "icons": {
+        "16": "media/img/logo/logo-16.png",
+        "48": "media/img/logo/logo-48.png",
+        "128": "media/img/logo/logo-128.png"
+    },
+    "options_page": "html/manage.html",
+    "action": {
+        "default_icon": {
+	      "16": "media/img/logo/logo-16.png",
+          "48": "media/img/logo/logo-48.png",
+          "128": "media/img/logo/logo-128.png"
+	    }
+    },
+    "permissions": ["storage","scripting","bookmarks","fontSettings","contextMenus","unlimitedStorage","cookies","favicon","sidePanel"],
+    "optional_permissions": [],
+    "content_security_policy": {
+	    "extension_pages": "script-src 'self'; object-src 'self'"
+	},
+    "host_permissions": ["*://*/*"],
+    "background": {
+        "service_worker": "service_worker.js","type": "module"
+    },
+    "web_accessible_resources": [
+	    {
+	      "resources": [
+	      	"html/*",
+	      	"media/img/*",
+	      	"media/conf/*",
+	      	"media/css/*",
+	      	"*favicon/*"
+	      ],
+	      "matches": ["<all_urls>"]
+	    }
+    ],
+    "commands": {
+	    "_execute_action": {
+	      "description": "Toggle BookmarkMars Assistant"
+	    }
+	},
+    "side_panel": {
+	   "default_path": "html/sidepanel.html"
+	},
+	"chrome_url_overrides" : {
+       "newtab": "html/new_tab.html"
+  	},
+    "content_scripts": [{
+    	"css": [],
+        "js": [
+        	"media/js/lib/jst.js",
+        	"media/js/lib/jscs.js",
+        	"media/js/opts.js",
+        	"media/js/helper/dao.js",
+        	"media/js/helper/i18n.js",
+        	"media/js/helper/style_helper.js",
+        	"media/js/helper/list.js",
+        	"media/js/helper/scroll.js",
+        	"media/js/helper/util.js",
+        	"media/js/helper/entry.js",
+        	"media/js/helper/helper_events.js",
+        	"media/js/helper/ball.js",
+        	"media/js/helper/panel.js",
+        	"media/js/helper/search.js",
+        	"media/js/helper/user.js",
+        	"media/js/helper/checkbox.js",
+        	"media/js/helper/font_add.js",
+        	"media/js/helper/template.js",
+        	"media/js/helper/confirm.js",
+        	"media/js/helper/dragmove.js",
+        	"media/js/helper/contextmenu.js",
+        	"media/js/helper/bookmark.js",
+        	"media/js/helper/official_website.js",
+        	"media/js/helper/powerful_check.js",
+        	"media/js/helper/fre_used.js",
+        	"media/js/helper/auto_backup.js",
+        	"media/js/helper/privilege.js",
+        	"media/js/client.js"
+        ],
+        "matches": [
+        	"<all_urls>"
+        ],
+        "run_at": "document_end"
+    }]
+    ,"update_url": "http://upext.chrome.360.cn/intf.php?method=ExtUpdate.query"
+}

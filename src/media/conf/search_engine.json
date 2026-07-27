@@ -1,0 +1,781 @@
+{
+    "google": {
+        "name": "谷歌",
+        "url": "https://www.google.com/",
+        "queryUrl": "https://www.google.com/search?q={1}",
+        "favicon": "https://www.google.com/favicon.ico",
+        "sorting": 10,
+        "lang": {
+            "en": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "zh_TW": {
+                "name": "谷歌",
+                "sorting": 10
+            },
+            "es": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "fr": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "pt": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "ru": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "ja": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "de": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "ko": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "it": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "id": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "tr": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "pl": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "uk": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "nl": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "vi": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "th": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "ar": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "he": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "hi": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "cl": {
+                "name": "Google",
+                "sorting": 10
+            },
+            "mx": {
+                "name": "Google",
+                "sorting": 10
+            }
+        }
+    },
+    "bing": {
+        "name": "必应",
+        "url": "https://www.bing.com/",
+        "queryUrl": "https://www.bing.com/search?q={1}",
+        "favicon": "https://www.bing.com/favicon.ico",
+        "sorting": 20,
+        "lang": {
+            "en": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "zh_TW": {
+                "name": "必應",
+                "sorting": 20
+            },
+            "es": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "fr": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "pt": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "ru": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "ja": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "de": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "ko": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "it": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "id": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "tr": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "pl": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "uk": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "nl": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "vi": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "th": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "ar": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "he": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "hi": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "cl": {
+                "name": "Bing",
+                "sorting": 20
+            },
+            "mx": {
+                "name": "Bing",
+                "sorting": 20
+            }
+        }
+    },
+    "baidu": {
+        "name": "百度",
+        "url": "https://www.baidu.com/",
+        "queryUrl": "https://www.baidu.com/s?wd={1}",
+        "favicon": "https://www.baidu.com/favicon.ico",
+        "sorting": 25,
+        "lang": {
+            "en": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "zh_TW": {
+                "name": "百度",
+                "sorting": 25
+            },
+            "es": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "fr": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "pt": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "ru": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "ja": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "de": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "ko": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "it": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "id": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "tr": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "pl": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "uk": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "nl": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "vi": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "th": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "ar": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "he": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "hi": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "cl": {
+                "name": "Baidu",
+                "sorting": 25
+            },
+            "mx": {
+                "name": "Baidu",
+                "sorting": 25
+            }
+        }
+    },
+    "yandex": {
+        "name": "Yandex",
+        "url": "https://yandex.com/",
+        "queryUrl": "https://yandex.com/search/?text={1}",
+        "favicon": "https://yandex.com/favicon.ico",
+        "sorting": 28,
+        "lang": {
+            "en": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "zh_TW": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "es": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "fr": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "pt": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "ru": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "ja": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "de": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "ko": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "it": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "id": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "tr": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "pl": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "uk": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "nl": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "vi": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "th": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "ar": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "he": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "hi": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "cl": {
+                "name": "Yandex",
+                "sorting": 28
+            },
+            "mx": {
+                "name": "Yandex",
+                "sorting": 28
+            }
+        }
+    },
+    "amazon": {
+        "name": "亚马逊",
+        "url": "https://www.amazon.com/",
+        "queryUrl": "https://www.amazon.com/s?k={1}",
+        "favicon": "https://www.amazon.com/favicon.ico",
+        "sorting": 30,
+        "lang": {
+            "en": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "zh_TW": {
+                "name": "亞馬遜",
+                "sorting": 30
+            },
+            "es": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "fr": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "pt": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "ru": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "ja": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "de": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "ko": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "it": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "id": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "tr": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "pl": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "uk": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "nl": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "vi": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "th": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "ar": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "he": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "hi": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "cl": {
+                "name": "Amazon",
+                "sorting": 30
+            },
+            "mx": {
+                "name": "Amazon",
+                "sorting": 30
+            }
+        }
+    },
+    "ebay": {
+        "name": "eBay",
+        "url": "https://www.ebay.com/",
+        "queryUrl": "https://www.ebay.com/sch/i.html?_nkw={1}",
+        "favicon": "https://www.ebay.com/favicon.ico",
+        "sorting": 40,
+        "lang": {
+            "en": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "zh_TW": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "es": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "fr": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "pt": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "ru": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "ja": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "de": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "ko": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "it": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "id": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "tr": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "pl": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "uk": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "nl": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "vi": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "th": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "ar": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "he": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "hi": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "cl": {
+                "name": "eBay",
+                "sorting": 40
+            },
+            "mx": {
+                "name": "eBay",
+                "sorting": 40
+            }
+        }
+    },
+    "youtube": {
+        "name": "YouTube",
+        "url": "https://www.youtube.com/",
+        "queryUrl": "https://www.youtube.com/results?search_query={1}",
+        "favicon": "https://www.youtube.com/favicon.ico",
+        "sorting": 50,
+        "lang": {
+            "en": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "zh_TW": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "es": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "fr": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "pt": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "ru": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "ja": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "de": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "ko": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "it": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "id": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "tr": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "pl": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "uk": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "nl": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "vi": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "th": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "ar": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "he": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "hi": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "cl": {
+                "name": "YouTube",
+                "sorting": 50
+            },
+            "mx": {
+                "name": "YouTube",
+                "sorting": 50
+            }
+        }
+    },
+    "wikipedia": {
+        "name": "维基百科",
+        "url": "https://www.wikipedia.org/",
+        "queryUrl": "https://en.wikipedia.org/wiki/Special:Search?search={1}",
+        "favicon": "https://www.wikipedia.org/static/favicon/wikipedia.ico",
+        "sorting": 60,
+        "lang": {
+            "en": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "zh_TW": {
+                "name": "維基百科",
+                "sorting": 60
+            },
+            "es": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "fr": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "pt": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "ru": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "ja": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "de": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "ko": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "it": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "id": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "tr": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "pl": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "uk": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "nl": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "vi": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "th": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "ar": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "he": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "hi": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "cl": {
+                "name": "Wikipedia",
+                "sorting": 60
+            },
+            "mx": {
+                "name": "Wikipedia",
+                "sorting": 60
+            }
+        }
+    },
+    "custom": {
+        "sorting": 70
+    }
+}

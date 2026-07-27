@@ -1,0 +1,563 @@
+@import "include/vars";
+@import "include/mixins";
+@import "include/loading";
+@import "include/scroll_box";
+@import "include/contextmenu";
+@import "include/checkbox";
+@import "include/bookmark_entry";
+@import "include/generals";
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &.no-animations {
+    *, *::before, *::after {
+      transition: none !important;
+    }
+  }
+}
+
+// Sidebar
+a.drag-helper {
+  
+  @include bookmarkEntry;
+  position: absolute;
+  background: $__bodyColor;
+  padding-right: 46px;
+  box-shadow: 1px 1px 10px $__textColor;
+  border-radius: 10px;
+  cursor: grabbing;
+  transition: none;
+  z-index: 3;
+
+  > span.drag {
+    @include mask('icon-drag', $reorderIconColorActive, 18px);
+    display: block;
+    transition: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: grabbing;
+  }
+
+  > span.add {
+    display: none;
+  }
+
+  > span.selected {
+    position: absolute;
+    bottom: -8px;
+    left: -7px;
+    background: $__colorScheme;
+    color: $__foregroundColor;
+    font-weight: $__fontWeightMedium;
+    line-height: 100%;
+    padding: 3px 5px;
+    border-radius: 5px;
+  }
+
+  &.snap {
+    transition: 0.2s;
+    box-shadow: none;
+  }
+}
+
+section#helper {
+  
+  position: relative;
+  width: $__sidebarWidth;
+  background: $__bodyColor;
+  box-shadow: 15px 0 35px rgba(0, 0, 0, 0.12);
+  height: 100%;
+  display: flex;
+  float: left;
+  speak: none;
+  flex-direction: column;
+  user-select: none;
+  transition: background 0.3s;
+  z-index: 2;
+  
+  &[data-pos='right'] {
+    
+    float: right;
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.12);
+  }
+
+  > svg.loading {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 18px);
+    z-index: $indicatorZindex;
+  }
+
+  > header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+    height: $__sidebarHeaderHeight;
+    padding: 0 8px;
+    background: $__colorScheme;
+    transition: background 0.3s;
+    box-shadow: 0 6px 12px -3px #8c8c8c33;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 3;
+
+    > h1 {
+      
+      color: $__foregroundColor;
+      font-weight: $__fontWeightMedium;
+      margin-right: auto;
+      font-size: 100%;
+      transition: transform 0.5s;
+
+      &.hidden {
+        display: none;
+      }
+
+      > strong {
+        font-weight: $__fontWeightNormal;
+        font-size: 150%;
+      }
+
+      > span {
+        opacity: 0.7;
+        font-size: 90%;
+        display: inline-block;
+        line-height: normal;
+        margin: 0 0 0 3px;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+
+    > a {
+      @include mask(null, $__foregroundColor, 22px);
+      position: relative;
+      display: block;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s, opacity 0.5s;
+
+      &:hover, &.active {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    > div.search-box {
+      
+      position: absolute;
+      top: 5px;
+      bottom: 0;
+      margin: 10 10px;
+      left: 0px;
+      width: calc(100% - 20px);
+      height: $__searchInputHeight;
+      background-color:#b8b8b833;
+      border-radius: 10px;
+      transform: translate3d(0, 0, 0);
+      transition: transform 0.3s, opacity 0.3s;
+
+      > input[type='text'] {
+        
+        vertical-align: top;
+        display: inline-block;
+        height: 100%;
+        width:calc(100% - #{$__searchInputHeight} - 60px - 20px);
+        outline: none;
+        border: 0;
+        background: transparent;
+        color: $__foregroundColor;
+        padding: 0 5px 0 12px;
+
+        &::-webkit-input-placeholder {
+          color: $__foregroundColor;
+          opacity: 0.7;
+        }
+      }
+
+      > .choose{
+        position: relative;
+        vertical-align: top;
+        display: inline-block;
+        height: $__searchInputHeight;
+        max-width: 60px;
+        cursor: pointer;
+        background: transparent;
+        border:none;
+        color: #ffffff;
+        float: right;
+        
+        > option {
+            background: $__colorScheme;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            text-align: center;
+            outline: none;
+        }
+      }
+      
+      > .choose:focus{
+          outline: none;
+      }
+
+      > a.search-button,>a.search-clear {
+        
+        position: relative;
+        vertical-align: top;
+        display: inline-block;
+        height: $__searchInputHeight;
+        width: $__searchInputHeight;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        float: right;
+      }
+      
+      > a.search-button{
+          @include mask('icon/header/search', $__foregroundColor, 28px);
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+          }
+      }
+      
+      > .search-clear{
+          display: none;
+          @include mask('icon/header/cancel', $__foregroundColor, 28px);
+      }
+      
+    }
+    
+    > div.tool-box {
+        
+        height: calc(#{$__sidebarHeaderHeight} - #{$__searchInputHeight} - 20px);
+        width: 100%;
+        margin-top: calc(#{$__searchInputHeight} + 0px );
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 0;
+        
+        > a{
+           position: relative;
+           display: block;
+           width: 40px;
+           height: 40px;
+           border-radius: 50%;
+           background-color: #dbcfcfcc;
+           transition: box-shadow 0.5s;
+           cursor: pointer;
+           text-align: center;
+           
+           >span.notify{
+                
+                position: absolute;
+                top: -3px;
+                right: -10px;
+                text-align: center;
+                border-radius: 3px;
+                background: #1cd421;
+                width: 17px;
+                height: 17px;
+                
+                &[data-type='vip']{
+                    @include mask('icon/header/vip', $__headerIconBadgeColor, 14px);
+                }
+                
+                &[data-type='supervip']{
+                    @include mask('icon/header/supervip', $__headerIconBadgeColor, 14px);
+                }
+           }
+           
+           >img {
+                width: 30px !important;
+                height: 30px !important;
+                margin-top: 5px !important;
+                border-radius: 50% !important;
+           } 
+
+           &::after{
+                content:attr(title);
+                position: absolute;
+                display: block;
+                bottom: -25px;
+                left: -50%;
+                width: 200%;
+                padding: 20px 0 0 0;
+                font-size: 100%;
+                text-align: center;
+                color: #fff;
+                transition: color 0.5s;
+                
+                /*超出则省略号*/
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+           }
+        }
+    }
+  }
+  
+  >div#bookmark_sort {
+        
+     padding-top: 10px;
+     padding-bottom: 10px;
+     border-bottom: 1px solid #bbb6b6;
+     font-size: 90%;
+     box-shadow: 0 6px 12px -3px #b3b3b3e3;
+     background: $__colorScheme;
+      
+      > div.filter{
+          
+          >span,
+          >label,
+          >select{
+              margin-right: 15px;
+              cursor:pointer;
+          }
+          
+          > label{
+              font-weight: $__fontWeightSemiBold;
+              color:$__foregroundColor;
+          }
+          
+          >select{
+             
+             border-radius: 5px;
+             border: none;
+             font-size: 100%;
+             padding: 1px 0px;
+             background:transparent;
+             color:$__foregroundColor;
+             
+             &:focus{
+               outline: none;
+             }
+             
+             > option {
+                background:$__colorScheme;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                text-align: center;
+                outline: none;
+            }
+          }
+          
+          >span.icon{
+              
+              position: relative;
+              display: inline-block;
+              width: 16px;
+              height: 16px;
+              margin: 0 15px 0 16px;
+              pointer-events: none;
+              flex-shrink: 0;
+              
+              @include mask('icon-sort', $__foregroundColor,16px);
+          }
+          
+      } 
+  }
+
+  > div.scroll-box {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    > p {
+      font-size: 120%;
+      padding: 30px 20px;
+      font-style: italic;
+      max-width: 350px;
+      margin: 0 auto;
+      
+      &.search-result-bare{    
+        padding: 65px 20px;
+        font-style: normal;
+        text-align: center;
+        letter-spacing: 3px;
+          
+        @include mask('icon/body/bare', #a4a4a4a6, 80px);
+        
+        &::after{
+            content: attr(title);
+            position: absolute;
+            display: block;
+            bottom: 0px;
+            left: -50%;
+            width: 200%;
+            padding: 0px 0 0 0;
+            font-size: 100%;
+            text-align: center;
+            color: #827b7b;
+            transition: color 0.5s;
+        }
+      }
+    }
+
+    &.scrolled ~ div.filter {
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    &.scrolled:not([data-direction='up']) ~ div.filter {
+      transform: translate3d(0, -100%, 0);
+      box-shadow: none;
+    }
+
+    > ul, > div.pinned > ul {
+      
+      position: relative;
+      margin: 0 0;
+      z-index: 1;
+
+      a {
+        @include bookmarkEntry;
+        position: relative;
+
+        + ul {
+          padding-left: $__bookmarksDirIndentation;
+          height: 0;
+          overflow: hidden;
+        }
+
+        &.opened {
+
+          + ul {
+            height: auto;
+          }
+        }
+
+        &.opened:not(.animated) {
+
+          + ul {
+            overflow: visible;
+          }
+        }
+      }
+
+      li {
+
+        &.hidden {
+
+          > a {
+            opacity: 0.3;
+            font-style: italic;
+
+            &:hover, &.active {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        &.is-dragged {
+          width: calc(100% - 5px);
+          border: 1px dashed $__textColor;
+          pointer-events: none;
+          border-radius:10px;
+
+          > a {
+            visibility: hidden;
+            line-height: calc(#{$__bookmarksLineHeight} - 6px);
+
+            > img {
+              visibility: hidden;
+            }
+          }
+        }
+
+        &.drag-initial {
+          display: none;
+        }
+
+        &.drag-hover {
+          position: relative;
+
+          > a {
+            background-color:$__bodyColor;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 3px;
+            left: 3px;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            border:none;//无边框
+            z-index: 2;
+          }
+        }
+      }
+
+      &.hide-root {
+
+        > li {
+
+          > a {
+            display: none;
+          }
+
+          > ul {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    > a[data-name='add'] {
+      @include mask('icon-add', $__textColor, 20px);
+      position: relative;
+      display: block;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      border-radius: 50%;
+      margin: 0 calc(#{$__bookmarksHorizontalPadding} - 6px) 9px;
+      padding: 0 !important;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $hoverColor;
+      }
+    }
+  }
+
+  &.loading {
+
+    > svg.loading {
+      position: absolute;
+      top: calc(50% - 18px);
+      left: calc(50% - 18px);
+    }
+
+    > div.scroll-box, > div.filter {
+      @extend %hidden;
+    }
+  }
+}
+
+body {
+    &.drag-cancel {
+    
+        * {
+          cursor: no-drop !important;
+        }
+    
+        section#helper > div.scroll-box ul li.is-dragged {
+          display: none;
+        }
+    }
+}

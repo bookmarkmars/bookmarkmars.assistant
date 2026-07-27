@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title data-i18n="not_found_title"></title>
+    <style>
+        body.building > * {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="building">
+<section id="content">
+    <section class="mid">
+        <div id="fallback" data-nosug="360se|"></div>
+    </section>
+</section>
+
+<script src="/media/js/lib/jst.js"></script>
+<script src="/media/js/lib/jscs.js"></script>
+<script src="/media/js/opts.js"></script>
+
+<!-- [START REPLACE] -->
+<script src='/media/js/helper/i18n.js'></script>
+<script src='/media/js/helper/font_add.js'></script>
+<script src='/media/js/helper/style_helper.js'></script>
+<script src='/media/js/helper/template.js'></script>
+<script src='/media/js/helper/dao.js'></script>
+<script src='/media/js/helper/util.js'></script>
+<!-- [END REPLACE] -->
+
+<!-- [START REMOVE] -->
+<script src='/media/js/not_found/fallback.js'></script>
+<!-- [END REMOVE] -->
+
+<script src='/media/js/not_found.js'></script>
+</body>
+</html>

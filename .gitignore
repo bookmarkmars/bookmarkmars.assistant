@@ -1,0 +1,8 @@
+.idea/
+__tmp/
+__dist/
+node_modules/
+src/media/css/
+package-lock.json
+.DS_Store
+*.zip

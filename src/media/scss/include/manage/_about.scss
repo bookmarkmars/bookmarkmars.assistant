@@ -1,0 +1,42 @@
+div.tab[data-name='about'] > div[data-name='intro']{
+
+    
+   > div.row{
+        
+        width: 90%;
+        margin-bottom: 20px;
+        background: $contentBackground;
+        padding: 20px 15px;
+        border-radius: 10px;
+        color: $textColor;
+        letter-spacing: 2px;
+       
+        > h1 {
+           line-height: 150%;
+           font-size: 170%;
+           margin-bottom: 5px;
+           color:$textColorLight;
+        }
+       
+        > p{
+           line-height: 170%;
+           font-size: 120%;
+        }
+       
+        > div.function,> div.blacklist{
+
+          > p{
+            line-height: 170%;
+            font-size: 115%;  
+          }
+        }
+        
+        > div.blacklist{
+          > p{
+            line-height: 120%;
+            color:$textColor;
+          }
+        }
+    }
+  
+}

@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "Assistente BookmarkMars"
+    },
+    "extension_short_name": {
+        "message": "BM Assist."
+    },
+    "extension_version": {
+        "message": "Versione"
+    },
+    "extension_new_version": {
+        "message": "Nuova versione"
+    },
+    "extension_need_upgrade": {
+        "message": "Nuovo"
+    },
+    "extension_upgrade_address": {
+        "message": "Indirizzo aggiornamento"
+    },
+    "extension_upgrade": {
+        "message": "Nuovo"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "Privacy"
+    },
+    "extension_ball_reset": {
+        "message": "Reimposta sfera magica"
+    },
+    "extension_ball_not_open": {
+        "message": "La sfera magica non è attiva; vai alle impostazioni per attivarla"
+    },
+    "extension_desc": {
+        "message": "Sincronizzazione segnalibri, esportazione e importazione, impostazioni interfaccia di gestione, aggiunta, eliminazione e modifica dei segnalibri"
+    },
+    "extension_last_update": {
+        "message": "Ultimo aggiornamento il {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "Nascondi temporaneamente la sfera magica"
+    },
+    "header_bookmarks": {
+        "message": "Segnalibri"
+    },
+    "header_toolbox_official": {
+        "message": "Ufficiale"
+    },
+    "header_toolbox_ucenter": {
+        "message": "Io"
+    },
+    "header_toolbox_tool": {
+        "message": "Strumenti"
+    },
+    "header_toolbox_setting": {
+        "message": "Impostazioni"
+    },
+    "header_search_box_local": {
+        "message": "Locale"
+    },
+    "header_search_box_server": {
+        "message": "Remoto"
+    },
+    "header_search_box_remote_search": {
+        "message": "Cerca in remoto"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Cerca {1} segnalibri locali"
+    },
+    "sidebar_search_no_results": {
+        "message": "Nessun risultato"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "copiato"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "Cartella vuota"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "Uso frequente ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "Modifica"
+    },
+    "sidebar_opreate_drag": {
+        "message": "Sposta"
+    },
+    "sidebar_opreate_add": {
+        "message": "Aggiungi"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "Aggiorna"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "Nessun segnalibro"
+    },
+    "sidebar_filter": {
+        "message": "Filtra"
+    },
+    "sidebar_filter_default": {
+        "message": "Predefinito"
+    },
+    "sidebar_filter_create": {
+        "message": "Data di creazione"
+    },
+    "sidebar_filter_used": {
+        "message": "Ultima visita"
+    },
+    "sidebar_filter_frequency": {
+        "message": "Frequenza visite"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "Disc"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "Cresc"
+    },
+    "sidebar_filter_order_default": {
+        "message": "Predefinito"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Modifica segnalibro"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Modifica cartella"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Modifica separatore"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Elimina segnalibro"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Elimina cartella"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Elimina separatore"
+    },
+    "contextmenu_copy": {
+        "message": "Copia link"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Aggiungi segnalibro"
+    },
+    "contextmenu_add_pin": {
+        "message": "Fissa"
+    },
+    "contextmenu_add_unpin": {
+        "message": "Rimuovi fissaggio"
+    },
+    "contextmenu_add": {
+        "message": "Aggiungi{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "Apri Assistente BookmarkMars"
+    },
+    "contextmenu_close_helper": {
+        "message": "Chiudi Assistente BookmarkMars"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "Attiva/disattiva Assistente BookmarkMars"
+    },
+    "contextmenu_add_website": {
+        "message": "Salva pagina"
+    },
+    "contextmenu_add_folder": {
+        "message": "Aggiungi cartella"
+    },
+    "contextmenu_edit_folder": {
+        "message": "Modifica cartella"
+    },
+    "overlay_bookmark_title": {
+        "message": "Titolo"
+    },
+    "overlay_bookmark_url": {
+        "message": "Link"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Altre informazioni"
+    },
+    "overlay_cancel": {
+        "message": "Annulla"
+    },
+    "overlay_close": {
+        "message": "Chiudi"
+    },
+    "overlay_save": {
+        "message": "Salva"
+    },
+    "overlay_delete": {
+        "message": "Elimina"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Vuoi davvero aprire i {1} segnalibri, incluse le sottocartelle della cartella selezionata?"
+    },
+    "overlay_open_children": {
+        "message": "Apri tutto"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Vuoi davvero aprire i {1} segnalibri delle sottocartelle?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Nascondi dall'assistente"
+    },
+    "overlay_label_bookmark": {
+        "message": "Segnalibro"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*Nota: alcuni link potrebbero generarci una commissione"
+    },
+    "overlay_label_dir": {
+        "message": "Cartella"
+    },
+    "overlay_label_separator": {
+        "message": "Separatore"
+    },
+    "overlay_add_position": {
+        "message": "Posizione"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Inserisci prima"
+    },
+    "overlay_add_position_append": {
+        "message": "Inserisci dopo"
+    },
+    "overlay_delete_selected": {
+        "message": "Elimina tutto"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Sei sicuro di voler eliminare le voci selezionate? Verranno eliminati anche i segnalibri delle sottocartelle."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "Il browser {1} supporta solo la modalità di sola lettura. Puoi premere Ctrl+D per salvare un segnalibro."
+    },
+    "overlay_collect": {
+        "message": "Salva"
+    },
+    "overlay_collect_title": {
+        "message": "Titolo pagina"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "Scegli cartella"
+    },
+    "overlay_add_collect_folder": {
+        "message": "Aggiungi cartella"
+    },
+    "overlay_collect_confirm": {
+        "message": "Conferma"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "Modifica"
+    },
+    "overlay_collect_folder_title": {
+        "message": "Nome cartella"
+    },
+    "overlay_collect_folder_description": {
+        "message": "Descrizione cartella"
+    },
+    "overlay_collect_folder_public": {
+        "message": "Pubblica (visibile a tutti)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "Privata (visibile solo a te)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "Fine"
+    },
+    "overlay_add_folder_return": {
+        "message": "Indietro"
+    },
+    "onboarding_title": {
+        "message": "Scegli la sfera magica"
+    },
+    "onboarding_declaration": {
+        "message": "*Avviso: questa estensione contiene link di affiliazione; cliccandoli potremmo ricevere una commissione"
+    },
+    "onboarding_headline": {
+        "message": "Benvenuto in Assistente BookmarkMars"
+    },
+    "onboarding_config_size": {
+        "message": "Configura dimensione sfera magica"
+    },
+    "onboarding_auth_newtab": {
+        "message": "Concedi permesso per la pagina di personalizzazione"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "Si consiglia di concedere il permesso; la nuova scheda sarà più bella"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "Ignora"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "Concedi"
+    },
+    "onboarding_auth_or": {
+        "message": "Oppure"
+    },
+    "onboarding_size_tip": {
+        "message": "Scegli la dimensione della sfera magica"
+    },
+    "onboarding_finished": {
+        "message": "Buon divertimento!"
+    },
+    "onboarding_moon": {
+        "message": "Luce di luna"
+    },
+    "onboarding_water": {
+        "message": "Onde leggere"
+    },
+    "onboarding_sun": {
+        "message": "Sole del mattino"
+    },
+    "onboarding_desc": {
+        "message": "Configurerai il metodo di apertura"
+    },
+    "onboarding_left_side_panel": {
+        "message": "Posiziona il mouse sul lato sinistro del browser per richiamarla"
+    },
+    "onboarding_noneed_permission": {
+        "message": "Il browser supporta l'autorizzazione automatica. Scegli \"Mantieni modifiche\" per la pagina di personalizzazione."
+    },
+    "manage_title": {
+        "message": "Gestione"
+    },
+    "manage_beforeunload_desc": {
+        "message": "Hai contenuti non salvati, sei sicuro di voler uscire?"
+    },
+    "manage_menu_setting": {
+        "message": "Impostazioni"
+    },
+    "manage_need_login": {
+        "message": "Devi effettuare l'accesso per usare questa funzione"
+    },
+    "manage_menu_tool": {
+        "message": "Strumenti"
+    },
+    "manage_menu_ucenter": {
+        "message": "Io"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "Informazioni di base"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "Centro plugin"
+    },
+    "manage_menu_about": {
+        "message": "Informazioni"
+    },
+    "manage_menu_about_intro": {
+        "message": "Introduzione"
+    },
+    "manage_menu_about_privacy": {
+        "message": "Privacy"
+    },
+    "manage_menu_setting_ball": {
+        "message": "Attiva"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "Piccola{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "Scegli uno stile di sfera magica che ti piace"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "Media{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "Grande{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "Consigliamo di impostare la sfera magica sotto i 60 px e trascinarla in un angolo della pagina per evitare di toccarla durante la navigazione"
+    },
+    "manage_menu_setting_function": {
+        "message": "Funzione"
+    },
+    "manage_menu_tool_backup": {
+        "message": "Sincronizzazione"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、Introduzione alla funzione"
+    },
+    "manage_tool_backup_desc": {
+        "message": "La sincronizzazione dei segnalibri copierà i tuoi segnalibri sul nostro server; non li modificheremo né divulgheremo in alcun modo"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "Vantaggi: i non VIP possono sincronizzare {2} volte ogni {1} giorni e conservare al massimo {3} copie recenti; i VIP hanno volte illimitate e possono conservare {4} copie"
+    },
+    "manage_tool_backup_right": {
+        "message": "Vantaggi"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、Richiedi permesso"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、Sincronizza segnalibri manualmente"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "Clicca per sincronizzare"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、Sincronizza segnalibri automaticamente"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、Risultati sincronizzazione"
+    },
+    "manage_tool_backup_fail": {
+        "message": "Errore"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "Questa funzione è disponibile solo per i membri VIP"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "Non hai effettuato l'accesso; accedi prima"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "La sincronizzazione automatica richiede un'autorizzazione preventiva"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "Assistente BookmarkMars: non hai attivato la sincronizzazione automatica dei segnalibri; si consiglia di attivarla per sicurezza"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "La sincronizzazione automatica supporta solo segnalibri inferiori a {1}; sincronizza manualmente"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "Questa operazione richiede la tua autorizzazione"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "Esportazione"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "Caricamento"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "La dimensione massima dei segnalibri sincronizzabili è {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "Segnalibri sincronizzati correttamente"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "Errore nella sincronizzazione dei segnalibri"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "Controllo link"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "Im/Esporta"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "Informazioni"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "I miei segnalibri"
+    },
+    "manage_setting_ball_style": {
+        "message": "Stile sfera magica"
+    },
+    "manage_setting_ball_size": {
+        "message": "Dimensione sfera magica"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "Scegli come aprire"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "Apri tutto"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "Con la sfera magica"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "Con il pannello magico"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "Qui puoi scegliere come aprire l'assistente. Consigliamo di attivare entrambi i metodi."
+    },
+    "manage_setting_panel_width": {
+        "message": "Larghezza pannello magico"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "Scegli qui una larghezza del pannello adatta a te per aprire l'assistente"
+    },
+    "manage_setting_style": {
+        "message": "Stile"
+    },
+    "manage_setting_style_default": {
+        "message": "Predefinito"
+    },
+    "manage_setting_style_classcial": {
+        "message": "Classico"
+    },
+    "manage_setting_style_young": {
+        "message": "Giovane"
+    },
+    "manage_setting_style_happy": {
+        "message": "Allegro"
+    },
+    "manage_setting_linkaction": {
+        "message": "Apertura link"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "Scheda corrente"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "Nuova scheda"
+    },
+    "manage_setting_font_family": {
+        "message": "Carattere"
+    },
+    "manage_setting_font_family_default": {
+        "message": "Predefinito"
+    },
+    "manage_save": {
+        "message": "Salva modifiche"
+    },
+    "manage_saved_message": {
+        "message": "Modifiche salvate correttamente"
+    },
+    "manage_recovery": {
+        "message": "Ripristina predefiniti"
+    },
+    "manage_restore_confirm": {
+        "message": "Sei sicuro di voler ripristinare la configurazione predefinita?"
+    },
+    "manage_restored_message": {
+        "message": "Configurazione ripristinata correttamente"
+    },
+    "manage_tool_iexport_all": {
+        "message": "Seleziona tutto"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "Deseleziona tutto"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "Hai più di {1} segnalibri; verrà mostrata solo la directory e la velocità potrebbe essere influenzata"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "Aggiorna"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "Importa"
+    },
+    "manage_tool_export": {
+        "message": "Esporta"
+    },
+    "manage_check_powerful": {
+        "message": "Controllo avanzato"
+    },
+    "manage_check_powerful_desc": {
+        "message": "Durante la navigazione della versione web di BookmarkMars, l'assistente controllerà in anticipo i link non validi per evitare clic su contenuti rotti. Il sistema è ottimizzato e non consumerà troppe prestazioni o larghezza di banda"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "Tutte le mie cartelle"
+    },
+    "manage_check_directions": {
+        "message": "Clicca sulla cartella per testare"
+    },
+    "manage_check_modal_name": {
+        "message": "Controllo-{1}/Risultati di riferimento"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "Reindirizzamento"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "Rotto"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "Duplicato"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "Vuoto"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "Rilevati {1} segnalibri in totale"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "Aggiorna selezionati"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "Elimina selezionati"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "Nessun risultato"
+    },
+    "manage_tool_backup_name": {
+        "message": "Sincronizzazione Assistente BookmarkMars"
+    },
+    "manage_setting_newtab": {
+        "message": "Pagina di personalizzazione (si consiglia di concedere l'autorizzazione)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "Autorizzato"
+    },
+    "manage_setting_newtab_no": {
+        "message": "Non autorizzato"
+    },
+    "manage_switch_close_tag": {
+        "message": "Spento"
+    },
+    "manage_switch_open_tag": {
+        "message": "Acceso"
+    },
+    "manage_setting_language": {
+        "message": "Lingua"
+    },
+    "manage_language_default": {
+        "message": "Segui il browser"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, Backup cloud della cronologia visite"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "Devi comprendere bene questa funzione. Attivandola, la cronologia delle tue visite verrà salvata nel cloud. Questi dati non saranno resi pubblici. Decidi se consentirlo"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "Informazioni su BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars è stato ispirato da Zhihu. Quando il designer vide un post sulle risorse, un amico condivise i suoi segnalibri del browser e pensò di creare una piattaforma per condividere segnalibri. I segnalibri di solito organizzano siti utili per categorie; quindi anche i tuoi potrebbero essere utili ad altri. Il designer non sapeva se sarebbe stato accettato da tutti, quindi fu un tentativo audace."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "Assistente BookmarkMars"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、Potente gestione segnalibri, inclusa aggiunta, eliminazione e modifica"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、Potente ricerca di segnalibri locali e remoti"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、Potente sincronizzazione per evitare la perdita dei segnalibri"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、Potente esportazione e condivisione, integrabile con il sito ufficiale"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、Potente controllo link per rilevare link non validi"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "Pubblicità di piattaforme vietate"
+    },
+    "search_context_menus_title": {
+        "message": "Ricerca segnalibri"
+    },
+    "user_vip_type1": {
+        "message": "VIP senior"
+    },
+    "user_vip_type2": {
+        "message": "VIP a vita"
+    },
+    "user_vip_suggestion": {
+        "message": "Clicca per attivare VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "Clicca per rinnovare VIP"
+    },
+    "not_found_title": {
+        "message": "404 Non trovato"
+    },
+    "not_found_headline": {
+        "message": "Assistente BookmarkMars non è disponibile in questa pagina"
+    },
+    "not_found_fallback_desc": {
+        "message": "Potrebbe dipendere dalle restrizioni del browser o da contenuti web nella lista nera"
+    },
+    "more_link": {
+        "message": "Altro..."
+    },
+    "friendly_suggestion": {
+        "message": "Si consiglia vivamente di concedere il permesso per la pagina di personalizzazione di Assistente BookmarkMars"
+    },
+    "ucenter_not_login_desc": {
+        "message": "Non hai effettuato l'accesso; impossibile mostrare le informazioni personali"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "Accedi"
+    },
+    "ucenter_motto_today": {
+        "message": "Hai ragione, chi ti ha fatto sbagliare"
+    },
+    "ucenter_welcome": {
+        "message": "Benvenuto in Assistente BookmarkMars"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "Data di registrazione"
+    },
+    "ucenter_account_type": {
+        "message": "Tipo di account"
+    },
+    "ucenter_open_vip": {
+        "message": "Clicca per attivare VIP e godere dei privilegi"
+    },
+    "ucenter_greeting": {
+        "message": "Ciao, "
+    },
+    "ucenter_logout": {
+        "message": "Esci"
+    },
+    "network_error": {
+        "message": "Errore di rete o del server interno"
+    },
+    "not_login_notice": {
+        "message": "Accedi"
+    },
+    "backup_success_notice": {
+        "message": "Assistente: segnalibri sincronizzati automaticamente con successo"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "Scorciatoie cloud ripristinate"
+    },
+    "new_tab_title": {
+        "message": "Pagina di personalizzazione BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "Ricerca personalizzata"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "Riconoscimento vocale"
+    },
+    "new_tab_speech_search_error": {
+        "message": "Non supporta la ricerca vocale"
+    },
+    "new_tab_search_placeholder": {
+        "message": "Scrivi qualcosa..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "Segnalibri"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "Configura ricerca"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "Ricerca"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "Segnalibri"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "Cronologia"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "Nome"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "Homepage"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "Link di query"
+    },
+    "new_tab_img_change_sug": {
+        "message": "Solo gli utenti VIP possono cambiare lo sfondo"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "Devi effettuare l'accesso per usare questa funzione"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "Modifica scorciatoia"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "Trascina per cambiare posizione"
+    },
+    "new_tab_setting": {
+        "message": "Impostazioni"
+    },
+    "new_tab_link_edit": {
+        "message": "Modifica scorciatoia"
+    },
+    "new_tab_bg_server_change": {
+        "message": "Cambia sfondo"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "Carica sfondo"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "Aggiungi personalizzato"
+    },
+    "new_tab_navigation_title": {
+        "message": "Titolo"
+    },
+    "new_tab_navigation_url": {
+        "message": "Link"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "Aggiungi"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "Accedi prima"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "Il nome non può essere vuoto e deve avere al massimo {1} caratteri"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "Descrizione fino a {1} caratteri"
+    },
+    "collect_create_folder_first": {
+        "message": "Crea almeno una cartella prima"
+    },
+    "collect_choose_folder_please": {
+        "message": "Seleziona una cartella"
+    },
+    "collect_successfully": {
+        "message": "Salvato correttamente"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "Buongiorno — pronto a esplorare"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "Buon pomeriggio — resta curioso"
+    },
+    "new_tab_greeting_evening": {
+        "message": "Buonasera — trova ciò che conta"
+    },
+    "new_tab_greeting_night": {
+        "message": "Buonanotte — modalità focus"
+    }
+}

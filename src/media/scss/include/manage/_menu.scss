@@ -1,0 +1,161 @@
+body > section#wrapper {
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: $manageMenuWidth;
+    height: calc(100% + 20px);
+    background: $manageMenuBackground;
+  }
+
+  > aside {
+    
+    position: relative;
+    width: $manageMenuWidth;
+    height:100%;
+    margin-top:0;
+    overflow-y: auto;
+    
+    > a.logo {
+        
+        display: block;
+        left: 0;
+        line-height:$manageLogoHeight;
+        overflow: hidden;
+        position: relative;
+        top: 0;
+
+        > span {
+          position: relative;
+          display: block;
+          height:$manageLogoHeight;
+          width: $manageMenuWidth;
+          z-index: 3;
+          margin-left: -12px;
+          background-position:center;
+          background-repeat:no-repeat;
+          background-size:calc(#{$manageMenuWidth} - 60px); 
+        }
+    }
+
+    > nav {
+        
+      li.hidden {
+        display: none;
+      }
+
+      > ul {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        > li {
+
+          &[data-name='setting'] > a {
+            @include mask('icon/header/setting', $textColorLight, 20px);
+          }
+
+          &[data-name='tool'] > a {
+            @include mask('icon/header/tool', $textColorLight, 20px);
+          }
+
+          &[data-name='ucenter'] > a {
+            @include mask('icon/header/ucenter', $textColorLight, 20px);
+          }
+
+          &[data-name='about'] > a {
+            @include mask('icon/header/about', $textColorLight, 20px);
+          }
+
+          &.active {
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 12px;
+              right: 0;
+              width: 0;
+              height: 0;
+              border: 10px solid transparent;
+              border-right-color: $bodyBackground;
+            }
+
+            > a {
+              background: $manageMenuHoverBackground;
+
+              &::before {
+                background-color: $textColorLight2;
+              }
+            }
+          }
+        }
+      }
+
+      ul {
+
+        > li {
+          position: relative;
+          display: block;
+          line-height: 44px;
+
+          > a {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0 10px 0 52px;
+            color: $textColorLight;
+            transition: background 0.5s;
+            
+            &::before {
+              width: 32px !important;
+              left: 22px !important;
+              -webkit-mask-position: left center !important;
+              pointer-events: none;
+            }
+          }
+
+          &.active {
+
+            > a {
+              font-weight: $__fontWeightMedium;
+              color: $textColorLight2;
+              
+               &::before {
+                   content: "∨";
+               }
+            }
+          }
+
+          > ul {
+            margin-left: 30px;
+            height: 0;
+            transition: height 0.3s;
+            overflow: hidden;
+
+            > li {
+              line-height: 30px;
+
+              > a {
+                padding: 0 10px 0 22px;
+                font-size: 90%;
+
+                &::before {
+                  content: ">";
+                  position: absolute;
+                  left: 12px !important;
+                }
+
+                &::after {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

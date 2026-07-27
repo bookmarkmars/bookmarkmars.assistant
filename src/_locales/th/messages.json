@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "ผู้ช่วย BookmarkMars"
+    },
+    "extension_short_name": {
+        "message": "ผู้ช่วย BM"
+    },
+    "extension_version": {
+        "message": "เวอร์ชัน"
+    },
+    "extension_new_version": {
+        "message": "เวอร์ชันใหม่"
+    },
+    "extension_need_upgrade": {
+        "message": "ใหม่"
+    },
+    "extension_upgrade_address": {
+        "message": "ที่อยู่อัปเดต"
+    },
+    "extension_upgrade": {
+        "message": "ใหม่"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "ความเป็นส่วนตัว"
+    },
+    "extension_ball_reset": {
+        "message": "รีเซ็ตลูกบอลวิเศษ"
+    },
+    "extension_ball_not_open": {
+        "message": "ยังไม่ได้เปิดลูกบอลวิเศษ โปรดไปที่การตั้งค่าเพื่อเปิดใช้งาน"
+    },
+    "extension_desc": {
+        "message": "ซิงค์บุ๊กมาร์ก ส่งออกและนำเข้าบุ๊กมาร์ก ตั้งค่าอินเทอร์เฟซการจัดการ เพิ่ม ลบ และแก้ไขบุ๊กมาร์ก"
+    },
+    "extension_last_update": {
+        "message": "อัปเดตล่าสุดเมื่อ {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "ซ่อนลูกบอลวิเศษชั่วคราว"
+    },
+    "header_bookmarks": {
+        "message": "บุ๊กมาร์ก"
+    },
+    "header_toolbox_official": {
+        "message": "ทางการ"
+    },
+    "header_toolbox_ucenter": {
+        "message": "ฉัน"
+    },
+    "header_toolbox_tool": {
+        "message": "เครื่องมือ"
+    },
+    "header_toolbox_setting": {
+        "message": "การตั้งค่า"
+    },
+    "header_search_box_local": {
+        "message": "ในเครื่อง"
+    },
+    "header_search_box_server": {
+        "message": "ระยะไกล"
+    },
+    "header_search_box_remote_search": {
+        "message": "ค้นหาระยะไกล"
+    },
+    "sidebar_search_placeholder": {
+        "message": "ค้นหาบุ๊กมาร์กในเครื่อง {1} รายการ"
+    },
+    "sidebar_search_no_results": {
+        "message": "ไม่มีผลลัพธ์"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "คัดลอกแล้ว"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "โฟลเดอร์ว่าง"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "ใช้บ่อย ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "แก้ไข"
+    },
+    "sidebar_opreate_drag": {
+        "message": "ย้าย"
+    },
+    "sidebar_opreate_add": {
+        "message": "เพิ่ม"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "รีเฟรช"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "ไม่มีบุ๊กมาร์ก"
+    },
+    "sidebar_filter": {
+        "message": "ตัวกรอง"
+    },
+    "sidebar_filter_default": {
+        "message": "ค่าเริ่มต้น"
+    },
+    "sidebar_filter_create": {
+        "message": "วันที่สร้าง"
+    },
+    "sidebar_filter_used": {
+        "message": "เข้าชมล่าสุด"
+    },
+    "sidebar_filter_frequency": {
+        "message": "ความถี่การเข้าชม"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "มากไปน้อย"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "น้อยไปมาก"
+    },
+    "sidebar_filter_order_default": {
+        "message": "ค่าเริ่มต้น"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "แก้ไขบุ๊กมาร์ก"
+    },
+    "contextmenu_edit_dir": {
+        "message": "แก้ไขโฟลเดอร์"
+    },
+    "contextmenu_edit_separator": {
+        "message": "แก้ไขตัวคั่น"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "ลบบุ๊กมาร์ก"
+    },
+    "contextmenu_delete_dir": {
+        "message": "ลบโฟลเดอร์"
+    },
+    "contextmenu_delete_separator": {
+        "message": "ลบตัวคั่น"
+    },
+    "contextmenu_copy": {
+        "message": "คัดลอกลิงก์"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "เพิ่มบุ๊กมาร์ก"
+    },
+    "contextmenu_add_pin": {
+        "message": "ปักหมุด"
+    },
+    "contextmenu_add_unpin": {
+        "message": "ยกเลิกปักหมุด"
+    },
+    "contextmenu_add": {
+        "message": "เพิ่ม{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "เปิดผู้ช่วย BookmarkMars"
+    },
+    "contextmenu_close_helper": {
+        "message": "ปิดผู้ช่วย BookmarkMars"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "สลับผู้ช่วย BookmarkMars"
+    },
+    "contextmenu_add_website": {
+        "message": "บันทึกหน้า"
+    },
+    "contextmenu_add_folder": {
+        "message": "เพิ่มโฟลเดอร์"
+    },
+    "contextmenu_edit_folder": {
+        "message": "แก้ไขโฟลเดอร์"
+    },
+    "overlay_bookmark_title": {
+        "message": "ชื่อเรื่อง"
+    },
+    "overlay_bookmark_url": {
+        "message": "ลิงก์"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "ข้อมูลอื่น"
+    },
+    "overlay_cancel": {
+        "message": "ยกเลิก"
+    },
+    "overlay_close": {
+        "message": "ปิด"
+    },
+    "overlay_save": {
+        "message": "บันทึก"
+    },
+    "overlay_delete": {
+        "message": "ลบ"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "คุณต้องการเปิดบุ๊กมาร์ก {1} รายการจริงหรือไม่ รวมถึงบุ๊กมาร์กในโฟลเดอร์ย่อยของโฟลเดอร์ที่เลือก?"
+    },
+    "overlay_open_children": {
+        "message": "เปิดทั้งหมด"
+    },
+    "overlay_confirm_open_children": {
+        "message": "คุณต้องการเปิดบุ๊กมาร์กในโฟลเดอร์ย่อย {1} รายการจริงหรือไม่?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "ซ่อนจากผู้ช่วย"
+    },
+    "overlay_label_bookmark": {
+        "message": "บุ๊กมาร์ก"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*โปรดทราบ: ลิงก์บางรายการอาจทำให้เราได้รับค่าคอมมิชชัน"
+    },
+    "overlay_label_dir": {
+        "message": "โฟลเดอร์"
+    },
+    "overlay_label_separator": {
+        "message": "ตัวคั่น"
+    },
+    "overlay_add_position": {
+        "message": "ตำแหน่ง"
+    },
+    "overlay_add_position_prepend": {
+        "message": "แทรกก่อน"
+    },
+    "overlay_add_position_append": {
+        "message": "แทรกหลัง"
+    },
+    "overlay_delete_selected": {
+        "message": "ลบทั้งหมด"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "คุณแน่ใจหรือไม่ว่าต้องการลบรายการที่เลือก? บุ๊กมาร์กในโฟลเดอร์ย่อยจะถูกลบด้วย"
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "เบราว์เซอร์ {1} รองรับเฉพาะโหมดอ่านอย่างเดียว คุณสามารถกด Ctrl+D เพื่อบันทึกบุ๊กมาร์ก"
+    },
+    "overlay_collect": {
+        "message": "บันทึก"
+    },
+    "overlay_collect_title": {
+        "message": "ชื่อหน้า"
+    },
+    "overlay_collect_url": {
+        "message": "URL"
+    },
+    "overlay_collect_folder": {
+        "message": "เลือกโฟลเดอร์"
+    },
+    "overlay_add_collect_folder": {
+        "message": "เพิ่มโฟลเดอร์"
+    },
+    "overlay_collect_confirm": {
+        "message": "ยืนยัน"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "แก้ไข"
+    },
+    "overlay_collect_folder_title": {
+        "message": "ชื่อโฟลเดอร์"
+    },
+    "overlay_collect_folder_description": {
+        "message": "คำอธิบายโฟลเดอร์"
+    },
+    "overlay_collect_folder_public": {
+        "message": "สาธารณะ (ทุกคนเห็นได้)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "ส่วนตัว (เฉพาะคุณเห็น)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "เสร็จสิ้น"
+    },
+    "overlay_add_folder_return": {
+        "message": "กลับ"
+    },
+    "onboarding_title": {
+        "message": "เลือกลูกบอลวิเศษ"
+    },
+    "onboarding_declaration": {
+        "message": "*ข้อจำกัดความรับผิดชอบ: ส่วนขยายนี้มีลิงก์พันธมิตร การคลิกอาจทำให้เราได้รับค่าคอมมิชชัน"
+    },
+    "onboarding_headline": {
+        "message": "ยินดีต้อนรับสู่ผู้ช่วย BookmarkMars"
+    },
+    "onboarding_config_size": {
+        "message": "กำหนดขนาดลูกบอลวิเศษ"
+    },
+    "onboarding_auth_newtab": {
+        "message": "ให้สิทธิ์สำหรับหน้าปรับแต่ง"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "แนะนำให้ให้สิทธิ์ แท็บใหม่จะสวยงามขึ้น"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "ข้าม"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "ให้สิทธิ์"
+    },
+    "onboarding_auth_or": {
+        "message": "หรือ"
+    },
+    "onboarding_size_tip": {
+        "message": "เลือกขนาดลูกบอลวิเศษ"
+    },
+    "onboarding_finished": {
+        "message": "ขอให้สนุก!"
+    },
+    "onboarding_moon": {
+        "message": "แสงจันทร์"
+    },
+    "onboarding_water": {
+        "message": "คลื่นเบา"
+    },
+    "onboarding_sun": {
+        "message": "แสงเช้า"
+    },
+    "onboarding_desc": {
+        "message": "คุณจะกำหนดวิธีเปิด"
+    },
+    "onboarding_left_side_panel": {
+        "message": "วางเมาส์ที่ด้านซ้ายของเบราว์เซอร์เพื่อเรียกใช้"
+    },
+    "onboarding_noneed_permission": {
+        "message": "เบราว์เซอร์รองรับการอนุญาตอัตโนมัติ โปรดเลือก \"เก็บการเปลี่ยนแปลง\" สำหรับหน้าปรับแต่ง"
+    },
+    "manage_title": {
+        "message": "การจัดการ"
+    },
+    "manage_beforeunload_desc": {
+        "message": "คุณมีเนื้อหาที่ยังไม่ได้บันทึก แน่ใจหรือไม่ว่าต้องการออก?"
+    },
+    "manage_menu_setting": {
+        "message": "การตั้งค่า"
+    },
+    "manage_need_login": {
+        "message": "ต้องเข้าสู่ระบบก่อนเพื่อใช้ฟังก์ชันนี้"
+    },
+    "manage_menu_tool": {
+        "message": "เครื่องมือ"
+    },
+    "manage_menu_ucenter": {
+        "message": "ฉัน"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "ข้อมูลพื้นฐาน"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "ศูนย์ส่วนขยาย"
+    },
+    "manage_menu_about": {
+        "message": "เกี่ยวกับ"
+    },
+    "manage_menu_about_intro": {
+        "message": "แนะนำ"
+    },
+    "manage_menu_about_privacy": {
+        "message": "ความเป็นส่วนตัว"
+    },
+    "manage_menu_setting_ball": {
+        "message": "เปิดใช้งาน"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "เล็ก{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "เลือกสไตล์ลูกบอลวิเศษที่คุณชอบ"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "กลาง{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "ใหญ่{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "แนะนำให้ตั้งลูกบอลวิเศษต่ำกว่า 60 px และลากไปมุมหน้าเว็บเพื่อหลีกเลี่ยงการสัมผัสโดยไม่ตั้งใจขณะท่องเว็บ"
+    },
+    "manage_menu_setting_function": {
+        "message": "ฟังก์ชัน"
+    },
+    "manage_menu_tool_backup": {
+        "message": "ซิงค์"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、แนะนำฟังก์ชัน"
+    },
+    "manage_tool_backup_desc": {
+        "message": "การซิงค์บุ๊กมาร์กจะคัดลอกบุ๊กมาร์กของคุณไปยังเซิร์ฟเวอร์ของเรา เราจะไม่แก้ไขหรือเปิดเผยใดๆ"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "สิทธิประโยชน์: สมาชิกที่ไม่ใช่ VIP สามารถซิงค์ได้ {2} ครั้งทุก {1} วัน และเก็บสำเนาล่าสุดได้สูงสุด {3} ชุด; VIP ไม่จำกัดจำนวนครั้งและเก็บได้ {4} ชุด"
+    },
+    "manage_tool_backup_right": {
+        "message": "สิทธิประโยชน์"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、ขอสิทธิ์"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、ซิงค์บุ๊กมาร์กด้วยตนเอง"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "คลิกเพื่อซิงค์"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、ซิงค์บุ๊กมาร์กอัตโนมัติ"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、ผลการซิงค์"
+    },
+    "manage_tool_backup_fail": {
+        "message": "ล้มเหลว"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "ฟังก์ชันนี้ใช้ได้เฉพาะสมาชิก VIP"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "คุณยังไม่ได้เข้าสู่ระบบ โปรดเข้าสู่ระบบก่อน"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "การซิงค์อัตโนมัติต้องได้รับอนุญาตก่อน"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "ผู้ช่วย BookmarkMars: คุณยังไม่ได้เปิดการซิงค์บุ๊กมาร์กอัตโนมัติ แนะนำให้เปิดเพื่อความปลอดภัย"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "การซิงค์อัตโนมัติรองรับเฉพาะบุ๊กมาร์กที่น้อยกว่า {1} โปรดซิงค์ด้วยตนเอง"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "การดำเนินการนี้ต้องได้รับอนุญาตจากคุณ"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "กำลังส่งออก"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "กำลังอัปโหลด"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "ขนาดสูงสุดของบุ๊กมาร์กที่ซิงค์ได้คือ {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "ซิงค์บุ๊กมาร์กสำเร็จ"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "ซิงค์บุ๊กมาร์กล้มเหลว"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "ตรวจสอบลิงก์"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "นำเข้า/ส่งออก"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "ข้อมูล"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "บุ๊กมาร์กของฉัน"
+    },
+    "manage_setting_ball_style": {
+        "message": "สไตล์ลูกบอลวิเศษ"
+    },
+    "manage_setting_ball_size": {
+        "message": "ขนาดลูกบอลวิเศษ"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "เลือกวิธีเปิด"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "เปิดทั้งหมด"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "ด้วยลูกบอลวิเศษ"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "ด้วยแผงวิเศษ"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "คุณสามารถเลือกวิธีเปิดผู้ช่วยได้ที่นี่ เราแนะนำให้เปิดทั้งสองวิธี"
+    },
+    "manage_setting_panel_width": {
+        "message": "ความกว้างแผงวิเศษ"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "เลือกความกว้างแผงที่เหมาะกับคุณเพื่อเปิดผู้ช่วย"
+    },
+    "manage_setting_style": {
+        "message": "สไตล์"
+    },
+    "manage_setting_style_default": {
+        "message": "ค่าเริ่มต้น"
+    },
+    "manage_setting_style_classcial": {
+        "message": "คลาสสิก"
+    },
+    "manage_setting_style_young": {
+        "message": "วัยรุ่น"
+    },
+    "manage_setting_style_happy": {
+        "message": "สนุกสนาน"
+    },
+    "manage_setting_linkaction": {
+        "message": "การเปิดลิงก์"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "แท็บปัจจุบัน"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "แท็บใหม่"
+    },
+    "manage_setting_font_family": {
+        "message": "แบบอักษร"
+    },
+    "manage_setting_font_family_default": {
+        "message": "ค่าเริ่มต้น"
+    },
+    "manage_save": {
+        "message": "บันทึกการเปลี่ยนแปลง"
+    },
+    "manage_saved_message": {
+        "message": "บันทึกการเปลี่ยนแปลงสำเร็จ"
+    },
+    "manage_recovery": {
+        "message": "คืนค่าเริ่มต้น"
+    },
+    "manage_restore_confirm": {
+        "message": "แน่ใจหรือไม่ว่าต้องการคืนค่าการตั้งค่าเริ่มต้น?"
+    },
+    "manage_restored_message": {
+        "message": "คืนค่าการตั้งค่าสำเร็จ"
+    },
+    "manage_tool_iexport_all": {
+        "message": "เลือกทั้งหมด"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "ยกเลิกการเลือกทั้งหมด"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "คุณมีบุ๊กมาร์กมากกว่า {1} รายการ จะแสดงเฉพาะไดเรกทอรีและความเร็วอาจได้รับผลกระทบ"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "รีเฟรช"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "นำเข้า"
+    },
+    "manage_tool_export": {
+        "message": "ส่งออก"
+    },
+    "manage_check_powerful": {
+        "message": "การตรวจสอบขั้นสูง"
+    },
+    "manage_check_powerful_desc": {
+        "message": "เมื่อท่องเวอร์ชันเว็บของ BookmarkMars ผู้ช่วยจะตรวจสอบลิงก์ที่ไม่ถูกต้องล่วงหน้าเพื่อหลีกเลี่ยงการคลิกเนื้อหาที่เสีย ระบบได้รับการปรับให้เหมาะสมและจะไม่ใช้ประสิทธิภาพหรือแบนด์วิดท์มากเกินไป"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "โฟลเดอร์ทั้งหมดของฉัน"
+    },
+    "manage_check_directions": {
+        "message": "คลิกที่โฟลเดอร์เพื่อทดสอบ"
+    },
+    "manage_check_modal_name": {
+        "message": "ตรวจสอบ-{1}/ผลอ้างอิง"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "เปลี่ยนเส้นทาง"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "เสีย"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "ซ้ำ"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "ว่าง"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "ตรวจพบบุ๊กมาร์กทั้งหมด {1} รายการ"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "อัปเดตที่เลือก"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "ลบที่เลือก"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "ไม่มีผลลัพธ์"
+    },
+    "manage_tool_backup_name": {
+        "message": "การซิงค์ผู้ช่วย BookmarkMars"
+    },
+    "manage_setting_newtab": {
+        "message": "หน้าปรับแต่ง (แนะนำให้ให้สิทธิ์)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "ได้รับอนุญาตแล้ว"
+    },
+    "manage_setting_newtab_no": {
+        "message": "ยังไม่ได้รับอนุญาต"
+    },
+    "manage_switch_close_tag": {
+        "message": "ปิด"
+    },
+    "manage_switch_open_tag": {
+        "message": "เปิด"
+    },
+    "manage_setting_language": {
+        "message": "ภาษา"
+    },
+    "manage_language_default": {
+        "message": "ตามเบราว์เซอร์"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}, สำรองประวัติการเข้าชมบนคลาวด์"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "คุณต้องเข้าใจฟังก์ชันนี้อย่างถ่องแท้ เมื่อเปิดใช้งาน ประวัติการเข้าชมจะถูกสำรองบนคลาวด์ ข้อมูลนี้จะไม่เปิดเผยต่อสาธารณะ โปรดตัดสินใจว่าจะอนุญาตหรือไม่"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "เกี่ยวกับ BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "BookmarkMars ได้รับแรงบันดาลใจจาก Zhihu เมื่อนักออกแบบเห็นโพสต์เกี่ยวกับทรัพยากร เพื่อนแชร์บุ๊กมาร์กเบราว์เซอร์ และเขาจึงคิดสร้างแพลตฟอร์มแชร์บุ๊กมาร์ก บุ๊กมาร์กมักจัดระเบียบเว็บไซต์ที่มีประโยชน์ตามหมวดหมู่ ดังนั้นบุ๊กมาร์กของคุณอาจมีประโยชน์ต่อผู้อื่นด้วย นักออกแบบไม่รู้ว่าทุกคนจะยอมรับหรือไม่ จึงเป็นการลองที่กล้าหาญ"
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "ผู้ช่วย BookmarkMars"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、การจัดการบุ๊กมาร์กที่ทรงพลัง รวมถึงเพิ่ม ลบ และแก้ไข"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、การค้นหาบุ๊กมาร์กในเครื่องและระยะไกลที่ทรงพลัง"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、การซิงค์ที่ทรงพลังเพื่อป้องกันการสูญหายของบุ๊กมาร์ก"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、การส่งออกและแชร์ที่ทรงพลัง ใช้ร่วมกับเว็บไซต์ทางการได้"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、การตรวจสอบลิงก์ที่ทรงพลังเพื่อตรวจจับลิงก์ที่ไม่ถูกต้อง"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "โฆษณาแพลตฟอร์มที่ห้าม"
+    },
+    "search_context_menus_title": {
+        "message": "ค้นหาบุ๊กมาร์ก"
+    },
+    "user_vip_type1": {
+        "message": "VIP อาวุโส"
+    },
+    "user_vip_type2": {
+        "message": "VIP ตลอดชีพ"
+    },
+    "user_vip_suggestion": {
+        "message": "คลิกเพื่อเปิดใช้ VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "คลิกเพื่อต่ออายุ VIP"
+    },
+    "not_found_title": {
+        "message": "404 ไม่พบ"
+    },
+    "not_found_headline": {
+        "message": "ผู้ช่วย BookmarkMars ไม่พร้อมใช้งานบนหน้านี้"
+    },
+    "not_found_fallback_desc": {
+        "message": "อาจเกิดจากข้อจำกัดของเบราว์เซอร์หรือเนื้อหาเว็บอยู่ในบัญชีดำ"
+    },
+    "more_link": {
+        "message": "เพิ่มเติม..."
+    },
+    "friendly_suggestion": {
+        "message": "ขอแนะนำอย่างยิ่งให้สิทธิ์สำหรับหน้าปรับแต่งผู้ช่วย BookmarkMars"
+    },
+    "ucenter_not_login_desc": {
+        "message": "คุณยังไม่ได้เข้าสู่ระบบ จึงไม่สามารถแสดงข้อมูลส่วนตัวได้"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "เข้าสู่ระบบ"
+    },
+    "ucenter_motto_today": {
+        "message": "คุณพูดถูก ใครทำให้คุณผิด"
+    },
+    "ucenter_welcome": {
+        "message": "ยินดีต้อนรับสู่ผู้ช่วย BookmarkMars"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "วันที่ลงทะเบียน"
+    },
+    "ucenter_account_type": {
+        "message": "ประเภทบัญชี"
+    },
+    "ucenter_open_vip": {
+        "message": "คลิกเพื่อเปิดใช้ VIP และรับสิทธิพิเศษ"
+    },
+    "ucenter_greeting": {
+        "message": "สวัสดี "
+    },
+    "ucenter_logout": {
+        "message": "ออกจากระบบ"
+    },
+    "network_error": {
+        "message": "ข้อผิดพลาดเครือข่ายหรือเซิร์ฟเวอร์ภายใน"
+    },
+    "not_login_notice": {
+        "message": "เข้าสู่ระบบ"
+    },
+    "backup_success_notice": {
+        "message": "ผู้ช่วย: ซิงค์บุ๊กมาร์กอัตโนมัติสำเร็จ"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "กู้คืนทางลัดจากคลาวด์แล้ว"
+    },
+    "new_tab_title": {
+        "message": "หน้าปรับแต่ง BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "ค้นหาแบบกำหนดเอง"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "การรู้จำเสียงพูด"
+    },
+    "new_tab_speech_search_error": {
+        "message": "ไม่รองรับการค้นหาด้วยเสียง"
+    },
+    "new_tab_search_placeholder": {
+        "message": "พิมพ์อะไรบางอย่าง..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "บุ๊กมาร์ก"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "ตั้งค่าการค้นหา"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "ค้นหา"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "บุ๊กมาร์ก"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "ประวัติ"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "ชื่อ"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "หน้าแรก"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "ลิงก์ค้นหา"
+    },
+    "new_tab_img_change_sug": {
+        "message": "เฉพาะผู้ใช้ VIP เท่านั้นที่เปลี่ยนภาพพื้นหลังได้"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "ต้องเข้าสู่ระบบเพื่อใช้ฟังก์ชันนี้"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "แก้ไขทางลัด"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "ลากเพื่อเปลี่ยนตำแหน่ง"
+    },
+    "new_tab_setting": {
+        "message": "การตั้งค่า"
+    },
+    "new_tab_link_edit": {
+        "message": "แก้ไขทางลัด"
+    },
+    "new_tab_bg_server_change": {
+        "message": "เปลี่ยนภาพพื้นหลัง"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "อัปโหลดภาพพื้นหลัง"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "เพิ่มแบบกำหนดเอง"
+    },
+    "new_tab_navigation_title": {
+        "message": "ชื่อเรื่อง"
+    },
+    "new_tab_navigation_url": {
+        "message": "ลิงก์"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "เพิ่ม"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "โปรดเข้าสู่ระบบก่อน"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "ชื่อต้องไม่ว่างและมีได้ไม่เกิน {1} ตัวอักษร"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "คำอธิบายได้สูงสุด {1} ตัวอักษร"
+    },
+    "collect_create_folder_first": {
+        "message": "โปรดสร้างอย่างน้อยหนึ่งโฟลเดอร์ก่อน"
+    },
+    "collect_choose_folder_please": {
+        "message": "โปรดเลือกโฟลเดอร์"
+    },
+    "collect_successfully": {
+        "message": "บันทึกสำเร็จ"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "อรุณสวัสดิ์ — พร้อมสำรวจ"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "สวัสดีตอนบ่าย — รักษาความอยากรู้"
+    },
+    "new_tab_greeting_evening": {
+        "message": "สวัสดีตอนเย็น — ค้นหาสิ่งสำคัญ"
+    },
+    "new_tab_greeting_night": {
+        "message": "ราตรีสวัสดิ์ — โหมดโฟกัส"
+    }
+}

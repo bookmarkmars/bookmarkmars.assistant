@@ -1,0 +1,893 @@
+{
+    "extension_name": {
+        "message": "مساعد BookmarkMars"
+    },
+    "extension_short_name": {
+        "message": "مساعد BM"
+    },
+    "extension_version": {
+        "message": "الإصدار"
+    },
+    "extension_new_version": {
+        "message": "إصدار جديد"
+    },
+    "extension_need_upgrade": {
+        "message": "جديد"
+    },
+    "extension_upgrade_address": {
+        "message": "عنوان التحديث"
+    },
+    "extension_upgrade": {
+        "message": "جديد"
+    },
+    "extension_official_web": {
+        "message": "BookmarkMars"
+    },
+    "extension_privacy": {
+        "message": "الخصوصية"
+    },
+    "extension_ball_reset": {
+        "message": "إعادة تعيين الكرة السحرية"
+    },
+    "extension_ball_not_open": {
+        "message": "الكرة السحرية غير مفعّلة؛ انتقل إلى الإعدادات لتفعيلها"
+    },
+    "extension_desc": {
+        "message": "مزامنة الإشارات المرجعية، تصدير واستيراد الإشارات، إعدادات واجهة الإدارة، إضافة وحذف وتعديل الإشارات"
+    },
+    "extension_last_update": {
+        "message": "آخر تحديث في {1}"
+    },
+    "extension_ball_temporary_hide": {
+        "message": "إخفاء الكرة السحرية مؤقتًا"
+    },
+    "header_bookmarks": {
+        "message": "إشارات مرجعية"
+    },
+    "header_toolbox_official": {
+        "message": "رسمي"
+    },
+    "header_toolbox_ucenter": {
+        "message": "أنا"
+    },
+    "header_toolbox_tool": {
+        "message": "أدوات"
+    },
+    "header_toolbox_setting": {
+        "message": "إعدادات"
+    },
+    "header_search_box_local": {
+        "message": "محلي"
+    },
+    "header_search_box_server": {
+        "message": "بعيد"
+    },
+    "header_search_box_remote_search": {
+        "message": "بحث بعيد"
+    },
+    "sidebar_search_placeholder": {
+        "message": "البحث في {1} إشارة مرجعية محلية"
+    },
+    "sidebar_search_no_results": {
+        "message": "لا توجد نتائج"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "تم النسخ"
+    },
+    "sidebar_folder_is_bare": {
+        "message": "مجلد فارغ"
+    },
+    "sidebar_fre_used_folder": {
+        "message": "استخدام متكرر ({1})"
+    },
+    "sidebar_opreate_edit": {
+        "message": "تحرير"
+    },
+    "sidebar_opreate_drag": {
+        "message": "نقل"
+    },
+    "sidebar_opreate_add": {
+        "message": "إضافة"
+    },
+    "sidebar_opreate_refresh": {
+        "message": "تحديث"
+    },
+    "sidebar_no_bookmarks": {
+        "message": "لا توجد إشارات مرجعية"
+    },
+    "sidebar_filter": {
+        "message": "تصفية"
+    },
+    "sidebar_filter_default": {
+        "message": "افتراضي"
+    },
+    "sidebar_filter_create": {
+        "message": "تاريخ الإنشاء"
+    },
+    "sidebar_filter_used": {
+        "message": "آخر زيارة"
+    },
+    "sidebar_filter_frequency": {
+        "message": "تكرار الزيارة"
+    },
+    "sidebar_filter_order_desc": {
+        "message": "تنازلي"
+    },
+    "sidebar_filter_order_asc": {
+        "message": "تصاعدي"
+    },
+    "sidebar_filter_order_default": {
+        "message": "افتراضي"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "تحرير الإشارة المرجعية"
+    },
+    "contextmenu_edit_dir": {
+        "message": "تحرير المجلد"
+    },
+    "contextmenu_edit_separator": {
+        "message": "تحرير الفاصل"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "حذف الإشارة المرجعية"
+    },
+    "contextmenu_delete_dir": {
+        "message": "حذف المجلد"
+    },
+    "contextmenu_delete_separator": {
+        "message": "حذف الفاصل"
+    },
+    "contextmenu_copy": {
+        "message": "نسخ الرابط"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "إضافة إشارة مرجعية"
+    },
+    "contextmenu_add_pin": {
+        "message": "تثبيت"
+    },
+    "contextmenu_add_unpin": {
+        "message": "إلغاء التثبيت"
+    },
+    "contextmenu_add": {
+        "message": "إضافة{1}"
+    },
+    "contextmenu_open_helper": {
+        "message": "فتح مساعد BookmarkMars"
+    },
+    "contextmenu_close_helper": {
+        "message": "إغلاق مساعد BookmarkMars"
+    },
+    "contextmenu_open_close_helper": {
+        "message": "تبديل مساعد BookmarkMars"
+    },
+    "contextmenu_add_website": {
+        "message": "حفظ الصفحة"
+    },
+    "contextmenu_add_folder": {
+        "message": "إضافة مجلد"
+    },
+    "contextmenu_edit_folder": {
+        "message": "تحرير المجلد"
+    },
+    "overlay_bookmark_title": {
+        "message": "العنوان"
+    },
+    "overlay_bookmark_url": {
+        "message": "الرابط"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "معلومات أخرى"
+    },
+    "overlay_cancel": {
+        "message": "إلغاء"
+    },
+    "overlay_close": {
+        "message": "إغلاق"
+    },
+    "overlay_save": {
+        "message": "حفظ"
+    },
+    "overlay_delete": {
+        "message": "حذف"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "هل تريد حقًا فتح {1} إشارة مرجعية، بما في ذلك إشارات المجلدات الفرعية للمجلد المحدد؟"
+    },
+    "overlay_open_children": {
+        "message": "فتح الكل"
+    },
+    "overlay_confirm_open_children": {
+        "message": "هل تريد حقًا فتح {1} إشارة مرجعية من المجلدات الفرعية؟"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "إخفاء من المساعد"
+    },
+    "overlay_label_bookmark": {
+        "message": "إشارة مرجعية"
+    },
+    "overlay_confirm_disclaimer": {
+        "message": "*يرجى العلم: بعض الروابط قد تكسبنا عمولة"
+    },
+    "overlay_label_dir": {
+        "message": "مجلد"
+    },
+    "overlay_label_separator": {
+        "message": "فاصل"
+    },
+    "overlay_add_position": {
+        "message": "الموضع"
+    },
+    "overlay_add_position_prepend": {
+        "message": "إدراج قبل"
+    },
+    "overlay_add_position_append": {
+        "message": "إدراج بعد"
+    },
+    "overlay_delete_selected": {
+        "message": "حذف الكل"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟ سيتم أيضًا حذف إشارات المجلدات الفرعية."
+    },
+    "overlay_browser_dont_allow_eperate": {
+        "message": "متصفح {1} يدعم وضع القراءة فقط. يمكنك الضغط على Ctrl+D لحفظ إشارة مرجعية."
+    },
+    "overlay_collect": {
+        "message": "حفظ"
+    },
+    "overlay_collect_title": {
+        "message": "عنوان الصفحة"
+    },
+    "overlay_collect_url": {
+        "message": "عنوان URL"
+    },
+    "overlay_collect_folder": {
+        "message": "اختر مجلدًا"
+    },
+    "overlay_add_collect_folder": {
+        "message": "إضافة مجلد"
+    },
+    "overlay_collect_confirm": {
+        "message": "تأكيد"
+    },
+    "overlay_collect_folder_edit": {
+        "message": "تحرير"
+    },
+    "overlay_collect_folder_title": {
+        "message": "اسم المجلد"
+    },
+    "overlay_collect_folder_description": {
+        "message": "وصف المجلد"
+    },
+    "overlay_collect_folder_public": {
+        "message": "عام (مرئي للجميع)"
+    },
+    "overlay_collect_folder_private": {
+        "message": "خاص (مرئي لك فقط)"
+    },
+    "overlay_add_folder_finished": {
+        "message": "إنهاء"
+    },
+    "overlay_add_folder_return": {
+        "message": "رجوع"
+    },
+    "onboarding_title": {
+        "message": "اختر الكرة السحرية"
+    },
+    "onboarding_declaration": {
+        "message": "*تنويه: هذا الامتداد يحتوي على روابط تابعة؛ النقر عليها قد يكسبنا عمولة"
+    },
+    "onboarding_headline": {
+        "message": "مرحبًا بك في مساعد BookmarkMars"
+    },
+    "onboarding_config_size": {
+        "message": "ضبط حجم الكرة السحرية"
+    },
+    "onboarding_auth_newtab": {
+        "message": "منح إذن صفحة التخصيص"
+    },
+    "onboarding_auth_newtab_tip": {
+        "message": "يُنصح بمنح الإذن؛ ستكون علامة التبويب الجديدة أجمل"
+    },
+    "onboarding_auth_newtab_cancel": {
+        "message": "تجاهل"
+    },
+    "onboarding_auth_newtab_confirm": {
+        "message": "منح"
+    },
+    "onboarding_auth_or": {
+        "message": "أو"
+    },
+    "onboarding_size_tip": {
+        "message": "اختر حجم الكرة السحرية"
+    },
+    "onboarding_finished": {
+        "message": "استمتع!"
+    },
+    "onboarding_moon": {
+        "message": "ضوء القمر"
+    },
+    "onboarding_water": {
+        "message": "أمواج هادئة"
+    },
+    "onboarding_sun": {
+        "message": "شمس الصباح"
+    },
+    "onboarding_desc": {
+        "message": "ستقوم بضبط طريقة الفتح"
+    },
+    "onboarding_left_side_panel": {
+        "message": "ضع المؤشر على الجانب الأيسر من المتصفح لاستدعائها"
+    },
+    "onboarding_noneed_permission": {
+        "message": "المتصفح يدعم التفويض التلقائي. يرجى اختيار \"الاحتفاظ بالتغييرات\" لصفحة التخصيص."
+    },
+    "manage_title": {
+        "message": "الإدارة"
+    },
+    "manage_beforeunload_desc": {
+        "message": "لديك محتوى غير محفوظ، هل أنت متأكد أنك تريد المغادرة؟"
+    },
+    "manage_menu_setting": {
+        "message": "إعدادات"
+    },
+    "manage_need_login": {
+        "message": "يجب تسجيل الدخول أولًا لاستخدام هذه الميزة"
+    },
+    "manage_menu_tool": {
+        "message": "أدوات"
+    },
+    "manage_menu_ucenter": {
+        "message": "أنا"
+    },
+    "manage_menu_ucenter_basic": {
+        "message": "معلومات أساسية"
+    },
+    "manage_menu_ucenter_data": {
+        "message": "مركز الإضافات"
+    },
+    "manage_menu_about": {
+        "message": "حول"
+    },
+    "manage_menu_about_intro": {
+        "message": "مقدمة"
+    },
+    "manage_menu_about_privacy": {
+        "message": "الخصوصية"
+    },
+    "manage_menu_setting_ball": {
+        "message": "تفعيل"
+    },
+    "manage_menu_setting_ball_small": {
+        "message": "صغيرة{1}"
+    },
+    "manage_menu_setting_ball_desc": {
+        "message": "اختر نمط كرة سحرية يعجبك"
+    },
+    "manage_menu_setting_ball_medium": {
+        "message": "متوسطة{1}"
+    },
+    "manage_menu_setting_ball_big": {
+        "message": "كبيرة{1}"
+    },
+    "manage_menu_setting_ball_size_desc": {
+        "message": "نوصي بأن تكون الكرة السحرية أقل من 60 بكسل وأن تسحبها إلى زاوية الصفحة لتجنب لمسها أثناء التصفح"
+    },
+    "manage_menu_setting_function": {
+        "message": "وظيفة"
+    },
+    "manage_menu_tool_backup": {
+        "message": "مزامنة"
+    },
+    "manage_tool_backup_intro": {
+        "message": "{1}、مقدمة الوظيفة"
+    },
+    "manage_tool_backup_desc": {
+        "message": "مزامنة الإشارات المرجعية ستنسخ إشاراتك إلى خادمنا؛ لن نعدّلها أو نفصح عنها بأي شكل"
+    },
+    "manage_tool_backup_vip_desc": {
+        "message": "المزايا: يمكن لغير VIP المزامنة {2} مرات كل {1} أيام والاحتفاظ بـ {3} نسخ حديثة كحد أقصى؛ VIP لديهم مرات غير محدودة ويمكنهم الاحتفاظ بـ {4} نسخ"
+    },
+    "manage_tool_backup_right": {
+        "message": "المزايا"
+    },
+    "manage_tool_backup_authorize": {
+        "message": "{1}、طلب إذن"
+    },
+    "manage_tool_backup_manual": {
+        "message": "{1}、مزامنة الإشارات يدويًا"
+    },
+    "manage_tool_backup_manual_button": {
+        "message": "انقر للمزامنة"
+    },
+    "manage_tool_backup_auto": {
+        "message": "{1}、مزامنة الإشارات تلقائيًا"
+    },
+    "manage_tool_backup_result": {
+        "message": "{1}、نتائج المزامنة"
+    },
+    "manage_tool_backup_fail": {
+        "message": "فشل"
+    },
+    "manage_tool_backup_only_vip": {
+        "message": "هذه الميزة متاحة لأعضاء VIP فقط"
+    },
+    "manage_tool_backup_login_first": {
+        "message": "لم تسجّل الدخول؛ سجّل الدخول أولًا"
+    },
+    "manage_tool_backup_auto_auth": {
+        "message": "المزامنة التلقائية تتطلب تفويضًا مسبقًا"
+    },
+    "manage_tool_backup_auto_tip": {
+        "message": "مساعد BookmarkMars: لم تفعّل المزامنة التلقائية للإشارات؛ يُنصح بتفعيلها للأمان"
+    },
+    "manage_tool_backup_auto_max": {
+        "message": "المزامنة التلقائية تدعم فقط الإشارات أقل من {1}؛ زامِن يدويًا"
+    },
+    "manage_tool_backup_authorize_first": {
+        "message": "هذه العملية تتطلب تفويضك"
+    },
+    "manage_tool_backup_import_bookmark": {
+        "message": "جارٍ التصدير"
+    },
+    "manage_tool_backup_upload_bookmark": {
+        "message": "جارٍ الرفع"
+    },
+    "manage_tool_backup_upload_too_large": {
+        "message": "الحد الأقصى لحجم الإشارات التي يمكن مزامنتها هو {1}M"
+    },
+    "manage_tool_backup_upload_success": {
+        "message": "تمت مزامنة الإشارات بنجاح"
+    },
+    "manage_tool_backup_upload_fail": {
+        "message": "فشلت مزامنة الإشارات"
+    },
+    "manage_menu_tool_linkcheck": {
+        "message": "فحص الروابط"
+    },
+    "manage_menu_tool_iexport": {
+        "message": "استيراد/تصدير"
+    },
+    "manage_menu_ucenter_info": {
+        "message": "معلومات"
+    },
+    "manage_menu_ucenter_bookmark": {
+        "message": "إشاراتي المرجعية"
+    },
+    "manage_setting_ball_style": {
+        "message": "نمط الكرة السحرية"
+    },
+    "manage_setting_ball_size": {
+        "message": "حجم الكرة السحرية"
+    },
+    "manage_setting_ball_panel_choose": {
+        "message": "اختر طريقة الفتح"
+    },
+    "manage_menu_setting_ball_panel_default": {
+        "message": "فتح الكل"
+    },
+    "manage_menu_setting_ball_choose": {
+        "message": "بالكرة السحرية"
+    },
+    "manage_menu_setting_panel_choose": {
+        "message": "باللوحة السحرية"
+    },
+    "manage_menu_setting_ball_panel_desc": {
+        "message": "يمكنك هنا اختيار طريقة فتح المساعد. نوصي بتفعيل الطريقتين."
+    },
+    "manage_setting_panel_width": {
+        "message": "عرض اللوحة السحرية"
+    },
+    "manage_setting_panel_width_desc": {
+        "message": "اختر هنا عرض لوحة يناسبك لفتح المساعد"
+    },
+    "manage_setting_style": {
+        "message": "النمط"
+    },
+    "manage_setting_style_default": {
+        "message": "افتراضي"
+    },
+    "manage_setting_style_classcial": {
+        "message": "كلاسيكي"
+    },
+    "manage_setting_style_young": {
+        "message": "شبابي"
+    },
+    "manage_setting_style_happy": {
+        "message": "مرح"
+    },
+    "manage_setting_linkaction": {
+        "message": "فتح الروابط"
+    },
+    "manage_setting_linkaction_current_tab": {
+        "message": "علامة التبويب الحالية"
+    },
+    "manage_setting_linkaction_new_tab": {
+        "message": "علامة تبويب جديدة"
+    },
+    "manage_setting_font_family": {
+        "message": "الخط"
+    },
+    "manage_setting_font_family_default": {
+        "message": "افتراضي"
+    },
+    "manage_save": {
+        "message": "حفظ التغييرات"
+    },
+    "manage_saved_message": {
+        "message": "تم حفظ التغييرات بنجاح"
+    },
+    "manage_recovery": {
+        "message": "استعادة الافتراضي"
+    },
+    "manage_restore_confirm": {
+        "message": "هل أنت متأكد أنك تريد استعادة الإعدادات الافتراضية؟"
+    },
+    "manage_restored_message": {
+        "message": "تمت استعادة الإعدادات بنجاح"
+    },
+    "manage_tool_iexport_all": {
+        "message": "تحديد الكل"
+    },
+    "manage_tool_iexport_clear": {
+        "message": "إلغاء تحديد الكل"
+    },
+    "manage_tool_bookmark_too_large_tip": {
+        "message": "لديك أكثر من {1} إشارة مرجعية؛ سيتم عرض الدليل فقط وقد تتأثر السرعة"
+    },
+    "manage_tool_iexport_refresh": {
+        "message": "تحديث"
+    },
+    "manage_tool_iexport_downloadname": {
+        "message": "BookmarkMars_Mars_"
+    },
+    "manage_tool_import": {
+        "message": "استيراد"
+    },
+    "manage_tool_export": {
+        "message": "تصدير"
+    },
+    "manage_check_powerful": {
+        "message": "فحص متقدم"
+    },
+    "manage_check_powerful_desc": {
+        "message": "عند تصفح نسخة BookmarkMars على الويب، سيفحص المساعد الروابط غير الصالحة مسبقًا لتجنب النقر على محتوى معطّل. النظام مُحسَّن ولن يستهلك أداءً أو عرض نطاق زائدًا"
+    },
+    "manage_check_all_bookmarks": {
+        "message": "جميع مجلداتي"
+    },
+    "manage_check_directions": {
+        "message": "انقر على المجلد للاختبار"
+    },
+    "manage_check_modal_name": {
+        "message": "فحص-{1}/نتائج مرجعية"
+    },
+    "manage_check_bookmarks_menu_changed": {
+        "message": "إعادة توجيه"
+    },
+    "manage_check_bookmarks_menu_broken": {
+        "message": "معطّل"
+    },
+    "manage_check_bookmarks_menu_duplicate": {
+        "message": "مكرر"
+    },
+    "manage_check_bookmarks_menu_empty": {
+        "message": "فارغ"
+    },
+    "manage_check_bookmarks_loading": {
+        "message": "تم اكتشاف {1} إشارة مرجعية إجمالاً"
+    },
+    "manage_check_bookmarks_update_selected": {
+        "message": "تحديث المحدد"
+    },
+    "manage_check_bookmarks_remove_selected": {
+        "message": "حذف المحدد"
+    },
+    "manage_check_bookmarks_no_results": {
+        "message": "لا توجد نتائج"
+    },
+    "manage_tool_backup_name": {
+        "message": "مزامنة مساعد BookmarkMars"
+    },
+    "manage_setting_newtab": {
+        "message": "صفحة التخصيص (يُنصح بمنح التفويض)"
+    },
+    "manage_setting_newtab_yes": {
+        "message": "مُفوَّض"
+    },
+    "manage_setting_newtab_no": {
+        "message": "غير مُفوَّض"
+    },
+    "manage_switch_close_tag": {
+        "message": "إيقاف"
+    },
+    "manage_switch_open_tag": {
+        "message": "تشغيل"
+    },
+    "manage_setting_language": {
+        "message": "اللغة"
+    },
+    "manage_language_default": {
+        "message": "اتباع المتصفح"
+    },
+    "manage_tool_record_visit": {
+        "message": "{1}، نسخ احتياطي سحابي لسجل الزيارات"
+    },
+    "manage_tool_record_visit_desc": {
+        "message": "يجب أن تفهم هذه الميزة جيدًا. عند تفعيلها، سيتم نسخ سجل زياراتك احتياطيًا في السحابة. لن تُنشر هذه البيانات علنًا. قرّر ما إذا كنت تريد السماح بذلك"
+    },
+    "about_bookmarkmars_intro": {
+        "message": "حول BookmarkMars"
+    },
+    "about_bookmarkmars_intro_desc": {
+        "message": "استُلهم BookmarkMars من Zhihu. عندما رأى المصمم منشورًا عن الموارد، شارك صديق إشارات متصفحه وفكّر في إنشاء منصة لمشاركة الإشارات. الإشارات عادةً تنظّم المواقع المفيدة في فئات؛ لذا قد تكون إشاراتك مفيدة للآخرين أيضًا. لم يكن المصمم يعلم ما إذا سيُقبل من الجميع، فكان محاولة جريئة."
+    },
+    "about_bookmarkmars_helper_function": {
+        "message": "مساعد BookmarkMars"
+    },
+    "about_bookmarkmars_helper_funtion_1": {
+        "message": "{1}、إدارة قوية للإشارات المرجعية، بما في ذلك الإضافة والحذف والتعديل"
+    },
+    "about_bookmarkmars_helper_funtion_2": {
+        "message": "{1}、بحث قوي في الإشارات المحلية والبعيدة"
+    },
+    "about_bookmarkmars_helper_funtion_3": {
+        "message": "{1}、مزامنة قوية لتجنب فقدان الإشارات"
+    },
+    "about_bookmarkmars_helper_funtion_4": {
+        "message": "{1}、تصدير ومشاركة قوية، قابلة للدمج مع الموقع الرسمي"
+    },
+    "about_bookmarkmars_helper_funtion_5": {
+        "message": "{1}、فحص روابط قوي للكشف عن الروابط غير الصالحة"
+    },
+    "about_bookmarkmars_blacklist_pub": {
+        "message": "إعلانات منصات محظورة"
+    },
+    "search_context_menus_title": {
+        "message": "بحث الإشارات المرجعية"
+    },
+    "user_vip_type1": {
+        "message": "VIP مميز"
+    },
+    "user_vip_type2": {
+        "message": "VIP مدى الحياة"
+    },
+    "user_vip_suggestion": {
+        "message": "انقر لتفعيل VIP"
+    },
+    "user_vip_recharge_suggestion": {
+        "message": "انقر لتجديد VIP"
+    },
+    "not_found_title": {
+        "message": "404 غير موجود"
+    },
+    "not_found_headline": {
+        "message": "مساعد BookmarkMars غير متاح في هذه الصفحة"
+    },
+    "not_found_fallback_desc": {
+        "message": "قد يكون ذلك بسبب قيود المتصفح أو محتوى ويب في القائمة السوداء"
+    },
+    "more_link": {
+        "message": "المزيد..."
+    },
+    "friendly_suggestion": {
+        "message": "يُنصح بشدة بمنح إذن صفحة تخصيص مساعد BookmarkMars"
+    },
+    "ucenter_not_login_desc": {
+        "message": "لم تسجّل الدخول؛ لا يمكن عرض المعلومات الشخصية"
+    },
+    "ucenter_click_me_to_login": {
+        "message": "تسجيل الدخول"
+    },
+    "ucenter_motto_today": {
+        "message": "أنت على حق، من جعلك تخطئ"
+    },
+    "ucenter_welcome": {
+        "message": "مرحبًا بك في مساعد BookmarkMars"
+    },
+    "ucenter_ip": {
+        "message": "IP"
+    },
+    "ucenter_register_days": {
+        "message": "تاريخ التسجيل"
+    },
+    "ucenter_account_type": {
+        "message": "نوع الحساب"
+    },
+    "ucenter_open_vip": {
+        "message": "انقر لتفعيل VIP والاستمتاع بالامتيازات"
+    },
+    "ucenter_greeting": {
+        "message": "مرحبًا، "
+    },
+    "ucenter_logout": {
+        "message": "تسجيل الخروج"
+    },
+    "network_error": {
+        "message": "خطأ في الشبكة أو الخادم الداخلي"
+    },
+    "not_login_notice": {
+        "message": "تسجيل الدخول"
+    },
+    "backup_success_notice": {
+        "message": "المساعد: تمت مزامنة الإشارات تلقائيًا بنجاح"
+    },
+    "new_tab_shortcuts_restored": {
+        "message": "تم استعادة الاختصارات من السحابة"
+    },
+    "new_tab_title": {
+        "message": "صفحة تخصيص BookmarkMars"
+    },
+    "new_tab_search_engine_custom": {
+        "message": "بحث مخصص"
+    },
+    "new_tab_speech_search_listening": {
+        "message": "التعرف على الصوت"
+    },
+    "new_tab_speech_search_error": {
+        "message": "لا يدعم البحث الصوتي"
+    },
+    "new_tab_search_placeholder": {
+        "message": "اكتب شيئًا..."
+    },
+    "new_tab_bookmark_manage": {
+        "message": "إشارات مرجعية"
+    },
+    "new_tab_search_engine_headline": {
+        "message": "إعداد البحث"
+    },
+    "new_tab_search_suggest_queries": {
+        "message": "بحث"
+    },
+    "new_tab_search_suggest_bookmarks": {
+        "message": "إشارات مرجعية"
+    },
+    "new_tab_search_suggest_history": {
+        "message": "السجل"
+    },
+    "new_tab_search_engine_custom_title": {
+        "message": "الاسم"
+    },
+    "new_tab_search_engine_custom_url_homepage": {
+        "message": "الصفحة الرئيسية"
+    },
+    "new_tab_search_engine_custom_url_results": {
+        "message": "روابط الاستعلام"
+    },
+    "new_tab_img_change_sug": {
+        "message": "يمكن لمستخدمي VIP فقط تغيير الخلفية"
+    },
+    "new_tab_img_change_login_sug": {
+        "message": "يجب تسجيل الدخول لاستخدام هذه الميزة"
+    },
+    "new_tab_link_edit_headline": {
+        "message": "تحرير الاختصار"
+    },
+    "new_tab_drag_suggestions": {
+        "message": "اسحب لتغيير الموضع"
+    },
+    "new_tab_setting": {
+        "message": "إعدادات"
+    },
+    "new_tab_link_edit": {
+        "message": "تحرير الاختصار"
+    },
+    "new_tab_bg_server_change": {
+        "message": "تغيير الخلفية"
+    },
+    "new_tab_bg_upload_change": {
+        "message": "رفع خلفية"
+    },
+    "new_tab_add_new_navigation": {
+        "message": "إضافة مخصص"
+    },
+    "new_tab_navigation_title": {
+        "message": "العنوان"
+    },
+    "new_tab_navigation_url": {
+        "message": "الرابط"
+    },
+    "new_tab_add_navigation_url": {
+        "message": "إضافة"
+    },
+    "language_zh_cn": {
+        "message": "中文(简体)"
+    },
+    "language_en": {
+        "message": "English"
+    },
+    "language_zh_tw": {
+        "message": "中文(繁體)"
+    },
+    "collect_need_login": {
+        "message": "سجّل الدخول أولًا"
+    },
+    "collect_folder_name_len_limit": {
+        "message": "لا يمكن أن يكون الاسم فارغًا ويجب ألا يتجاوز {1} حرفًا"
+    },
+    "collect_folder_desc_len_limit": {
+        "message": "وصف حتى {1} حرف"
+    },
+    "collect_create_folder_first": {
+        "message": "أنشئ مجلدًا واحدًا على الأقل أولًا"
+    },
+    "collect_choose_folder_please": {
+        "message": "اختر مجلدًا"
+    },
+    "collect_successfully": {
+        "message": "تم الحفظ بنجاح"
+    },
+    "language_es": {
+        "message": "Español"
+    },
+    "language_fr": {
+        "message": "Français"
+    },
+    "language_pt": {
+        "message": "Português"
+    },
+    "language_ru": {
+        "message": "Русский"
+    },
+    "language_ja": {
+        "message": "日本語"
+    },
+    "language_de": {
+        "message": "Deutsch"
+    },
+    "language_ko": {
+        "message": "한국어"
+    },
+    "language_it": {
+        "message": "Italiano"
+    },
+    "language_id": {
+        "message": "Bahasa Indonesia"
+    },
+    "language_tr": {
+        "message": "Türkçe"
+    },
+    "language_pl": {
+        "message": "Polski"
+    },
+    "language_uk": {
+        "message": "Українська"
+    },
+    "language_nl": {
+        "message": "Nederlands"
+    },
+    "language_vi": {
+        "message": "Tiếng Việt"
+    },
+    "language_th": {
+        "message": "ไทย"
+    },
+    "language_ar": {
+        "message": "العربية"
+    },
+    "language_cl": {
+        "message": "Español (Chile)"
+    },
+    "language_he": {
+        "message": "עברית"
+    },
+    "language_hi": {
+        "message": "हिन्दी"
+    },
+    "language_mx": {
+        "message": "Español (México)"
+    },
+    "new_tab_greeting_morning": {
+        "message": "صباح الخير — جاهز للاستكشاف"
+    },
+    "new_tab_greeting_afternoon": {
+        "message": "مساء الخير — ابقَ فضوليًا"
+    },
+    "new_tab_greeting_evening": {
+        "message": "مساء الخير — اعثر على المهم"
+    },
+    "new_tab_greeting_night": {
+        "message": "تصبح على خير — وضع التركيز"
+    }
+}
