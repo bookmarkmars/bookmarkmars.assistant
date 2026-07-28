@@ -8,7 +8,6 @@
     	const protect=[
     		"127.0.",
     		"192.168.",
-    		"bookmarkearth.cn",
     		"bookmarkmars.com"
     	]
 		

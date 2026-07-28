@@ -5,7 +5,6 @@
     	
 		//重点保护网站，这些网站的搜索词不同认为地址不同
         const importantURLParameters = {
-            "bookmarkearth.cn": ["q"],
             "bookmarkmars.com": ["q"],
             "google.com": ["q"],
             "google.de": ["q"],

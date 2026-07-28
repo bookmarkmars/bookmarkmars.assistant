@@ -15,7 +15,7 @@
         	forum:["zhihu.com","jianshu.com","douban.com"],
         	video:["bilibili.com","youku.com","iqiyi.com","v.qq.com"],
         	technique:["stackoverflow.com","csdn.net","cnblogs.com","segmentfault.com","gitee.com","github.com"],
-        	bookmarkmars:["bookmarkearth.cn","bookmarkmars.com"]
+        	bookmarkmars:["bookmarkmars.com"]
         }
     	
     	//有些网站，比如百度，自定义滚动条但又很常用，所以特殊处理
