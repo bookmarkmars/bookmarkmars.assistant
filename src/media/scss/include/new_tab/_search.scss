@@ -13,6 +13,16 @@ form#search {
     display: none;
   }
 
+  &.browser-search {
+    > div.engine {
+      display: none;
+    }
+
+    > input[type='text'] {
+      padding-left: 22px;
+    }
+  }
+
   > div.engine {
     position: absolute;
     top: 0;

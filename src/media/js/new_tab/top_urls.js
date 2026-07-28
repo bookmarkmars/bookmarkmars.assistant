@@ -27,7 +27,7 @@
             
             entries.push({
         		title:n.helper.i18n.get("header_toolbox_ucenter"),
-        		url:$.api.runtime.getURL("html/manage.html#ucenter"),
+        		url:$.api.runtime.getURL("html/manage.html#ucenter_basic"),
         		icon:$.api.runtime.getURL("media/img/icon/header/ucenter-white.png")
         	});
 

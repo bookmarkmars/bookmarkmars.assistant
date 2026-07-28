@@ -455,6 +455,16 @@
 	//	$.browserName = "Oth360seOrMaxthon";
 	//}
 
+    /**
+     * Chrome Web Store policy: NTP search must use the browser default via chrome.search.
+     */
+    $.usesBrowserSearch = () => {
+        const perms = manifest.permissions || [];
+        return perms.indexOf("search") > -1
+            && $.api.search
+            && typeof $.api.search.query === "function";
+    };
+
     $.cl = $.opts.classes;
     $.attr = $.opts.attr;
 })(jsu);

@@ -7,6 +7,7 @@
         let searchEngine = {};
         let searchEngineList = {};
         let searchAlreadyFocussed = false;
+        const browserSearch = $.usesBrowserSearch();
 
         const searchSuggestion = {
             queries: true,
@@ -72,6 +73,16 @@
          */
         this.init = async () => {
             
+            if (browserSearch) {
+                initEvents();
+                this.updateSearchEngine();
+                this.setVisibility(n.helper.dao.getData("n/searchField"));
+                this.setSearchSuggestion("queries", false);
+                this.setSearchSuggestion("bookmarks", n.helper.dao.getData("n/searchSuggestBookmarks"));
+                this.setSearchSuggestion("history", n.helper.dao.getData("n/searchSuggestHistory"));
+                return;
+            }
+
             initSearchEngineList().then(()=>{
             	 
             	initEvents();
@@ -86,6 +97,8 @@
             })
 
         };
+
+        this.usesBrowserSearch = () => browserSearch;
 
         /**
          *
@@ -116,6 +129,13 @@
          * @param {object} opts
          */
         this.updateSearchEngine = (name, opts = {}) => {
+            if (browserSearch) {
+                n.elm.search.engine.html("").addClass($.cl.hidden);
+                n.elm.search.wrapper.addClass("browser-search");
+                n.elm.search.field.attr("placeholder", n.helper.i18n.get("new_tab_search_placeholder"));
+                return;
+            }
+
             name = resolveEngineName(name);
             if (searchEngineList[name]) {
             	
@@ -311,6 +331,11 @@
 
             if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
                 openLink(val);
+            } else if (browserSearch) {
+                $.api.search.query({
+                    text: val,
+                    disposition: opts.newtab ? "NEW_TAB" : "CURRENT_TAB"
+                });
             } else if (searchEngineList[searchEngine.name]) {
                 let url = "";
 
@@ -450,7 +475,7 @@
 
                 if (val && val.trim().length > 0) {//直接搜
                     handleSearch(val);
-                } else if (searchEngineList[searchEngine.name]) {//跳转首页,搜索内容为空
+                } else if (!browserSearch && searchEngineList[searchEngine.name]) {//跳转首页,搜索内容为空
                     let url = "";
 
                     if (searchEngine.name === "custom" && searchEngine.homepage) {

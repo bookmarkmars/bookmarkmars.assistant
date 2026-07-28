@@ -162,6 +162,10 @@
          */
         const initSearchConfig = () => {
 
+            if (n.helper.search.usesBrowserSearch && n.helper.search.usesBrowserSearch()) {
+                return;
+            }
+
             n.elm.search.engine.on("click",(e) => {
                 e.preventDefault();
                 e.stopPropagation();

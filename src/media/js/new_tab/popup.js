@@ -289,7 +289,9 @@
             .appendTo(scrollBox);
             const list = $("<ul></ul>").addClass($.cl.result).appendTo(scrollBox);
             
-            const currentSearchEngine = n.helper.search.getCurrentSearchEngine();
+            const currentSearchEngine = n.helper.search.getCurrentSearchEngine() || {};
+            const defaultTitle = (currentSearchEngine.title || "").replace(/'/g, "&#x27;");
+            const defaultUrl = (currentSearchEngine.homepage || "").replace(/'/g, "&#x27;");
             
             //自定义添加
             
@@ -311,12 +313,12 @@
             
             $("<li></li>")
                 .append("<label>" + (n.helper.i18n.get("new_tab_navigation_title") || "Title") + "</label>")
-                .append("<input type='text' name='title' value='" + currentSearchEngine.title.replace(/'/g, "&#x27;") + "' />")
+                .append("<input type='text' name='title' value='" + defaultTitle + "' />")
                 .appendTo(customWrapper);
             
             $("<li></li>")
                 .append("<label>" + (n.helper.i18n.get("new_tab_navigation_url") || "Link") + "</label>")
-                .append("<input type='text' name='url' value='" + currentSearchEngine.homepage.replace(/'/g, "&#x27;") + "' placeholder='https://example.com' />")
+                .append("<input type='text' name='url' value='" + defaultUrl + "' placeholder='https://example.com' />")
                 .appendTo(customWrapper);
 
             // Build button without type= in HTML string (jsu clones via innerHTML; keep label resilient)

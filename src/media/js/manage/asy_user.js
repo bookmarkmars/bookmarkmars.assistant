@@ -22,8 +22,9 @@
 			            ]).then(resolve);
         			}
         			resolve();
+        		})["catch"](() => {
+        			resolve();
         		});
-        		resolve();
         	});
         }
     };

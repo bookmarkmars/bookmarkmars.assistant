@@ -454,9 +454,12 @@
 		extendPermissions.push("\"favicon\"");
 		extendPermissions.push("\"sidePanel\"");//新加权限114以上内核
 		
+		let chromeStorePermissions = JSON.parse(JSON.stringify(extendPermissions));
+		chromeStorePermissions.push("\"search\"");// Chrome Web Store: NTP search must use chrome.search API
+		
 		platforms.push({
 			name:'edge',
-			permissions:extendPermissions,
+			permissions:chromeStorePermissions,
 			minimum_chrome_version:114,
 			optional_permissions:optional_permissions,
 			update_url:"",
@@ -467,7 +470,7 @@
 		
 		platforms.push({
 			name:'chrome',
-			permissions:extendPermissions,
+			permissions:chromeStorePermissions,
 			minimum_chrome_version:114,
 			optional_permissions:optional_permissions,
 			update_url:"",
