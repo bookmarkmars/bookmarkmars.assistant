@@ -821,6 +821,76 @@
             return null;
         };
 
+        /**
+         * Remote navigation_v2 has NO client TTL — it sits in sync storage until the
+         * next successful remote pull (startup + 2 min interval). Bundled conf may be
+         * newer than a stale server/cache payload; prefer it for folder tiles.
+         */
+        const loadBundledCatalog = () => {
+        	return $.fetch($.api.runtime.getURL("media/conf/navigation_v2.json"))
+        		.then((obj) => obj.text())
+        		.then((data) => parseCatalogPayload(data))
+        		.catch(() => null);
+        };
+
+        const catalogUpdatedAt = (catalog) => {
+        	const t = catalog && catalog.updatedAt ? Date.parse(catalog.updatedAt) : NaN;
+        	return Number.isFinite(t) ? t : 0;
+        };
+
+        const mergeCatalogFolders = (catalog, bundled) => {
+        	if (!bundled || !Array.isArray(bundled.categories)) {
+        		return catalog;
+        	}
+        	if (!catalog || !Array.isArray(catalog.categories)) {
+        		return bundled;
+        	}
+
+        	// Bundled newer than remote/cache → take bundled folder/module categories
+        	const bundledNewer = catalogUpdatedAt(bundled) >= catalogUpdatedAt(catalog);
+
+        	const upsertFolder = (src) => {
+        		if (!src || (src.display !== "folder" && src.display !== "module")) {
+        			return;
+        		}
+        		const clone = JSON.parse(JSON.stringify(src));
+        		const idx = catalog.categories.findIndex((c) =>
+        			c && (c.id === clone.id
+        				|| (clone.id === "favorites" && c.id === "shop")
+        				|| (clone.id === "shop" && c.id === "favorites"))
+        		);
+        		if (idx >= 0) {
+        			const prev = catalog.categories[idx];
+        			// Keep remote children only when bundled is NOT newer (user ops on server)
+        			if (!bundledNewer && Array.isArray(prev.children) && prev.children.length) {
+        				clone.children = prev.children;
+        			}
+        			catalog.categories[idx] = clone;
+        		} else {
+        			catalog.categories.push(clone);
+        		}
+        	};
+
+        	// Drop legacy shop id if favorites is being upserted from bundled
+        	catalog.categories = catalog.categories.filter((c) => !(c && c.id === "shop"));
+
+        	bundled.categories.forEach((cat) => {
+        		if (!cat || (cat.display !== "folder" && cat.display !== "module")) {
+        			return;
+        		}
+        		const exists = catalog.categories.some((c) => c && c.id === cat.id);
+        		if (!exists || bundledNewer) {
+        			upsertFolder(cat);
+        		}
+        	});
+
+        	if (bundledNewer && bundled.updatedAt) {
+        		catalog.updatedAt = bundled.updatedAt;
+        	}
+
+        	return catalog;
+        };
+
         const loadNavigation = () => {
 
             const tryRemote = async () => {
@@ -837,36 +907,36 @@
             };
 
             return new Promise((resolve) => {
-                tryRemote().then((catalog) => {
-                    if (catalog) {
-                        const tiles = n.helper.catalog.flattenToTiles(catalog, n.helper.i18n.getLanguage());
-                        appendNewLinks(tiles).then(() => {
-                            const jsonStr = JSON.stringify(catalog);
-                            const cache = n.helper.dao.getData("n/topLinks");
-                            if (cache !== jsonStr) {
-                                return n.helper.dao.setData({ "n/topLinks": jsonStr });
-                            }
-                            return Promise.resolve();
-                        }).then(resolve);
+                Promise.all([tryRemote(), loadBundledCatalog()]).then(([remote, bundled]) => {
+                    let catalog = mergeCatalogFolders(remote, bundled);
+                    if (!catalog) {
+                        const cache = n.helper.dao.getData("n/topLinks");
+                        catalog = mergeCatalogFolders(parseCatalogPayload(cache), bundled);
+                    }
+                    if (!catalog) {
+                        catalog = bundled;
+                    }
+                    if (!catalog) {
+                        // Emergency seed (no affiliates)
+                        $.fetch($.api.runtime.getURL("media/conf/navigation_seed.json")).then((obj) => {
+                            obj.text().then((data) => {
+                                const catalogSeed = parseCatalogPayload(data);
+                                const tiles = n.helper.catalog.flattenToTiles(catalogSeed, n.helper.i18n.getLanguage());
+                                appendNewLinks(tiles).then(resolve);
+                            });
+                        }).catch(() => resolve());
                         return;
                     }
 
-                    const cache = n.helper.dao.getData("n/topLinks");
-                    const cachedCatalog = parseCatalogPayload(cache);
-                    if (cachedCatalog) {
-                        const tiles = n.helper.catalog.flattenToTiles(cachedCatalog, n.helper.i18n.getLanguage());
-                        appendNewLinks(tiles).then(resolve);
-                        return;
-                    }
-
-                    // Emergency seed (no affiliates)
-                    $.fetch($.api.runtime.getURL("media/conf/navigation_seed.json")).then((obj) => {
-                        obj.text().then((data) => {
-                            const catalogSeed = parseCatalogPayload(data);
-                            const tiles = n.helper.catalog.flattenToTiles(catalogSeed, n.helper.i18n.getLanguage());
-                            appendNewLinks(tiles).then(resolve);
-                        });
-                    }).catch(() => resolve());
+                    const tiles = n.helper.catalog.flattenToTiles(catalog, n.helper.i18n.getLanguage());
+                    appendNewLinks(tiles).then(() => {
+                        const jsonStr = JSON.stringify(catalog);
+                        const cache = n.helper.dao.getData("n/topLinks");
+                        if (cache !== jsonStr) {
+                            return n.helper.dao.setData({ "n/topLinks": jsonStr });
+                        }
+                        return Promise.resolve();
+                    }).then(resolve);
                 }).catch(() => resolve());
             });
         };
@@ -913,12 +983,53 @@
         	}).filter(Boolean);
         };
 
+        /**
+         * shop → favorites rename. Keeps user children; refreshes default title.
+         * Also clears stale lang.en/"Shop" which otherwise overwrote the new title.
+         */
+        const migrateLegacyFolders = (pages) => {
+        	if (!Array.isArray(pages)) {
+        		return;
+        	}
+        	pages.forEach((item) => {
+        		if (!item || item.type !== "folder") {
+        			return;
+        		}
+        		const isShop = item.id === "shop" || item.categoryId === "shop"
+        			|| /^shop$/i.test(String(item.title || "").trim());
+        		if (!isShop && item.id !== "favorites" && item.categoryId !== "favorites") {
+        			return;
+        		}
+        		if (item.id === "shop" || item.categoryId === "shop" || isShop) {
+        			item.id = "favorites";
+        			item.categoryId = "favorites";
+        		}
+        		const t = (item.title || "").trim();
+        		if (!t || /^shop$/i.test(t)) {
+        			item.title = "Favorites";
+        		}
+        		if (item.lang) {
+        			Object.keys(item.lang).forEach((k) => {
+        				const loc = item.lang[k];
+        				if (loc && loc.title && /^shop$/i.test(String(loc.title).trim())) {
+        					delete loc.title;
+        				}
+        			});
+        			item.lang.zh_CN = Object.assign({}, item.lang.zh_CN || {}, { title: "常用" });
+        			item.lang.zh_TW = Object.assign({}, item.lang.zh_TW || {}, { title: "常用" });
+        		} else {
+        			item.lang = { zh_CN: { title: "常用" }, zh_TW: { title: "常用" } };
+        		}
+        	});
+        };
+
         const appendNewLinks = (arr)=>{
         	
         	return new Promise((resolve) => {
         		
         		const lang = n.helper.i18n.getLanguage();
-	        	const pages = n.helper.dao.getData("n/links");
+	        	const pages = n.helper.dao.getData("n/links") || [];
+	        	migrateLegacyFolders(pages);
 	        	const order= JSON.stringify(pages) === '[]' ? "push": "unshift";
 	        	// After a cloud restore/save, do not re-inject catalog URLs the user removed
 	        	const cloudSynced = !!n.helper.dao.getData("u/shortcutsSyncTime");
@@ -941,7 +1052,19 @@
 	        				return false;
 	        			}
 	        			if (isFolder) {
-	        				return e.type === "folder" && (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId);
+	        				if (e.type !== "folder") {
+	        					return false;
+	        				}
+	        				if (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId) {
+	        					return true;
+	        				}
+	        				// Legacy Shop tile ↔ Favorites catalog folder
+	        				if ((item.id === "favorites" || item.id === "shop")
+	        					&& (e.id === "shop" || e.categoryId === "shop"
+	        						|| e.id === "favorites" || e.categoryId === "favorites")) {
+	        					return true;
+	        				}
+	        				return false;
 	        			}
 	        			return e.type !== "folder" && n.helper.util.normalizeShortcutUrl(e.url) === itemKey;
 	        		};

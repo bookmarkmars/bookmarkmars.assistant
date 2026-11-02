@@ -36,6 +36,10 @@
             intervalHandler=setInterval(() => {
             	
             	cacheRemoteData({name:"bebeauty"});
+            	// Navigation catalog used to refresh only on startup (no TTL) — stale
+            	// "Shop" configs stuck until browser restart. Pull with the same cadence.
+            	cacheRemoteData({name:"navigation"});
+            	cacheRemoteData({name:"navigation_v2"});
 
             	this.isUpdate();//更新检查
             	 
