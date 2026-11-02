@@ -20,6 +20,12 @@
                 engine: $("form#search > div.engine"),
             },
             grid: $("div#grid"),
+            widgets: {
+                wrapper: $("div#nt-widgets"),
+                calendar: $("div#nt-widgets [data-nt-calendar]"),
+                memo: $("div#nt-widgets [data-nt-memo]"),
+                tools: $("div#nt-widgets [data-nt-tools]"),
+            },
             toast: $("body > section#content > div.toast"),
         };
 
@@ -62,6 +68,7 @@
                         this.helper.search.init(),
                         this.helper.topUrls.init(),
                         this.helper.operate.init(),
+                        this.helper.widgets.init(),
                         initEvents(),
                         $.delay(200),
                     ]
@@ -151,11 +158,13 @@
                 util:new $.UtilHelper(this),
                 checkbox:new $.CheckboxHelper(this),
                 user:new $.UserHelper(this),
+                catalog: new $.CatalogHelper(this),
                 grid: new $.GridHelper(this),
                 search: new $.SearchHelper(this),
                 topUrls: new $.TopUrlsHelper(this),
                 popup:new $.PopupHelper(this),
-                operate: new $.OperateHelper(this)
+                operate: new $.OperateHelper(this),
+                widgets: new $.WidgetsHelper(this)
             };
         };
         

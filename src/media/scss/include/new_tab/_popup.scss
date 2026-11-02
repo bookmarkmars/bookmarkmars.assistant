@@ -43,6 +43,228 @@ div.modal[data-type='searchEngine'],div.modal[data-type='link']{
   
 }
 
+div.modal[data-type='folder'],
+div.modal[data-type='tools'] {
+  width: 480px;
+  height: auto;
+  min-height: 280px;
+  max-height: 85vh;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1c181a;
+
+  > header {
+    background-color: #2a2426;
+
+    &::before {
+      @include maskImage('icon-link');
+    }
+  }
+
+  > div.scroll-box.nt-folder-panel {
+    height: auto;
+    min-height: 180px;
+    max-height: calc(85vh - 90px);
+    padding: 16px 18px 12px;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    > p.nt-folder-tip {
+      margin: 0 0 14px;
+      padding: 0 4px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      text-align: center;
+    }
+
+    > div.nt-folder-rename {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      margin: 0 0 14px;
+      padding: 0 4px;
+
+      > label {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      > input {
+        height: 36px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        padding: 0 12px;
+        outline: none;
+      }
+    }
+
+    > div.nt-folder-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px 8px;
+      justify-items: center;
+      align-items: start;
+
+      > a.nt-folder-tile {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 88px;
+        padding: 10px 6px;
+        border-radius: 14px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        box-sizing: border-box;
+        transition: background 0.15s ease, transform 0.15s ease;
+
+        &:hover {
+          background: rgba(224, 122, 61, 0.16);
+          transform: translateY(-1px);
+        }
+
+        &.nt-drop-target {
+          background: rgba(224, 122, 61, 0.28);
+          outline: 2px dashed rgba(224, 122, 61, 0.8);
+        }
+
+        > button.nt-folder-eject {
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          width: 22px;
+          height: 22px;
+          border: none;
+          border-radius: 50%;
+          background: rgba(0, 0, 0, 0.55);
+          color: #fff;
+          font-size: 14px;
+          line-height: 22px;
+          cursor: pointer;
+          padding: 0;
+        }
+
+        > div.nt-folder-tile-icon {
+          width: 40px;
+          height: 40px;
+          padding: 10px;
+          border-radius: 14px;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          box-sizing: content-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > img {
+            display: block;
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            border-radius: 6px;
+          }
+        }
+
+        > span {
+          display: block;
+          width: 100%;
+          text-align: center;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 1.25;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    > div.nt-folder-add-panel {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      > p.nt-folder-add-label {
+        margin: 0 0 8px;
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.42);
+      }
+
+      > select.nt-folder-picker,
+      > input {
+        display: block;
+        width: 100%;
+        height: 36px;
+        margin-bottom: 8px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: #2a2426;
+        color: #fff;
+        padding: 0 12px;
+        box-sizing: border-box;
+        outline: none;
+        color-scheme: dark;
+      }
+
+      // Native <option> list is often white on Windows — force readable text
+      > select.nt-folder-picker option {
+        background-color: #ffffff;
+        color: #1a1512;
+      }
+
+      > button {
+        height: 34px;
+        margin: 0 0 12px;
+        padding: 0 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(224, 122, 61, 0.45);
+        background: rgba(224, 122, 61, 0.22);
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+
+    &.is-editing {
+      > div.nt-folder-rename,
+      > div.nt-folder-add-panel {
+        display: block;
+      }
+
+      > div.nt-folder-rename {
+        display: flex;
+      }
+    }
+  }
+
+  > menu.buttons {
+    background: #241f21;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    > a {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    > a.close {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    > a.nt-folder-edit-btn {
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+}
+
 
 div.modal[data-type='searchEngine'] {
 
@@ -149,7 +371,8 @@ div.modal[data-type='link'] {
         font-weight:$__fontWeightMedium;
     }
     
-    > span.add{
+    > span.add,
+    > span.nt-add-folder {
         
         display: flex;
         justify-content: center;
@@ -169,6 +392,28 @@ div.modal[data-type='link'] {
             object-fit: cover;
             margin-right:5px;
         }
+    }
+
+    > span.nt-add-folder {
+      margin-top: 0;
+      background: rgba(224, 122, 61, 0.14);
+      border: 1px solid rgba(224, 122, 61, 0.28);
+    }
+
+    > p.nt-edit-folder-hint {
+      margin: 0 20px 8px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.35;
+    }
+
+    > ul > li.nt-edit-folder {
+      background: rgba(224, 122, 61, 0.08);
+      border-radius: 8px;
+
+      &.drag-hover::before {
+        border-color: #e07a3d;
+      }
     }
 
     > ul {

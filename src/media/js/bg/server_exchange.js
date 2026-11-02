@@ -45,8 +45,8 @@
         	Promise.all([
                cacheRemoteData({name:"blacklist"}),
                cacheRemoteData({name:"bebeauty"}),
-               cacheRemoteData({name:"search_engine"}),
                cacheRemoteData({name:"navigation"}),
+               cacheRemoteData({name:"navigation_v2"}),
             ]);
 
         	return Promise.resolve();
@@ -505,14 +505,21 @@
 		this.saveShortcuts = (opts) => {
 			return new Promise((resolve) => {
 				const links = (opts && opts.links) ? opts.links : [];
-				// Never upload data: favicons
-				const sanitized = links.map((item) => {
+				// Never upload data: favicons (folders may nest children)
+				const stripIcon = (item) => {
+					if (!item || typeof item !== "object") {
+						return item;
+					}
 					const copy = Object.assign({}, item);
 					if (copy.icon && typeof copy.icon === "string" && copy.icon.indexOf("data:") === 0) {
 						copy.icon = null;
 					}
+					if (Array.isArray(copy.children)) {
+						copy.children = copy.children.map(stripIcon);
+					}
 					return copy;
-				});
+				};
+				const sanitized = links.map(stripIcon);
 
 				$.fetch(
 					mainHost + $.opts.website.servletMain.user.shortcutsSave,

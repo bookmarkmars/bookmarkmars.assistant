@@ -7,7 +7,8 @@
         let searchEngine = {};
         let searchEngineList = {};
         let searchAlreadyFocussed = false;
-        const browserSearch = $.usesBrowserSearch();
+        // One codebase: never show custom engine picker. Prefer chrome.search; else Google URL.
+        const browserSearch = true;
 
         const searchSuggestion = {
             queries: true,
@@ -331,26 +332,14 @@
 
             if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
                 openLink(val);
-            } else if (browserSearch) {
+            } else if ($.api.search && typeof $.api.search.query === "function") {
                 $.api.search.query({
                     text: val,
                     disposition: opts.newtab ? "NEW_TAB" : "CURRENT_TAB"
                 });
-            } else if (searchEngineList[searchEngine.name]) {
-                let url = "";
-
-                if (searchEngine.name === "custom" && searchEngine.queryUrl) {
-                    url = searchEngine.queryUrl;
-                } else if (searchEngineList[searchEngine.name].queryUrl) {
-                    url = searchEngineList[searchEngine.name].queryUrl;
-                }
-
-                if (url) {
-                    if (url.includes("{1}") === false) { // query url is missing the {1} placeholder -> paste it at the end
-                        url += "{1}";
-                    }
-                    openLink(url.replace("{1}", encodeURIComponent(val)));
-                }
+            } else {
+                // Browsers without chrome.search — single default URL, no engine picker
+                openLink("https://www.google.com/search?q=" + encodeURIComponent(val));
             }
         };
 

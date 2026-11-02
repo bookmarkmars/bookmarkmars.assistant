@@ -73,7 +73,11 @@
                 const now = +new Date();
 
                 Object.keys(cache).forEach((key) => {
-                    if (now - cache[key].t > 1000 * 60 * 60 * 24 * 5) { // older than 5 days
+                    // Favicons keep longer for offline NTP; other images 5 days
+                    const maxAge = key.indexOf("favicon_") === 0
+                        ? 1000 * 60 * 60 * 24 * 30
+                        : 1000 * 60 * 60 * 24 * 5;
+                    if (now - cache[key].t > maxAge) {
                         delete cache[key];
                     }
                 });

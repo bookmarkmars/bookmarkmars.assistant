@@ -26,6 +26,7 @@
 @import "include/new_tab/top_urls";
 @import "include/new_tab/search";
 @import "include/new_tab/edit";
+@import "include/new_tab/widgets";
 
 body {
   width: 100vw;
@@ -91,6 +92,7 @@ body {
     section#content > section.mid > .hero,
     section#content > section.mid > form#search,
     section#content > section.mid > div#grid,
+    section#content > section.mid > div.nt-widgets,
     section#content > nav,
     > a.setting {
       animation: ntFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -102,6 +104,10 @@ body {
 
     section#content > section.mid > div#grid {
       animation-delay: 0.16s;
+    }
+
+    section#content > section.mid > div.nt-widgets {
+      animation-delay: 0.24s;
     }
 
     section#content > nav {
@@ -131,6 +137,8 @@ section#content {
   left: 0;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   transition: height 0.5s;
   z-index: 1;
 
@@ -170,18 +178,20 @@ section#content {
   }
 
   > section.mid {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 42%;
-    transform: translateY(-50%);
-    width: 100%;
-    margin: 0 auto;
+    // In-flow so #content can scroll when widgets/grid overflow the viewport
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: calc(100vw - 96px);
+    max-width: 960px;
+    margin: 15vh auto 56px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 24px;
+    padding: 0;
     box-sizing: border-box;
+    overflow: visible;
     // Only wrap content — do NOT cover the tool buttons in the corner
     pointer-events: none;
     z-index: 2;
@@ -192,8 +202,8 @@ section#content {
 
     > .hero {
       text-align: center;
-      margin-bottom: 28px;
-      max-width: 90vw;
+      margin-bottom: 20px;
+      width: 100%;
       user-select: none;
 
       > .clock {
@@ -240,12 +250,12 @@ section#content {
   }
 }
 
-@media (max-height: 640px) {
+@media (max-height: 720px) {
   section#content > section.mid {
-    top: 46%;
+    margin-top: 36px;
 
     > .hero {
-      margin-bottom: 16px;
+      margin-bottom: 12px;
 
       > .clock {
         font-size: 48px;
@@ -256,5 +266,11 @@ section#content {
         font-size: 13px;
       }
     }
+  }
+}
+
+@media (min-height: 1100px) {
+  section#content > section.mid {
+    margin-top: 160px;
   }
 }

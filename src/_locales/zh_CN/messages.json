@@ -716,6 +716,93 @@
     "new_tab_shortcuts_restored": {
         "message": "已从云端恢复快捷方式"
     },
+    "new_tab_memo_title": {
+        "message": "备忘录"
+    },
+    "new_tab_memo_hint": {
+        "message": "点击一行即可编辑 · 自动保存"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "随手记…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "今日想法…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "稍后看看…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "别忘了…"
+    },
+    "new_tab_tools_title": {
+        "message": "工具"
+    },
+    "new_tab_tools_organize": {
+        "message": "整理工具"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "整理工具"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "拖拽排序 · × 移除 · 下方可添加 · 点关闭生效"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "从目录添加"
+    },
+    "new_tab_tools_remove": {
+        "message": "移除"
+    },
+    "new_tab_tools_empty": {
+        "message": "暂无工具"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "点整理添加"
+    },
+    "new_tab_folder_tip": {
+        "message": "点击打开 · 点「整理」可编辑"
+    },
+    "new_tab_folder_edit": {
+        "message": "编辑快捷方式"
+    },
+    "new_tab_folder_organize": {
+        "message": "整理"
+    },
+    "new_tab_folder_done": {
+        "message": "完成"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "拖拽排序 · × 移回主页 · 下方可添加 · 点关闭生效"
+    }
+    "new_tab_folder_name": {
+        "message": "文件夹名称"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "文件夹名称"
+    },
+    "new_tab_folder_default_name": {
+        "message": "新建文件夹"
+    },
+    "new_tab_folder_add": {
+        "message": "添加"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "从主页快捷方式添加"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "或添加自定义链接"
+    },
+    "new_tab_folder_pick": {
+        "message": "选择一个快捷方式…"
+    },
+    "new_tab_folder_eject": {
+        "message": "移回主页"
+    },
+    "new_tab_add_folder": {
+        "message": "添加文件夹"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "把快捷方式拖到文件夹行即可放入。也可在主页点开文件夹后点「整理」。"
+    },
     "new_tab_title": {
         "message": "书签火星新标签页"
     },

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 2,
+  "note": "Emergency offline seed only — no affiliate URLs",
+  "categories": [
+    {
+      "id": "pinned",
+      "title": "Pinned",
+      "display": "icons",
+      "weight": 0,
+      "children": [
+        {
+          "id": "google",
+          "title": "Google",
+          "url": "https://www.google.com/",
+          "icon": "https://www.google.com/favicon.ico",
+          "selected": true,
+          "fixed": true,
+          "origin": 1,
+          "weight": 0
+        },
+        {
+          "id": "youtube",
+          "title": "YouTube",
+          "url": "https://www.youtube.com/",
+          "icon": "https://www.youtube.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "origin": 1,
+          "weight": 10
+        },
+        {
+          "id": "wikipedia",
+          "title": "Wikipedia",
+          "url": "https://www.wikipedia.org/",
+          "icon": "https://www.wikipedia.org/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "origin": 1,
+          "weight": 20
+        },
+        {
+          "id": "gmail",
+          "title": "Gmail",
+          "url": "https://mail.google.com/",
+          "icon": "https://mail.google.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "origin": 1,
+          "weight": 30
+        },
+        {
+          "id": "maps",
+          "title": "Maps",
+          "url": "https://maps.google.com/",
+          "icon": "https://maps.google.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "origin": 1,
+          "weight": 40
+        }
+      ]
+    }
+  ]
+}

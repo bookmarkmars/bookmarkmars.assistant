@@ -94,7 +94,7 @@ div#grid {
         display: block;
         margin: 0 auto;
         padding: 6px 0 4px;
-        width: 120px;
+        width: 140px;
         text-align: center;
         border-radius: 12px;
         transition: background 0.25s ease, transform 0.2s ease;
@@ -158,4 +158,92 @@ div#grid {
 
 form#search.hidden ~ div#grid {
   margin-top: 0;
+}
+
+// Folder tile — 2×2 preview in the same grid language
+div#grid > ul > li.nt-dragging {
+  opacity: 0.45;
+}
+
+div#grid > ul > li.nt-folder.nt-drop-target > a {
+  background: rgba(224, 122, 61, 0.28) !important;
+  outline: 2px dashed rgba(224, 122, 61, 0.85);
+  outline-offset: 2px;
+}
+
+div#grid > ul > li.nt-folder > a {
+  > div.nt-folder-preview {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 8px !important;
+    border-radius: 14px;
+    box-sizing: content-box;
+
+    > div {
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+
+      > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+        pointer-events: none;
+      }
+
+      &.nt-folder-preview-link {
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(224, 122, 61, 0.35);
+        }
+      }
+
+      &.nt-folder-empty {
+        background: rgba(255, 255, 255, 0.04);
+      }
+    }
+
+    &.is-empty {
+      outline: 1px dashed rgba(255, 255, 255, 0.28);
+      outline-offset: -2px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+  }
+}
+
+ul.nt-folder-open {
+  > li {
+    list-style: none;
+    margin: 6px 0;
+
+    > a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: inherit;
+      text-decoration: none;
+      transition: background 0.15s ease;
+
+      &:hover {
+        background: rgba(224, 122, 61, 0.12);
+      }
+
+      > img {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+      }
+    }
+  }
 }

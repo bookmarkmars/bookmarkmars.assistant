@@ -139,14 +139,15 @@
                     homepage: "",
                     queryUrl: ""
                 },
-                gridMaxCols: 5,
+                gridMaxCols: 8,
                 gridMaxRows: 2,
                 links: [],
                 topLinks:"",
                 website: "",
                 searchSuggestQueries:true,
                 searchSuggestBookmarks:true,
-                searchSuggestHistory:true
+                searchSuggestHistory:true,
+                widgetsVisible: true
             }
         };
     	

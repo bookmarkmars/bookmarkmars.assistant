@@ -37,6 +37,10 @@
                     if (typeof data.navigation === "undefined") {
                         data.navigation = null;
                     }
+
+                    if (typeof data.navigation_v2 === "undefined") {
+                        data.navigation_v2 = null;
+                    }
                     
                     if (typeof data.newVersionFound === "undefined") {
                         data.newVersionFound = null;

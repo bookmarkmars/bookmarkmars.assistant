@@ -1,0 +1,514 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-11-02T00:00:00Z",
+  "categories": [
+    {
+      "id": "pinned",
+      "title": "Pinned",
+      "weight": 0,
+      "display": "icons",
+      "lang": {
+        "zh_CN": { "title": "常用" },
+        "zh_TW": { "title": "常用" }
+      },
+      "children": [
+        {
+          "id": "google",
+          "title": "Google",
+          "url": "https://www.google.com/",
+          "icon": "https://www.google.com/favicon.ico",
+          "selected": true,
+          "fixed": true,
+          "remove": false,
+          "origin": 1,
+          "weight": 0,
+          "affiliate": false,
+          "lang": { "zh_CN": { "title": "谷歌" }, "zh_TW": { "title": "谷歌" } }
+        },
+        {
+          "id": "bing",
+          "title": "Bing",
+          "url": "https://www.bing.com/",
+          "icon": "https://www.bing.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 10,
+          "affiliate": false
+        },
+        {
+          "id": "youtube",
+          "title": "YouTube",
+          "url": "https://www.youtube.com/",
+          "icon": "https://www.youtube.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 20,
+          "affiliate": false
+        },
+        {
+          "id": "chatgpt",
+          "title": "ChatGPT",
+          "url": "https://chatgpt.com/",
+          "icon": "https://chatgpt.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 30,
+          "affiliate": false
+        },
+        {
+          "id": "reddit",
+          "title": "Reddit",
+          "url": "https://www.reddit.com/",
+          "icon": "https://www.reddit.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 40,
+          "affiliate": false
+        },
+        {
+          "id": "gmail",
+          "title": "Gmail",
+          "url": "https://mail.google.com/",
+          "icon": "https://mail.google.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 50,
+          "affiliate": false
+        },
+        {
+          "id": "github",
+          "title": "GitHub",
+          "url": "https://github.com/",
+          "icon": "https://github.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 60,
+          "affiliate": false
+        },
+        {
+          "id": "wikipedia",
+          "title": "Wikipedia",
+          "url": "https://www.wikipedia.org/",
+          "icon": "https://www.wikipedia.org/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 70,
+          "affiliate": false
+        },
+        {
+          "id": "x",
+          "title": "X",
+          "url": "https://x.com/",
+          "icon": "https://x.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 80,
+          "affiliate": false
+        },
+        {
+          "id": "linkedin",
+          "title": "LinkedIn",
+          "url": "https://www.linkedin.com/",
+          "icon": "https://www.linkedin.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 90,
+          "affiliate": false
+        },
+        {
+          "id": "netflix",
+          "title": "Netflix",
+          "url": "https://www.netflix.com/",
+          "icon": "https://www.netflix.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 100,
+          "affiliate": false
+        },
+        {
+          "id": "spotify",
+          "title": "Spotify",
+          "url": "https://open.spotify.com/",
+          "icon": "https://open.spotify.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 110,
+          "affiliate": false
+        },
+        {
+          "id": "drive",
+          "title": "Drive",
+          "url": "https://drive.google.com/",
+          "icon": "https://drive.google.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 120,
+          "affiliate": false
+        },
+        {
+          "id": "maps",
+          "title": "Maps",
+          "url": "https://maps.google.com/",
+          "icon": "https://maps.google.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 130,
+          "affiliate": false
+        },
+        {
+          "id": "notion",
+          "title": "Notion",
+          "url": "https://www.notion.so/",
+          "icon": "https://www.notion.so/images/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 140,
+          "affiliate": false
+        },
+        {
+          "id": "discord",
+          "title": "Discord",
+          "url": "https://discord.com/",
+          "icon": "https://discord.com/assets/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 150,
+          "affiliate": false
+        },
+        {
+          "id": "twitch",
+          "title": "Twitch",
+          "url": "https://www.twitch.tv/",
+          "icon": "https://www.twitch.tv/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 160,
+          "affiliate": false
+        },
+        {
+          "id": "instagram",
+          "title": "Instagram",
+          "url": "https://www.instagram.com/",
+          "icon": "https://www.instagram.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 170,
+          "affiliate": false
+        },
+        {
+          "id": "facebook",
+          "title": "Facebook",
+          "url": "https://www.facebook.com/",
+          "icon": "https://www.facebook.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 180,
+          "affiliate": false
+        },
+        {
+          "id": "pinterest",
+          "title": "Pinterest",
+          "url": "https://www.pinterest.com/",
+          "icon": "https://www.pinterest.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 190,
+          "affiliate": false
+        },
+        {
+          "id": "translate",
+          "title": "Translate",
+          "url": "https://translate.google.com/",
+          "icon": "https://translate.google.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 200,
+          "affiliate": false
+        },
+        {
+          "id": "dropbox",
+          "title": "Dropbox",
+          "url": "https://www.dropbox.com/",
+          "icon": "https://www.dropbox.com/static/images/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 210,
+          "affiliate": false
+        }
+      ]
+    },
+    {
+      "id": "favorites",
+      "title": "Favorites",
+      "weight": 20,
+      "display": "folder",
+      "lang": {
+        "zh_CN": { "title": "常用" },
+        "zh_TW": { "title": "常用" }
+      },
+      "children": [
+        {
+          "id": "amazon",
+          "title": "Amazon",
+          "url": "https://www.amazon.com/",
+          "icon": "https://www.amazon.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 0,
+          "affiliate": true,
+          "campaign": "global-amazon"
+        },
+        {
+          "id": "ebay",
+          "title": "eBay",
+          "url": "https://www.ebay.com/",
+          "icon": "https://www.ebay.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 10,
+          "affiliate": true,
+          "campaign": "global-ebay"
+        },
+        {
+          "id": "aliexpress",
+          "title": "AliExpress",
+          "url": "https://www.aliexpress.com/",
+          "icon": "https://www.aliexpress.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 20,
+          "affiliate": true,
+          "campaign": "global-aliexpress"
+        },
+        {
+          "id": "walmart",
+          "title": "Walmart",
+          "url": "https://www.walmart.com/",
+          "icon": "https://www.walmart.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 30,
+          "affiliate": false
+        }
+      ]
+    },
+    {
+      "id": "news",
+      "title": "News",
+      "weight": 25,
+      "display": "folder",
+      "lang": {
+        "zh_CN": { "title": "新闻" },
+        "zh_TW": { "title": "新聞" }
+      },
+      "children": [
+        {
+          "id": "bbc",
+          "title": "BBC",
+          "url": "https://www.bbc.com/",
+          "icon": "https://www.bbc.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 0,
+          "affiliate": false
+        },
+        {
+          "id": "cnn",
+          "title": "CNN",
+          "url": "https://www.cnn.com/",
+          "icon": "https://www.cnn.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 10,
+          "affiliate": false
+        },
+        {
+          "id": "reuters",
+          "title": "Reuters",
+          "url": "https://www.reuters.com/",
+          "icon": "https://www.reuters.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 20,
+          "affiliate": false
+        },
+        {
+          "id": "nytimes",
+          "title": "NYTimes",
+          "url": "https://www.nytimes.com/",
+          "icon": "https://www.nytimes.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 30,
+          "affiliate": false
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "Tools",
+      "weight": 30,
+      "display": "module",
+      "lang": {
+        "zh_CN": { "title": "工具" },
+        "zh_TW": { "title": "工具" }
+      },
+      "children": [
+        {
+          "id": "tool_cloudconvert",
+          "title": "Convert",
+          "url": "https://cloudconvert.com/",
+          "icon": "https://cloudconvert.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 0,
+          "affiliate": false
+        },
+        {
+          "id": "tool_removebg",
+          "title": "Remove BG",
+          "url": "https://www.remove.bg/",
+          "icon": "https://www.remove.bg/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 10,
+          "affiliate": false
+        },
+        {
+          "id": "tool_tinypng",
+          "title": "TinyPNG",
+          "url": "https://tinypng.com/",
+          "icon": "https://tinypng.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 20,
+          "affiliate": false
+        },
+        {
+          "id": "tool_photopea",
+          "title": "Photopea",
+          "url": "https://www.photopea.com/",
+          "icon": "https://www.photopea.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 30,
+          "affiliate": false
+        },
+        {
+          "id": "tool_squoosh",
+          "title": "Squoosh",
+          "url": "https://squoosh.app/",
+          "icon": "https://squoosh.app/c/icon-max-192x192.png",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 40,
+          "affiliate": false
+        },
+        {
+          "id": "tool_iloveimg",
+          "title": "ILoveIMG",
+          "url": "https://www.iloveimg.com/",
+          "icon": "https://www.iloveimg.com/img/favicons-img/favicon-32x32.png",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 50,
+          "affiliate": false
+        },
+        {
+          "id": "tool_pdf24",
+          "title": "PDF24",
+          "url": "https://tools.pdf24.org/",
+          "icon": "https://tools.pdf24.org/static/img/pdf24.png",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 60,
+          "affiliate": false
+        },
+        {
+          "id": "tool_canva",
+          "title": "Canva",
+          "url": "https://www.canva.com/",
+          "icon": "https://www.canva.com/favicon.ico",
+          "selected": true,
+          "fixed": false,
+          "remove": false,
+          "origin": 1,
+          "weight": 70,
+          "affiliate": false
+        }
+      ]
+    }
+  ]
+}

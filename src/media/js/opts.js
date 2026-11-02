@@ -456,13 +456,11 @@
 	//}
 
     /**
-     * Chrome Web Store policy: NTP search must use the browser default via chrome.search.
+     * NTP search always uses the browser default via chrome.search when available
+     * (all store platforms — one codebase, no custom engine picker).
      */
     $.usesBrowserSearch = () => {
-        const perms = manifest.permissions || [];
-        return perms.indexOf("search") > -1
-            && $.api.search
-            && typeof $.api.search.query === "function";
+        return !!( $.api.search && typeof $.api.search.query === "function");
     };
 
     $.cl = $.opts.classes;

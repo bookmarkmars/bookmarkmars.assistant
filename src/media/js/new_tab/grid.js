@@ -9,8 +9,8 @@
         let currentPage = 1;
         let linkList=[];
 
-        const colWidth = 145;
-        const rowHeight = 121;
+        const colWidth = 168;
+        const rowHeight = 128;
 
         /**
          *
@@ -23,6 +23,13 @@
             n.elm.grid.html("<ul></ul>");
             maxCols = n.helper.dao.getData("n/gridMaxCols");
             maxRows = n.helper.dao.getData("n/gridMaxRows");
+            // Redesign: use wider grid even if an older sync value capped cols at 5
+            if (!maxCols || maxCols < 7) {
+                maxCols = 8;
+            }
+            if (!maxRows || maxRows < 2) {
+                maxRows = 2;
+            }
             
             // Local-first: render from local/cache immediately; cloud restore is background-only
             loadNavigation().then(()=>{
@@ -80,8 +87,24 @@
                 e.preventDefault();
                 
                 if (e.button === 0 || e.button === 1) {
+                    const link = $(e.currentTarget);
+                    if (link.attr($.attr.type) === "folder" || link.data("folder")) {
+                        // Mini icon in 2×2 preview → open that site. Big tile → organize popup.
+                        const directUrl = findFolderPreviewHref(e.target);
+                        if (directUrl) {
+                            n.helper.dao.call("openLink", {
+                                href: directUrl,
+                                newTab: e.type === "auxclick",
+                                position: n.helper.dao.getData("b/newTabPosition"),
+                                active: e.type !== "auxclick"
+                            });
+                            return;
+                        }
+                        openFolderOverlay(link.data("folder") || link.data("folderId"), true);
+                        return;
+                    }
                     n.helper.dao.call("openLink", {
-                        href: $(e.currentTarget).data("href"),
+                        href: link.data("href"),
                         newTab: e.type === "auxclick",
                         position: n.helper.dao.getData("b/newTabPosition"),
                         active: e.type !== "auxclick"
@@ -102,6 +125,52 @@
             	    const totalPage=n.elm.grid.children("ul").attr("totalPage");
             	    if(currentPage>totalPage){currentPage=totalPage;}
             	    updateEntries();
+            });
+
+            // Drag a top-level shortcut onto a folder tile to nest it
+            let gridDragUrl = null;
+            n.elm.grid.on("dragstart", "> ul > li:not(.nt-folder)", (e) => {
+                const link = $(e.currentTarget).children("a");
+                gridDragUrl = link.data("href") || link.attr("href") || "";
+                if (!gridDragUrl || gridDragUrl === "#") {
+                    gridDragUrl = null;
+                    return;
+                }
+                try {
+                    e.originalEvent.dataTransfer.setData("text/plain", gridDragUrl);
+                    e.originalEvent.dataTransfer.effectAllowed = "move";
+                } catch (err) {
+                    // some environments block dataTransfer
+                }
+                $(e.currentTarget).addClass("nt-dragging");
+            });
+            n.elm.grid.on("dragend", "> ul > li", () => {
+                gridDragUrl = null;
+                n.elm.grid.find("li").removeClass("nt-dragging nt-drop-target");
+            });
+            n.elm.grid.on("dragenter dragover", "> ul > li.nt-folder", (e) => {
+                if (!gridDragUrl) {
+                    return;
+                }
+                e.preventDefault();
+                $(e.currentTarget).addClass("nt-drop-target");
+            });
+            n.elm.grid.on("dragleave", "> ul > li.nt-folder", (e) => {
+                $(e.currentTarget).removeClass("nt-drop-target");
+            });
+            n.elm.grid.on("drop", "> ul > li.nt-folder", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const folderLink = $(e.currentTarget).children("a");
+                const folderId = folderLink.data("folderId");
+                const url = gridDragUrl
+                    || (e.originalEvent.dataTransfer && e.originalEvent.dataTransfer.getData("text/plain"));
+                n.elm.grid.find("li").removeClass("nt-dragging nt-drop-target");
+                gridDragUrl = null;
+                if (!folderId || !url) {
+                    return;
+                }
+                this.moveLinkIntoFolder(url, folderId);
             });
         };
 
@@ -156,7 +225,18 @@
                         $.delay(200),
                     ]).then(([data]) => {
                     	
-                    	if(JSON.stringify(data)==="{}" || JSON.stringify(data['list'])==="[]" ){return $.delay();}//停止
+                    	// Shortcuts section: hide the whole grid when empty (unlike Tools card)
+                    	if (!data || JSON.stringify(data) === "{}"
+                    		|| !data.list || data.list.length === 0) {
+                    		gridWrapper.html("").removeClass($.cl.visible);
+                    		n.elm.grid.addClass($.cl.hidden);
+                    		n.elm.grid.find("div." + $.cl.newtab.scrollLeft
+                    			+ ", div." + $.cl.newtab.scrollRight).remove();
+                    		updateRunning = false;
+                    		resolve();
+                    		return;
+                    	}
+                    	n.elm.grid.removeClass($.cl.hidden);
                     	
                         gridWrapper
                             .html("")
@@ -167,69 +247,31 @@
                             .css("grid-template-columns", "1fr ".repeat(data['cols']).trim());
 					
                         data['list'].forEach((page) => {
+                            const isFolder = page.type === "folder";
                             const entry = $("<li></li>").appendTo(gridWrapper);
+                            // jsu toggleClass(name) ignores 2nd arg — it only toggles
+                            if (isFolder) {
+                                entry.addClass("nt-folder");
+                            }
                             const entryLink = $("<a></a>")
                                 .attr({
-                                    href: page.url,
+                                    href: isFolder ? "#" : page.url,
                                     title: page.title,
-                                    [$.attr.value]: page.url.length === 0 ? "empty" : "url"
+                                    [$.attr.type]: isFolder ? "folder" : "link",
+                                    [$.attr.value]: isFolder ? "folder" : (page.url.length === 0 ? "empty" : "url")
                                 })
-                                .data("href", page.url)
+                                .data("href", page.url || "")
                                 .appendTo(entry);
 
-                            $("<span></span>").text(page.title).appendTo(entryLink);
-                            
-							//准备icon
-							const icon={
-								size:32,
-								title:page.title
-							}
-							
-							const resolveIconSrc = (src) => {
-								if (!src || src === "undefined") {
-									return null;
-								}
-								src = n.helper.util.normalizeRemoteIconUrl(src);
-								if (src.startsWith("http") || src.startsWith("data:")) {
-									return src;
-								}
-								return $.api.runtime.getURL(src);
-							};
-
-							const appendFavicon = (src, allowRetry) => {
-								const resolved = resolveIconSrc(src);
-								if (!resolved) {
-									return false;
-								}
-								const favicon = $("<img />").attr("src", resolved);
-								favicon[0].onerror = () => {
-									if (allowRetry === false) {
-										return;
-									}
-									// Remote/file icon failed → first character of title
-									n.helper.dao.call("getFavicon", {
-										url: page.url,
-										icon: icon,
-										query: true
-									}).then((response) => {
-										if (response && response.img) {
-											favicon.attr("src", response.img);
-											favicon[0].onerror = null;
-										}
-									});
-								};
-								$("<div></div>").append(favicon).prependTo(entryLink);
-								return true;
-							};
-
-							// Prefer stored icon; otherwise fetch (ends with first-character glyph)
-							if (!appendFavicon(page.icon)) {
-								n.helper.dao.call("getFavicon", {url: page.url, icon: icon, query: true}).then((response) => {
-	                                if (response && response.img) {
-										appendFavicon(response.img, false);
-	                                }
-	                            });
-							}
+                            if (isFolder) {
+                                entryLink.data("folder", page);
+                                entryLink.data("folderId", page.id || page.categoryId);
+                                renderFolderTile(entryLink, page);
+                            } else {
+                                entry.attr("draggable", "true");
+                                $("<span></span>").text(page.title).appendTo(entryLink);
+                                paintShortcutIcon(entryLink, page);
+                            }
                         });
                         
                         //立马影藏并删除
@@ -295,31 +337,64 @@
         };
 
         /**
-         * Cloud backup is the user's saved snapshot (order + selection + customs).
+         * Sanitize one shortcut / folder for sync storage (no data: icons).
+         */
+        const sanitizeCloudItem = (item) => {
+        	if (!item || !item.title) {
+        		return null;
+        	}
+        	const origin = (item.origin === 1 || item.origin === "1") ? 1 : 0;
+        	let icon = item.icon;
+        	if (icon && typeof icon === "string" && icon.indexOf("http") === 0) {
+        		icon = n.helper.util.normalizeRemoteIconUrl(icon);
+        	} else {
+        		icon = null;
+        	}
+
+        	if (item.type === "folder") {
+        		const children = Array.isArray(item.children)
+        			? item.children.map(sanitizeCloudItem).filter(Boolean)
+        			: [];
+        		return {
+        			id: item.id || item.categoryId || ("folder-" + Date.now()),
+        			type: "folder",
+        			title: item.title,
+        			url: "",
+        			selected: item.selected !== false && item.selected !== "false",
+        			fixed: !!item.fixed && item.fixed !== "false",
+        			remove: false,
+        			origin: origin,
+        			icon: null,
+        			categoryId: item.categoryId || item.id || null,
+        			children: children,
+        			lang: item.lang || undefined
+        		};
+        	}
+
+        	if (!item.url) {
+        		return null;
+        	}
+        	return {
+        		id: item.id || undefined,
+        		type: "link",
+        		title: item.title,
+        		url: item.url,
+        		selected: item.selected !== false && item.selected !== "false",
+        		fixed: !!item.fixed && item.fixed !== "false",
+        		remove: false,
+        		origin: origin,
+        		icon: icon,
+        		categoryId: item.categoryId || undefined,
+        		lang: item.lang || undefined
+        	};
+        };
+
+        /**
+         * Cloud backup is the user's saved snapshot (order + selection + customs + folders).
          * Sanitize icons; never keep data: URLs in sync storage.
          */
         const sanitizeCloudLinks = (serverLinks) => {
-        	return serverLinks
-        		.filter((item) => item && item.url && item.title)
-        		.map((item) => {
-        			const origin = (item.origin === 1 || item.origin === "1") ? 1 : 0;
-        			let icon = item.icon;
-        			if (icon && typeof icon === "string" && icon.indexOf("http") === 0) {
-        				icon = n.helper.util.normalizeRemoteIconUrl(icon);
-        			} else {
-        				icon = null;
-        			}
-        			return {
-        				title: item.title,
-        				url: item.url,
-        				selected: item.selected !== false && item.selected !== "false",
-        				fixed: !!item.fixed && item.fixed !== "false",
-        				remove: false,
-        				origin: origin,
-        				icon: icon,
-        				lang: item.lang || undefined
-        			};
-        		});
+        	return (serverLinks || []).map(sanitizeCloudItem).filter(Boolean);
         };
 
         /**
@@ -327,7 +402,24 @@
          */
         const shortcutListFingerprint = (links) => {
         	return (Array.isArray(links) ? links : []).map((item) => {
-        		if (!item || !item.url) {
+        		if (!item) {
+        			return "";
+        		}
+        		if (item.type === "folder") {
+        			const kids = (item.children || []).map((c) => {
+        				return c && c.url
+        					? String(c.url).replace(/\/+$/, "").toLowerCase()
+        					: "";
+        			}).filter(Boolean).join(",");
+        			return [
+        				"folder",
+        				item.id || item.categoryId || "",
+        				item.title || "",
+        				item.selected === false || item.selected === "false" ? "0" : "1",
+        				kids
+        			].join("\t");
+        		}
+        		if (!item.url) {
         			return "";
         		}
         		return [
@@ -338,6 +430,142 @@
         			(item.origin === 1 || item.origin === "1") ? "1" : "0"
         		].join("\t");
         	}).filter(Boolean).join("\n");
+        };
+
+        /**
+         * Persist n/links (+ optional cloud backup) then refresh the grid.
+         * Local save is authoritative for UI refresh; cloud backup is background.
+         */
+        this.persistLinks = (links, opts) => {
+        	const next = n.helper.util.sanitizeShortcutLocks(links || []);
+        	const reload = !(opts && opts.reload === false);
+        	return n.helper.dao.setData({"n/links": next}).then(() => {
+        		// Do not block NTP refresh on network / login
+        		n.helper.dao.call("saveShortcuts", {links: next}).then((res) => {
+        			if (res && res.code === "ok" && res.data && res.data.updateTime) {
+        				n.helper.dao.setData({
+        					"u/shortcutsSyncTime": res.data.updateTime,
+        					"u/shortcutsLastCheck": Date.now()
+        				});
+        			}
+        		}).catch(() => null);
+
+        		if (reload) {
+        			try {
+        				(window.top || window).location.reload();
+        			} catch (e) {
+        				location.reload();
+        			}
+        			return null;
+        		}
+        		getLinkList();
+        		return updateEntries();
+        	});
+        };
+
+        /**
+         * Move a top-level link into a folder (by folder id).
+         */
+        this.moveLinkIntoFolder = (linkUrl, folderId) => {
+        	const links = n.helper.dao.getData("n/links") || [];
+        	const norm = n.helper.util.normalizeShortcutUrl;
+        	const targetUrl = norm(linkUrl);
+        	let moving = null;
+        	const remaining = [];
+        	links.forEach((item) => {
+        		if (!item) {
+        			return;
+        		}
+        		if (item.type !== "folder" && norm(item.url) === targetUrl) {
+        			moving = item;
+        			return;
+        		}
+        		remaining.push(item);
+        	});
+        	if (!moving) {
+        		return Promise.resolve(false);
+        	}
+        	const folder = remaining.find((item) => {
+        		return item && item.type === "folder"
+        			&& (item.id === folderId || item.categoryId === folderId);
+        	});
+        	if (!folder) {
+        		return Promise.resolve(false);
+        	}
+        	if (!Array.isArray(folder.children)) {
+        		folder.children = [];
+        	}
+        	const already = folder.children.some((c) => c && norm(c.url) === targetUrl);
+        	if (!already) {
+        		folder.children.push(Object.assign({}, moving, {
+        			type: "link",
+        			selected: true
+        		}));
+        	}
+        	return this.persistLinks(remaining, {reload: false}).then(() => true);
+        };
+
+        /**
+         * Eject a child link from a folder back to the top-level grid.
+         */
+        this.ejectFromFolder = (folderId, childUrl) => {
+        	const links = n.helper.dao.getData("n/links") || [];
+        	const norm = n.helper.util.normalizeShortcutUrl;
+        	const targetUrl = norm(childUrl);
+        	let ejected = null;
+        	links.forEach((item) => {
+        		if (!item || item.type !== "folder") {
+        			return;
+        		}
+        		if (item.id !== folderId && item.categoryId !== folderId) {
+        			return;
+        		}
+        		const kids = Array.isArray(item.children) ? item.children : [];
+        		item.children = kids.filter((c) => {
+        			if (c && norm(c.url) === targetUrl) {
+        				ejected = c;
+        				return false;
+        			}
+        			return true;
+        		});
+        	});
+        	if (!ejected) {
+        		return Promise.resolve(false);
+        	}
+        	const exists = links.some((item) => {
+        		return item && item.type !== "folder" && norm(item.url) === targetUrl;
+        	});
+        	if (!exists) {
+        		links.unshift(Object.assign({}, ejected, {
+        			type: "link",
+        			selected: true,
+        			fixed: false
+        		}));
+        	}
+        	return this.persistLinks(links, {reload: true}).then(() => true);
+        };
+
+        /**
+         * Create an empty user folder at the front of the grid.
+         */
+        this.createFolder = (title) => {
+        	const links = n.helper.dao.getData("n/links") || [];
+        	const name = (title || "").trim() || "New folder";
+        	const folder = {
+        		id: "user-folder-" + Date.now(),
+        		type: "folder",
+        		title: name,
+        		url: "",
+        		icon: null,
+        		selected: true,
+        		fixed: false,
+        		remove: false,
+        		origin: 0,
+        		categoryId: null,
+        		children: []
+        	};
+        	links.unshift(folder);
+        	return this.persistLinks(links, {reload: true});
         };
 
         const isUserCustomShortcut = (item) => {
@@ -425,60 +653,266 @@
         	});
         };
 
-        const loadNavigation  = () =>{
-        	
-        	const tryReq = async (retry=1) =>{
-        		
-        		for(let i=0;i<retry;i++){
-        			const res = await n.helper.dao.call("getValue",{key:"navigation"});
-        			if(!!res){
-        				return res;
-        			}
-        		}
-        		
-        		return null;
-        	}
-        	
-        	return new Promise((resolve) => {
-        		
-        		tryReq(1)
-        		.then(res=>{
-        		
-        			if(!!res){
-        				
-        				let jsonData=JSON.parse(res.data);
-				        appendNewLinks(jsonData.children).then(()=>{
-				        	
-				        	//cache
-				        	const cache=n.helper.dao.getData("n/topLinks");
-				        	const jsonStr=JSON.stringify(jsonData);
-				        	if(cache!==jsonStr){
-				        		return n.helper.dao.setData({"n/topLinks":jsonStr});
-				        	}
-				        	return Promise.resolve();
-				        })
-				        .then(resolve);
-				        
-        			}else{
-        				
-        				const cache=n.helper.dao.getData("n/topLinks");
-        				if(!!cache){
-    						let jsonData=JSON.parse(cache);
-				            appendNewLinks(jsonData.children).then(resolve);
-    					}
-    					else{
-    						$.fetch($.api.runtime.getURL("media/conf/navigation.json")).then((obj) => {
-				                obj.text().then((data)=>{
-				                	let jsonData=JSON.parse(data);
-				                	appendNewLinks(jsonData.children).then(resolve);
-				                });
-				           	}).catch(err => {});
-    					}
-        			}
-        		});
-        	});
-        }
+        /**
+         * jsu append/prependTo CLONES nodes then removes the originals.
+         * Always set src on <img> BEFORE insert, and for async updates
+         * query the LIVE img under entryLink (not the detached wrapper).
+         */
+        const liveIconImg = (entryLink) => {
+            const found = entryLink.find("div > img");
+            return found && found[0] ? found[0] : null;
+        };
+
+        const paintShortcutIcon = (entryLink, page) => {
+            const icon = { size: 32, title: page.title || page.url };
+            const provisional = page.icon ? n.helper.util.normalizeRemoteIconUrl(page.icon) : null;
+            const imgAttrs = { alt: page.title || "" };
+            if (provisional && (provisional.indexOf("data:") === 0 || provisional.indexOf("http") === 0)) {
+                imgAttrs.src = provisional;
+            } else {
+                // Transparent 1x1 so Chrome never shows the broken-image glyph
+                imgAttrs.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+            }
+
+            $("<div></div>")
+                .append($("<img />").attr(imgAttrs))
+                .prependTo(entryLink);
+
+            if (!page.url) {
+                return;
+            }
+
+            n.helper.dao.call("getFavicon", {
+                url: page.url,
+                icon: icon,
+                query: true
+            }).then((response) => {
+                const el = liveIconImg(entryLink);
+                if (response && response.img && el) {
+                    el.src = response.img;
+                }
+            });
+        };
+
+        const renderFolderTile = (entryLink, page) => {
+            const preview = $("<div></div>").addClass("nt-folder-preview");
+            const kids = (page.children || []).filter((c) => c && c.selected !== false).slice(0, 4);
+            kids.forEach((child, idx) => {
+                const provisional = child.icon ? n.helper.util.normalizeRemoteIconUrl(child.icon) : null;
+                const imgAttrs = {
+                    alt: child.title || "",
+                    "data-folder-icon": String(idx)
+                };
+                if (provisional && (provisional.indexOf("data:") === 0 || provisional.indexOf("http") === 0)) {
+                    imgAttrs.src = provisional;
+                } else {
+                    imgAttrs.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+                }
+                const cell = $("<div></div>");
+                if (child.url) {
+                    cell.attr("data-href", child.url)
+                        .attr("title", child.title || child.url)
+                        .addClass("nt-folder-preview-link");
+                    cell.data("href", child.url);
+                }
+                cell.append($("<img />").attr(imgAttrs)).appendTo(preview);
+
+                if (!child.url) {
+                    return;
+                }
+                const childUrl = child.url;
+                const childIdx = idx;
+                n.helper.dao.call("getFavicon", {
+                    url: childUrl,
+                    icon: { size: 32, title: child.title || childUrl },
+                    query: true
+                }).then((response) => {
+                    if (!response || !response.img) {
+                        return;
+                    }
+                    // Resolve live img after preview was prependTo'd (cloned into DOM)
+                    const livePreview = entryLink.find("div.nt-folder-preview");
+                    const liveImg = livePreview.find("img[data-folder-icon='" + childIdx + "']");
+                    if (liveImg && liveImg[0]) {
+                        liveImg[0].src = response.img;
+                    }
+                });
+            });
+            while (preview.children().length() < 4) {
+                $("<div></div>").addClass("nt-folder-empty").appendTo(preview);
+            }
+            if (kids.length === 0) {
+                preview.addClass("is-empty");
+            }
+            $("<span></span>").text(page.title).appendTo(entryLink);
+            // Insert preview last so clones keep children + src
+            preview.prependTo(entryLink);
+        };
+
+        /**
+         * Walk up from the click target to a preview cell that carries data-href.
+         */
+        const findFolderPreviewHref = (target) => {
+            let node = target;
+            while (node && node.nodeType === 1) {
+                if (node.getAttribute && node.getAttribute("data-href")
+                    && node.parentNode
+                    && node.parentNode.classList
+                    && node.parentNode.classList.contains("nt-folder-preview")) {
+                    return node.getAttribute("data-href");
+                }
+                // Stop at the folder <a> — anything outside preview cells is "big box"
+                if (node.getAttribute && node.getAttribute($.attr.type) === "folder") {
+                    break;
+                }
+                node = node.parentNode;
+            }
+            return null;
+        };
+
+        /**
+         * @param {object|string} folderOrId
+         * @param {boolean=} organize open directly in Organize mode
+         */
+        const openFolderOverlay = (folderOrId, organize) => {
+            let folder = folderOrId;
+            if (typeof folderOrId === "string") {
+                folder = (n.helper.dao.getData("n/links") || []).find((item) => {
+                    return item && item.type === "folder" && (item.id === folderOrId || item.categoryId === folderOrId);
+                });
+            }
+            if (!folder) {
+                return;
+            }
+            if (!Array.isArray(folder.children)) {
+                folder.children = [];
+            }
+            n.helper.popup.create("folder", folder.title || "Folder", {
+                folder: folder,
+                organize: !!organize
+            });
+        };
+
+        const parseCatalogPayload = (raw) => {
+            if (!raw) {
+                return null;
+            }
+            try {
+                const data = typeof raw === "string" ? JSON.parse(raw) : (raw.data ? JSON.parse(raw.data) : raw);
+                if (data && data.schemaVersion === 2 && Array.isArray(data.categories)) {
+                    return data;
+                }
+                // Legacy flat v1 → wrap as pinned icons
+                if (data && Array.isArray(data.children)) {
+                    return {
+                        schemaVersion: 2,
+                        categories: [{
+                            id: "pinned",
+                            title: "Pinned",
+                            display: "icons",
+                            weight: 0,
+                            children: data.children
+                        }]
+                    };
+                }
+            } catch (e) {
+                return null;
+            }
+            return null;
+        };
+
+        const loadNavigation = () => {
+
+            const tryRemote = async () => {
+                let res = await n.helper.dao.call("getValue", { key: "navigation_v2" });
+                if (res && res.data) {
+                    return parseCatalogPayload(res);
+                }
+                // Brief dual-read for sunset window
+                res = await n.helper.dao.call("getValue", { key: "navigation" });
+                if (res && res.data) {
+                    return parseCatalogPayload(res);
+                }
+                return null;
+            };
+
+            return new Promise((resolve) => {
+                tryRemote().then((catalog) => {
+                    if (catalog) {
+                        const tiles = n.helper.catalog.flattenToTiles(catalog, n.helper.i18n.getLanguage());
+                        appendNewLinks(tiles).then(() => {
+                            const jsonStr = JSON.stringify(catalog);
+                            const cache = n.helper.dao.getData("n/topLinks");
+                            if (cache !== jsonStr) {
+                                return n.helper.dao.setData({ "n/topLinks": jsonStr });
+                            }
+                            return Promise.resolve();
+                        }).then(resolve);
+                        return;
+                    }
+
+                    const cache = n.helper.dao.getData("n/topLinks");
+                    const cachedCatalog = parseCatalogPayload(cache);
+                    if (cachedCatalog) {
+                        const tiles = n.helper.catalog.flattenToTiles(cachedCatalog, n.helper.i18n.getLanguage());
+                        appendNewLinks(tiles).then(resolve);
+                        return;
+                    }
+
+                    // Emergency seed (no affiliates)
+                    $.fetch($.api.runtime.getURL("media/conf/navigation_seed.json")).then((obj) => {
+                        obj.text().then((data) => {
+                            const catalogSeed = parseCatalogPayload(data);
+                            const tiles = n.helper.catalog.flattenToTiles(catalogSeed, n.helper.i18n.getLanguage());
+                            appendNewLinks(tiles).then(resolve);
+                        });
+                    }).catch(() => resolve());
+                }).catch(() => resolve());
+            });
+        };
         
+        /**
+         * Merge catalog children into a folder the user already has.
+         * Once the user has any children list, it is authoritative — catalog may
+         * refresh meta for kept items, but must NOT revive removed ones.
+         * Empty user list (first seed) takes the full catalog set.
+         */
+        const mergeFolderChildren = (userKids, catalogKids, opts) => {
+        	const user = Array.isArray(userKids) ? userKids : [];
+        	const catalog = Array.isArray(catalogKids) ? catalogKids : [];
+        	const keyOf = (c) => {
+        		if (!c) {
+        			return "";
+        		}
+        		if (c.id) {
+        			return "id:" + c.id;
+        		}
+        		return "url:" + n.helper.util.normalizeShortcutUrl(c.url || "");
+        	};
+        	const userManaged = !!(opts && opts.userManaged);
+
+        	// First paint / never organized → seed from catalog
+        	if (!user.length && !userManaged) {
+        		return catalog.map((c) => Object.assign({}, c));
+        	}
+
+        	// User list wins: keep order, refresh catalog meta only for survivors
+        	return user.map((u) => {
+        		if (!u) {
+        			return u;
+        		}
+        		const cat = catalog.find((c) => keyOf(c) === keyOf(u));
+        		if (!cat || u.origin === 0 || u.origin === "0") {
+        			return u;
+        		}
+        		return Object.assign({}, cat, {
+        			selected: u.selected,
+        			title: u.title || cat.title,
+        			icon: n.helper.util.normalizeRemoteIconUrl(cat.icon || u.icon)
+        		});
+        	}).filter(Boolean);
+        };
+
         const appendNewLinks = (arr)=>{
         	
         	return new Promise((resolve) => {
@@ -497,14 +931,24 @@
 			    })//sort by weight
 	        	.forEach((item)=>{
 
+	        		const isFolder = item.type === "folder";
 	        		//如果pages中包含该链接（trailing slash / host case 归一后比较）
-	        		const itemKey = n.helper.util.normalizeShortcutUrl(item.url);
-	        		if(pages.some(e => n.helper.util.normalizeShortcutUrl(e.url) === itemKey)){
+	        		const itemKey = isFolder
+	        			? ("folder:" + (item.id || item.categoryId || item.title))
+	        			: n.helper.util.normalizeShortcutUrl(item.url);
+	        		const matchPage = (e) => {
+	        			if (!e) {
+	        				return false;
+	        			}
+	        			if (isFolder) {
+	        				return e.type === "folder" && (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId);
+	        			}
+	        			return e.type !== "folder" && n.helper.util.normalizeShortcutUrl(e.url) === itemKey;
+	        		};
+	        		if(pages.some(matchPage)){
 	        			// Catalog may mark a URL as fixed (e.g. Google) — apply that to
 	        			// one row only. User-added duplicates of the same URL must stay editable.
-	        			const matches = pages.filter((node) =>
-	        				n.helper.util.normalizeShortcutUrl(node.url) === itemKey
-	        			);
+	        			const matches = pages.filter(matchPage);
 	        			const primary = matches.find((node) => node.origin === 1 || node.origin === "1")
 	        				|| matches[0];
 
@@ -515,6 +959,22 @@
 	        					node.icon = n.helper.util.normalizeRemoteIconUrl(item.icon);
 	        					node.fixed = item.fixed;//服务器端只控制固定权限，select权限给用户
 	        					node.lang = item.lang;//别名也可能在服务器端修改
+	        					node.type = item.type || node.type || "link";
+	        					node.id = item.id || node.id;
+	        					node.categoryId = item.categoryId || node.categoryId;
+	        					if (isFolder) {
+	        						// Folder already lives in n/links → user ownership of children.
+	        						// Never re-seed Amazon/eBay/etc. after the user removed them
+	        						// (including when children is []).
+	        						node.children = mergeFolderChildren(node.children, item.children, {
+	        							userManaged: true
+	        						});
+	        						node.url = "";
+	        						node.userManaged = true;
+	        						if (item.module || item.id === "tools" || node.id === "tools") {
+	        							node.module = true;
+	        						}
+	        					}
 	        				} else {
 	        					node.fixed = false;
 	        					if (node.origin === 1 || node.origin === "1") {
@@ -526,7 +986,9 @@
 	        			return;
 	        		}
 
-	        		if (cloudSynced) {
+	        		// After cloud sync: still accept brand-new catalog ids (pagination / ops adds).
+	        		// Skip URL-only revival of entries the user fully deleted from n/links.
+	        		if (cloudSynced && !item.id && !item.categoryId) {
 	        			return;
 	        		}
 	        		
@@ -553,11 +1015,17 @@
 	                }
 	        		
 	        		//本地缓存显示来源远程，但是实际上现在又没有了，则说明远程删除
-	        		if(
-	        			item.origin===1 &&
-	        			!arr.some(e => n.helper.util.normalizeShortcutUrl(e.url) === n.helper.util.normalizeShortcutUrl(item.url))
-	        		){
-	        		   return;
+	        		if (item.origin === 1) {
+	        			const stillInCatalog = arr.some((e) => {
+	        				if (item.type === "folder" || e.type === "folder") {
+	        					return e.type === "folder" && item.type === "folder"
+	        						&& (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId);
+	        				}
+	        				return n.helper.util.normalizeShortcutUrl(e.url) === n.helper.util.normalizeShortcutUrl(item.url);
+	        			});
+	        			if (!stillInCatalog) {
+	        				return;
+	        			}
 	        		}
 	        		
 	        		//兼容过去，没有origin属性的item
@@ -590,11 +1058,16 @@
             pages.forEach((item)=>{
             	
             	//只要选中的 或者 固定的
-            	if(item && item.selected || item.fixed){
-            		if (item && item.title && item.url) {
+            	if(item && (item.selected || item.fixed)){
+            		// Tools lives in the Phase B strip only — never as a grid folder
+            		if (item.type === "folder" && (item.id === "tools" || item.categoryId === "tools")) {
+            			return;
+            		}
+            		// Keep empty folders on the grid so users can Organize and add sites back
+            		if (item.type === "folder" && item.title) {
 	                    linkList.push(item);
-	                } else {
-	                    linkList.push({title: "", url: ""});
+	                } else if (item && item.title && item.url) {
+	                    linkList.push(item);
 	                }
             	}
             })

@@ -115,6 +115,14 @@
                 if (!node) {
                     return;
                 }
+                // Folders are never lock-icons; skip empty-url rows
+                if (node.type === "folder") {
+                    node.fixed = false;
+                    if (!Array.isArray(node.children)) {
+                        node.children = [];
+                    }
+                    return;
+                }
                 const isFixed = node.fixed === true || node.fixed === "true";
                 if (!isFixed) {
                     node.fixed = false;

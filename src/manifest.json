@@ -20,7 +20,7 @@
           "128": "media/img/logo/logo-128.png"
 	    }
     },
-    "permissions": ["storage","scripting","bookmarks","fontSettings","contextMenus","unlimitedStorage","cookies","favicon","sidePanel"],
+    "permissions": ["storage","scripting","bookmarks","fontSettings","contextMenus","unlimitedStorage","cookies","favicon","sidePanel","search"],
     "optional_permissions": [],
     "content_security_policy": {
 	    "extension_pages": "script-src 'self'; object-src 'self'"

@@ -716,6 +716,93 @@
     "new_tab_shortcuts_restored": {
         "message": "Cloud shortcuts restored"
     },
+    "new_tab_memo_title": {
+        "message": "Memos"
+    },
+    "new_tab_memo_hint": {
+        "message": "Click a line to edit · saved automatically"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "A quick note…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "A thought…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Save for later…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Remember…"
+    },
+    "new_tab_tools_title": {
+        "message": "Tools"
+    },
+    "new_tab_tools_organize": {
+        "message": "Organize tools"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Organize tools"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Drag to reorder · × removes · add below · Close to apply"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Add from catalog"
+    },
+    "new_tab_tools_remove": {
+        "message": "Remove"
+    },
+    "new_tab_tools_empty": {
+        "message": "No tools yet"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Organize to add some"
+    },
+    "new_tab_folder_tip": {
+        "message": "Click a site to open it · Organize to edit"
+    },
+    "new_tab_folder_edit": {
+        "message": "Edit shortcuts"
+    },
+    "new_tab_folder_organize": {
+        "message": "Organize"
+    },
+    "new_tab_folder_done": {
+        "message": "Done"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Drag to reorder · × moves back to home · add below · Close to apply"
+    },
+    "new_tab_folder_name": {
+        "message": "Folder name"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Folder name"
+    },
+    "new_tab_folder_default_name": {
+        "message": "New folder"
+    },
+    "new_tab_folder_add": {
+        "message": "Add"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Add from home grid"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Or add a custom link"
+    },
+    "new_tab_folder_pick": {
+        "message": "Choose a shortcut…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Move to home"
+    },
+    "new_tab_add_folder": {
+        "message": "Add folder"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Drag a shortcut onto a folder row to nest it. Open a folder tile on the grid to Organize."
+    },
     "new_tab_title": {
         "message": "BookmarkMars New Tab"
     },
