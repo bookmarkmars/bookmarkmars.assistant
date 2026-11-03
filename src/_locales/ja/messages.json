@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "クラウドのショートカットを復元しました"
     },
+    "new_tab_memo_title": {
+        "message": "メモ"
+    },
+    "new_tab_memo_hint": {
+        "message": "行をクリックして編集 · 自動保存"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "短いメモ…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "思いつき…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "あとで見る…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "覚えておく…"
+    },
+    "new_tab_tools_title": {
+        "message": "ツール"
+    },
+    "new_tab_tools_organize": {
+        "message": "ツールを整理"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "ツールを整理"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "ドラッグで並べ替え · × で削除 · 下から追加 · 閉じると反映"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "カタログから追加"
+    },
+    "new_tab_tools_remove": {
+        "message": "削除"
+    },
+    "new_tab_tools_empty": {
+        "message": "ツールはまだありません"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "整理して追加"
+    },
+    "new_tab_category_pin": {
+        "message": "ピン留め"
+    },
+    "new_tab_folder_tip": {
+        "message": "サイトをクリックして開く · 整理で編集"
+    },
+    "new_tab_folder_edit": {
+        "message": "ショートカットを編集"
+    },
+    "new_tab_folder_organize": {
+        "message": "整理"
+    },
+    "new_tab_folder_done": {
+        "message": "完了"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "ドラッグで並べ替え · × でホームへ戻す · 下から追加 · 閉じると反映"
+    },
+    "new_tab_folder_name": {
+        "message": "フォルダ名"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "フォルダ名"
+    },
+    "new_tab_folder_default_name": {
+        "message": "新しいフォルダ"
+    },
+    "new_tab_folder_add": {
+        "message": "追加"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "ホームの一覧から追加"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "またはカスタムリンクを追加"
+    },
+    "new_tab_folder_pick": {
+        "message": "ショートカットを選択…"
+    },
+    "new_tab_folder_eject": {
+        "message": "ホームへ移動"
+    },
+    "new_tab_add_folder": {
+        "message": "フォルダを追加"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "ショートカットをフォルダの行へドラッグすると中に入ります。グリッドのフォルダを開き、「整理」を選んでください。"
+    },
     "new_tab_title": {
-        "message": "BookmarkMars カスタマイズページ"
+        "message": "BookmarkMars 新しいタブ"
     },
     "new_tab_search_engine_custom": {
         "message": "カスタム検索"
@@ -765,7 +855,7 @@
         "message": "ショートカットを編集"
     },
     "new_tab_drag_suggestions": {
-        "message": "ドラッグして位置を変更"
+        "message": "行の上にドロップするとその位置になります。元の行は1つ後ろへずれます。"
     },
     "new_tab_setting": {
         "message": "設定"

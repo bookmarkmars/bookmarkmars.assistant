@@ -154,22 +154,45 @@
             	    updateEntries();
             });
 
-            // Drag a top-level shortcut onto a folder tile to nest it
+            // Drag a shortcut onto a folder to nest it.
+            // Drag a normal folder onto a shortcut to take that shortcut's place.
+            // Pinned and any locked shortcut stay put: no drag, no copy, no reorder.
             let gridDragUrl = null;
-            n.elm.grid.on("dragstart", "> ul > li:not(.nt-folder)", (e) => {
-                const link = $(e.currentTarget).children("a");
-                gridDragUrl = link.data("href") || link.attr("href") || "";
-                if (!gridDragUrl || gridDragUrl === "#") {
+            const beginGridDrag = (e, token) => {
+                if (!token) {
                     gridDragUrl = null;
                     return;
                 }
+                gridDragUrl = token;
                 try {
-                    e.originalEvent.dataTransfer.setData("text/plain", gridDragUrl);
+                    e.originalEvent.dataTransfer.setData("text/plain", token);
                     e.originalEvent.dataTransfer.effectAllowed = "move";
                 } catch (err) {
                     // some environments block dataTransfer
                 }
                 $(e.currentTarget).addClass("nt-dragging");
+            };
+            n.elm.grid.on("dragstart", "> ul > li.is-locked", (e) => {
+                e.preventDefault();
+                gridDragUrl = null;
+            });
+            n.elm.grid.on("dragstart", "> ul > li:not(.nt-folder):not(.is-locked)", (e) => {
+                const link = $(e.currentTarget).children("a");
+                const href = link.data("href") || link.attr("href") || "";
+                if (!href || href === "#") {
+                    gridDragUrl = null;
+                    return;
+                }
+                beginGridDrag(e, href);
+            });
+            n.elm.grid.on("dragstart", "> ul > li.nt-folder:not(.is-locked)", (e) => {
+                const link = $(e.currentTarget).children("a");
+                const folderId = link.attr("data-folder-id") || link.data("folderId") || "";
+                if (!folderId) {
+                    gridDragUrl = null;
+                    return;
+                }
+                beginGridDrag(e, "folder:" + folderId);
             });
             n.elm.grid.on("dragend", "> ul > li", () => {
                 gridDragUrl = null;
@@ -185,7 +208,7 @@
             n.elm.grid.on("dragleave", "> ul > li.nt-folder", (e) => {
                 $(e.currentTarget).removeClass("nt-drop-target");
             });
-            n.elm.grid.on("dragenter dragover", "> ul > li:not(.nt-folder)", (e) => {
+            n.elm.grid.on("dragenter dragover", "> ul > li:not(.nt-folder):not(.is-locked)", (e) => {
                 if (!gridDragUrl) {
                     return;
                 }
@@ -195,31 +218,51 @@
             n.elm.grid.on("dragleave", "> ul > li:not(.nt-folder)", (e) => {
                 $(e.currentTarget).removeClass("nt-drop-target");
             });
-            n.elm.grid.on("drop", "> ul > li:not(.nt-folder)", (e) => {
+            n.elm.grid.on("drop", "> ul > li:not(.nt-folder):not(.is-locked)", (e) => {
                 e.preventDefault();
+                if ($(e.currentTarget).hasClass("is-locked")) {
+                    gridDragUrl = null;
+                    return;
+                }
                 const targetUrl = $(e.currentTarget).children("a").attr("href") || "";
-                const url = gridDragUrl
+                const token = gridDragUrl
                     || (e.originalEvent.dataTransfer && e.originalEvent.dataTransfer.getData("text/plain"));
                 n.elm.grid.find("li").removeClass("nt-dragging nt-drop-target");
                 gridDragUrl = null;
-                if (!url || !targetUrl || url === targetUrl) {
+                if (!token || !targetUrl || token === targetUrl) {
                     return;
                 }
-                this.reorderShortcut(url, targetUrl);
+                if (String(token).indexOf("folder:") === 0) {
+                    this.reorderEntry(
+                        {type: "folder", id: String(token).slice(7)},
+                        {type: "link", url: targetUrl}
+                    );
+                    return;
+                }
+                this.reorderEntry({type: "link", url: token}, {type: "link", url: targetUrl});
             });
             n.elm.grid.on("drop", "> ul > li.nt-folder", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 const folderLink = $(e.currentTarget).children("a");
-                const folderId = folderLink.data("folderId");
-                const url = gridDragUrl
+                const folderId = folderLink.attr("data-folder-id") || folderLink.data("folderId");
+                const token = gridDragUrl
                     || (e.originalEvent.dataTransfer && e.originalEvent.dataTransfer.getData("text/plain"));
+                const targetLocked = $(e.currentTarget).hasClass("is-locked");
                 n.elm.grid.find("li").removeClass("nt-dragging nt-drop-target");
                 gridDragUrl = null;
-                if (!folderId || !url) {
+                if (!folderId || !token) {
                     return;
                 }
-                this.moveLinkIntoFolder(url, folderId);
+                if (String(token).indexOf("folder:") === 0) {
+                    const dragId = String(token).slice(7);
+                    if (targetLocked || dragId === folderId) {
+                        return;
+                    }
+                    this.reorderEntry({type: "folder", id: dragId}, {type: "folder", id: folderId});
+                    return;
+                }
+                this.moveLinkIntoFolder(token, folderId);
             });
         };
 
@@ -339,7 +382,16 @@
                             if (isFolder) {
                                 entryLink.data("folder", page);
                                 entryLink.data("folderId", page.id || page.categoryId);
+                                entryLink.attr("data-folder-id", page.id || page.categoryId || "");
                                 renderFolderTile(entryLink, page);
+                                if (!(page.locked || page.role === "categoryPin")) {
+                                    entry.attr("draggable", "true");
+                                }
+                            } else if (page.fixed) {
+                                entry.addClass("is-locked").attr("draggable", "false");
+                                $("<span></span>").text(page.title).appendTo(entryLink);
+                                paintShortcutIcon(entryLink, page);
+                                entry.find("img").attr("draggable", "false");
                             } else {
                                 entry.attr("draggable", "true");
                                 $("<span></span>").text(page.title).appendTo(entryLink);
@@ -507,7 +559,10 @@
         this.persistLinks = (links, opts) => {
         	const next = n.helper.util.sanitizeShortcutLocks(links || []);
         	const reload = !(opts && opts.reload === false);
-        	return n.helper.dao.setData({"n/links": next}).then(() => {
+        	return n.helper.dao.setData({
+        		"n/links": next,
+        		"u/shortcutsSeeded": false
+        	}).then(() => {
         		// Do not block NTP refresh on network / login
         		n.helper.dao.call("saveShortcuts", {links: next}).then((res) => {
         			if (res && res.code === "ok" && res.data && res.data.updateTime) {
@@ -536,29 +591,51 @@
         this.getActiveCategoryId = () => activeCategoryId;
 
         /**
-         * Drag a shortcut onto another shortcut in the same tab.
-         * The dragged shortcut takes that tile's place, and the original shifts back one.
+         * Drag a tile onto another tile in the same tab.
+         * The dragged tile takes that place, and the original shifts back one.
+         * Pinned and locked shortcuts are never moved.
          */
         this.reorderShortcut = (dragUrl, targetUrl) => {
+        	return this.reorderEntry({type: "link", url: dragUrl}, {type: "link", url: targetUrl});
+        };
+
+        this.reorderEntry = (drag, target) => {
         	const links = (n.helper.dao.getData("n/links") || []).slice();
         	const norm = n.helper.util.normalizeShortcutUrl;
         	const homeId = (navCategories[0] && navCategories[0].id) || "pinned";
         	const catOf = (item) => (item && item.categoryId) || homeId;
-        	const match = (item, url) => {
-        		return item && item.type !== "folder" && catOf(item) === activeCategoryId
-        			&& norm(item.url) === norm(url);
+        	const isPin = (item) => {
+        		return !!(item && item.type === "folder"
+        			&& (item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0));
         	};
-        	let from = links.findIndex((item) => match(item, dragUrl));
+        	const matchRef = (item, ref) => {
+        		if (!item || !ref || catOf(item) !== activeCategoryId || isPin(item)) {
+        			return false;
+        		}
+        		if (ref.type === "folder") {
+        			return item.type === "folder" && (item.id === ref.id || item.categoryId === ref.id);
+        		}
+        		return item.type !== "folder" && norm(item.url) === norm(ref.url);
+        	};
+        	let from = links.findIndex((item) => matchRef(item, drag));
         	if (from < 0) {
-        		const tile = (navTiles || []).find((item) => match(item, dragUrl));
+        		const tile = (navTiles || []).find((item) => matchRef(item, drag));
         		if (!tile) {
         			return Promise.resolve(false);
         		}
-        		links.push(Object.assign({}, tile, {type: "link", selected: true}));
+        		links.push(Object.assign({}, tile, {
+        			type: drag.type === "folder" ? "folder" : "link",
+        			selected: true
+        		}));
         		from = links.length - 1;
         	}
         	const moving = links.splice(from, 1)[0];
-        	let to = links.findIndex((item) => match(item, targetUrl));
+        	const targetItem = links.find((item) => matchRef(item, target));
+        	if (isPin(moving) || (moving && moving.fixed) || (targetItem && targetItem.fixed)) {
+        		links.splice(from, 0, moving);
+        		return Promise.resolve(false);
+        	}
+        	let to = links.findIndex((item) => matchRef(item, target));
         	if (to < 0) {
         		links.push(moving);
         	} else {
@@ -570,6 +647,7 @@
         /**
          * Drop a shortcut onto a folder.
          * The locked Pinned folder copies; other folders move.
+         * The shortcut just dropped is inserted as the first item in that folder.
          */
         this.moveLinkIntoFolder = (linkUrl, folderId) => {
         	const links = n.helper.dao.getData("n/links") || [];
@@ -583,11 +661,14 @@
         		}
         		if (item.type !== "folder" && norm(item.url) === targetUrl) {
         			moving = item;
+        			if (item.fixed) {
+        				remaining.push(item);
+        			}
         			return;
         		}
         		remaining.push(item);
         	});
-        	if (!moving) {
+        	if (!moving || moving.fixed) {
         		return Promise.resolve(false);
         	}
         	const folder = links.find((item) => {
@@ -600,13 +681,17 @@
         	if (!Array.isArray(folder.children)) {
         		folder.children = [];
         	}
-        	const already = folder.children.some((c) => c && norm(c.url) === targetUrl);
-        	if (!already) {
-        		folder.children.push(Object.assign({}, moving, {
-        			type: "link",
-        			selected: true,
-        			fixed: false
-        		}));
+        	const child = Object.assign({}, moving, {
+        		type: "link",
+        		selected: true,
+        		fixed: false
+        	});
+        	const alreadyAt = folder.children.findIndex((c) => c && norm(c.url) === targetUrl);
+        	if (alreadyAt >= 0) {
+        		const existing = folder.children.splice(alreadyAt, 1)[0];
+        		folder.children.unshift(existing);
+        	} else {
+        		folder.children.unshift(child);
         	}
         	const copyOnly = !!(folder.locked || folder.role === "categoryPin");
         	return this.persistLinks(copyOnly ? links : remaining, {reload: false}).then(() => true);
@@ -676,22 +761,38 @@
         	return this.persistLinks(links, {reload: true});
         };
 
-        const isUserCustomShortcut = (item) => {
-        	return !!(item && item.origin !== 1 && item.origin !== "1");
-        };
-
         /**
          * Background restore from cloud. Does not block first paint.
-         * Throttled: once per day when already synced; at most every 5 min when still recovering.
+         * A catalog seed retries often. An unsynced real grid retries every 5 minutes.
+         * A synced grid checks once a day.
          */
+        const shortcutsAreSeed = () => !!n.helper.dao.getData("u/shortcutsSeeded");
+
+        const pushShortcuts = (links) => {
+        	return n.helper.dao.call("saveShortcuts", {links: links}).then((res) => {
+        		if (res && res.code === "ok" && res.data && res.data.updateTime) {
+        			return n.helper.dao.setData({
+        				"u/shortcutsSyncTime": res.data.updateTime,
+        				"u/shortcutsLastCheck": Date.now(),
+        				"u/shortcutsSeeded": false
+        			});
+        		}
+        		return null;
+        	}).catch(() => null);
+        };
+
         const restoreShortcutsFromServer = () => {
         	return new Promise((resolve) => {
         		const localSyncTime = Number(n.helper.dao.getData("u/shortcutsSyncTime")) || 0;
         		const lastCheck = Number(n.helper.dao.getData("u/shortcutsLastCheck")) || 0;
+        		const seeded = shortcutsAreSeed();
         		const now = Date.now();
-        		const interval = localSyncTime
-        			? (24 * 60 * 60 * 1000)   // already restored/saved → 1/day
-        			: (5 * 60 * 1000);        // not yet synced → light retry while logged out / recovering
+        		// A catalog seed (fresh install) retries often so login can replace it.
+        		// A real grid that never uploaded retries every 5 minutes.
+        		// A grid that already synced checks once a day.
+        		const interval = seeded
+        			? (15 * 1000)
+        			: (localSyncTime ? (24 * 60 * 60 * 1000) : (5 * 60 * 1000));
 
         		if (lastCheck && (now - lastCheck) < interval) {
         			resolve(false);
@@ -700,12 +801,35 @@
 
         		const markChecked = () => n.helper.dao.setData({"u/shortcutsLastCheck": Date.now()});
 
+        		const applyCloud = (cloudLinks, cloudTime) => {
+        			n.helper.dao.setData({
+        				"n/links": n.helper.util.sanitizeShortcutLocks(cloudLinks),
+        				"u/shortcutsSyncTime": cloudTime || Date.now(),
+        				"u/shortcutsLastCheck": Date.now(),
+        				"u/shortcutsSeeded": false
+        			}).then(() => {
+        				try {
+        					sessionStorage.setItem("be_shortcuts_restored", "1");
+        				} catch (e) {
+        					// ignore
+        				}
+        				location.reload();
+        				resolve(true);
+        			}).catch(() => resolve(false));
+        		};
+
         		n.helper.dao.call("loadShortcuts").then((res) => {
-        			if (!res || res.code === "not_login" || res.code === "not_found" || res.code === "error") {
+        			if (!res || res.code === "not_login" || res.code === "error") {
         				markChecked().then(() => resolve(false));
         				return;
         			}
-        			if (res.code !== "ok" || !res.data) {
+        			if (res.code === "not_found" || res.code !== "ok" || !res.data) {
+        				const localLinks = n.helper.dao.getData("n/links") || [];
+        				// Create the server row from a real local grid. Never upload the catalog seed.
+        				if (!seeded && localLinks.length && res.code === "not_found") {
+        					pushShortcuts(localLinks).then(() => resolve(false));
+        					return;
+        				}
         				markChecked().then(() => resolve(false));
         				return;
         			}
@@ -719,43 +843,40 @@
         			const localLinks = n.helper.dao.getData("n/links") || [];
         			const cloudTime = Number(res.data.updateTime) || 0;
         			const syncTime = Number(n.helper.dao.getData("u/shortcutsSyncTime")) || 0;
+        			const seededNow = shortcutsAreSeed();
         			const same = shortcutListFingerprint(cloudLinks) === shortcutListFingerprint(localLinks);
 
         			if (same) {
-        				const patch = {"u/shortcutsLastCheck": Date.now()};
-        				if (cloudTime && syncTime !== cloudTime) {
+        				const patch = {
+        					"u/shortcutsLastCheck": Date.now(),
+        					"u/shortcutsSeeded": false
+        				};
+        				if (cloudTime) {
         					patch["u/shortcutsSyncTime"] = cloudTime;
         				}
         				n.helper.dao.setData(patch).then(() => resolve(false));
         				return;
         			}
 
-        			const localCustoms = localLinks.filter(isUserCustomShortcut);
-        			const cloudCustoms = cloudLinks.filter(isUserCustomShortcut);
-        			// Only apply when cloud is authoritative — never clobber a richer
-        			// local grid just because fingerprints differ after catalog inject.
-        			// A cloud copy must be newer. An empty sync time must not wipe local edits.
-        			const shouldApply = localLinks.length === 0
+        			// The catalog seed is written before this returns. It is not a user edit,
+        			// so a server snapshot replaces it. A real local edit is replaced only
+        			// when the server copy is newer than the last successful sync.
+        			const cloudWins = localLinks.length === 0
+        				|| seededNow
         				|| (syncTime && cloudTime > syncTime);
 
-        			if (!shouldApply) {
-        				markChecked().then(() => resolve(false));
+        			if (cloudWins) {
+        				applyCloud(cloudLinks, cloudTime);
         				return;
         			}
 
-        			n.helper.dao.setData({
-        				"n/links": n.helper.util.sanitizeShortcutLocks(cloudLinks),
-        				"u/shortcutsSyncTime": cloudTime || Date.now(),
-        				"u/shortcutsLastCheck": Date.now()
-        			}).then(() => {
-        				try {
-        					sessionStorage.setItem("be_shortcuts_restored", "1");
-        				} catch (e) {
-        					// ignore
-        				}
-        				location.reload();
-        				resolve(true);
-        			}).catch(() => resolve(false));
+        			// This browser already synced and its copy is the newer one.
+        			if (syncTime && (!cloudTime || cloudTime <= syncTime)) {
+        				pushShortcuts(localLinks).then(() => resolve(false));
+        				return;
+        			}
+
+        			markChecked().then(() => resolve(false));
         		}).catch(() => {
         			markChecked().then(() => resolve(false));
         		});
@@ -1143,6 +1264,29 @@
 	        			return;
 	        		}
 	        		
+	        		// Already stored in this category — top-level match returned above.
+	        		// A copy inside Pinned or any other folder also owns the URL,
+	        		// so a refresh cannot put BBC/CNN back on the grid.
+	        		if (!isFolder) {
+	        			const heldInFolder = pages.some((e) => {
+	        				if (!e || e.type !== "folder") {
+	        					return false;
+	        				}
+	        				const folderCat = (e.role === "categoryPin" || String(e.id || "").indexOf("pin:") === 0)
+	        					? (e.categoryId || String(e.id || "").replace(/^pin:/, ""))
+	        					: e.categoryId;
+	        				if (item.categoryId && folderCat && folderCat !== item.categoryId) {
+	        					return false;
+	        				}
+	        				return (e.children || []).some((c) => {
+	        					return c && n.helper.util.normalizeShortcutUrl(c.url) === itemKey;
+	        				});
+	        			});
+	        			if (heldInFolder) {
+	        				return;
+	        			}
+	        		}
+
 	        		// New catalog rows go to the end so a refresh cannot undo a drag.
 	        		item.icon = n.helper.util.normalizeRemoteIconUrl(item.icon);
 	        		pages.push(item);
@@ -1191,7 +1335,8 @@
 	        	})
 
 	        	
-	        	// Catalog weight / fixed-first only on an empty grid. Later loads keep saved order.
+	        	// Catalog weight only on an empty grid. Later loads keep saved order,
+	        	// except a fixed shortcut, which is always moved to the front of its category.
 	            if (seeding) {
 		            list.sort(function(x, y) {
 				        const xw = x.weight || 0;
@@ -1206,8 +1351,13 @@
 			    // Hard guarantee: never more than one lock per URL (heals bad saved state)
 			    n.helper.util.sanitizeShortcutLocks(list);
 			    ensurePinFolders(list);
+			    placeFixedFirst(list);
 			    
-			    n.helper.dao.setData({"n/links":list}).then(resolve);
+			    const payload = {"n/links": list};
+			    if (seeding) {
+			    	payload["u/shortcutsSeeded"] = true;
+			    }
+			    n.helper.dao.setData(payload).then(resolve);
         	});
         }
         
@@ -1300,6 +1450,45 @@
         	return seeds;
         };
 
+        const isPinFolder = (item) => {
+        	return !!(item && item.type === "folder"
+        		&& (item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0));
+        };
+
+        /**
+         * A fixed shortcut stays at the front of its category.
+         * Pinned folders keep their own slots. Other rows keep their relative order.
+         */
+        const placeFixedFirst = (list) => {
+        	const homeId = (navCategories[0] && navCategories[0].id) || "pinned";
+        	const catOf = (item) => {
+        		if (isPinFolder(item)) {
+        			return item.categoryId || String(item.id || "").replace(/^pin:/, "") || homeId;
+        		}
+        		return (item && item.categoryId) || homeId;
+        	};
+        	const groups = new Map();
+        	list.forEach((item, index) => {
+        		if (!item || isPinFolder(item)) {
+        			return;
+        		}
+        		const cat = catOf(item);
+        		if (!groups.has(cat)) {
+        			groups.set(cat, []);
+        		}
+        		groups.get(cat).push(index);
+        	});
+        	groups.forEach((indices) => {
+        		const items = indices.map((index) => list[index]);
+        		const fixed = items.filter((item) => item && item.fixed);
+        		const rest = items.filter((item) => !item || !item.fixed);
+        		fixed.concat(rest).forEach((item, n) => {
+        			list[indices[n]] = item;
+        		});
+        	});
+        	return list;
+        };
+
         const ensurePinFolders = (list) => {
         	const title = n.helper.i18n.get("new_tab_category_pin") || "Pinned";
         	(navCategories || []).forEach((cat) => {
@@ -1331,7 +1520,6 @@
         		folder.role = "categoryPin";
         		folder.locked = true;
         		folder.fixed = true;
-        		folder.selected = true;
         		folder.categoryId = cat.id;
         		folder.origin = 1;
         		folder.title = title;
@@ -1353,8 +1541,7 @@
         	const catId = activeCategoryId;
         	const norm = n.helper.util.normalizeShortcutUrl;
         	const pins = [];
-        	const folders = [];
-        	const links = [];
+        	const rest = [];
         	const seen = new Set();
 
             pages.forEach((item)=>{
@@ -1364,23 +1551,48 @@
             	if (item.type === "folder" && (item.id === "tools" || (item.categoryId === "tools" && item.role !== "categoryPin"))) {
             		return;
             	}
+            	const rememberUrls = (node) => {
+            		(node && node.children || []).forEach((child) => {
+            			if (child && child.url) {
+            				const key = norm(child.url);
+            				if (key) {
+            					seen.add(key);
+            				}
+            			}
+            		});
+            	};
             	if (item.type === "folder" && (item.role === "categoryPin" || item.id === "pin:" + catId)) {
             		if (item.categoryId === catId || item.id === "pin:" + catId) {
-            			pins.push(item);
+            			rememberUrls(item);
+            			if (item.selected !== false && item.selected !== "false") {
+            				pins.push(item);
+            			}
             		}
-            		return;
-            	}
-            	if (!(item.selected || item.fixed)) {
             		return;
             	}
             	const itemCat = item.categoryId || homeId;
             	if (itemCat !== catId) {
             		return;
             	}
+            	// A saved row or folder child owns this URL, even when that folder is off.
+            	// Otherwise the catalog paints BBC, Amazon, and the rest back onto the grid.
+            	if (item.type !== "folder" && item.url) {
+            		const key = norm(item.url);
+            		if (key) {
+            			seen.add(key);
+            		}
+            	}
+            	if (item.type === "folder") {
+            		rememberUrls(item);
+            	}
+            	const turnedOff = item.selected === false || item.selected === "false" || item.selected === 0 || item.selected === "0";
+            	if (turnedOff && !item.fixed) {
+            		return;
+            	}
             	if (item.type === "folder" && item.title) {
-            		folders.push(item);
+            		rest.push(item);
             	} else if (item.title && item.url) {
-            		links.push(item);
+            		rest.push(item);
             		seen.add(norm(item.url));
             	}
             });
@@ -1397,10 +1609,15 @@
             		return;
             	}
             	seen.add(key);
-            	links.push(tile);
+            	rest.push(tile);
             });
 
-            if (!pins.length) {
+            const pinStored = pages.some((item) => {
+            	return item && item.type === "folder"
+            		&& (item.role === "categoryPin" || item.id === "pin:" + catId)
+            		&& (item.categoryId === catId || item.id === "pin:" + catId);
+            });
+            if (!pins.length && !pinStored) {
             	pins.push({
             		id: "pin:" + catId,
             		type: "folder",
@@ -1414,12 +1631,21 @@
             		categoryId: catId,
             		children: seedPinChildren(catId)
             	});
-            } else if (!pins[0].pinSeeded && !(pins[0].children || []).length) {
+            } else if (pins[0] && !pins[0].pinSeeded && !(pins[0].children || []).length) {
             	pins[0].children = seedPinChildren(catId);
             	pins[0].pinSeeded = true;
             }
 
-            linkList = pins.concat(folders, links);
+            const fixedRest = [];
+            const normalRest = [];
+            rest.forEach((item) => {
+            	if (item && item.fixed) {
+            		fixedRest.push(item);
+            	} else {
+            		normalRest.push(item);
+            	}
+            });
+            linkList = pins.concat(fixedRest, normalRest);
             return linkList;
         }
 

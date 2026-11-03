@@ -91,7 +91,10 @@
             	if (port.name && port.name !== "keepalive") {return;}
             	
             	port.onMessage.addListener(onMessage);
-            	port.onDisconnect.addListener(deleteTimer);//如果断开，删除计时器
+            	port.onDisconnect.addListener((closedPort) => {
+            		$.api.runtime.lastError;
+            		deleteTimer(closedPort);
+            	});
             	
             	// force reconnect after 25s. After 30s the browser would terminate the connection by itself
             	port._timer = setTimeout(forceReconnect,25 * 1000, port);
@@ -110,14 +113,25 @@
 
                     message.tabId = sender.tab ? sender.tab.id : null;
                     
+                    const reply = (payload) => {
+                        if ($.api.runtime.lastError) {
+                            return;
+                        }
+                        try {
+                            callback(payload);
+                        } catch (err) {
+                            $.api.runtime.lastError;
+                        }
+                    };
+
                     mapping[message.type](message).then((result) => {
                         
-                        callback(result);
+                        reply(result);
                     
                     })["catch"]((error) => {
                         
                         b.log(error);
-                        callback();
+                        reply();
                         
                     });
                     
@@ -126,7 +140,13 @@
                 } else {
                    
                     b.log("Unknown message type:" + message.type);
-                    callback();
+                    if (!$.api.runtime.lastError) {
+                        try {
+                            callback();
+                        } catch (err) {
+                            $.api.runtime.lastError;
+                        }
+                    }
                     
                 }
                 return true;

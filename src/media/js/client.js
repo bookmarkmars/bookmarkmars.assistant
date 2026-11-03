@@ -63,8 +63,25 @@
 		    let port;
             
             const connect = () => {
-                port = $.api.runtime.connect({name: "keepalive"});
-                port.onDisconnect.addListener(connect);
+                if (document.visibilityState === "hidden") {
+                    return;
+                }
+                try {
+                    port = $.api.runtime.connect({name: "keepalive"});
+                } catch (err) {
+                    port = null;
+                    return;
+                }
+                port.onDisconnect.addListener(() => {
+                    // The page was frozen into back/forward cache. Reading lastError
+                    // clears the unchecked-channel warning, and a new port waits
+                    // until the page is visible again.
+                    $.api.runtime.lastError;
+                    port = null;
+                    if (document.visibilityState !== "hidden") {
+                        connect();
+                    }
+                });
                 
                 const key = "greeting";
                 const opts = {
@@ -79,6 +96,16 @@
                 });
             };
             connect();
+            document.addEventListener("visibilitychange", () => {
+                if (document.visibilityState === "visible" && !port) {
+                    connect();
+                }
+            });
+            window.addEventListener("pageshow", () => {
+                if (!port) {
+                    connect();
+                }
+            });
 		};
         
          /**
@@ -453,7 +480,6 @@
         const initSidebarMarkup = async () => {
         	
             this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\"></iframe>")
-                .attr("aria-hidden", "true") // 'aria-hidden' will mark the iframe as 'not visible/perceivable' for other applications (e.g. screen readers)
                 .addClass(["notranslate"])// 'notranslate' prevents Google translator from translating the content of the sidebar
              .appendTo("body");
              
@@ -472,7 +498,6 @@
             
             //处理body
             this.elm.iframeBody = this.elm.iframe.find("body");
-            this.elm.iframeBody.attr("aria-hidden", "true");
 
 			//section
 			const pageType = this.helper.util.getPageType();

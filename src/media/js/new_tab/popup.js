@@ -107,13 +107,27 @@
             let draggedElm = null;
 
             wrapper.find(linkSelector).attr("draggable", "draggable");
+            wrapper.find("li.nt-edit-pin, li." + $.cl.lock).attr("draggable", "false");
             wrapper.off("dragstart").on("dragstart", linkSelector, (e) => {
-
+                if ($(e.currentTarget).hasClass("nt-edit-pin") || $(e.currentTarget).hasClass($.cl.lock)) {
+                    e.preventDefault();
+                    draggedElm = null;
+                    return;
+                }
                 draggedElm = e.currentTarget;
             });
 
             wrapper.off("dragenter").on("dragenter", linkSelector, (e) => {
-                $(e.currentTarget).addClass($.cl.drag.dragHover);
+                const row = $(e.currentTarget);
+                if (row.hasClass($.cl.lock)) {
+                    return;
+                }
+                if (row.hasClass("nt-edit-pin")) {
+                    if (!draggedElm || $(draggedElm).hasClass("nt-edit-folder")) {
+                        return;
+                    }
+                }
+                row.addClass($.cl.drag.dragHover);
             });
 
             wrapper.off("dragover").on("dragover", linkSelector, (e) => { // allow dropping
@@ -136,7 +150,7 @@
                 e.preventDefault();
                 wrapper.find(linkSelector).removeClass($.cl.drag.dragHover);
 
-                if (draggedElm === e.currentTarget || $(draggedElm).hasClass($.cl.lock) || $(e.currentTarget).hasClass($.cl.lock)) {
+                if (!draggedElm || draggedElm === e.currentTarget || $(draggedElm).hasClass("nt-edit-pin") || $(draggedElm).hasClass($.cl.lock) || $(e.currentTarget).hasClass($.cl.lock)) {
                     return;
                 }
 
@@ -156,30 +170,42 @@
                         return;
                     }
                     const norm = n.helper.util.normalizeShortcutUrl;
-                    const exists = kids.some((c) => c && norm(c.url) === norm(url));
-                    if (!exists) {
-                        kids.push({
-                            title: title,
-                            url: url,
-                            selected: true,
-                            fixed: false,
-                            remove: false,
-                            origin: origin !== null && origin !== undefined ? parseInt(origin, 10) || 0 : 0,
-                            type: "link",
-                            icon: null
-                        });
-                        target.data("folder-children", kids);
-                        const label = (target.attr($.attr.title) || "Folder") + " (" + kids.length + ")";
-                        target.children("a").text(label);
+                    const key = norm(url);
+                    const existsAt = kids.findIndex((c) => c && norm(c.url) === key);
+                    const child = existsAt >= 0 ? kids.splice(existsAt, 1)[0] : {
+                        title: title,
+                        url: url,
+                        selected: true,
+                        fixed: false,
+                        remove: false,
+                        origin: origin !== null && origin !== undefined ? parseInt(origin, 10) || 0 : 0,
+                        type: "link",
+                        icon: null
+                    };
+                    kids.unshift(child);
+                    target.data("folder-children", kids);
+                    target.attr("data-children", JSON.stringify(kids));
+                    const label = (target.attr($.attr.title) || "Folder") + " (" + kids.length + ")";
+                    target.children("a").text(label);
+                    // Pinned copies. Every other folder moves the row.
+                    if (!target.hasClass("nt-edit-pin")) {
+                        source.remove();
                     }
-                    source.remove();
                     draggedElm = null;
                     return;
                 }
 
+                // Pinned stays the first row. A folder dropped on it does not take its place.
+                if ($(e.currentTarget).hasClass("nt-edit-pin")) {
+                    return;
+                }
                 // Take the target row's place. The original row shifts back one.
                 const parent = e.currentTarget.parentNode;
                 parent.insertBefore(draggedElm, e.currentTarget);
+                const pinRow = parent.querySelector ? parent.querySelector("li.nt-edit-pin") : null;
+                if (pinRow && pinRow !== parent.firstElementChild) {
+                    parent.insertBefore(pinRow, parent.firstElementChild);
+                }
             });
         };
 
@@ -298,7 +324,12 @@
         			.append("<a>" + (item.title || "Folder") + " (" + childCount + ")</a>")
         			.appendTo(list);
 
-        		if (item.origin === 0 || !item.hasOwnProperty("origin")) {
+        		const isPinFolder = item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0;
+        		if (isPinFolder) {
+        			entry.addClass("nt-edit-pin").attr("draggable", "false");
+        		}
+
+        		if (!isPinFolder && (item.origin === 0 || !item.hasOwnProperty("origin"))) {
         			const rm = $("<img />")
         				.attr("src", $.api.runtime.getURL("media/img/icon/newtab/icon-remove.png"));
         			entry.addClass($.cl.remove)
@@ -508,7 +539,7 @@
                     if (!item || item.type === "folder" || !item.url || !item.title) {
                         return;
                     }
-                    if (item.selected === false && !item.fixed) {
+                    if (item.fixed || (item.selected === false)) {
                         return;
                     }
                     const key = n.helper.util.normalizeShortcutUrl(item.url);
@@ -754,8 +785,10 @@
                     return;
                 }
                 const parent = e.currentTarget.parentNode;
-                // Take the target tile's place. The original tile shifts back one.
-                parent.insertBefore(draggedTile, e.currentTarget);
+                const first = parent.querySelector("a.nt-folder-tile");
+                if (first) {
+                    parent.insertBefore(draggedTile, first);
+                }
                 readOrderFromDom();
                 markDirty();
                 draggedTile = null;
@@ -1095,7 +1128,10 @@
                     return;
                 }
                 const parent = e.currentTarget.parentNode;
-                parent.insertBefore(draggedTile, e.currentTarget);
+                const first = parent.querySelector("a.nt-folder-tile");
+                if (first) {
+                    parent.insertBefore(draggedTile, first);
+                }
                 readOrderFromDom();
                 markDirty();
                 draggedTile = null;
@@ -1199,8 +1235,7 @@
             };
             const rowsFor = (catId) => {
                 const pins = [];
-                const folders = [];
-                const links = [];
+                const rest = [];
                 pages.forEach((item) => {
                     if (!item || isToolsItem(item)) {
                         return;
@@ -1210,13 +1245,20 @@
                     }
                     if (item.type === "folder" && (item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0)) {
                         pins.push(item);
-                    } else if (item.type === "folder") {
-                        folders.push(item);
                     } else {
-                        links.push(item);
+                        rest.push(item);
                     }
                 });
-                return pins.concat(folders, links);
+                const fixedRest = [];
+                const normalRest = [];
+                rest.forEach((item) => {
+                    if (item && item.fixed) {
+                        fixedRest.push(item);
+                    } else {
+                        normalRest.push(item);
+                    }
+                });
+                return pins.concat(fixedRest, normalRest);
             };
             const commitCategory = (catId) => {
                 const visible = readLinkRows();
@@ -1455,7 +1497,7 @@
                     	}
                     }
                     item.children = kids || [];
-                    item.selected = true;
+                    item.selected = ch.length() > 0 && ch[0].checked ? true : false;
                     item.fixed = !!item.locked;
                     item.remove = false;
                     item.origin = row.attr($.attr.origin) !== null && row.attr($.attr.origin) !== undefined
@@ -1571,6 +1613,14 @@
                             }
                         }
                         scheduleFaviconPreview();
+                        const scrollNode = elements.modal.find("div." + $.cl.scrollBox.wrapper)[0];
+                        if (scrollNode) {
+                            const scrollToEnd = () => {
+                                scrollNode.scrollTop = scrollNode.scrollHeight;
+                            };
+                            scrollToEnd();
+                            requestAnimationFrame(scrollToEnd);
+                        }
                     } else {
                         customList.removeClass($.cl.visible);
                     }

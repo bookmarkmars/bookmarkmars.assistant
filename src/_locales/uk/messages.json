@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Ярлики відновлено з хмари"
     },
+    "new_tab_memo_title": {
+        "message": "Нотатки"
+    },
+    "new_tab_memo_hint": {
+        "message": "Натисніть рядок, щоб змінити · зберігається автоматично"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Коротка нотатка…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Думка…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "На потім…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Пам'ятати…"
+    },
+    "new_tab_tools_title": {
+        "message": "Інструменти"
+    },
+    "new_tab_tools_organize": {
+        "message": "Упорядкувати інструменти"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Упорядкувати інструменти"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Перетягніть, щоб змінити порядок · × видаляє · додайте нижче · Закрийте, щоб застосувати"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Додати з каталогу"
+    },
+    "new_tab_tools_remove": {
+        "message": "Видалити"
+    },
+    "new_tab_tools_empty": {
+        "message": "Інструментів ще немає"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Упорядкуйте, щоб додати"
+    },
+    "new_tab_category_pin": {
+        "message": "Закріплені"
+    },
+    "new_tab_folder_tip": {
+        "message": "Натисніть сайт, щоб відкрити · Упорядкувати для редагування"
+    },
+    "new_tab_folder_edit": {
+        "message": "Змінити ярлики"
+    },
+    "new_tab_folder_organize": {
+        "message": "Упорядкувати"
+    },
+    "new_tab_folder_done": {
+        "message": "Готово"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Перетягніть, щоб змінити порядок · × повернути на головну · додайте нижче · Закрийте, щоб застосувати"
+    },
+    "new_tab_folder_name": {
+        "message": "Назва папки"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Назва папки"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Нова папка"
+    },
+    "new_tab_folder_add": {
+        "message": "Додати"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Додати з головної сітки"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Або додайте власне посилання"
+    },
+    "new_tab_folder_pick": {
+        "message": "Оберіть ярлик…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Перемістити на головну"
+    },
+    "new_tab_add_folder": {
+        "message": "Додати папку"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Перетягніть ярлик на рядок папки, щоб вкласти його. Відкрийте папку на сітці й виберіть «Упорядкувати»."
+    },
     "new_tab_title": {
-        "message": "Сторінка персоналізації BookmarkMars"
+        "message": "BookmarkMars Нова вкладка"
     },
     "new_tab_search_engine_custom": {
         "message": "Власний пошук"
@@ -765,7 +855,7 @@
         "message": "Редагувати ярлик"
     },
     "new_tab_drag_suggestions": {
-        "message": "Перетягніть, щоб змінити позицію"
+        "message": "Перетягніть рядок на інший, щоб зайняти його місце. Початковий рядок зсувається на одну позицію назад."
     },
     "new_tab_setting": {
         "message": "Налаштування"

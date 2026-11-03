@@ -716,17 +716,107 @@
     "new_tab_shortcuts_restored": {
         "message": "已從雲端還原捷徑"
     },
+    "new_tab_memo_title": {
+        "message": "備忘錄"
+    },
+    "new_tab_memo_hint": {
+        "message": "點一下即可編輯 · 自動儲存"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "隨手記…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "今日想法…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "稍後再看…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "別忘了…"
+    },
+    "new_tab_tools_title": {
+        "message": "工具"
+    },
+    "new_tab_tools_organize": {
+        "message": "整理工具"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "整理工具"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "拖曳排序 · × 移除 · 下方可新增 · 點關閉生效"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "從目錄新增"
+    },
+    "new_tab_tools_remove": {
+        "message": "移除"
+    },
+    "new_tab_tools_empty": {
+        "message": "尚無工具"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "點整理新增"
+    },
+    "new_tab_category_pin": {
+        "message": "置頂"
+    },
+    "new_tab_folder_tip": {
+        "message": "點一下開啟 · 點「整理」可編輯"
+    },
+    "new_tab_folder_edit": {
+        "message": "編輯捷徑"
+    },
+    "new_tab_folder_organize": {
+        "message": "整理"
+    },
+    "new_tab_folder_done": {
+        "message": "完成"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "拖曳排序 · × 移回主頁 · 下方可新增 · 點關閉生效"
+    },
+    "new_tab_folder_name": {
+        "message": "資料夾名稱"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "資料夾名稱"
+    },
+    "new_tab_folder_default_name": {
+        "message": "新資料夾"
+    },
+    "new_tab_folder_add": {
+        "message": "新增"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "從主頁捷徑新增"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "或新增自訂連結"
+    },
+    "new_tab_folder_pick": {
+        "message": "選擇一個捷徑…"
+    },
+    "new_tab_folder_eject": {
+        "message": "移回主頁"
+    },
+    "new_tab_add_folder": {
+        "message": "新增資料夾"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "把捷徑拖到資料夾那一行即可放入。也可在主頁點開資料夾後點「整理」。"
+    },
     "new_tab_title": {
         "message": "書籤火星新分頁"
     },
     "new_tab_greeting_morning": {
-        "message": "早安，開啟新的一天"
+        "message": "早安 — 準備好去探索"
     },
     "new_tab_greeting_afternoon": {
-        "message": "午安，保持專注"
+        "message": "午安 — 保持好奇"
     },
     "new_tab_greeting_evening": {
-        "message": "晚安，找到重要的事"
+        "message": "傍晚好 — 找到重要的事"
     },
     "new_tab_greeting_night": {
         "message": "夜深了，靜心瀏覽"
@@ -741,22 +831,22 @@
         "message": "不支持語音搜索"
     },
     "new_tab_search_placeholder": {
-        "message": "搜點什麼唄"
+        "message": "輸入點什麼..."
     },
     "new_tab_bookmark_manage": {
-        "message": "書籤管理"
+        "message": "書籤"
     },
     "new_tab_search_engine_headline": {
         "message": "搜索配置"
     },
     "new_tab_search_suggest_queries": {
-        "message": "搜索提示"
+        "message": "搜尋"
     },
     "new_tab_search_suggest_bookmarks": {
-        "message": "書籤提示"
+        "message": "書籤"
     },
     "new_tab_search_suggest_history": {
-        "message": "歷史提示"
+        "message": "歷史"
     },
     "new_tab_search_engine_custom_title": {
         "message": "名稱"
@@ -777,7 +867,7 @@
         "message": "快捷方式編輯"
     },
     "new_tab_drag_suggestions": {
-        "message": "拖拽可交換順序"
+        "message": "拖到某一行上即佔據該位置，原來的行向後移一位。"
     },
     "new_tab_setting": {
         "message": "設置"

@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Ярлыки восстановлены из облака"
     },
+    "new_tab_memo_title": {
+        "message": "Заметки"
+    },
+    "new_tab_memo_hint": {
+        "message": "Нажмите строку, чтобы изменить · сохраняется само"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Короткая заметка…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Мысль…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "На потом…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Не забыть…"
+    },
+    "new_tab_tools_title": {
+        "message": "Инструменты"
+    },
+    "new_tab_tools_organize": {
+        "message": "Упорядочить инструменты"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Упорядочить инструменты"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Перетащите для порядка · × удаляет · добавить ниже · Закройте, чтобы применить"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Добавить из каталога"
+    },
+    "new_tab_tools_remove": {
+        "message": "Удалить"
+    },
+    "new_tab_tools_empty": {
+        "message": "Инструментов пока нет"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Упорядочьте, чтобы добавить"
+    },
+    "new_tab_category_pin": {
+        "message": "Закреплённые"
+    },
+    "new_tab_folder_tip": {
+        "message": "Нажмите сайт, чтобы открыть · Упорядочить для правки"
+    },
+    "new_tab_folder_edit": {
+        "message": "Изменить ярлыки"
+    },
+    "new_tab_folder_organize": {
+        "message": "Упорядочить"
+    },
+    "new_tab_folder_done": {
+        "message": "Готово"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Перетащите для порядка · × вернуть на главную · добавить ниже · Закройте, чтобы применить"
+    },
+    "new_tab_folder_name": {
+        "message": "Имя папки"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Имя папки"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Новая папка"
+    },
+    "new_tab_folder_add": {
+        "message": "Добавить"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Добавить с главной сетки"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Или добавьте свою ссылку"
+    },
+    "new_tab_folder_pick": {
+        "message": "Выберите ярлык…"
+    },
+    "new_tab_folder_eject": {
+        "message": "На главную"
+    },
+    "new_tab_add_folder": {
+        "message": "Добавить папку"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Перетащите ярлык на строку папки, чтобы вложить его. Откройте папку на сетке и выберите «Упорядочить»."
+    },
     "new_tab_title": {
-        "message": "Страница персонализации BookmarkMars"
+        "message": "BookmarkMars Новая вкладка"
     },
     "new_tab_search_engine_custom": {
         "message": "Пользовательский поиск"
@@ -765,7 +855,7 @@
         "message": "Редактировать ярлык"
     },
     "new_tab_drag_suggestions": {
-        "message": "Перетащите, чтобы изменить позицию"
+        "message": "Перетащите строку на другую, чтобы занять её место. Исходная строка сдвигается на одну позицию назад."
     },
     "new_tab_setting": {
         "message": "Настройки"

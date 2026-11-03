@@ -29,8 +29,7 @@
                 const title = localizeTitle(cat, lang) || cat.title || cat.id;
                 const children = (cat.children || [])
                     .filter((c) => c && !c.remove)
-                    .sort((a, b) => (a.weight || 0) - (b.weight || 0))
-                    .map((c) => normalizeItem(c, lang, cat.id));
+                    .sort((a, b) => (a.weight || 0) - (b.weight || 0));
 
                 const display = cat.display || (cat.id === "pinned" || cat.id === "default" ? "icons" : "folder");
 
@@ -51,7 +50,7 @@
                             weight: cat.weight || 0,
                             categoryId: "tools",
                             module: true,
-                            children: children,
+                            children: children.map((c) => normalizeItem(c, lang, cat.id)),
                             lang: cat.lang || null
                         });
                     }
@@ -62,7 +61,30 @@
                 // on that tab. The locked Pinned folder is created per category in the grid.
                 if (display === "icons" || display === "folder") {
                     children.forEach((child) => {
-                        tiles.push(child);
+                        if (child.type === "folder" && Array.isArray(child.children)) {
+                            const kids = child.children
+                                .filter((c) => c && !c.remove)
+                                .sort((a, b) => (a.weight || 0) - (b.weight || 0))
+                                .map((c) => normalizeItem(c, lang, cat.id));
+                            tiles.push({
+                                id: child.id,
+                                type: "folder",
+                                title: localizeTitle(child, lang) || child.title || child.id,
+                                url: "",
+                                icon: null,
+                                selected: child.selected !== false,
+                                fixed: false,
+                                locked: false,
+                                remove: false,
+                                origin: 1,
+                                weight: child.weight || 0,
+                                categoryId: cat.id,
+                                children: kids,
+                                lang: child.lang || null
+                            });
+                            return;
+                        }
+                        tiles.push(normalizeItem(child, lang, cat.id));
                     });
                 }
             });

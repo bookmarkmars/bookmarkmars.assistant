@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "הקיצורים שוחזרו מהענן"
     },
+    "new_tab_memo_title": {
+        "message": "פתקים"
+    },
+    "new_tab_memo_hint": {
+        "message": "לחצו על שורה לעריכה · נשמר אוטומטית"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "פתק קצר…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "מחשבה…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "לשמור לאחר כך…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "לזכור…"
+    },
+    "new_tab_tools_title": {
+        "message": "כלים"
+    },
+    "new_tab_tools_organize": {
+        "message": "סידור כלים"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "סידור כלים"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "גררו לסידור · × מסיר · הוסיפו למטה · סגירה מחילה"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "הוספה מהקטלוג"
+    },
+    "new_tab_tools_remove": {
+        "message": "הסרה"
+    },
+    "new_tab_tools_empty": {
+        "message": "אין כלים עדיין"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "סדרו כדי להוסיף"
+    },
+    "new_tab_category_pin": {
+        "message": "נעוצים"
+    },
+    "new_tab_folder_tip": {
+        "message": "לחצו על אתר כדי לפתוח · סדרו כדי לערוך"
+    },
+    "new_tab_folder_edit": {
+        "message": "עריכת קיצורים"
+    },
+    "new_tab_folder_organize": {
+        "message": "סידור"
+    },
+    "new_tab_folder_done": {
+        "message": "סיום"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "גררו לסידור · × מחזיר לדף הבית · הוסיפו למטה · סגירה מחילה"
+    },
+    "new_tab_folder_name": {
+        "message": "שם התיקייה"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "שם התיקייה"
+    },
+    "new_tab_folder_default_name": {
+        "message": "תיקייה חדשה"
+    },
+    "new_tab_folder_add": {
+        "message": "הוספה"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "הוספה מרשת הבית"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "או הוסיפו קישור מותאם"
+    },
+    "new_tab_folder_pick": {
+        "message": "בחרו קיצור…"
+    },
+    "new_tab_folder_eject": {
+        "message": "העברה לדף הבית"
+    },
+    "new_tab_add_folder": {
+        "message": "הוספת תיקייה"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "גררו קיצור אל שורת תיקייה כדי להכניס אותו. פתחו תיקייה ברשת ואז בחרו סידור."
+    },
     "new_tab_title": {
-        "message": "דף התאמה אישית BookmarkMars"
+        "message": "BookmarkMars כרטיסייה חדשה"
     },
     "new_tab_search_engine_custom": {
         "message": "חיפוש מותאם אישית"
@@ -765,7 +855,7 @@
         "message": "עריכת קיצור דרך"
     },
     "new_tab_drag_suggestions": {
-        "message": "גרור כדי לשנות מיקום"
+        "message": "שחררו שורה על אחרת כדי לתפוס את מקומה. השורה המקורית זזה מקום אחד אחורה."
     },
     "new_tab_setting": {
         "message": "הגדרות"

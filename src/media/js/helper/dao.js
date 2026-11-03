@@ -28,6 +28,7 @@
                 recommend: false,
                 shortcutsSyncTime: null,
                 shortcutsLastCheck: null,
+                shortcutsSeeded: false,
             },
             b: { // behaviour -> synced across devices
                 animations: true,
@@ -189,6 +190,7 @@
             opts.type = key;
 
             let response = await $.api.runtime.sendMessage(opts)["catch"]((err) => {
+                $.api.runtime.lastError;
                 if (err && ("" + err).includes("Could not establish connection")) {
                     backendDead = true;
                 } else {

@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Bulut kısayolları geri yüklendi"
     },
+    "new_tab_memo_title": {
+        "message": "Notlar"
+    },
+    "new_tab_memo_hint": {
+        "message": "Düzenlemek için satıra tıklayın · otomatik kaydedilir"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Kısa bir not…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Bir düşünce…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Sonraya sakla…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Hatırla…"
+    },
+    "new_tab_tools_title": {
+        "message": "Araçlar"
+    },
+    "new_tab_tools_organize": {
+        "message": "Araçları düzenle"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Araçları düzenle"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Sıralamak için sürükleyin · × kaldırır · aşağıya ekleyin · Uygulamak için kapatın"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Katalogdan ekle"
+    },
+    "new_tab_tools_remove": {
+        "message": "Kaldır"
+    },
+    "new_tab_tools_empty": {
+        "message": "Henüz araç yok"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Eklemek için düzenleyin"
+    },
+    "new_tab_category_pin": {
+        "message": "Sabitlenen"
+    },
+    "new_tab_folder_tip": {
+        "message": "Açmak için siteye tıklayın · Düzenle ile değiştirin"
+    },
+    "new_tab_folder_edit": {
+        "message": "Kısayolları düzenle"
+    },
+    "new_tab_folder_organize": {
+        "message": "Düzenle"
+    },
+    "new_tab_folder_done": {
+        "message": "Bitti"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Sıralamak için sürükleyin · × ana sayfaya geri · aşağıya ekleyin · Uygulamak için kapatın"
+    },
+    "new_tab_folder_name": {
+        "message": "Klasör adı"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Klasör adı"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Yeni klasör"
+    },
+    "new_tab_folder_add": {
+        "message": "Ekle"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Ana sayfa ızgarasından ekle"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Veya özel bir bağlantı ekle"
+    },
+    "new_tab_folder_pick": {
+        "message": "Bir kısayol seçin…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Ana sayfaya taşı"
+    },
+    "new_tab_add_folder": {
+        "message": "Klasör ekle"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Kısayolu klasör satırına sürükleyerek içine alın. Izgaradaki klasörü açıp Düzenle'yi seçin."
+    },
     "new_tab_title": {
-        "message": "BookmarkMars kişiselleştirme sayfası"
+        "message": "BookmarkMars Yeni sekme"
     },
     "new_tab_search_engine_custom": {
         "message": "Özel arama"
@@ -765,7 +855,7 @@
         "message": "Kısayolu düzenle"
     },
     "new_tab_drag_suggestions": {
-        "message": "Konumu değiştirmek için sürükleyin"
+        "message": "Bir satırı diğerinin üzerine bırakın, onun yerini alsın. Eski satır bir konum geri kayar."
     },
     "new_tab_setting": {
         "message": "Ayarlar"

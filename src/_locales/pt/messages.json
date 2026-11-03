@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Atalhos da nuvem restaurados"
     },
+    "new_tab_memo_title": {
+        "message": "Notas"
+    },
+    "new_tab_memo_hint": {
+        "message": "Clique numa linha para editar · guardado automaticamente"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Uma nota rápida…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Uma ideia…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Guardar para depois…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Lembrar…"
+    },
+    "new_tab_tools_title": {
+        "message": "Ferramentas"
+    },
+    "new_tab_tools_organize": {
+        "message": "Organizar ferramentas"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Organizar ferramentas"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Arraste para reordenar · × remove · adicione abaixo · Fechar para aplicar"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Adicionar do catálogo"
+    },
+    "new_tab_tools_remove": {
+        "message": "Remover"
+    },
+    "new_tab_tools_empty": {
+        "message": "Ainda sem ferramentas"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Organize para adicionar"
+    },
+    "new_tab_category_pin": {
+        "message": "Fixados"
+    },
+    "new_tab_folder_tip": {
+        "message": "Clique num site para abrir · Organizar para editar"
+    },
+    "new_tab_folder_edit": {
+        "message": "Editar atalhos"
+    },
+    "new_tab_folder_organize": {
+        "message": "Organizar"
+    },
+    "new_tab_folder_done": {
+        "message": "Concluído"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Arraste para reordenar · × volta ao início · adicione abaixo · Fechar para aplicar"
+    },
+    "new_tab_folder_name": {
+        "message": "Nome da pasta"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Nome da pasta"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Nova pasta"
+    },
+    "new_tab_folder_add": {
+        "message": "Adicionar"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Adicionar da grelha inicial"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Ou adicione um link personalizado"
+    },
+    "new_tab_folder_pick": {
+        "message": "Escolha um atalho…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Mover para o início"
+    },
+    "new_tab_add_folder": {
+        "message": "Adicionar pasta"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Arraste um atalho para a linha de uma pasta para o colocar dentro. Abra uma pasta na grelha e escolha Organizar."
+    },
     "new_tab_title": {
-        "message": "Página de personalização BookmarkMars"
+        "message": "BookmarkMars Nova guia"
     },
     "new_tab_search_engine_custom": {
         "message": "Pesquisa personalizada"
@@ -765,7 +855,7 @@
         "message": "Editar atalho"
     },
     "new_tab_drag_suggestions": {
-        "message": "Arraste para alterar a posição"
+        "message": "Largue uma linha sobre outra para ocupar o lugar dela. A linha original recua uma posição."
     },
     "new_tab_setting": {
         "message": "Configurações"

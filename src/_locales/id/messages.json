@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Pintasan cloud dipulihkan"
     },
+    "new_tab_memo_title": {
+        "message": "Memo"
+    },
+    "new_tab_memo_hint": {
+        "message": "Klik satu baris untuk mengedit · tersimpan otomatis"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Catatan singkat…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Sebuah pikiran…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Simpan untuk nanti…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Ingat…"
+    },
+    "new_tab_tools_title": {
+        "message": "Alat"
+    },
+    "new_tab_tools_organize": {
+        "message": "Atur alat"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Atur alat"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Seret untuk mengurutkan · × menghapus · tambah di bawah · Tutup untuk menerapkan"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Tambah dari katalog"
+    },
+    "new_tab_tools_remove": {
+        "message": "Hapus"
+    },
+    "new_tab_tools_empty": {
+        "message": "Belum ada alat"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Atur untuk menambahkan"
+    },
+    "new_tab_category_pin": {
+        "message": "Disematkan"
+    },
+    "new_tab_folder_tip": {
+        "message": "Klik situs untuk membuka · Atur untuk mengedit"
+    },
+    "new_tab_folder_edit": {
+        "message": "Edit pintasan"
+    },
+    "new_tab_folder_organize": {
+        "message": "Atur"
+    },
+    "new_tab_folder_done": {
+        "message": "Selesai"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Seret untuk mengurutkan · × kembali ke beranda · tambah di bawah · Tutup untuk menerapkan"
+    },
+    "new_tab_folder_name": {
+        "message": "Nama folder"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Nama folder"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Folder baru"
+    },
+    "new_tab_folder_add": {
+        "message": "Tambah"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Tambah dari kisi beranda"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Atau tambah tautan kustom"
+    },
+    "new_tab_folder_pick": {
+        "message": "Pilih pintasan…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Pindahkan ke beranda"
+    },
+    "new_tab_add_folder": {
+        "message": "Tambah folder"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Seret pintasan ke baris folder untuk memasukkannya. Buka folder di kisi, lalu pilih Atur."
+    },
     "new_tab_title": {
-        "message": "Halaman kustomisasi BookmarkMars"
+        "message": "BookmarkMars Tab Baru"
     },
     "new_tab_search_engine_custom": {
         "message": "Pencarian kustom"
@@ -765,7 +855,7 @@
         "message": "Edit pintasan"
     },
     "new_tab_drag_suggestions": {
-        "message": "Seret untuk mengubah posisi"
+        "message": "Lepas satu baris ke baris lain untuk mengambil posisinya. Baris semula bergeser satu ke belakang."
     },
     "new_tab_setting": {
         "message": "Pengaturan"

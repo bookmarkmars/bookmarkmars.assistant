@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Cloudsnelkoppelingen hersteld"
     },
+    "new_tab_memo_title": {
+        "message": "Notities"
+    },
+    "new_tab_memo_hint": {
+        "message": "Klik op een regel om te bewerken · wordt automatisch opgeslagen"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Een korte notitie…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Een gedachte…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Bewaar voor later…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Onthouden…"
+    },
+    "new_tab_tools_title": {
+        "message": "Hulpmiddelen"
+    },
+    "new_tab_tools_organize": {
+        "message": "Hulpmiddelen ordenen"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Hulpmiddelen ordenen"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Sleep om te herschikken · × verwijdert · voeg onder toe · Sluiten om toe te passen"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Toevoegen uit catalogus"
+    },
+    "new_tab_tools_remove": {
+        "message": "Verwijderen"
+    },
+    "new_tab_tools_empty": {
+        "message": "Nog geen hulpmiddelen"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Ordenen om toe te voegen"
+    },
+    "new_tab_category_pin": {
+        "message": "Vastgezet"
+    },
+    "new_tab_folder_tip": {
+        "message": "Klik een site om te openen · Ordenen om te bewerken"
+    },
+    "new_tab_folder_edit": {
+        "message": "Snelkoppelingen bewerken"
+    },
+    "new_tab_folder_organize": {
+        "message": "Ordenen"
+    },
+    "new_tab_folder_done": {
+        "message": "Klaar"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Sleep om te herschikken · × terug naar home · voeg onder toe · Sluiten om toe te passen"
+    },
+    "new_tab_folder_name": {
+        "message": "Mapnaam"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Mapnaam"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Nieuwe map"
+    },
+    "new_tab_folder_add": {
+        "message": "Toevoegen"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Toevoegen vanuit het home-raster"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Of voeg een eigen link toe"
+    },
+    "new_tab_folder_pick": {
+        "message": "Kies een snelkoppeling…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Naar home verplaatsen"
+    },
+    "new_tab_add_folder": {
+        "message": "Map toevoegen"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Sleep een snelkoppeling op een mapregel om hem erin te zetten. Open een map op het raster en kies Ordenen."
+    },
     "new_tab_title": {
-        "message": "Personalisatiepagina BookmarkMars"
+        "message": "BookmarkMars Nieuw tabblad"
     },
     "new_tab_search_engine_custom": {
         "message": "Aangepast zoeken"
@@ -765,7 +855,7 @@
         "message": "Snelkoppeling bewerken"
     },
     "new_tab_drag_suggestions": {
-        "message": "Sleep om positie te wijzigen"
+        "message": "Zet een rij op een andere om diens plek in te nemen. De oorspronkelijke rij schuift één plaats terug."
     },
     "new_tab_setting": {
         "message": "Instellingen"

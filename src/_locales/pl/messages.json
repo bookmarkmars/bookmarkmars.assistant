@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Przywrócono skróty z chmury"
     },
+    "new_tab_memo_title": {
+        "message": "Notatki"
+    },
+    "new_tab_memo_hint": {
+        "message": "Kliknij wiersz, aby edytować · zapisuje się samo"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Krótka notatka…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Myśl…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Na później…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Pamiętaj…"
+    },
+    "new_tab_tools_title": {
+        "message": "Narzędzia"
+    },
+    "new_tab_tools_organize": {
+        "message": "Uporządkuj narzędzia"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Uporządkuj narzędzia"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Przeciągnij, aby zmienić kolejność · × usuwa · dodaj poniżej · Zamknij, aby zastosować"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Dodaj z katalogu"
+    },
+    "new_tab_tools_remove": {
+        "message": "Usuń"
+    },
+    "new_tab_tools_empty": {
+        "message": "Brak narzędzi"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Uporządkuj, aby dodać"
+    },
+    "new_tab_category_pin": {
+        "message": "Przypięte"
+    },
+    "new_tab_folder_tip": {
+        "message": "Kliknij stronę, aby otworzyć · Uporządkuj, aby edytować"
+    },
+    "new_tab_folder_edit": {
+        "message": "Edytuj skróty"
+    },
+    "new_tab_folder_organize": {
+        "message": "Uporządkuj"
+    },
+    "new_tab_folder_done": {
+        "message": "Gotowe"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Przeciągnij, aby zmienić kolejność · × wraca na stronę główną · dodaj poniżej · Zamknij, aby zastosować"
+    },
+    "new_tab_folder_name": {
+        "message": "Nazwa folderu"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Nazwa folderu"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Nowy folder"
+    },
+    "new_tab_folder_add": {
+        "message": "Dodaj"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Dodaj z siatki strony głównej"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Lub dodaj własny link"
+    },
+    "new_tab_folder_pick": {
+        "message": "Wybierz skrót…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Przenieś na stronę główną"
+    },
+    "new_tab_add_folder": {
+        "message": "Dodaj folder"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Przeciągnij skrót na wiersz folderu, aby go włożyć. Otwórz folder na siatce i wybierz Uporządkuj."
+    },
     "new_tab_title": {
-        "message": "Strona personalizacji BookmarkMars"
+        "message": "BookmarkMars Nowa karta"
     },
     "new_tab_search_engine_custom": {
         "message": "Wyszukiwanie niestandardowe"
@@ -765,7 +855,7 @@
         "message": "Edytuj skrót"
     },
     "new_tab_drag_suggestions": {
-        "message": "Przeciągnij, aby zmienić pozycję"
+        "message": "Upuść wiersz na inny, aby zająć jego miejsce. Poprzedni wiersz cofa się o jedną pozycję."
     },
     "new_tab_setting": {
         "message": "Ustawienia"

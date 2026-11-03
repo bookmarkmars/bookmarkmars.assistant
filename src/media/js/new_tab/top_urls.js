@@ -22,7 +22,8 @@
         	entries.push({
         		title:n.helper.i18n.get("new_tab_bookmark_manage"),
         		url:n.helper.util.getParsedUrl("chrome://bookmarks/"),
-        		icon:$.api.runtime.getURL("media/img/icon/newtab/icon-bookmarks.png")
+        		icon:$.api.runtime.getURL("media/img/icon/newtab/icon-bookmarks.png"),
+        		iconOnly:true
             });
             
             entries.push({
@@ -47,7 +48,8 @@
                     .addClass($.cl.newtab.link)
                     .data("href", entry.url)
                     .attr("href", entry.url)
-                    .text(entry.title);
+                    .attr("title", entry.title || "")
+                    .text(entry.iconOnly ? "" : entry.title);
                     
                     
                     if(entry.icon){
@@ -77,6 +79,9 @@
                     	}
                     	else{
 	                    	link.addClass($.cl.newtab.icon);
+	                    	if (entry.iconOnly) {
+	                    		link.addClass("icon-only");
+	                    	}
                     	}
                     	
                     	link.prepend(img);

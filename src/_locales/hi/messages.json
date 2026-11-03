@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "क्लाउड शॉर्टकट पुनर्स्थापित किए गए"
     },
+    "new_tab_memo_title": {
+        "message": "नोट्स"
+    },
+    "new_tab_memo_hint": {
+        "message": "संपादित करने के लिए पंक्ति पर क्लिक करें · अपने आप सहेजा जाता है"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "एक छोटा नोट…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "एक विचार…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "बाद के लिए…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "याद रखें…"
+    },
+    "new_tab_tools_title": {
+        "message": "उपकरण"
+    },
+    "new_tab_tools_organize": {
+        "message": "उपकरण व्यवस्थित करें"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "उपकरण व्यवस्थित करें"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "क्रम बदलने के लिए खींचें · × हटाता है · नीचे जोड़ें · लागू करने के लिए बंद करें"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "कैटलॉग से जोड़ें"
+    },
+    "new_tab_tools_remove": {
+        "message": "हटाएँ"
+    },
+    "new_tab_tools_empty": {
+        "message": "अभी कोई उपकरण नहीं"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "जोड़ने के लिए व्यवस्थित करें"
+    },
+    "new_tab_category_pin": {
+        "message": "पिन किया गया"
+    },
+    "new_tab_folder_tip": {
+        "message": "साइट खोलने के लिए क्लिक करें · संपादन के लिए व्यवस्थित करें"
+    },
+    "new_tab_folder_edit": {
+        "message": "शॉर्टकट संपादित करें"
+    },
+    "new_tab_folder_organize": {
+        "message": "व्यवस्थित करें"
+    },
+    "new_tab_folder_done": {
+        "message": "हो गया"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "क्रम बदलने के लिए खींचें · × होम पर वापस · नीचे जोड़ें · लागू करने के लिए बंद करें"
+    },
+    "new_tab_folder_name": {
+        "message": "फ़ोल्डर का नाम"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "फ़ोल्डर का नाम"
+    },
+    "new_tab_folder_default_name": {
+        "message": "नया फ़ोल्डर"
+    },
+    "new_tab_folder_add": {
+        "message": "जोड़ें"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "होम ग्रिड से जोड़ें"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "या अपना लिंक जोड़ें"
+    },
+    "new_tab_folder_pick": {
+        "message": "एक शॉर्टकट चुनें…"
+    },
+    "new_tab_folder_eject": {
+        "message": "होम पर ले जाएँ"
+    },
+    "new_tab_add_folder": {
+        "message": "फ़ोल्डर जोड़ें"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "शॉर्टकट को फ़ोल्डर पंक्ति पर खींचें ताकि वह अंदर जाए। ग्रिड पर फ़ोल्डर खोलकर व्यवस्थित करें चुनें।"
+    },
     "new_tab_title": {
-        "message": "BookmarkMars वैयक्तिकरण पेज"
+        "message": "BookmarkMars नया टैब"
     },
     "new_tab_search_engine_custom": {
         "message": "कस्टम खोज"
@@ -765,7 +855,7 @@
         "message": "शॉर्टकट संपादित करें"
     },
     "new_tab_drag_suggestions": {
-        "message": "स्थिति बदलने के लिए खींचें"
+        "message": "किसी पंक्ति को दूसरी पर छोड़ें, वह उसकी जगह ले लेगी। मूल पंक्ति एक स्थान पीछे खिसक जाएगी।"
     },
     "new_tab_setting": {
         "message": "सेटिंग्स"

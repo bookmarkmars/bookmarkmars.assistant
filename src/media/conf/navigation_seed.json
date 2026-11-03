@@ -9,14 +9,24 @@
       "weight": 0,
       "children": [
         {
+          "id": "bookmarkmars",
+          "title": "BookmarkMars",
+          "url": "https://www.bookmarkmars.com/",
+          "icon": "https://www.bookmarkmars.com/favicon.ico",
+          "selected": true,
+          "fixed": true,
+          "origin": 1,
+          "weight": 0
+        },
+        {
           "id": "google",
           "title": "Google",
           "url": "https://www.google.com/",
           "icon": "https://www.google.com/favicon.ico",
           "selected": true,
-          "fixed": true,
+          "fixed": false,
           "origin": 1,
-          "weight": 0
+          "weight": 5
         },
         {
           "id": "youtube",

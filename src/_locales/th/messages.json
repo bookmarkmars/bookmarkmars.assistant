@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "กู้คืนทางลัดจากคลาวด์แล้ว"
     },
+    "new_tab_memo_title": {
+        "message": "บันทึก"
+    },
+    "new_tab_memo_hint": {
+        "message": "คลิกบรรทัดเพื่อแก้ไข · บันทึกอัตโนมัติ"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "บันทึกสั้น ๆ…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "ความคิด…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "เก็บไว้ทีหลัง…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "อย่าลืม…"
+    },
+    "new_tab_tools_title": {
+        "message": "เครื่องมือ"
+    },
+    "new_tab_tools_organize": {
+        "message": "จัดระเบียบเครื่องมือ"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "จัดระเบียบเครื่องมือ"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "ลากเพื่อเรียง · × เอาออก · เพิ่มด้านล่าง · ปิดเพื่อใช้"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "เพิ่มจากแคตตาล็อก"
+    },
+    "new_tab_tools_remove": {
+        "message": "เอาออก"
+    },
+    "new_tab_tools_empty": {
+        "message": "ยังไม่มีเครื่องมือ"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "จัดระเบียบเพื่อเพิ่ม"
+    },
+    "new_tab_category_pin": {
+        "message": "ปักหมุด"
+    },
+    "new_tab_folder_tip": {
+        "message": "คลิกเว็บไซต์เพื่อเปิด · จัดระเบียบเพื่อแก้ไข"
+    },
+    "new_tab_folder_edit": {
+        "message": "แก้ไขทางลัด"
+    },
+    "new_tab_folder_organize": {
+        "message": "จัดระเบียบ"
+    },
+    "new_tab_folder_done": {
+        "message": "เสร็จ"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "ลากเพื่อเรียง · × กลับหน้าแรก · เพิ่มด้านล่าง · ปิดเพื่อใช้"
+    },
+    "new_tab_folder_name": {
+        "message": "ชื่อโฟลเดอร์"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "ชื่อโฟลเดอร์"
+    },
+    "new_tab_folder_default_name": {
+        "message": "โฟลเดอร์ใหม่"
+    },
+    "new_tab_folder_add": {
+        "message": "เพิ่ม"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "เพิ่มจากตารางหน้าแรก"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "หรือเพิ่มลิงก์เอง"
+    },
+    "new_tab_folder_pick": {
+        "message": "เลือกทางลัด…"
+    },
+    "new_tab_folder_eject": {
+        "message": "ย้ายไปหน้าแรก"
+    },
+    "new_tab_add_folder": {
+        "message": "เพิ่มโฟลเดอร์"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "ลากทางลัดไปที่แถวโฟลเดอร์เพื่อใส่เข้าไป เปิดโฟลเดอร์บนตารางแล้วเลือกจัดระเบียบ"
+    },
     "new_tab_title": {
-        "message": "หน้าปรับแต่ง BookmarkMars"
+        "message": "BookmarkMars แท็บใหม่"
     },
     "new_tab_search_engine_custom": {
         "message": "ค้นหาแบบกำหนดเอง"
@@ -765,7 +855,7 @@
         "message": "แก้ไขทางลัด"
     },
     "new_tab_drag_suggestions": {
-        "message": "ลากเพื่อเปลี่ยนตำแหน่ง"
+        "message": "วางแถวลงบนอีกแถวเพื่อขึ้นแทนที่ แถวเดิมจะเลื่อนถอยไปหนึ่งตำแหน่ง"
     },
     "new_tab_setting": {
         "message": "การตั้งค่า"

@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Raccourcis cloud restaurés"
     },
+    "new_tab_memo_title": {
+        "message": "Mémos"
+    },
+    "new_tab_memo_hint": {
+        "message": "Cliquez une ligne pour modifier · enregistrement automatique"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Une note rapide…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Une idée…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Pour plus tard…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "À retenir…"
+    },
+    "new_tab_tools_title": {
+        "message": "Outils"
+    },
+    "new_tab_tools_organize": {
+        "message": "Organiser les outils"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Organiser les outils"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Glissez pour réordonner · × retire · ajouter en dessous · Fermer pour appliquer"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Ajouter depuis le catalogue"
+    },
+    "new_tab_tools_remove": {
+        "message": "Retirer"
+    },
+    "new_tab_tools_empty": {
+        "message": "Aucun outil pour l'instant"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Organisez pour en ajouter"
+    },
+    "new_tab_category_pin": {
+        "message": "Épinglés"
+    },
+    "new_tab_folder_tip": {
+        "message": "Cliquez un site pour l'ouvrir · Organiser pour modifier"
+    },
+    "new_tab_folder_edit": {
+        "message": "Modifier les raccourcis"
+    },
+    "new_tab_folder_organize": {
+        "message": "Organiser"
+    },
+    "new_tab_folder_done": {
+        "message": "Terminé"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Glissez pour réordonner · × renvoie à l'accueil · ajouter en dessous · Fermer pour appliquer"
+    },
+    "new_tab_folder_name": {
+        "message": "Nom du dossier"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Nom du dossier"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Nouveau dossier"
+    },
+    "new_tab_folder_add": {
+        "message": "Ajouter"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Ajouter depuis l'accueil"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Ou ajouter un lien personnalisé"
+    },
+    "new_tab_folder_pick": {
+        "message": "Choisir un raccourci…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Renvoyer à l'accueil"
+    },
+    "new_tab_add_folder": {
+        "message": "Ajouter un dossier"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Glissez un raccourci sur une ligne de dossier pour l'y placer. Ouvrez un dossier sur la grille, puis Organiser."
+    },
     "new_tab_title": {
-        "message": "Page de personnalisation BookmarkMars"
+        "message": "BookmarkMars Nouvel onglet"
     },
     "new_tab_search_engine_custom": {
         "message": "Recherche personnalisée"
@@ -765,7 +855,7 @@
         "message": "Modifier le raccourci"
     },
     "new_tab_drag_suggestions": {
-        "message": "Glissez pour changer la position"
+        "message": "Déposez une ligne sur une autre pour prendre sa place. La ligne d'origine recule d'un cran."
     },
     "new_tab_setting": {
         "message": "Paramètres"

@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Đã khôi phục lối tắt từ đám mây"
     },
+    "new_tab_memo_title": {
+        "message": "Ghi chú"
+    },
+    "new_tab_memo_hint": {
+        "message": "Bấm một dòng để sửa · tự lưu"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Ghi chú ngắn…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Một ý nghĩ…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Để sau…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Nhớ…"
+    },
+    "new_tab_tools_title": {
+        "message": "Công cụ"
+    },
+    "new_tab_tools_organize": {
+        "message": "Sắp xếp công cụ"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Sắp xếp công cụ"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Kéo để sắp xếp · × gỡ bỏ · thêm bên dưới · Đóng để áp dụng"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Thêm từ danh mục"
+    },
+    "new_tab_tools_remove": {
+        "message": "Gỡ bỏ"
+    },
+    "new_tab_tools_empty": {
+        "message": "Chưa có công cụ"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Sắp xếp để thêm"
+    },
+    "new_tab_category_pin": {
+        "message": "Đã ghim"
+    },
+    "new_tab_folder_tip": {
+        "message": "Bấm trang để mở · Sắp xếp để sửa"
+    },
+    "new_tab_folder_edit": {
+        "message": "Sửa lối tắt"
+    },
+    "new_tab_folder_organize": {
+        "message": "Sắp xếp"
+    },
+    "new_tab_folder_done": {
+        "message": "Xong"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Kéo để sắp xếp · × đưa về trang chủ · thêm bên dưới · Đóng để áp dụng"
+    },
+    "new_tab_folder_name": {
+        "message": "Tên thư mục"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Tên thư mục"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Thư mục mới"
+    },
+    "new_tab_folder_add": {
+        "message": "Thêm"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Thêm từ lưới trang chủ"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Hoặc thêm liên kết tùy chỉnh"
+    },
+    "new_tab_folder_pick": {
+        "message": "Chọn một lối tắt…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Chuyển về trang chủ"
+    },
+    "new_tab_add_folder": {
+        "message": "Thêm thư mục"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Kéo lối tắt vào hàng thư mục để đặt vào trong. Mở thư mục trên lưới rồi chọn Sắp xếp."
+    },
     "new_tab_title": {
-        "message": "Trang cá nhân hóa BookmarkMars"
+        "message": "BookmarkMars Tab mới"
     },
     "new_tab_search_engine_custom": {
         "message": "Tìm kiếm tùy chỉnh"
@@ -765,7 +855,7 @@
         "message": "Chỉnh sửa lối tắt"
     },
     "new_tab_drag_suggestions": {
-        "message": "Kéo để đổi vị trí"
+        "message": "Thả một hàng lên hàng khác để chiếm chỗ đó. Hàng ban đầu lùi lại một vị trí."
     },
     "new_tab_setting": {
         "message": "Cài đặt"

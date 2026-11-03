@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "클라우드 바로가기가 복원되었습니다"
     },
+    "new_tab_memo_title": {
+        "message": "메모"
+    },
+    "new_tab_memo_hint": {
+        "message": "줄을 눌러 편집 · 자동 저장"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "짧은 메모…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "생각…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "나중에…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "기억하기…"
+    },
+    "new_tab_tools_title": {
+        "message": "도구"
+    },
+    "new_tab_tools_organize": {
+        "message": "도구 정리"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "도구 정리"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "끌어 순서 변경 · × 제거 · 아래에서 추가 · 닫으면 적용"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "카탈로그에서 추가"
+    },
+    "new_tab_tools_remove": {
+        "message": "제거"
+    },
+    "new_tab_tools_empty": {
+        "message": "도구가 없습니다"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "정리에서 추가하세요"
+    },
+    "new_tab_category_pin": {
+        "message": "고정"
+    },
+    "new_tab_folder_tip": {
+        "message": "사이트를 눌러 열기 · 정리에서 편집"
+    },
+    "new_tab_folder_edit": {
+        "message": "바로가기 편집"
+    },
+    "new_tab_folder_organize": {
+        "message": "정리"
+    },
+    "new_tab_folder_done": {
+        "message": "완료"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "끌어 순서 변경 · × 홈으로 되돌림 · 아래에서 추가 · 닫으면 적용"
+    },
+    "new_tab_folder_name": {
+        "message": "폴더 이름"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "폴더 이름"
+    },
+    "new_tab_folder_default_name": {
+        "message": "새 폴더"
+    },
+    "new_tab_folder_add": {
+        "message": "추가"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "홈 그리드에서 추가"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "또는 직접 링크 추가"
+    },
+    "new_tab_folder_pick": {
+        "message": "바로가기 선택…"
+    },
+    "new_tab_folder_eject": {
+        "message": "홈으로 이동"
+    },
+    "new_tab_add_folder": {
+        "message": "폴더 추가"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "바로가기를 폴더 행 위로 끌어 넣습니다. 그리드의 폴더를 연 뒤 정리를 누르세요."
+    },
     "new_tab_title": {
-        "message": "BookmarkMars 개인화 페이지"
+        "message": "BookmarkMars 새 탭"
     },
     "new_tab_search_engine_custom": {
         "message": "사용자 지정 검색"
@@ -765,7 +855,7 @@
         "message": "바로가기 편집"
     },
     "new_tab_drag_suggestions": {
-        "message": "드래그하여 위치 변경"
+        "message": "다른 행 위에 놓으면 그 자리를 차지합니다. 원래 행은 한 칸 뒤로 밀립니다."
     },
     "new_tab_setting": {
         "message": "설정"

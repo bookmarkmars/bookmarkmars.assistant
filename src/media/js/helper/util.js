@@ -188,6 +188,7 @@
                 const port = $.api.runtime.connect();
                 if (port) {
                     port.disconnect();
+                    $.api.runtime.lastError;
                     return true;
                 }
             } catch (e) {

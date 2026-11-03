@@ -810,13 +810,13 @@
         "message": "书签火星新标签页"
     },
     "new_tab_greeting_morning": {
-        "message": "早上好，开启新的一天"
+        "message": "早上好 — 准备好去探索"
     },
     "new_tab_greeting_afternoon": {
-        "message": "下午好，保持专注"
+        "message": "下午好 — 保持好奇"
     },
     "new_tab_greeting_evening": {
-        "message": "晚上好，找到重要的事"
+        "message": "晚上好 — 找到重要的事"
     },
     "new_tab_greeting_night": {
         "message": "夜深了，静心浏览"
@@ -831,22 +831,22 @@
         "message": "不支持语音搜索"
     },
     "new_tab_search_placeholder": {
-        "message": "搜点什么呗"
+        "message": "输入点什么..."
     },
     "new_tab_bookmark_manage": {
-        "message": "书签管理"
+        "message": "书签"
     },
     "new_tab_search_engine_headline": {
         "message": "搜索配置"
     },
     "new_tab_search_suggest_queries": {
-        "message": "搜索提示"
+        "message": "搜索"
     },
     "new_tab_search_suggest_bookmarks": {
-        "message": "书签提示"
+        "message": "书签"
     },
     "new_tab_search_suggest_history": {
-        "message": "历史提示"
+        "message": "历史"
     },
     "new_tab_search_engine_custom_title": {
         "message": "名称"

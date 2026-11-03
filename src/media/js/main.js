@@ -126,7 +126,7 @@
                 action: "reinitialize",
                 type: type
             })["catch"](() => {
-                // cannot send message to tab
+                $.api.runtime.lastError;
             });
         };
 

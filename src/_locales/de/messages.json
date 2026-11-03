@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "Cloud-Verknüpfungen wiederhergestellt"
     },
+    "new_tab_memo_title": {
+        "message": "Notizen"
+    },
+    "new_tab_memo_hint": {
+        "message": "Zeile anklicken zum Bearbeiten · wird automatisch gespeichert"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "Eine kurze Notiz…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "Ein Gedanke…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "Für später…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "Nicht vergessen…"
+    },
+    "new_tab_tools_title": {
+        "message": "Werkzeuge"
+    },
+    "new_tab_tools_organize": {
+        "message": "Werkzeuge ordnen"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "Werkzeuge ordnen"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "Ziehen zum Sortieren · × entfernt · unten hinzufügen · Schließen zum Übernehmen"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "Aus dem Katalog hinzufügen"
+    },
+    "new_tab_tools_remove": {
+        "message": "Entfernen"
+    },
+    "new_tab_tools_empty": {
+        "message": "Noch keine Werkzeuge"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "Ordnen, um welche hinzuzufügen"
+    },
+    "new_tab_category_pin": {
+        "message": "Angeheftet"
+    },
+    "new_tab_folder_tip": {
+        "message": "Website anklicken zum Öffnen · Ordnen zum Bearbeiten"
+    },
+    "new_tab_folder_edit": {
+        "message": "Verknüpfungen bearbeiten"
+    },
+    "new_tab_folder_organize": {
+        "message": "Ordnen"
+    },
+    "new_tab_folder_done": {
+        "message": "Fertig"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "Ziehen zum Sortieren · × zurück zur Startseite · unten hinzufügen · Schließen zum Übernehmen"
+    },
+    "new_tab_folder_name": {
+        "message": "Ordnername"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "Ordnername"
+    },
+    "new_tab_folder_default_name": {
+        "message": "Neuer Ordner"
+    },
+    "new_tab_folder_add": {
+        "message": "Hinzufügen"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "Aus dem Start-Raster hinzufügen"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "Oder eigenen Link hinzufügen"
+    },
+    "new_tab_folder_pick": {
+        "message": "Verknüpfung wählen…"
+    },
+    "new_tab_folder_eject": {
+        "message": "Zur Startseite"
+    },
+    "new_tab_add_folder": {
+        "message": "Ordner hinzufügen"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "Eine Verknüpfung auf eine Ordnerzeile ziehen, um sie einzufügen. Einen Ordner im Raster öffnen und Ordnen wählen."
+    },
     "new_tab_title": {
-        "message": "BookmarkMars Personalisierungsseite"
+        "message": "BookmarkMars Neuer Tab"
     },
     "new_tab_search_engine_custom": {
         "message": "Benutzerdefinierte Suche"
@@ -765,7 +855,7 @@
         "message": "Verknüpfung bearbeiten"
     },
     "new_tab_drag_suggestions": {
-        "message": "Ziehen, um die Position zu ändern"
+        "message": "Eine Zeile auf eine andere ziehen, um ihren Platz einzunehmen. Die bisherige Zeile rückt um eins nach hinten."
     },
     "new_tab_setting": {
         "message": "Einstellungen"

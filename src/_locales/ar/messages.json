@@ -716,8 +716,98 @@
     "new_tab_shortcuts_restored": {
         "message": "تم استعادة الاختصارات من السحابة"
     },
+    "new_tab_memo_title": {
+        "message": "ملاحظات"
+    },
+    "new_tab_memo_hint": {
+        "message": "انقر سطرًا للتحرير · يُحفظ تلقائيًا"
+    },
+    "new_tab_memo_placeholder": {
+        "message": "ملاحظة سريعة…"
+    },
+    "new_tab_memo_placeholder_1": {
+        "message": "فكرة…"
+    },
+    "new_tab_memo_placeholder_2": {
+        "message": "احفظ للاحق…"
+    },
+    "new_tab_memo_placeholder_3": {
+        "message": "تذكّر…"
+    },
+    "new_tab_tools_title": {
+        "message": "أدوات"
+    },
+    "new_tab_tools_organize": {
+        "message": "تنظيم الأدوات"
+    },
+    "new_tab_tools_edit_headline": {
+        "message": "تنظيم الأدوات"
+    },
+    "new_tab_tools_edit_tip": {
+        "message": "اسحب لإعادة الترتيب · × يحذف · أضف بالأسفل · أغلق للتطبيق"
+    },
+    "new_tab_tools_add_catalog": {
+        "message": "إضافة من الكتالوج"
+    },
+    "new_tab_tools_remove": {
+        "message": "إزالة"
+    },
+    "new_tab_tools_empty": {
+        "message": "لا توجد أدوات بعد"
+    },
+    "new_tab_tools_empty_hint": {
+        "message": "نظّم لإضافة بعضها"
+    },
+    "new_tab_category_pin": {
+        "message": "مثبت"
+    },
+    "new_tab_folder_tip": {
+        "message": "انقر موقعًا لفتحه · نظّم للتعديل"
+    },
+    "new_tab_folder_edit": {
+        "message": "تحرير الاختصارات"
+    },
+    "new_tab_folder_organize": {
+        "message": "تنظيم"
+    },
+    "new_tab_folder_done": {
+        "message": "تم"
+    },
+    "new_tab_folder_edit_tip": {
+        "message": "اسحب لإعادة الترتيب · × يعيد إلى الرئيسية · أضف بالأسفل · أغلق للتطبيق"
+    },
+    "new_tab_folder_name": {
+        "message": "اسم المجلد"
+    },
+    "new_tab_folder_name_prompt": {
+        "message": "اسم المجلد"
+    },
+    "new_tab_folder_default_name": {
+        "message": "مجلد جديد"
+    },
+    "new_tab_folder_add": {
+        "message": "إضافة"
+    },
+    "new_tab_folder_add_existing": {
+        "message": "إضافة من شبكة الرئيسية"
+    },
+    "new_tab_folder_add_custom": {
+        "message": "أو أضف رابطًا مخصصًا"
+    },
+    "new_tab_folder_pick": {
+        "message": "اختر اختصارًا…"
+    },
+    "new_tab_folder_eject": {
+        "message": "نقل إلى الرئيسية"
+    },
+    "new_tab_add_folder": {
+        "message": "إضافة مجلد"
+    },
+    "new_tab_folder_edit_list_tip": {
+        "message": "اسحب اختصارًا إلى صف مجلد لوضعه داخله. افتح مجلدًا في الشبكة ثم اختر تنظيم."
+    },
     "new_tab_title": {
-        "message": "صفحة تخصيص BookmarkMars"
+        "message": "BookmarkMars علامة تبويب جديدة"
     },
     "new_tab_search_engine_custom": {
         "message": "بحث مخصص"
@@ -765,7 +855,7 @@
         "message": "تحرير الاختصار"
     },
     "new_tab_drag_suggestions": {
-        "message": "اسحب لتغيير الموضع"
+        "message": "أفلت صفًا على آخر ليحل مكانه. ينزاح الصف الأصلي موضعًا واحدًا للخلف."
     },
     "new_tab_setting": {
         "message": "إعدادات"
