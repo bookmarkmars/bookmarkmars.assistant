@@ -440,7 +440,22 @@
             let editMode = startOrganize;
             let dirty = false;
             let draggedTile = null;
-            const pendingEject = []; // children moved back to home; applied on CLOSE/X
+            const pendingEject = []; // children moved back to this tab; applied on CLOSE/X
+            const categories = (n.helper.grid && typeof n.helper.grid.getNavCategories === "function")
+                ? n.helper.grid.getNavCategories()
+                : [];
+            const homeId = (categories[0] && categories[0].id) || "pinned";
+            const folderCategory = () => {
+                if (working.categoryId) {
+                    return working.categoryId;
+                }
+                const id = String(working.id || "");
+                if (id.indexOf("pin:") === 0) {
+                    return id.slice(4);
+                }
+                return homeId;
+            };
+            const itemCategory = (item) => (item && item.categoryId) || homeId;
 
             const markDirty = () => {
                 dirty = true;
@@ -475,7 +490,7 @@
                 .appendTo(scrollBox);
             $("<p></p>")
                 .addClass("nt-folder-add-label")
-                .text(n.helper.i18n.get("new_tab_folder_add_existing") || "Add from home grid")
+                .text(n.helper.i18n.get("new_tab_folder_add_existing") || "Add from this tab")
                 .appendTo(addPanel);
             const picker = $("<select></select>")
                 .addClass("nt-folder-picker")
@@ -535,8 +550,12 @@
                 const inFolder = new Set((working.children || []).map((c) => {
                     return c && c.url ? n.helper.util.normalizeShortcutUrl(c.url) : "";
                 }).filter(Boolean));
+                const tabId = folderCategory();
                 links.forEach((item) => {
                     if (!item || item.type === "folder" || !item.url || !item.title) {
+                        return;
+                    }
+                    if (itemCategory(item) !== tabId) {
                         return;
                     }
                     if (item.fixed || (item.selected === false)) {
@@ -664,6 +683,7 @@
                 const links = n.helper.dao.getData("n/links") || [];
                 const folderId = working.id || working.categoryId;
                 const isPin = !!(working.locked || working.role === "categoryPin");
+                const tabId = folderCategory();
                 const norm = n.helper.util.normalizeShortcutUrl;
                 const childKeys = new Set((working.children || []).map((c) => {
                     return c && c.url ? norm(c.url) : "";
@@ -679,28 +699,30 @@
                         || (isPin && item.role === "categoryPin" && item.categoryId === working.categoryId))) {
                         return false;
                     }
-                    if (!isPin && item.type !== "folder" && item.url && childKeys.has(norm(item.url))) {
+                    if (!isPin && item.type !== "folder" && item.url && childKeys.has(norm(item.url))
+                        && itemCategory(item) === tabId) {
                         return false;
                     }
                     return true;
                 });
                 next.unshift(working);
 
-                // Restore ejected children to the home grid
+                // Restore ejected children to this tab
                 pendingEject.forEach((item) => {
                     if (!item || !item.url) {
                         return;
                     }
                     const key = norm(item.url);
                     const exists = next.some((row) => {
-                        return row && row.type !== "folder" && norm(row.url) === key;
+                        return row && row.type !== "folder" && itemCategory(row) === tabId && norm(row.url) === key;
                     });
                     if (!exists && !childKeys.has(key)) {
                         next.push(Object.assign({}, item, {
                             type: "link",
                             selected: true,
                             fixed: false,
-                            // User chose to keep on home — don't let catalog scrub drop it
+                            categoryId: item.categoryId || tabId,
+                            // User chose to keep it on this tab
                             origin: 0
                         }));
                     }
@@ -809,8 +831,10 @@
                     return;
                 }
                 const links = n.helper.dao.getData("n/links") || [];
+                const tabId = folderCategory();
                 const match = links.find((item) => {
                     return item && item.type !== "folder"
+                        && itemCategory(item) === tabId
                         && n.helper.util.normalizeShortcutUrl(item.url)
                         === n.helper.util.normalizeShortcutUrl(url);
                 });
@@ -818,7 +842,11 @@
                     return;
                 }
                 // Memory-only until CLOSE — then persist + refresh
-                working.children.push(Object.assign({}, match, {type: "link", selected: true}));
+                working.children.push(Object.assign({}, match, {
+                    type: "link",
+                    selected: true,
+                    categoryId: tabId
+                }));
                 // If it was pending eject, cancel that
                 const norm = n.helper.util.normalizeShortcutUrl;
                 const key = norm(match.url);
@@ -846,7 +874,8 @@
                     remove: false,
                     origin: 0,
                     type: "link",
-                    icon: null
+                    icon: null,
+                    categoryId: folderCategory()
                 });
                 if (customTitle[0]) {
                     customTitle[0].value = "";

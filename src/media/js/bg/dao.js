@@ -43,6 +43,10 @@
                     if (data.navigation_v2) {
                         delete data.navigation_v2;
                     }
+                    // Wallpaper list is a server config. Keep it out of the sync item.
+                    if (data.bebeauty) {
+                        delete data.bebeauty;
+                    }
                     
                     if (typeof data.newVersionFound === "undefined") {
                         data.newVersionFound = null;
@@ -93,7 +97,7 @@
         };
 
         const isLocalConfig = (key) => {
-        	return key === "navigation" || key === "navigation_v2";
+        	return key === "navigation" || key === "navigation_v2" || key === "bebeauty";
         };
 
         /**

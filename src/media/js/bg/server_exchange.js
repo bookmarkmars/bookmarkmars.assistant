@@ -256,11 +256,14 @@
 
 					res.json().then((data)=>{
 						// Only refresh cache on a real payload — never wipe last good config.
-						// navigation / navigation_v2 are stored in local storage (sync quota is 8KB).
-						if (data && data.cat && data.data) {
-							const save = (data.cat === "navigation" || data.cat === "navigation_v2")
-								? b.helper.dao.setLocalConfig(data.cat, data)
-								: b.helper.dao.setData(data.cat, data);
+						// navigation / navigation_v2 / bebeauty are stored in local storage.
+						// bebeauty.conf is returned with pics at the top, not under data.
+						const cat = data && data.cat;
+						const usable = cat && (data.data || data.pics);
+						if (usable) {
+							const save = (cat === "navigation" || cat === "navigation_v2" || cat === "bebeauty")
+								? b.helper.dao.setLocalConfig(cat, data)
+								: b.helper.dao.setData(cat, data);
 							save.then(resolve);
 						} else {
 							resolve();

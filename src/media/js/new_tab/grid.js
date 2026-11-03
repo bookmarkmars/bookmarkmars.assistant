@@ -1188,6 +1188,89 @@
 	        	// After a cloud restore/save, do not re-inject catalog URLs the user removed
 	        	const cloudSynced = !!n.helper.dao.getData("u/shortcutsSyncTime");
 	        	const list = [];
+	        	const urlWithoutSearch = (url) => {
+	        		const key = n.helper.util.normalizeShortcutUrl(url);
+	        		const q = key.indexOf("?");
+	        		return q >= 0 ? key.slice(0, q) : key;
+	        	};
+	        	// Market URL and affiliate are separate.
+	        	// lang.<locale>.url is always preferred for this language. affiliate true
+	        	// also overwrites a saved link the user changed, including inside a folder.
+	        	const localeKeys = () => {
+	        		let raw = "";
+	        		try {
+	        			raw = ($.api.i18n.getUILanguage() || "").replace(/-/g, "_");
+	        		} catch (err) {
+	        			raw = "";
+	        		}
+	        		const keys = [];
+	        		const add = (key) => {
+	        			if (key && keys.indexOf(key) < 0) {
+	        				keys.push(key);
+	        			}
+	        		};
+	        		add(raw);
+	        		add(lang);
+	        		if (raw.indexOf("_") > 0) {
+	        			add(raw.split("_")[0]);
+	        		}
+	        		if (lang === "mx" || lang === "cl") {
+	        			add("es");
+	        		}
+	        		add("en");
+	        		return keys;
+	        	};
+	        	const marketPack = (item) => {
+	        		const pack = (item && item.lang) || {};
+	        		const keys = localeKeys();
+	        		for (let i = 0; i < keys.length; i++) {
+	        			const loc = pack[keys[i]];
+	        			if (loc && loc.url) {
+	        				return loc.url;
+	        			}
+	        		}
+	        		return item && item.url;
+	        	};
+	        	const marketBases = (item) => {
+	        		const bases = new Set();
+	        		const addBase = (url) => {
+	        			if (url) {
+	        				bases.add(urlWithoutSearch(url));
+	        			}
+	        		};
+	        		addBase(item && item.url);
+	        		Object.keys((item && item.lang) || {}).forEach((key) => {
+	        			addBase(item.lang[key] && item.lang[key].url);
+	        		});
+	        		return bases;
+	        	};
+	        	const applyMarketUrl = (item) => {
+	        		if (!item || item.type === "folder" || !item.url) {
+	        			return;
+	        		}
+	        		const bases = marketBases(item);
+	        		const target = marketPack(item);
+	        		const apply = (node) => {
+	        			if (!node || node.type === "folder" || !node.url) {
+	        				return;
+	        			}
+	        			const idMatch = !!(item.id && node.id === item.id);
+	        			const baseMatch = bases.has(urlWithoutSearch(node.url));
+	        			if (!baseMatch && !(item.affiliate && idMatch)) {
+	        				return;
+	        			}
+	        			node.url = target;
+	        			if (item.id) {
+	        				node.id = item.id;
+	        			}
+	        		};
+	        		pages.forEach((node) => {
+	        			apply(node);
+	        			if (node && node.type === "folder" && Array.isArray(node.children)) {
+	        				node.children.forEach(apply);
+	        			}
+	        		});
+	        	};
 	        	
 	        	arr
 	        	.filter(val => !val.remove)//过滤掉已经删除的
@@ -1197,6 +1280,13 @@
 	        	.forEach((item)=>{
 
 	        		const isFolder = item.type === "folder";
+	        		if (!isFolder) {
+	        			const targetUrl = marketPack(item);
+	        			if (targetUrl) {
+	        				item.url = targetUrl;
+	        			}
+	        			applyMarketUrl(item);
+	        		}
 	        		//如果pages中包含该链接（trailing slash / host case 归一后比较）
 	        		const itemKey = isFolder
 	        			? ("folder:" + (item.id || item.categoryId || item.title))

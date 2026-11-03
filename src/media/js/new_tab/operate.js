@@ -136,6 +136,51 @@
             });
         };
 
+        const parseBebeauty = (text) => {
+        	if (!text || typeof text !== "string") {
+        		return null;
+        	}
+        	try {
+        		return JSON.parse(text);
+        	} catch (err) {
+        		try {
+        			return JSON.parse(text.replace(/,\s*([}\]])/g, "$1"));
+        		} catch (err2) {
+        			return null;
+        		}
+        	}
+        };
+
+        const bebeautyPics = (res) => {
+        	if (!res) {
+        		return [];
+        	}
+        	let payload = res;
+        	if (typeof res.data === "string") {
+        		payload = parseBebeauty(res.data) || res;
+        	} else if (res.data && typeof res.data === "object") {
+        		payload = res.data;
+        	}
+        	let pics = Array.isArray(payload.pics) ? payload.pics : [];
+        	if (!pics.length && typeof res.data === "string") {
+        		pics = res.data.match(/https?:\/\/[^"'\s,\]]+/g) || [];
+        	}
+        	return pics.filter((url) => !!url);
+        };
+
+        const wallpaperList = (res) => {
+        	const seen = new Set();
+        	const list = [];
+        	LOCAL_WALLPAPERS().concat(bebeautyPics(res)).forEach((url) => {
+        		if (!url || seen.has(url)) {
+        			return;
+        		}
+        		seen.add(url);
+        		list.push(url);
+        	});
+        	return list;
+        };
+
         const initBgChange = (tools)=>{
         	
         	tools.find("a."+$.cl.newtab.imgChange).on("click",(e) => {
@@ -144,12 +189,8 @@
                 e.stopPropagation();
 
             	n.helper.dao.call("getValue",{key:"bebeauty"})
-	            .then((res)=>{
-	            	const remote = res && Array.isArray(res.pics) && res.pics.length > 0
-                        ? res.pics.filter((url) => !!url)
-                        : null;
-                    // Fall back to bundled wallpapers when server list is unavailable
-	            	applyNextWallpaper(remote || LOCAL_WALLPAPERS());
+	            .then((res) => {
+	            	applyNextWallpaper(wallpaperList(res));
 	            })
                 .catch(() => {
                     applyNextWallpaper(LOCAL_WALLPAPERS());
