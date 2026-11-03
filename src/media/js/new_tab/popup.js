@@ -1328,8 +1328,8 @@
             const catNav = $("<nav></nav>").addClass("nt-edit-cats").appendTo(scrollBox);
             categories.forEach((cat) => {
                 const btn = $("<button></button>")
-                    .attr({type: "button", "data-category": cat.id})
-                    .text(cat.title || cat.id);
+                    .attr({type: "button", "data-category": cat.id});
+                n.helper.catalog.fillCategoryTab(btn, cat);
                 if (cat.id === editCategoryId) {
                     btn.addClass("is-active");
                 }

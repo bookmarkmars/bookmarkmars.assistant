@@ -31,11 +31,8 @@
                     .filter((c) => c && !c.remove)
                     .sort((a, b) => (a.weight || 0) - (b.weight || 0));
 
-                const display = cat.display || (cat.id === "pinned" || cat.id === "default" ? "icons" : "folder");
-
-                // "module" = Phase B strip (e.g. Tools). Still emit a n/links folder so
-                // users can organize it; grid rendering skips id=tools.
-                if (display === "module") {
+                // "module" is the Tools card. Every other category is a tab.
+                if (cat.display === "module") {
                     if (cat.id === "tools") {
                         tiles.push({
                             id: "tools",
@@ -57,10 +54,7 @@
                     return;
                 }
 
-                // icons and folder categories are both tabs. Children are shortcuts
-                // on that tab. The locked Pinned folder is created per category in the grid.
-                if (display === "icons" || display === "folder") {
-                    children.forEach((child) => {
+                children.forEach((child) => {
                         if (child.type === "folder" && Array.isArray(child.children)) {
                             const kids = child.children
                                 .filter((c) => c && !c.remove)
@@ -86,7 +80,6 @@
                         }
                         tiles.push(normalizeItem(child, lang, cat.id));
                     });
-                }
             });
 
             return tiles;
@@ -94,7 +87,20 @@
 
         /**
          * Category tabs. Modules (Tools card) are not tabs.
+         * The catalog tab value is copied onto the button. The stylesheet paints it.
          */
+        this.fillCategoryTab = (button, cat) => {
+            const title = (cat && (cat.title || cat.id)) || "";
+            button.text(title);
+            if (cat && cat.tab) {
+                button.attr({
+                    title: title,
+                    "aria-label": title,
+                    "data-tab": cat.tab
+                });
+            }
+        };
+
         this.listTabs = (catalog, lang) => {
             if (!catalog || !Array.isArray(catalog.categories)) {
                 return [];
@@ -105,7 +111,8 @@
                 .sort((a, b) => (a.weight || 0) - (b.weight || 0))
                 .map((cat) => ({
                     id: cat.id,
-                    title: localizeTitle(cat, lang) || cat.title || cat.id
+                    title: localizeTitle(cat, lang) || cat.title || cat.id,
+                    tab: cat.tab || ""
                 }));
         };
 

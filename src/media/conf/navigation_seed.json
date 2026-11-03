@@ -5,7 +5,7 @@
     {
       "id": "pinned",
       "title": "Pinned",
-      "display": "icons",
+      "tab": "icon",
       "weight": 0,
       "children": [
         {
@@ -52,7 +52,7 @@
           "id": "gmail",
           "title": "Gmail",
           "url": "https://mail.google.com/",
-          "icon": "https://mail.google.com/favicon.ico",
+          "icon": "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
           "selected": true,
           "fixed": false,
           "origin": 1,

@@ -192,8 +192,8 @@
             }
 
             const grid = $("<div></div>").addClass("nt-tools-grid").appendTo(box);
-            // Show up to 8 in the strip; organize modal manages the full list
-            tools.slice(0, 8).forEach((tool, idx) => {
+            // Four icons stay in view. The rest scroll inside the card.
+            tools.forEach((tool, idx) => {
                 const provisional = tool.icon ? n.helper.util.normalizeRemoteIconUrl(tool.icon) : null;
                 const imgAttrs = {
                     alt: tool.title,

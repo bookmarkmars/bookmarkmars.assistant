@@ -187,8 +187,10 @@
   > .nt-tools-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 56px;
     gap: 8px;
-    max-height: 168px;
+    max-height: 120px;
+    align-content: start;
     overflow-y: auto;
     @include ntThinScroll;
     padding-right: 2px;
@@ -197,6 +199,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      height: 56px;
       gap: 4px;
       padding: 8px 4px;
       border-radius: 12px;
@@ -218,6 +223,7 @@
 
       > span {
         max-width: 72px;
+        line-height: 14px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

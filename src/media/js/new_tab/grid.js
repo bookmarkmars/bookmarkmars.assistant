@@ -1467,8 +1467,8 @@
         	nav.html("");
         	navCategories.forEach((cat) => {
         		const btn = $("<button></button>")
-        			.attr({ type: "button", "data-category": cat.id })
-        			.text(cat.title);
+        			.attr({ type: "button", "data-category": cat.id });
+        		n.helper.catalog.fillCategoryTab(btn, cat);
         		if (cat.id === activeCategoryId) {
         			btn.addClass("is-active");
         		}
