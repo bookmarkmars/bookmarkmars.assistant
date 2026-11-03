@@ -8,6 +8,10 @@
         let updateRunning = false;
         let currentPage = 1;
         let linkList=[];
+        let activeCategoryId = null;
+        let navCategories = [];
+        let navTiles = [];
+        let updatePending = false;
 
         const colWidth = 168;
         const rowHeight = 128;
@@ -20,7 +24,9 @@
             
             initEvents();
             
-            n.elm.grid.html("<ul></ul>");
+            n.elm.grid.html("");
+            $("<nav></nav>").addClass("nt-cats").appendTo(n.elm.grid);
+            $("<ul></ul>").appendTo(n.elm.grid);
             maxCols = n.helper.dao.getData("n/gridMaxCols");
             maxRows = n.helper.dao.getData("n/gridMaxRows");
             // Redesign: use wider grid even if an older sync value capped cols at 5
@@ -112,6 +118,27 @@
                 }
             });
             
+            n.elm.grid.on("click", "nav.nt-cats > button", (e) => {
+            	e.preventDefault();
+            	const id = $(e.currentTarget).attr("data-category");
+            	if (!id || id === activeCategoryId) {
+            		return;
+            	}
+            	activeCategoryId = id;
+            	currentPage = 1;
+            	n.helper.dao.setData({ "n/activeCategory": id });
+            	renderTabs();
+            	getLinkList();
+            	updateEntries();
+            });
+
+            n.elm.grid.on("mouseenter", () => {
+            	n.elm.grid.addClass("is-hover");
+            });
+            n.elm.grid.on("mouseleave", () => {
+            	n.elm.grid.removeClass("is-hover");
+            });
+
             //翻页左
             n.elm.grid.on("click auxclick", "div.scroll-left", (e) => {
             		currentPage--;
@@ -199,6 +226,13 @@
                 ret.rows--;
             }
 
+            if (ret.cols < 1) {
+            	ret.cols = 1;
+            }
+            if (ret.rows < 1) {
+            	ret.rows = 1;
+            }
+
             ret.total = ret.cols * ret.rows;
             return ret;
         };
@@ -208,9 +242,23 @@
          *
          * @returns {Promise}
          */
+        const finishUpdate = () => {
+        	updateRunning = false;
+        	if (updatePending) {
+        		updatePending = false;
+        		updateEntries();
+        	}
+        };
+
         const updateEntries = () => {
             
             return new Promise((resolve) => {
+
+                if (updateRunning) {
+                	updatePending = true;
+                	resolve();
+                	return;
+                }
 
                 const gridWrapper = n.elm.grid.children("ul");
                 
@@ -224,15 +272,19 @@
                         getEntryData(),
                         $.delay(200),
                     ]).then(([data]) => {
+                    	renderTabs();
                     	
                     	// Shortcuts section: hide the whole grid when empty (unlike Tools card)
                     	if (!data || JSON.stringify(data) === "{}"
                     		|| !data.list || data.list.length === 0) {
                     		gridWrapper.html("").removeClass($.cl.visible);
-                    		n.elm.grid.addClass($.cl.hidden);
                     		n.elm.grid.find("div." + $.cl.newtab.scrollLeft
                     			+ ", div." + $.cl.newtab.scrollRight).remove();
-                    		updateRunning = false;
+                    		if (navCategories.length) {
+                    			n.elm.grid.removeClass($.cl.hidden);
+                    		} else {
+                    			n.elm.grid.addClass($.cl.hidden);
+                    		}
                     		resolve();
                     		return;
                     	}
@@ -252,6 +304,9 @@
                             // jsu toggleClass(name) ignores 2nd arg — it only toggles
                             if (isFolder) {
                                 entry.addClass("nt-folder");
+                                if (page.locked || page.role === "categoryPin") {
+                                	entry.addClass("is-locked");
+                                }
                             }
                             const entryLink = $("<a></a>")
                                 .attr({
@@ -300,7 +355,7 @@
                         
                         gridWrapper.addClass($.cl.visible);
                         
-                        updateRunning = false;
+                        finishUpdate();
 
                         resolve();
                     });
@@ -464,7 +519,8 @@
         };
 
         /**
-         * Move a top-level link into a folder (by folder id).
+         * Drop a shortcut onto a folder.
+         * The locked Pinned folder copies; other folders move.
          */
         this.moveLinkIntoFolder = (linkUrl, folderId) => {
         	const links = n.helper.dao.getData("n/links") || [];
@@ -485,7 +541,7 @@
         	if (!moving) {
         		return Promise.resolve(false);
         	}
-        	const folder = remaining.find((item) => {
+        	const folder = links.find((item) => {
         		return item && item.type === "folder"
         			&& (item.id === folderId || item.categoryId === folderId);
         	});
@@ -499,10 +555,12 @@
         	if (!already) {
         		folder.children.push(Object.assign({}, moving, {
         			type: "link",
-        			selected: true
+        			selected: true,
+        			fixed: false
         		}));
         	}
-        	return this.persistLinks(remaining, {reload: false}).then(() => true);
+        	const copyOnly = !!(folder.locked || folder.role === "categoryPin");
+        	return this.persistLinks(copyOnly ? links : remaining, {reload: false}).then(() => true);
         };
 
         /**
@@ -559,9 +617,10 @@
         		icon: null,
         		selected: true,
         		fixed: false,
+        		locked: false,
         		remove: false,
         		origin: 0,
-        		categoryId: null,
+        		categoryId: activeCategoryId || null,
         		children: []
         	};
         	links.unshift(folder);
@@ -624,9 +683,10 @@
 
         			const localCustoms = localLinks.filter(isUserCustomShortcut);
         			const cloudCustoms = cloudLinks.filter(isUserCustomShortcut);
+        			// Only apply when cloud is authoritative — never clobber a richer
+        			// local grid just because fingerprints differ after catalog inject.
         			const shouldApply = !syncTime
         				|| cloudTime > syncTime
-        				|| syncTime > cloudTime
         				|| (cloudCustoms.length > 0 && localCustoms.length === 0);
 
         			if (!shouldApply) {
@@ -744,7 +804,10 @@
             if (kids.length === 0) {
                 preview.addClass("is-empty");
             }
-            $("<span></span>").text(page.title).appendTo(entryLink);
+            const label = (page.role === "categoryPin")
+            	? (n.helper.i18n.get("new_tab_category_pin") || "Pinned")
+            	: page.title;
+            $("<span></span>").text(label).appendTo(entryLink);
             // Insert preview last so clones keep children + src
             preview.prependTo(entryLink);
         };
@@ -798,7 +861,15 @@
                 return null;
             }
             try {
-                const data = typeof raw === "string" ? JSON.parse(raw) : (raw.data ? JSON.parse(raw.data) : raw);
+                let data;
+                if (typeof raw === "string") {
+                    data = JSON.parse(raw);
+                } else if (raw && Object.prototype.hasOwnProperty.call(raw, "data")) {
+                    // bg cache shape: { cat, data } — data may already be an object
+                    data = typeof raw.data === "string" ? JSON.parse(raw.data) : raw.data;
+                } else {
+                    data = raw;
+                }
                 if (data && data.schemaVersion === 2 && Array.isArray(data.categories)) {
                     return data;
                 }
@@ -821,121 +892,73 @@
             return null;
         };
 
-        /**
-         * Remote navigation_v2 has NO client TTL — it sits in sync storage until the
-         * next successful remote pull (startup + 2 min interval). Bundled conf may be
-         * newer than a stale server/cache payload; prefer it for folder tiles.
-         */
-        const loadBundledCatalog = () => {
-        	return $.fetch($.api.runtime.getURL("media/conf/navigation_v2.json"))
-        		.then((obj) => obj.text())
-        		.then((data) => parseCatalogPayload(data))
-        		.catch(() => null);
-        };
-
-        const catalogUpdatedAt = (catalog) => {
-        	const t = catalog && catalog.updatedAt ? Date.parse(catalog.updatedAt) : NaN;
-        	return Number.isFinite(t) ? t : 0;
-        };
-
-        const mergeCatalogFolders = (catalog, bundled) => {
-        	if (!bundled || !Array.isArray(bundled.categories)) {
-        		return catalog;
-        	}
-        	if (!catalog || !Array.isArray(catalog.categories)) {
-        		return bundled;
-        	}
-
-        	// Bundled newer than remote/cache → take bundled folder/module categories
-        	const bundledNewer = catalogUpdatedAt(bundled) >= catalogUpdatedAt(catalog);
-
-        	const upsertFolder = (src) => {
-        		if (!src || (src.display !== "folder" && src.display !== "module")) {
-        			return;
-        		}
-        		const clone = JSON.parse(JSON.stringify(src));
-        		const idx = catalog.categories.findIndex((c) =>
-        			c && (c.id === clone.id
-        				|| (clone.id === "favorites" && c.id === "shop")
-        				|| (clone.id === "shop" && c.id === "favorites"))
-        		);
-        		if (idx >= 0) {
-        			const prev = catalog.categories[idx];
-        			// Keep remote children only when bundled is NOT newer (user ops on server)
-        			if (!bundledNewer && Array.isArray(prev.children) && prev.children.length) {
-        				clone.children = prev.children;
-        			}
-        			catalog.categories[idx] = clone;
-        		} else {
-        			catalog.categories.push(clone);
-        		}
-        	};
-
-        	// Drop legacy shop id if favorites is being upserted from bundled
-        	catalog.categories = catalog.categories.filter((c) => !(c && c.id === "shop"));
-
-        	bundled.categories.forEach((cat) => {
-        		if (!cat || (cat.display !== "folder" && cat.display !== "module")) {
-        			return;
-        		}
-        		const exists = catalog.categories.some((c) => c && c.id === cat.id);
-        		if (!exists || bundledNewer) {
-        			upsertFolder(cat);
-        		}
-        	});
-
-        	if (bundledNewer && bundled.updatedAt) {
-        		catalog.updatedAt = bundled.updatedAt;
-        	}
-
-        	return catalog;
-        };
-
         const loadNavigation = () => {
 
             const tryRemote = async () => {
                 let res = await n.helper.dao.call("getValue", { key: "navigation_v2" });
-                if (res && res.data) {
+                if (res && (res.data || res.schemaVersion === 2)) {
                     return parseCatalogPayload(res);
                 }
                 // Brief dual-read for sunset window
                 res = await n.helper.dao.call("getValue", { key: "navigation" });
-                if (res && res.data) {
+                if (res && (res.data || res.children)) {
                     return parseCatalogPayload(res);
                 }
                 return null;
             };
 
             return new Promise((resolve) => {
-                Promise.all([tryRemote(), loadBundledCatalog()]).then(([remote, bundled]) => {
-                    let catalog = mergeCatalogFolders(remote, bundled);
+                const readCatalog = () => {
+                	return tryRemote().then((remote) => {
+                		if (remote) {
+                			return remote;
+                		}
+                		// One fetch if local cache is empty (startup request may still be in flight)
+                		return n.helper.dao.call("cacheRemote", { name: "navigation_v2" }).then(() => {
+                			return tryRemote();
+                		}).catch(() => null);
+                	});
+                };
+
+                readCatalog().then((remote) => {
+                    let catalog = remote;
                     if (!catalog) {
-                        const cache = n.helper.dao.getData("n/topLinks");
-                        catalog = mergeCatalogFolders(parseCatalogPayload(cache), bundled);
+                        catalog = parseCatalogPayload(n.helper.dao.getData("n/topLinks"));
                     }
-                    if (!catalog) {
-                        catalog = bundled;
-                    }
+                    // n/topLinks used to hold the whole catalog inside sync storage and
+                    // pushed the newtab item over the 8KB quota, so shortcut saves were dropped.
+                    const dropTopLinks = () => {
+                    	if (n.helper.dao.getData("n/topLinks")) {
+                    		return n.helper.dao.setData({ "n/topLinks": "" });
+                    	}
+                    	return Promise.resolve();
+                    };
                     if (!catalog) {
                         // Emergency seed (no affiliates)
-                        $.fetch($.api.runtime.getURL("media/conf/navigation_seed.json")).then((obj) => {
+                        $.fetch($.api.runtime.getURL("media/conf/navigation_seed.json"), { method: "GET" }).then((obj) => {
                             obj.text().then((data) => {
                                 const catalogSeed = parseCatalogPayload(data);
-                                const tiles = n.helper.catalog.flattenToTiles(catalogSeed, n.helper.i18n.getLanguage());
+                                const lang = n.helper.i18n.getLanguage();
+                                navCategories = n.helper.catalog.listTabs(catalogSeed, lang);
+                                const tiles = n.helper.catalog.flattenToTiles(catalogSeed, lang);
+                                navTiles = tiles;
                                 appendNewLinks(tiles).then(resolve);
                             });
                         }).catch(() => resolve());
                         return;
                     }
 
-                    const tiles = n.helper.catalog.flattenToTiles(catalog, n.helper.i18n.getLanguage());
-                    appendNewLinks(tiles).then(() => {
-                        const jsonStr = JSON.stringify(catalog);
-                        const cache = n.helper.dao.getData("n/topLinks");
-                        if (cache !== jsonStr) {
-                            return n.helper.dao.setData({ "n/topLinks": jsonStr });
-                        }
-                        return Promise.resolve();
+                    const lang = n.helper.i18n.getLanguage();
+                    navCategories = n.helper.catalog.listTabs(catalog, lang);
+                    if (!activeCategoryId) {
+                    	activeCategoryId = n.helper.dao.getData("n/activeCategory")
+                    		|| (navCategories[0] && navCategories[0].id)
+                    		|| null;
+                    }
+                    const tiles = n.helper.catalog.flattenToTiles(catalog, lang);
+                    navTiles = tiles;
+                    dropTopLinks().then(() => {
+                    	return appendNewLinks(tiles);
                     }).then(resolve);
                 }).catch(() => resolve());
             });
@@ -983,53 +1006,13 @@
         	}).filter(Boolean);
         };
 
-        /**
-         * shop → favorites rename. Keeps user children; refreshes default title.
-         * Also clears stale lang.en/"Shop" which otherwise overwrote the new title.
-         */
-        const migrateLegacyFolders = (pages) => {
-        	if (!Array.isArray(pages)) {
-        		return;
-        	}
-        	pages.forEach((item) => {
-        		if (!item || item.type !== "folder") {
-        			return;
-        		}
-        		const isShop = item.id === "shop" || item.categoryId === "shop"
-        			|| /^shop$/i.test(String(item.title || "").trim());
-        		if (!isShop && item.id !== "favorites" && item.categoryId !== "favorites") {
-        			return;
-        		}
-        		if (item.id === "shop" || item.categoryId === "shop" || isShop) {
-        			item.id = "favorites";
-        			item.categoryId = "favorites";
-        		}
-        		const t = (item.title || "").trim();
-        		if (!t || /^shop$/i.test(t)) {
-        			item.title = "Favorites";
-        		}
-        		if (item.lang) {
-        			Object.keys(item.lang).forEach((k) => {
-        				const loc = item.lang[k];
-        				if (loc && loc.title && /^shop$/i.test(String(loc.title).trim())) {
-        					delete loc.title;
-        				}
-        			});
-        			item.lang.zh_CN = Object.assign({}, item.lang.zh_CN || {}, { title: "常用" });
-        			item.lang.zh_TW = Object.assign({}, item.lang.zh_TW || {}, { title: "常用" });
-        		} else {
-        			item.lang = { zh_CN: { title: "常用" }, zh_TW: { title: "常用" } };
-        		}
-        	});
-        };
-
         const appendNewLinks = (arr)=>{
         	
         	return new Promise((resolve) => {
         		
         		const lang = n.helper.i18n.getLanguage();
 	        	const pages = n.helper.dao.getData("n/links") || [];
-	        	migrateLegacyFolders(pages);
+	        	promoteCategoryFolders(pages);
 	        	const order= JSON.stringify(pages) === '[]' ? "push": "unshift";
 	        	// After a cloud restore/save, do not re-inject catalog URLs the user removed
 	        	const cloudSynced = !!n.helper.dao.getData("u/shortcutsSyncTime");
@@ -1055,16 +1038,7 @@
 	        				if (e.type !== "folder") {
 	        					return false;
 	        				}
-	        				if (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId) {
-	        					return true;
-	        				}
-	        				// Legacy Shop tile ↔ Favorites catalog folder
-	        				if ((item.id === "favorites" || item.id === "shop")
-	        					&& (e.id === "shop" || e.categoryId === "shop"
-	        						|| e.id === "favorites" || e.categoryId === "favorites")) {
-	        					return true;
-	        				}
-	        				return false;
+	        				return e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId;
 	        			}
 	        			return e.type !== "folder" && n.helper.util.normalizeShortcutUrl(e.url) === itemKey;
 	        		};
@@ -1138,11 +1112,18 @@
 	                }
 	        		
 	        		//本地缓存显示来源远程，但是实际上现在又没有了，则说明远程删除
-	        		if (item.origin === 1) {
+	        		// categoryPin folders are client-owned and are not catalog tiles
+	        		if (item.origin === 1 && item.role !== "categoryPin") {
 	        			const stillInCatalog = arr.some((e) => {
-	        				if (item.type === "folder" || e.type === "folder") {
-	        					return e.type === "folder" && item.type === "folder"
-	        						&& (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId);
+	        				if (!e) {
+	        					return false;
+	        				}
+	        				if (item.type === "folder") {
+	        						return e.type === "folder"
+	        							&& (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId);
+	        				}
+	        				if (e.type === "folder") {
+	        					return false;
 	        				}
 	        				return n.helper.util.normalizeShortcutUrl(e.url) === n.helper.util.normalizeShortcutUrl(item.url);
 	        			});
@@ -1168,33 +1149,221 @@
 
 			    // Hard guarantee: never more than one lock per URL (heals bad saved state)
 			    n.helper.util.sanitizeShortcutLocks(list);
+			    ensurePinFolders(list);
 			    
 			    n.helper.dao.setData({"n/links":list}).then(resolve);
         	});
         }
         
+        const renderTabs = () => {
+        	const nav = n.elm.grid.children("nav.nt-cats");
+        	if (!nav || (typeof nav.length === "function" && nav.length() < 1)) {
+        		return;
+        	}
+        	if (!activeCategoryId) {
+        		activeCategoryId = n.helper.dao.getData("n/activeCategory")
+        			|| (navCategories[0] && navCategories[0].id)
+        			|| null;
+        	}
+        	if (navCategories.length && !navCategories.some((cat) => cat.id === activeCategoryId)) {
+        		activeCategoryId = navCategories[0].id;
+        	}
+        	nav.html("");
+        	navCategories.forEach((cat) => {
+        		const btn = $("<button></button>")
+        			.attr({ type: "button", "data-category": cat.id })
+        			.text(cat.title);
+        		if (cat.id === activeCategoryId) {
+        			btn.addClass("is-active");
+        		}
+        		btn.appendTo(nav);
+        	});
+        };
+
+        /**
+         * Old category containers (id === tab id) become shortcuts on that tab.
+         */
+        const promoteCategoryFolders = (pages) => {
+        	const ids = new Set((navCategories || []).map((cat) => cat.id));
+        	if (!ids.size) {
+        		return;
+        	}
+        	const norm = n.helper.util.normalizeShortcutUrl;
+        	const extra = [];
+        	pages.forEach((item) => {
+        		if (!item || item.type !== "folder" || item.role === "categoryPin") {
+        			return;
+        		}
+        		if (!ids.has(item.id)) {
+        			return;
+        		}
+        		(item.children || []).forEach((child) => {
+        			if (!child || !child.url) {
+        				return;
+        			}
+        			const url = norm(child.url);
+        			const exists = pages.concat(extra).some((entry) => {
+        				return entry && entry.type !== "folder"
+        					&& entry.categoryId === item.id
+        					&& norm(entry.url) === url;
+        			});
+        			if (!exists) {
+        				extra.push(Object.assign({}, child, {
+        					type: "link",
+        					categoryId: item.id,
+        					selected: child.selected !== false
+        				}));
+        			}
+        		});
+        	});
+        	extra.forEach((entry) => pages.push(entry));
+        };
+
+        const seedPinChildren = (categoryId) => {
+        	const norm = n.helper.util.normalizeShortcutUrl;
+        	const seen = new Set();
+        	const seeds = [];
+        	(navTiles || []).forEach((tile) => {
+        		if (!tile || tile.type === "folder" || tile.categoryId !== categoryId || !tile.url || tile.selected === false) {
+        			return;
+        		}
+        		const key = norm(tile.url);
+        		if (!key || seen.has(key)) {
+        			return;
+        		}
+        		seen.add(key);
+        		if (seeds.length >= 4) {
+        			return;
+        		}
+        		seeds.push(Object.assign({}, tile, {
+        			type: "link",
+        			selected: true,
+        			fixed: false
+        		}));
+        	});
+        	return seeds;
+        };
+
+        const ensurePinFolders = (list) => {
+        	const title = n.helper.i18n.get("new_tab_category_pin") || "Pinned";
+        	(navCategories || []).forEach((cat) => {
+        		const id = "pin:" + cat.id;
+        		let folder = list.find((item) => {
+        			return item && item.type === "folder"
+        				&& (item.id === id || (item.role === "categoryPin" && item.categoryId === cat.id));
+        		});
+        		if (!folder) {
+        			list.unshift({
+        				id: id,
+        				type: "folder",
+        				role: "categoryPin",
+        				locked: true,
+        				fixed: true,
+        				pinSeeded: true,
+        				title: title,
+        				url: "",
+        				icon: null,
+        				selected: true,
+        				remove: false,
+        				origin: 1,
+        				categoryId: cat.id,
+        				children: seedPinChildren(cat.id)
+        			});
+        			return;
+        		}
+        		folder.id = id;
+        		folder.role = "categoryPin";
+        		folder.locked = true;
+        		folder.fixed = true;
+        		folder.selected = true;
+        		folder.categoryId = cat.id;
+        		folder.origin = 1;
+        		folder.title = title;
+        		if (!folder.pinSeeded && (!folder.children || !folder.children.length)) {
+        			folder.children = seedPinChildren(cat.id);
+        			folder.pinSeeded = true;
+        		}
+        	});
+        };
+
         const getLinkList = ()=>{
         	
         	linkList=[];
-        	const pages = n.helper.dao.getData("n/links");
-        	
+        	const pages = n.helper.dao.getData("n/links") || [];
+        	const homeId = (navCategories[0] && navCategories[0].id) || "pinned";
+        	if (!activeCategoryId || !navCategories.some((cat) => cat.id === activeCategoryId)) {
+        		activeCategoryId = n.helper.dao.getData("n/activeCategory") || homeId;
+        	}
+        	const catId = activeCategoryId;
+        	const norm = n.helper.util.normalizeShortcutUrl;
+        	const pins = [];
+        	const folders = [];
+        	const links = [];
+        	const seen = new Set();
+
             pages.forEach((item)=>{
-            	
-            	//只要选中的 或者 固定的
-            	if(item && (item.selected || item.fixed)){
-            		// Tools lives in the Phase B strip only — never as a grid folder
-            		if (item.type === "folder" && (item.id === "tools" || item.categoryId === "tools")) {
-            			return;
-            		}
-            		// Keep empty folders on the grid so users can Organize and add sites back
-            		if (item.type === "folder" && item.title) {
-	                    linkList.push(item);
-	                } else if (item && item.title && item.url) {
-	                    linkList.push(item);
-	                }
+            	if (!item) {
+            		return;
             	}
-            })
-            
+            	if (item.type === "folder" && (item.id === "tools" || (item.categoryId === "tools" && item.role !== "categoryPin"))) {
+            		return;
+            	}
+            	if (item.type === "folder" && (item.role === "categoryPin" || item.id === "pin:" + catId)) {
+            		if (item.categoryId === catId || item.id === "pin:" + catId) {
+            			pins.push(item);
+            		}
+            		return;
+            	}
+            	if (!(item.selected || item.fixed)) {
+            		return;
+            	}
+            	const itemCat = item.categoryId || homeId;
+            	if (itemCat !== catId) {
+            		return;
+            	}
+            	if (item.type === "folder" && item.title) {
+            		folders.push(item);
+            	} else if (item.title && item.url) {
+            		links.push(item);
+            		seen.add(norm(item.url));
+            	}
+            });
+
+            (navTiles || []).forEach((tile) => {
+            	if (!tile || tile.type === "folder" || tile.categoryId !== catId || !tile.url || !tile.title) {
+            		return;
+            	}
+            	if (tile.selected === false) {
+            		return;
+            	}
+            	const key = norm(tile.url);
+            	if (!key || seen.has(key)) {
+            		return;
+            	}
+            	seen.add(key);
+            	links.push(tile);
+            });
+
+            if (!pins.length) {
+            	pins.push({
+            		id: "pin:" + catId,
+            		type: "folder",
+            		role: "categoryPin",
+            		locked: true,
+            		fixed: true,
+            		pinSeeded: true,
+            		title: n.helper.i18n.get("new_tab_category_pin") || "Pinned",
+            		url: "",
+            		selected: true,
+            		categoryId: catId,
+            		children: seedPinChildren(catId)
+            	});
+            } else if (!pins[0].pinSeeded && !(pins[0].children || []).length) {
+            	pins[0].children = seedPinChildren(catId);
+            	pins[0].pinSeeded = true;
+            }
+
+            linkList = pins.concat(folders, links);
             return linkList;
         }
 

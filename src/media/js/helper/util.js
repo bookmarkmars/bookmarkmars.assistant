@@ -115,9 +115,12 @@
                 if (!node) {
                     return;
                 }
-                // Folders are never lock-icons; skip empty-url rows
+                // Folders are never lock-icons; skip empty-url rows.
+                // The per-category Pinned folder stays fixed.
                 if (node.type === "folder") {
-                    node.fixed = false;
+                    if (!(node.locked || node.role === "categoryPin")) {
+                        node.fixed = false;
+                    }
                     if (!Array.isArray(node.children)) {
                         node.children = [];
                     }

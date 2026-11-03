@@ -206,7 +206,7 @@
 					if(res){
 						resolve(JSON.parse(res.data));
 					}else{
-						$.fetch($.api.runtime.getURL("media/conf/search_engine.json")).then((obj) => {
+						$.fetch($.api.runtime.getURL("media/conf/search_engine.json"), { method: "GET" }).then((obj) => {
 			                obj.text().then((data)=>{
 			                	resolve(JSON.parse(data));
 			                });

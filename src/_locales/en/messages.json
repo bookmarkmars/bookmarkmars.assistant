@@ -758,6 +758,9 @@
     "new_tab_tools_empty_hint": {
         "message": "Organize to add some"
     },
+    "new_tab_category_pin": {
+        "message": "Pinned"
+    },
     "new_tab_folder_tip": {
         "message": "Click a site to open it · Organize to edit"
     },

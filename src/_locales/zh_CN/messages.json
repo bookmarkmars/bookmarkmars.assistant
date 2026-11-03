@@ -758,6 +758,9 @@
     "new_tab_tools_empty_hint": {
         "message": "点整理添加"
     },
+    "new_tab_category_pin": {
+        "message": "置顶"
+    },
     "new_tab_folder_tip": {
         "message": "点击打开 · 点「整理」可编辑"
     },

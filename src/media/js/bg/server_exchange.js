@@ -255,9 +255,13 @@
 				.then((res)=>{
 
 					res.json().then((data)=>{
-						// Only refresh cache on a real payload — never wipe last good config
-						if (data && data.cat) {
-							b.helper.dao.setData(data.cat, data).then(resolve);
+						// Only refresh cache on a real payload — never wipe last good config.
+						// navigation / navigation_v2 are stored in local storage (sync quota is 8KB).
+						if (data && data.cat && data.data) {
+							const save = (data.cat === "navigation" || data.cat === "navigation_v2")
+								? b.helper.dao.setLocalConfig(data.cat, data)
+								: b.helper.dao.setData(data.cat, data);
+							save.then(resolve);
 						} else {
 							resolve();
 						}
@@ -269,6 +273,10 @@
 	            })
 	        });
 		}
+
+		this.cacheRemote = (opts) => {
+			return cacheRemoteData(opts || {});
+		};
 
 		this.isServerAvaliable = () =>{
 			return new Promise((resolve) => {

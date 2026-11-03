@@ -58,30 +58,33 @@
                     return;
                 }
 
-                if (display === "icons") {
+                // icons and folder categories are both tabs. Children are shortcuts
+                // on that tab. The locked Pinned folder is created per category in the grid.
+                if (display === "icons" || display === "folder") {
                     children.forEach((child) => {
                         tiles.push(child);
-                    });
-                } else if (display === "folder") {
-                    tiles.push({
-                        id: cat.id,
-                        type: "folder",
-                        title: title,
-                        url: "",
-                        icon: null,
-                        selected: true,
-                        fixed: false,
-                        remove: false,
-                        origin: 1,
-                        weight: cat.weight || 0,
-                        categoryId: cat.id,
-                        children: children,
-                        lang: cat.lang || null
                     });
                 }
             });
 
             return tiles;
+        };
+
+        /**
+         * Category tabs. Modules (Tools card) are not tabs.
+         */
+        this.listTabs = (catalog, lang) => {
+            if (!catalog || !Array.isArray(catalog.categories)) {
+                return [];
+            }
+            return catalog.categories
+                .filter((cat) => cat && !cat.remove && cat.display !== "module")
+                .slice()
+                .sort((a, b) => (a.weight || 0) - (b.weight || 0))
+                .map((cat) => ({
+                    id: cat.id,
+                    title: localizeTitle(cat, lang) || cat.title || cat.id
+                }));
         };
 
         /**

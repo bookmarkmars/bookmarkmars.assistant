@@ -34,12 +34,14 @@
                         data.search_engine = null;
                     }
                     
-                    if (typeof data.navigation === "undefined") {
-                        data.navigation = null;
+                    // navigation payloads are ~15KB. chrome.storage.sync rejects
+                    // items over 8KB and the failure is ignored, so the catalog
+                    // never persisted. Keep them out of the sync model.
+                    if (data.navigation) {
+                        delete data.navigation;
                     }
-
-                    if (typeof data.navigation_v2 === "undefined") {
-                        data.navigation_v2 = null;
+                    if (data.navigation_v2) {
+                        delete data.navigation_v2;
                     }
                     
                     if (typeof data.newVersionFound === "undefined") {
@@ -86,11 +88,43 @@
 		/**
 		 * 通过key值来获得value
 		 */
-        this.getValue = (opts) => {
-        	return new Promise((resolve) => {
+        const localConfigKey = (key) => {
+        	return "cfg_" + key;
+        };
 
-                resolve(this.getData(opts.key));
-            });
+        const isLocalConfig = (key) => {
+        	return key === "navigation" || key === "navigation_v2";
+        };
+
+        /**
+         * Large server configs live in local storage, not the sync model.
+         */
+        this.setLocalConfig = (key, value) => {
+        	return new Promise((resolve) => {
+        		if (!isLocalConfig(key)) {
+        			this.setData(key, value).then(resolve);
+        			return;
+        		}
+        		const bag = {};
+        		bag[localConfigKey(key)] = value;
+        		$.api.storage.local.set(bag, () => {
+        			$.api.runtime.lastError;
+        			resolve();
+        		});
+        	});
+        };
+
+        this.getValue = (opts) => {
+        	const key = opts && opts.key;
+        	if (!isLocalConfig(key)) {
+        		return Promise.resolve(this.getData(key));
+        	}
+        	return new Promise((resolve) => {
+        		$.api.storage.local.get([localConfigKey(key)], (obj) => {
+        			$.api.runtime.lastError;
+        			resolve((obj && obj[localConfigKey(key)]) || null);
+        		});
+        	});
         };
 
 

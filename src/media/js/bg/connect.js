@@ -33,6 +33,7 @@
                 inbookmarkFolder:b.helper.viewAmount.isInbookmarkFolder,
                 setValue:b.helper.dao.setValue,
                 getValue:b.helper.dao.getValue,
+                cacheRemote:b.helper.serverExchange.cacheRemote,
                 createBookmarkHtml:b.helper.bookmarkHtml.createBookmarkHtml,
                 toHtml:b.helper.bookmarkHtml.toHtml,
                 getFavicon:b.helper.image.getFavicon,

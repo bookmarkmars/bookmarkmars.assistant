@@ -3,23 +3,77 @@ div#grid {
   margin: 28px auto 0;
   background: transparent;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  // Reserve space so prev/next sit on both sides, not over tiles
-  padding: 0 52px;
+
+  > nav.nt-cats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 0 14px;
+    padding: 4px;
+    border-radius: 999px;
+    background: rgba(16, 12, 14, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+
+    > button {
+      appearance: none;
+      border: 0;
+      margin: 0;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.72);
+      background: transparent;
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      &.is-active {
+        color: #fff;
+        background: linear-gradient(180deg, rgba(224, 122, 61, 0.95), rgba(176, 78, 36, 0.95));
+        box-shadow: 0 6px 16px rgba(176, 78, 36, 0.35);
+      }
+    }
+  }
+
+  > ul {
+    align-self: center;
+  }
+  // Size to the tiles and center that box. A max-width of 100% pinned the
+  // row to the column and let the extra icons stick out only on the right.
+  padding: 0;
   box-sizing: border-box;
   width: max-content;
-  max-width: 100%;
+  max-width: none;
+  align-self: center;
 
   &.hidden {
     display: none;
   }
 
+  &.is-hover > div.scroll-left,
+  &.is-hover > div.scroll-right {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   > div.scroll-left,
   > div.scroll-right {
     position: absolute;
-    top: 50%;
+    top: 58%;
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
@@ -28,6 +82,9 @@ div#grid {
     cursor: pointer;
     color: rgba(255, 255, 255, 0.7);
     z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
 
     > p {
       position: absolute;
@@ -54,7 +111,7 @@ div#grid {
   }
 
   > div.scroll-left {
-    left: 4px;
+    left: -46px;
 
     > p {
       background-image: img('icon/newtab/icon-scroll-left.png');
@@ -62,7 +119,7 @@ div#grid {
   }
 
   > div.scroll-right {
-    right: 4px;
+    right: -46px;
 
     > p {
       background-image: img('icon/newtab/icon-scroll-right.png');
@@ -169,6 +226,10 @@ div#grid > ul > li.nt-folder.nt-drop-target > a {
   background: rgba(224, 122, 61, 0.28) !important;
   outline: 2px dashed rgba(224, 122, 61, 0.85);
   outline-offset: 2px;
+}
+
+div#grid > ul > li.nt-folder.is-locked > a > div.nt-folder-preview {
+  box-shadow: 0 0 0 2px rgba(224, 122, 61, 0.9), 0 8px 18px rgba(0, 0, 0, 0.28);
 }
 
 div#grid > ul > li.nt-folder > a {

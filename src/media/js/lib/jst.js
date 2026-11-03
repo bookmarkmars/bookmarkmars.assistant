@@ -40,7 +40,11 @@
          */
         fetch: (url, opts = {},timeout=null) => {
         	
-        	if(JSON.stringify(opts) === '{}') {opts['method']="post"};
+        	// Default GET (native fetch default). Do not force POST — that breaks
+        	// chrome-extension:// static files (locales, css, seed json).
+        	if (JSON.stringify(opts) === "{}") {
+        		opts = { method: "GET" };
+        	}
         	
         	const controller = new AbortController();
         	let signal=controller.signal;

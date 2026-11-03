@@ -144,15 +144,9 @@
                     return typeof res.data === "string" ? JSON.parse(res.data) : res.data;
                 }
             } catch (e) {
-                //
-            }
-            try {
-                const obj = await $.fetch($.api.runtime.getURL("media/conf/navigation_v2.json"));
-                const text = await obj.text();
-                return JSON.parse(text);
-            } catch (e2) {
                 return null;
             }
+            return null;
         };
 
         const renderTools = async () => {
