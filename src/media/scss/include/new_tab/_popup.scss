@@ -363,6 +363,38 @@ div.modal[data-type='link'] {
   }
 
   > div.scroll-box {
+
+    > nav.nt-edit-cats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 20px 2px;
+
+      > button {
+        appearance: none;
+        height: 28px;
+        margin: 0;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: transparent;
+        color: #5c534c;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(224, 122, 61, 0.1);
+        }
+
+        &.is-active {
+          color: #fff;
+          border-color: transparent;
+          background: linear-gradient(180deg, rgba(224, 122, 61, 0.95), rgba(176, 78, 36, 0.95));
+        }
+      }
+    }
       
     > span.suggestions {
         margin-top: 10px;

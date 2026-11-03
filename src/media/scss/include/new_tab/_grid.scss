@@ -54,7 +54,9 @@ div#grid {
   }
   // Size to the tiles and center that box. A max-width of 100% pinned the
   // row to the column and let the extra icons stick out only on the right.
-  padding: 0;
+  // Padding stays inside the centered box so the pager is still "inside"
+  // the section for hover, without shifting the tiles.
+  padding: 8px 56px 0;
   box-sizing: border-box;
   width: max-content;
   max-width: none;
@@ -111,7 +113,7 @@ div#grid {
   }
 
   > div.scroll-left {
-    left: -46px;
+    left: 6px;
 
     > p {
       background-image: img('icon/newtab/icon-scroll-left.png');
@@ -119,7 +121,7 @@ div#grid {
   }
 
   > div.scroll-right {
-    right: -46px;
+    right: 6px;
 
     > p {
       background-image: img('icon/newtab/icon-scroll-right.png');

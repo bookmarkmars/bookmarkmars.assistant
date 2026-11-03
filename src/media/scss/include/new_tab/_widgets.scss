@@ -190,6 +190,8 @@
     gap: 8px;
     max-height: 168px;
     overflow-y: auto;
+    @include ntThinScroll;
+    padding-right: 2px;
 
     > a {
       display: flex;

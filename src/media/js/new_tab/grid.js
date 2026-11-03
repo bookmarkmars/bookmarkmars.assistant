@@ -185,6 +185,28 @@
             n.elm.grid.on("dragleave", "> ul > li.nt-folder", (e) => {
                 $(e.currentTarget).removeClass("nt-drop-target");
             });
+            n.elm.grid.on("dragenter dragover", "> ul > li:not(.nt-folder)", (e) => {
+                if (!gridDragUrl) {
+                    return;
+                }
+                e.preventDefault();
+                $(e.currentTarget).addClass("nt-drop-target");
+            });
+            n.elm.grid.on("dragleave", "> ul > li:not(.nt-folder)", (e) => {
+                $(e.currentTarget).removeClass("nt-drop-target");
+            });
+            n.elm.grid.on("drop", "> ul > li:not(.nt-folder)", (e) => {
+                e.preventDefault();
+                const targetUrl = $(e.currentTarget).children("a").attr("href") || "";
+                const url = gridDragUrl
+                    || (e.originalEvent.dataTransfer && e.originalEvent.dataTransfer.getData("text/plain"));
+                n.elm.grid.find("li").removeClass("nt-dragging nt-drop-target");
+                gridDragUrl = null;
+                if (!url || !targetUrl || url === targetUrl) {
+                    return;
+                }
+                this.reorderShortcut(url, targetUrl);
+            });
             n.elm.grid.on("drop", "> ul > li.nt-folder", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -261,17 +283,12 @@
                 }
 
                 const gridWrapper = n.elm.grid.children("ul");
-                
-                gridWrapper.removeClass($.cl.visible);
 
                 if (updateRunning === false) {//未更新
                     
                     updateRunning = true;
 
-                    Promise.all([
-                        getEntryData(),
-                        $.delay(200),
-                    ]).then(([data]) => {
+                    getEntryData().then((data) => {
                     	renderTabs();
                     	
                     	// Shortcuts section: hide the whole grid when empty (unlike Tools card)
@@ -285,6 +302,7 @@
                     		} else {
                     			n.elm.grid.addClass($.cl.hidden);
                     		}
+                    		finishUpdate();
                     		resolve();
                     		return;
                     	}
@@ -350,13 +368,8 @@
 				            );
                         }
 
-                        return $.delay(400);
-                    }).then(() => {
-                        
                         gridWrapper.addClass($.cl.visible);
-                        
                         finishUpdate();
-
                         resolve();
                     });
                 }
@@ -516,6 +529,42 @@
         		getLinkList();
         		return updateEntries();
         	});
+        };
+
+        this.getNavCategories = () => (navCategories || []).slice();
+
+        this.getActiveCategoryId = () => activeCategoryId;
+
+        /**
+         * Drag a shortcut onto another shortcut in the same tab.
+         * The dragged shortcut takes that tile's place, and the original shifts back one.
+         */
+        this.reorderShortcut = (dragUrl, targetUrl) => {
+        	const links = (n.helper.dao.getData("n/links") || []).slice();
+        	const norm = n.helper.util.normalizeShortcutUrl;
+        	const homeId = (navCategories[0] && navCategories[0].id) || "pinned";
+        	const catOf = (item) => (item && item.categoryId) || homeId;
+        	const match = (item, url) => {
+        		return item && item.type !== "folder" && catOf(item) === activeCategoryId
+        			&& norm(item.url) === norm(url);
+        	};
+        	let from = links.findIndex((item) => match(item, dragUrl));
+        	if (from < 0) {
+        		const tile = (navTiles || []).find((item) => match(item, dragUrl));
+        		if (!tile) {
+        			return Promise.resolve(false);
+        		}
+        		links.push(Object.assign({}, tile, {type: "link", selected: true}));
+        		from = links.length - 1;
+        	}
+        	const moving = links.splice(from, 1)[0];
+        	let to = links.findIndex((item) => match(item, targetUrl));
+        	if (to < 0) {
+        		links.push(moving);
+        	} else {
+        		links.splice(to, 0, moving);
+        	}
+        	return this.persistLinks(links, {reload: false});
         };
 
         /**
@@ -685,9 +734,9 @@
         			const cloudCustoms = cloudLinks.filter(isUserCustomShortcut);
         			// Only apply when cloud is authoritative — never clobber a richer
         			// local grid just because fingerprints differ after catalog inject.
-        			const shouldApply = !syncTime
-        				|| cloudTime > syncTime
-        				|| (cloudCustoms.length > 0 && localCustoms.length === 0);
+        			// A cloud copy must be newer. An empty sync time must not wipe local edits.
+        			const shouldApply = localLinks.length === 0
+        				|| (syncTime && cloudTime > syncTime);
 
         			if (!shouldApply) {
         				markChecked().then(() => resolve(false));
@@ -1013,7 +1062,8 @@
         		const lang = n.helper.i18n.getLanguage();
 	        	const pages = n.helper.dao.getData("n/links") || [];
 	        	promoteCategoryFolders(pages);
-	        	const order= JSON.stringify(pages) === '[]' ? "push": "unshift";
+	        	// First seed may follow catalog weight. After that, saved order wins.
+	        	const seeding = pages.length === 0;
 	        	// After a cloud restore/save, do not re-inject catalog URLs the user removed
 	        	const cloudSynced = !!n.helper.dao.getData("u/shortcutsSyncTime");
 	        	const list = [];
@@ -1038,7 +1088,11 @@
 	        				if (e.type !== "folder") {
 	        					return false;
 	        				}
-	        				return e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId;
+	        				// Pinned folders are client-owned. Never treat them as a catalog folder.
+	        				if (e.role === "categoryPin" || String(e.id || "").indexOf("pin:") === 0) {
+	        					return false;
+	        				}
+	        				return e.id === item.id || e.id === item.categoryId;
 	        			}
 	        			return e.type !== "folder" && n.helper.util.normalizeShortcutUrl(e.url) === itemKey;
 	        		};
@@ -1089,13 +1143,9 @@
 	        			return;
 	        		}
 	        		
-	        		//添加到开头，order==push，说明是初始化的顺序，按weight排序
+	        		// New catalog rows go to the end so a refresh cannot undo a drag.
 	        		item.icon = n.helper.util.normalizeRemoteIconUrl(item.icon);
-	        		if(order==='push'){
-	        			pages.push(item);
-	        		}else{
-	        			pages.unshift(item);//之前没有加入过，插入到最前面
-	        		}
+	        		pages.push(item);
 	        	})
 	        	
 	        	//push
@@ -1113,7 +1163,7 @@
 	        		
 	        		//本地缓存显示来源远程，但是实际上现在又没有了，则说明远程删除
 	        		// categoryPin folders are client-owned and are not catalog tiles
-	        		if (item.origin === 1 && item.role !== "categoryPin") {
+	        		if (item.origin === 1 && item.role !== "categoryPin" && !(item.type === "folder" && String(item.id || "").indexOf("pin:") === 0)) {
 	        			const stillInCatalog = arr.some((e) => {
 	        				if (!e) {
 	        					return false;
@@ -1141,11 +1191,17 @@
 	        	})
 
 	        	
-	        	//将固定的内容排到前面
-	            list.sort(function(x, y) {
-			        return (x.fixed === y.fixed)? 0 : x.fixed ? -1 : 1;// true values first
-			        // return (x.fixed === y.fixed)? 0 : x.fixed? 1 : -1;// false values first
-			    });
+	        	// Catalog weight / fixed-first only on an empty grid. Later loads keep saved order.
+	            if (seeding) {
+		            list.sort(function(x, y) {
+				        const xw = x.weight || 0;
+				        const yw = y.weight || 0;
+				        if (xw !== yw) {
+				        	return xw - yw;
+				        }
+				        return (x.fixed === y.fixed) ? 0 : x.fixed ? -1 : 1;
+				    });
+	            }
 
 			    // Hard guarantee: never more than one lock per URL (heals bad saved state)
 			    n.helper.util.sanitizeShortcutLocks(list);

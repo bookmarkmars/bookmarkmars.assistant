@@ -867,7 +867,7 @@
         "message": "Shortcut edit"
     },
     "new_tab_drag_suggestions": {
-        "message": "Drag to swap position"
+        "message": "Drop a row on another to take its place. The original row shifts back one."
     },
     "new_tab_setting": {
         "message": "Setting"

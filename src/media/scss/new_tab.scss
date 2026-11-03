@@ -21,6 +21,34 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
 }
 
+@mixin ntThinScroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.32) transparent;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(224, 122, 61, 0.78);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
 //new tab
 @import "include/new_tab/grid";
 @import "include/new_tab/top_urls";
@@ -139,6 +167,7 @@ section#content {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+  @include ntThinScroll;
   transition: height 0.5s;
   z-index: 1;
 

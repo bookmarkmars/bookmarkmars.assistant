@@ -867,7 +867,7 @@
         "message": "快捷方式编辑"
     },
     "new_tab_drag_suggestions": {
-        "message": "拖拽可交换顺序"
+        "message": "拖到某一行上即占据该位置，原来的行向后移一位。"
     },
     "new_tab_setting": {
         "message": "设置"

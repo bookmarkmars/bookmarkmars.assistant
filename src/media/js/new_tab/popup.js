@@ -8,6 +8,7 @@
     $.PopupHelper = function (n) {
 
         let elements = {};
+        let linkEditor = null;
 
         /**
          * Creates a new overlay for the given type
@@ -16,6 +17,7 @@
          * @param {string} title
          */
         this.create = (type, title, payload) => {
+            linkEditor = null;
             elements = n.helper.template.overlay(type, title);
             elements.buttonWrapper.children("a." + $.cl.close).text(n.helper.i18n.get("overlay_close"));
 
@@ -175,16 +177,9 @@
                     return;
                 }
 
-                // Do not reorder by swapping a folder with a locked item oddly — normal swap
-                const afterNode2 = e.currentTarget.nextElementSibling;
+                // Take the target row's place. The original row shifts back one.
                 const parent = e.currentTarget.parentNode;
-
-                if (draggedElm === afterNode2) {
-                    parent.insertBefore(draggedElm, e.currentTarget);
-                } else {
-                    draggedElm.replaceWith(e.currentTarget);
-                    parent.insertBefore(draggedElm, afterNode2);
-                }
+                parent.insertBefore(draggedElm, e.currentTarget);
             });
         };
 
@@ -288,6 +283,13 @@
         			})
         			.data("folder-children", item.children || [])
         			.data("folder-id", item.id || item.categoryId || "")
+        			.attr({
+        				"data-category": item.categoryId || "",
+        				"data-role": item.role || "",
+        				"data-locked": item.locked ? "1" : "",
+        				"data-pin-seeded": item.pinSeeded ? "1" : "",
+        				"data-children": JSON.stringify(item.children || [])
+        			})
         			.append(n.helper.checkbox.get(elements.overlay.find("body"), {
         				[$.attr.title]: item.title,
         				[$.attr.href]: "folder:" + (item.id || item.categoryId || item.title),
@@ -317,6 +319,10 @@
             //指明来源
             entry.attr($.attr.origin,item.origin);
             entry.attr($.attr.type, "link");
+            entry.attr("data-category", item.categoryId || "");
+            if (item.id) {
+            	entry.attr("data-id", item.id);
+            }
             
             //部分内容锁死
             if(item.fixed){
@@ -519,15 +525,28 @@
 
             const readOrderFromDom = () => {
                 const ordered = [];
+                const used = new Set();
                 grid.children("a.nt-folder-tile").forEach((elm) => {
-                    const url = $(elm).data("href");
-                    const match = (working.children || []).find((c) => c && c.url === url)
-                        || (working.children || []).find((c) => {
-                            return c && n.helper.util.normalizeShortcutUrl(c.url)
-                                === n.helper.util.normalizeShortcutUrl(url);
-                        });
+                    const node = elm && elm.getAttribute ? elm : (elm && elm[0]);
+                    if (!node || !node.getAttribute) {
+                        return;
+                    }
+                    const url = node.getAttribute("data-url") || $(node).data("href") || node.getAttribute("href");
+                    const key = n.helper.util.normalizeShortcutUrl(url || "");
+                    const match = (working.children || []).find((c) => {
+                        if (!c || !c.url || used.has(c)) {
+                            return false;
+                        }
+                        return n.helper.util.normalizeShortcutUrl(c.url) === key;
+                    });
                     if (match) {
+                        used.add(match);
                         ordered.push(match);
+                    }
+                });
+                (working.children || []).forEach((c) => {
+                    if (c && !used.has(c)) {
+                        ordered.push(c);
                     }
                 });
                 working.children = ordered;
@@ -551,7 +570,11 @@
 
                     const tile = $("<a></a>")
                         .addClass("nt-folder-tile")
-                        .attr({href: item.url || "#", title: item.title || ""})
+                        .attr({
+                            href: item.url || "#",
+                            title: item.title || "",
+                            "data-url": item.url || ""
+                        })
                         .data("href", item.url)
                         .attr("draggable", editMode ? "true" : "false");
 
@@ -600,25 +623,32 @@
                 }
                 readOrderFromDom();
                 working.userManaged = true;
+                working.pinSeeded = true;
+                if (String(working.id || "").indexOf("pin:") === 0) {
+                	working.role = "categoryPin";
+                	working.locked = true;
+                }
                 working.type = "folder";
                 working.children = (working.children || []).filter((c) => c && c.url && c.title);
                 const links = n.helper.dao.getData("n/links") || [];
                 const folderId = working.id || working.categoryId;
+                const isPin = !!(working.locked || working.role === "categoryPin");
                 const norm = n.helper.util.normalizeShortcutUrl;
                 const childKeys = new Set((working.children || []).map((c) => {
                     return c && c.url ? norm(c.url) : "";
                 }).filter(Boolean));
 
-                // Drop this folder + any links that now live inside it
+                // Replace this folder only. Pinned copies stay on the tab.
+                // A normal folder still takes the shortcut off the grid.
                 const next = links.filter((item) => {
                     if (!item) {
                         return false;
                     }
-                    if (item.type === "folder"
-                        && (item.id === folderId || item.categoryId === folderId)) {
+                    if (item.type === "folder" && (item.id === folderId
+                        || (isPin && item.role === "categoryPin" && item.categoryId === working.categoryId))) {
                         return false;
                     }
-                    if (item.type !== "folder" && item.url && childKeys.has(norm(item.url))) {
+                    if (!isPin && item.type !== "folder" && item.url && childKeys.has(norm(item.url))) {
                         return false;
                     }
                     return true;
@@ -724,12 +754,8 @@
                     return;
                 }
                 const parent = e.currentTarget.parentNode;
-                const after = e.currentTarget.nextElementSibling;
-                if (draggedTile === after) {
-                    parent.insertBefore(draggedTile, e.currentTarget);
-                } else {
-                    parent.insertBefore(draggedTile, after);
-                }
+                // Take the target tile's place. The original tile shifts back one.
+                parent.insertBefore(draggedTile, e.currentTarget);
                 readOrderFromDom();
                 markDirty();
                 draggedTile = null;
@@ -1069,12 +1095,7 @@
                     return;
                 }
                 const parent = e.currentTarget.parentNode;
-                const after = e.currentTarget.nextElementSibling;
-                if (draggedTile === after) {
-                    parent.insertBefore(draggedTile, e.currentTarget);
-                } else {
-                    parent.insertBefore(draggedTile, after);
-                }
+                parent.insertBefore(draggedTile, e.currentTarget);
                 readOrderFromDom();
                 markDirty();
                 draggedTile = null;
@@ -1143,6 +1164,107 @@
             const scrollBox = $("<div></div>").addClass($.cl.scrollBox.wrapper).appendTo(elements.modal);
             const disclaimer = $("<div></div>").addClass($.cl.newtab.disclaimer).text(n.helper.i18n.get("overlay_confirm_disclaimer")).appendTo(elements.modal);
             
+            const categories = (n.helper.grid && typeof n.helper.grid.getNavCategories === "function")
+                ? n.helper.grid.getNavCategories()
+                : [];
+            const homeId = (categories[0] && categories[0].id) || "pinned";
+            let editCategoryId = (n.helper.grid && typeof n.helper.grid.getActiveCategoryId === "function"
+                    && n.helper.grid.getActiveCategoryId())
+                || n.helper.dao.getData("n/activeCategory")
+                || homeId;
+            if (categories.length && !categories.some((cat) => cat && cat.id === editCategoryId)) {
+                editCategoryId = homeId;
+            }
+
+            let pages = [];
+            try {
+                pages = JSON.parse(JSON.stringify(n.helper.dao.getData("n/links") || []));
+            } catch (e) {
+                pages = (n.helper.dao.getData("n/links") || []).slice();
+            }
+            n.helper.util.sanitizeShortcutLocks(pages);
+
+            const isToolsItem = (item) => {
+                return !!(item && item.type === "folder"
+                    && (item.id === "tools" || (item.categoryId === "tools" && item.role !== "categoryPin")));
+            };
+            const categoryOf = (item) => {
+                if (!item || isToolsItem(item)) {
+                    return null;
+                }
+                if (item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0) {
+                    return item.categoryId || String(item.id || "").replace(/^pin:/, "") || homeId;
+                }
+                return item.categoryId || homeId;
+            };
+            const rowsFor = (catId) => {
+                const pins = [];
+                const folders = [];
+                const links = [];
+                pages.forEach((item) => {
+                    if (!item || isToolsItem(item)) {
+                        return;
+                    }
+                    if (categories.length && categoryOf(item) !== catId) {
+                        return;
+                    }
+                    if (item.type === "folder" && (item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0)) {
+                        pins.push(item);
+                    } else if (item.type === "folder") {
+                        folders.push(item);
+                    } else {
+                        links.push(item);
+                    }
+                });
+                return pins.concat(folders, links);
+            };
+            const commitCategory = (catId) => {
+                const visible = readLinkRows();
+                visible.forEach((item) => {
+                    if (item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0) {
+                        item.role = "categoryPin";
+                        item.locked = true;
+                        item.categoryId = catId;
+                        item.id = "pin:" + catId;
+                    } else if (categories.length) {
+                        item.categoryId = catId;
+                    } else if (!item.categoryId) {
+                        item.categoryId = homeId;
+                    }
+                });
+                if (!categories.length) {
+                    pages = visible.concat(pages.filter(isToolsItem));
+                    return;
+                }
+                const next = [];
+                let placed = false;
+                pages.forEach((item) => {
+                    if (categoryOf(item) === catId) {
+                        if (!placed) {
+                            visible.forEach((row) => next.push(row));
+                            placed = true;
+                        }
+                        return;
+                    }
+                    next.push(item);
+                });
+                if (!placed) {
+                    visible.forEach((row) => next.push(row));
+                }
+                pages = next;
+            };
+
+            const catNav = $("<nav></nav>").addClass("nt-edit-cats").appendTo(scrollBox);
+            categories.forEach((cat) => {
+                const btn = $("<button></button>")
+                    .attr({type: "button", "data-category": cat.id})
+                    .text(cat.title || cat.id);
+                if (cat.id === editCategoryId) {
+                    btn.addClass("is-active");
+                }
+                btn.appendTo(catNav);
+            });
+
             $("<span></span>")
             .addClass($.cl.newtab.suggestions)
             .text(n.helper.i18n.get("new_tab_drag_suggestions"))
@@ -1211,14 +1333,42 @@
                 .append(addButton)
                 .appendTo(customWrapper);
             
-            //pages — unlock duplicate fixed rows before painting the editor
-            const pages = n.helper.util.sanitizeShortcutLocks(n.helper.dao.getData("n/links") || []);
-            n.helper.dao.setData({"n/links": pages});
-            pages.forEach((item) => {
-                addEntry(item,list);
-            });
+            const paintCategory = () => {
+                list.html("");
+                rowsFor(editCategoryId).forEach((item) => {
+                    addEntry(item, list);
+                });
+                initDraggableLinks(scrollBox, "> ul." + $.cl.result + " > li");
+                catNav.children("button").removeClass("is-active");
+                catNav.children("button").forEach((elm) => {
+                    const node = elm && elm.getAttribute ? elm : (elm && elm[0]);
+                    if (node && node.getAttribute("data-category") === editCategoryId) {
+                        $(node).addClass("is-active");
+                    }
+                });
+            };
 
-			initDraggableLinks(scrollBox, "> ul."+$.cl.result+" > li");
+            linkEditor = {
+                get categoryId() {
+                    return editCategoryId;
+                },
+                commit() {
+                    commitCategory(editCategoryId);
+                },
+                pages() {
+                    return pages;
+                },
+                switchCategory(id) {
+                    if (!id || id === editCategoryId) {
+                        return;
+                    }
+                    commitCategory(editCategoryId);
+                    editCategoryId = id;
+                    paintCategory();
+                }
+            };
+
+            paintCategory();
 
             $("<a></a>").addClass($.cl.confirm.action).text(n.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
@@ -1277,9 +1427,8 @@
             });
         };
         
-        const updateLinks = ()=>{
-        	
-        	const links=[];
+        const readLinkRows = () => {
+        	const links = [];
             elements.modal.find(" ul."+$.cl.result+" > li").forEach((elm) => {
                 
                 const row = $(elm);
@@ -1289,14 +1438,25 @@
 
                 if (row.hasClass("nt-edit-folder") || row.attr($.attr.type) === "folder") {
                     item.type = "folder";
-                    item.id = row.data("folder-id") || row.attr("data-folder-id") || ("user-folder-" + Date.now());
-                    item.categoryId = item.id;
+                    item.id = row.attr("data-folder-id") || row.data("folder-id") || ("user-folder-" + Date.now());
+                    item.categoryId = row.attr("data-category") || null;
+                    item.role = row.attr("data-role") || undefined;
+                    item.locked = row.attr("data-locked") === "1" || item.role === "categoryPin";
+                    item.pinSeeded = row.attr("data-pin-seeded") === "1" || item.locked;
                     item.title = row.attr($.attr.title) || (ch.length() > 0 ? ch.attr($.attr.title) : "") || "Folder";
                     item.url = "";
                     item.icon = null;
-                    item.children = row.data("folder-children") || [];
-                    item.selected = row.hasClass($.cl.lock) || (ch.length() > 0 && ch[0].checked) ? true : false;
-                    item.fixed = false;
+                    let kids = row.data("folder-children");
+                    if (!kids || !kids.length) {
+                    	try {
+                    		kids = JSON.parse(row.attr("data-children") || "[]");
+                    	} catch (e) {
+                    		kids = [];
+                    	}
+                    }
+                    item.children = kids || [];
+                    item.selected = true;
+                    item.fixed = !!item.locked;
                     item.remove = false;
                     item.origin = row.attr($.attr.origin) !== null && row.attr($.attr.origin) !== undefined
                         ? parseInt(row.attr($.attr.origin), 10)
@@ -1309,12 +1469,14 @@
                 }
                 
                 item.type = "link";
+                item.id = row.attr("data-id") || undefined;
+                item.categoryId = row.attr("data-category") || null;
                 item['title']=row.attr($.attr.title) || ch.attr($.attr.title);
                 item['url']=row.attr($.attr.href) || ch.attr($.attr.href);
                 item['selected']=row.hasClass($.cl.lock) || (ch.length() > 0 && ch[0].checked) ? true : false;
                 item['fixed']=row.hasClass($.cl.lock)?true:false;
                 item['remove']=false;
-                // n/links lives in chrome.storage.sync (8KB/item). Never persist data: base64
+                // Never persist data: base64
                 // icons there — only http(s) URLs. Favicons are cached via getFavicon/imageCache.
                 const iconSrc = img.length() > 0 ? img.attr("src") : null;
                 item['icon'] = (iconSrc && iconSrc.indexOf("http") === 0) ? iconSrc : null;
@@ -1322,11 +1484,18 @@
                 
                 links.push(item);
             });
+            return links;
+        };
 
+        const updateLinks = () => {
+            if (linkEditor) {
+                linkEditor.commit();
+            }
+            const links = linkEditor ? linkEditor.pages() : readLinkRows();
             n.helper.util.sanitizeShortcutLocks(links);
             closeOverlay();
             persistLinks(links, {reload: true});
-        }
+        };
 
         /**
          * Initializes the events for the currently displayed overlay
@@ -1409,6 +1578,17 @@
             });
 
             // Add empty user folder from Shortcut edit overlay
+            elements.modal.on("click", "nav.nt-edit-cats > button", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const id = e.currentTarget && e.currentTarget.getAttribute
+                    ? e.currentTarget.getAttribute("data-category")
+                    : "";
+                if (linkEditor && id) {
+                    linkEditor.switchCategory(id);
+                }
+            });
+
             elements.modal.on("click", "span.nt-add-folder", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -1430,6 +1610,7 @@
                     fixed: false,
                     remove: false,
                     origin: 0,
+                    categoryId: linkEditor ? linkEditor.categoryId : null,
                     children: []
                 }, list);
                 initDraggableLinks(
@@ -1464,6 +1645,7 @@
                     selected:true,
                     remove:false,
                     origin:0,//本地用户添加
+                    categoryId: linkEditor ? linkEditor.categoryId : null,
                     // Do not attach data: icons here — sync storage cannot hold base64 payloads.
                     icon: null
                 }

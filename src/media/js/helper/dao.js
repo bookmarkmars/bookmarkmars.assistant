@@ -126,7 +126,7 @@
 					switchOpenTag:"开启"
                 }
             },
-            n: { // new tab -> synced across devices
+            n: { // new tab settings sync; the shortcut list is stored locally (see newtab_links)
                 override: false,
                 faviconShape: "favicon",
                 faviconBackground:"#fff0",//透明
@@ -214,6 +214,26 @@
          * @param alias
          * @returns {*}
          */
+        // Shortcut lists outgrow chrome.storage.sync's 8KB per-item limit.
+        // A failed sync write is ignored, so adds and drag order vanished on refresh.
+        const LINKS_LOCAL_KEY = "newtab_links";
+
+        const loadShortcutLinks = (newtab) => {
+            return new Promise((resolve) => {
+                const bag = newtab || {};
+                $.api.storage.local.get([LINKS_LOCAL_KEY], (obj) => {
+                    $.api.runtime.lastError;
+                    const stored = obj ? obj[LINKS_LOCAL_KEY] : undefined;
+                    if (Array.isArray(stored)) {
+                        bag.links = stored;
+                    } else if (!Array.isArray(bag.links)) {
+                        bag.links = [];
+                    }
+                    resolve(bag);
+                });
+            });
+        };
+
         const getNameByAlias = (alias) => {
             switch (alias) {
                 case "u": {
@@ -251,9 +271,12 @@
                     $.api.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
                         newData[key] = obj[key] || {};
 
-                        if (++loaded === len) { // all data loaded from storage -> resolve promise
-                            data = newData;
-							resolve();
+                        if (++loaded === len) {
+                            loadShortcutLinks(newData.newtab).then((newtab) => {
+                                newData.newtab = newtab || {};
+                                data = newData;
+                                resolve();
+                            });
                         }
                     });
                 });
@@ -343,10 +366,15 @@
                         }
                     });
 
+                    if (!data.newtab) {
+                        data.newtab = {};
+                    }
+
+                    const writingLinks = Object.prototype.hasOwnProperty.call(values, "n/links");
                     let savedAmount = 0;
                     const saved = (amount = 1) => { // is getting called after data is saved in the storage
                         savedAmount += amount;
-                        if (savedAmount >= 4) { // behaviour, appearance and utility has been saved -> resolve promise
+                        if (savedAmount >= 5) { // utility, shortcut list, behaviour, appearance, newtab settings
                             resolve();
                         }
                     };
@@ -359,10 +387,25 @@
                             saved();
                         });
 
+                        if (writingLinks) {
+                            const linkBag = {};
+                            linkBag[LINKS_LOCAL_KEY] = Array.isArray(data.newtab.links) ? data.newtab.links : [];
+                            $.api.storage.local.set(linkBag, () => {
+                                $.api.runtime.lastError;
+                                saved();
+                            });
+                        } else {
+                            saved();
+                        }
+
+                        // Keep the sync item small. links and topLinks live locally.
+                        const syncNewtab = Object.assign({}, data.newtab);
+                        delete syncNewtab.links;
+                        delete syncNewtab.topLinks;
                         $.api.storage.sync.set({
                             behaviour: data.behaviour,
                             appearance: data.appearance,
-                            newtab: data.newtab
+                            newtab: syncNewtab
                         }, () => {
                         	
                         	 const error = $.api.runtime.lastError;
