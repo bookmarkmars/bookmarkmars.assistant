@@ -4,36 +4,16 @@
   overflow-x: hidden;
   outline: none;
   background-color: transparent;
-  transition: background-color 0.3s;
-  // Avoid -webkit-background-clip: text here — it was used to hide the
-  // scrollbar thumb color from the content area, but it leaves ghost text
-  // shadows while scrolling in Chromium.
-  scrollbar-color: $scrollBarBackground transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
-    width: $__scrollBarWidth;
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    border: 1px solid transparent;
-    background-clip: content-box;
-    background-color: $scrollBarBackground;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 5px;
+    width: 0;
+    height: 0;
+    display: none;
   }
 
   &.hide-scrollbar {
     background-color: transparent !important;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      width: 0;
-      display: none;
-    }
   }
 }

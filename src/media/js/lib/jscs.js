@@ -801,10 +801,12 @@
          */
         remove() {
             this.forEach((node) => {
-                if (node && node.parentElement) {
+                const parent = node && node.parentNode;
+                // Shadow roots are not elements, so parentElement is null and the node stayed in the page.
+                if (parent && parent.nodeType !== 9) {
                     eventHandlerMap["delete"](node);
                     dataMap["delete"](node);
-                    node.parentElement.removeChild(node);
+                    parent.removeChild(node);
                 }
             });
         }

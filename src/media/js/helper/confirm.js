@@ -13,6 +13,29 @@
          * @type {object}
          */
         let elements = {};
+        let closing = false;
+
+        const popupFrames = () => {
+            const id = $.opts.ids.page.overlay;
+            const list = [];
+            if (ext.elm && ext.elm.shadow) {
+                ext.elm.shadow.querySelectorAll("iframe#" + id).forEach((node) => list.push(node));
+            }
+            document.querySelectorAll("iframe#" + id).forEach((node) => {
+                if (list.indexOf(node) === -1) {
+                    list.push(node);
+                }
+            });
+            return list;
+        };
+
+        const removePopupFrames = () => {
+            popupFrames().forEach((node) => {
+                if (node.parentNode) {
+                    node.parentNode.removeChild(node);
+                }
+            });
+        };
 
         /**
          * Creates a new overlay for the given bookmark
@@ -22,7 +45,12 @@
          * @param {object} data
          */
         this.create = (type, title, data) => {
-            
+            const openFrame = elements.overlay && elements.overlay[0];
+            if (!closing && openFrame && openFrame.isConnected) {
+                return;
+            }
+            removePopupFrames();
+            closing = false;
             elements = ext.helper.template.overlay(type, title);
             elements.overlay.data("info", data || {});
             
@@ -93,23 +121,39 @@
          * Closes the overlay
          */
         this.closeOverlay = () => {
-            
-            ext.helper.util.triggerEvent("overlayClosed");//触发事件
+            if (closing) {
+                return;
+            }
+            closing = true;
 
-			if(ext.elm && ext.elm.bookmarkBox && ext.elm.bookmarkBox.all){
-				ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
-			}
-            elements.overlay.removeClass($.cl.visible);
-            ext.helper.scroll.focus();
-            
-            //如果是搜索界面，刷新下搜索结果
-            if(ext.elm.bookmarkBox.search.hasClass($.cl.active)){
-            	ext.helper.entry.init();//强制更新数据
-            	ext.helper.search.refreshSearch();
+            popupFrames().forEach((node) => {
+                node.classList.remove($.cl.visible);
+                node.style.setProperty("opacity", "0", "important");
+                node.style.setProperty("pointer-events", "none", "important");
+            });
+
+            try {
+                ext.helper.util.triggerEvent("overlayClosed");
+
+                if (ext.elm && ext.elm.bookmarkBox && ext.elm.bookmarkBox.all) {
+                    ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
+                }
+                if (ext.helper.scroll) {
+                    ext.helper.scroll.focus();
+                }
+
+                const search = ext.elm && ext.elm.bookmarkBox && ext.elm.bookmarkBox.search;
+                if (search && search.hasClass && search.hasClass($.cl.active)) {
+                    ext.helper.entry.init();
+                    ext.helper.search.refreshSearch();
+                }
+            } catch (err) {
             }
 
             $.delay(400).then(() => {
-                elements.overlay.remove();
+                removePopupFrames();
+                closing = false;
+                elements = {};
             });
         };
 
@@ -128,6 +172,9 @@
          * @returns {boolean}
          */
         this.isOpened = () => {
+            if (ext.elm && ext.elm.shadow) {
+                return !!ext.elm.shadow.querySelector("iframe#" + $.opts.ids.page.overlay);
+            }
             return $("iframe#" + $.opts.ids.page.overlay).length() > 0;
         };
 

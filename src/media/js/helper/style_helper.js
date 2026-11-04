@@ -35,12 +35,26 @@
 	        });
         };
 
-        this.readCss = (files,head,deft=false) => {
+        this.readCss = (files, head, deft=false, scope=null) => {
 
 	        return new Promise((resolve,reject) => {
 	        	
 	        	let loaded=0;
-	        	const styles = ext.helper.dao.getData("a/styles",deft);
+	        	const styles = Object.assign({}, ext.helper.dao.getData("a/styles", deft));
+	        	if (!deft && ext.helper.dao.getThemeStyles) {
+	        		const theme = ext.helper.dao.getData("a/theme");
+	        		const palette = theme && theme !== "default" ? ext.helper.dao.getThemeStyles(theme) : null;
+	        		if (palette) {
+	        			Object.assign(styles, palette);
+	        		} else {
+	        			if (styles.hoverColor === "#908b8b66") {
+	        				styles.hoverColor = "#ffffff7a";
+	        			}
+	        			if (styles.headerIconBackground === "#535553") {
+	        				styles.headerIconBackground = "#dbcfcfcc";
+	        			}
+	        		}
+	        	}
 
 	            files.forEach((file) => {
 	            	
@@ -68,9 +82,30 @@
                     				css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), styles[key]);
                     			}
                            });
+                    		if (scope === "shadow") {
+                    			css = css.replace(/body\s*>/g, ":host >");
+                    			// The host does not take clicks. The visible ball must, or it cannot open.
+                    			if ($.opts && $.opts.ids && $.cl && $.cl.toggle) {
+                    				css += ":host > div#" + $.opts.ids.page.indicator + ":not(." + $.cl.hidden + ") > div." + $.cl.toggle.indicator + "{pointer-events:auto;}";
+                    			}
+                    		}
                     		if ($.cl &&  $.cl.page &&  $.cl.page.style && $.attr && $.attr.name) {
                                 head.find("style." +  $.cl.page.style + "[" + $.attr.name + "='" + file + "']").remove();
-                                head.append("<style class='" +  $.cl.page.style + "' " + $.attr.name + "='" + file + "'>" + css + "</style>");
+                                if (scope === "shadow") {
+                                	// Parse after the tag is inside the shadow root. :host is invalid
+                                	// in a style tag built in the page, and those rules are dropped.
+                                	const style = document.createElement("style");
+                                	style.className = $.cl.page.style;
+                                	style.setAttribute($.attr.name, file);
+                                	head[0].appendChild(style);
+                                	style.textContent = css;
+                                } else {
+                                	head.append("<style class='" +  $.cl.page.style + "' " + $.attr.name + "='" + file + "'>" + css + "</style>");
+                                }
+                            } else if (scope === "shadow") {
+                            	const style = document.createElement("style");
+                            	head[0].appendChild(style);
+                            	style.textContent = css;
                             } else {
                                 head.append("<style>" + css + "</style>");
                             }

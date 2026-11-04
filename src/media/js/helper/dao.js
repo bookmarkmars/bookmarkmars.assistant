@@ -93,7 +93,6 @@
 					panelIconColor:"#ffffff",
 					panelIconSize:"15px",
 					colorScheme:"#444",
-					hoverColor:"#908b8b66",
 					foregroundColor:"#ffffff",
 					textColor:"#444",
 					bodyColor:"#efefef",
@@ -106,12 +105,15 @@
 					bookmarksLineHeight:"40px",
 					bookmarksDirIcon:"dir-default",
 					bookmarksDirColor:"#f6ae0d",
+					separatorColor:"#00000042",
+					searchFieldBackground:"#b8b8b833",
 					bookmarksDirIndentation:"25px",
 					bookmarksHorizontalPadding:"16px",
 					scrollBarWidth:"4px",
+					hoverColor:"#ffffff7a",
 					overlayMaskColor:"#2d2b2b1f",
 					searchInputHeight:"40px",
-					headerIconBackground:"#535553",
+					headerIconBackground:"#dbcfcfcc",
 					headerIconBadgeColor:"#df1212",
 					fontFamily:"default",
 					fontWeightThin:"100",
@@ -160,6 +162,55 @@
         this.getDefaults = ()=>{
         	return defaults;
         }
+
+        const themeStyles = {
+            classcial: {
+                colorScheme: "#4b2323",
+                bodyColor: "#d9d0d0",
+                textColor: "#3c3030",
+                foregroundColor: "#fff8f2",
+                modalHeaderBgColor: "#762f2f",
+                bookmarksDirColor: "#8f6840",
+                bookmarksDirIcon: "dir-classcial",
+                hoverColor: "#4b232216",
+                headerIconBackground: "#c4a4a4cc",
+                searchFieldBackground: "#ffffff1f",
+                separatorColor: "#3c303028"
+            },
+            young: {
+                colorScheme: "#16812a",
+                bodyColor: "#e7f0e4",
+                textColor: "#181515",
+                foregroundColor: "#ffffff",
+                modalHeaderBgColor: "#229538",
+                bookmarksDirColor: "#2f6a3c",
+                bookmarksDirIcon: "dir-young",
+                hoverColor: "#16812a14",
+                headerIconBackground: "#ffffffcc",
+                searchFieldBackground: "#ffffff40",
+                separatorColor: "#18151524"
+            },
+            happy: {
+                colorScheme: "#bb3515",
+                bodyColor: "#ddd6d6",
+                textColor: "#3d3333",
+                foregroundColor: "#ffffff",
+                modalHeaderBgColor: "#bd2323",
+                bookmarksDirColor: "#c4532e",
+                bookmarksDirIcon: "dir-happy",
+                hoverColor: "#bb351514",
+                headerIconBackground: "#f0d2cccc",
+                searchFieldBackground: "#ffffff24",
+                separatorColor: "#3d333328"
+            }
+        };
+
+        this.getThemeStyles = (name) => {
+            if (name) {
+                return themeStyles[name] || null;
+            }
+            return themeStyles;
+        };
 
         /**
          * Initialises the model

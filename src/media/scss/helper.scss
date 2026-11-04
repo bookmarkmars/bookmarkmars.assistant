@@ -160,7 +160,7 @@ section#helper {
       left: 0px;
       width: calc(100% - 20px);
       height: $__searchInputHeight;
-      background-color:#b8b8b833;
+      background-color: $__searchFieldBackground;
       border-radius: 10px;
       transform: translate3d(0, 0, 0);
       transition: transform 0.3s, opacity 0.3s;
@@ -192,12 +192,12 @@ section#helper {
         cursor: pointer;
         background: transparent;
         border:none;
-        color: #ffffff;
+        color: $__foregroundColor;
         float: right;
         
         > option {
             background: $__colorScheme;
-            color: white;
+            color: $__foregroundColor;
             padding: 10px 15px;
             border: none;
             text-align: center;
@@ -253,7 +253,7 @@ section#helper {
            width: 40px;
            height: 40px;
            border-radius: 50%;
-           background-color: #dbcfcfcc;
+           background-color: $__headerIconBackground;
            transition: box-shadow 0.5s;
            cursor: pointer;
            text-align: center;
@@ -295,7 +295,7 @@ section#helper {
                 padding: 20px 0 0 0;
                 font-size: 100%;
                 text-align: center;
-                color: #fff;
+                color: $__foregroundColor;
                 transition: color 0.5s;
                 
                 /*超出则省略号*/
@@ -345,7 +345,7 @@ section#helper {
              
              > option {
                 background:$__colorScheme;
-                color: white;
+                color: $__foregroundColor;
                 padding: 10px 15px;
                 border: none;
                 text-align: center;
@@ -530,7 +530,7 @@ section#helper {
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: $hoverColor;
+        background-color: $__hoverColor;
       }
     }
   }

@@ -43,7 +43,7 @@
             ext.elm.indicator = $("<div></div>")
                 .attr("id", $.opts.ids.page.indicator)
                 .addClass("notranslate")
-                .appendTo("body["+$.attr.uid+"='"+ext.uid+"']");
+                .appendTo($(ext.elm.shadow));
                 
             //影藏召唤球
             if(pageType === $.opts.attr.sidepanel){
@@ -386,7 +386,7 @@
         		
         		const boundClientRect = $(node)[0].getBoundingClientRect();
 	        	//删除重复的内容
-	        	$("div."+$.cl.toggle.dragHelper).remove();
+	        	ext.elm.indicator.find("div."+$.cl.toggle.dragHelper).remove();
 	      	    $(node).removeClass($.cl.toggle.isDragged);
 	      	    
 	      	    const clone=$(node).clone();
@@ -523,7 +523,7 @@
 
         	let draggedElm = dragSession && dragSession.helper
         		? dragSession.helper
-        		: $("#"+$.opts.ids.page.indicator).find("div."+$.cl.toggle.dragHelper);
+        		: ext.elm.indicator.find("div."+$.cl.toggle.dragHelper);
         	let isDraggedElm = dragSession && dragSession.ball
         		? dragSession.ball
         		: draggedElm.data("elm");
@@ -538,8 +538,8 @@
 
             	//getBoundingClientRect可以获取到相关信息，则从球上面获取
                 if(top===0 && left===0){
-                	top=$("#"+$.opts.ids.page.indicator).find("div.indicator").css("top").replace("px","");
-                	left=$("#"+$.opts.ids.page.indicator).find("div.indicator").css("left").replace("px","");
+                	top=ext.elm.indicator.find("div.indicator").css("top").replace("px","");
+                	left=ext.elm.indicator.find("div.indicator").css("left").replace("px","");
                 }
                 
                 let eleData=setBallPosition(top,left);
@@ -608,7 +608,7 @@
         	}
             let draggedElm = dragSession && dragSession.helper
             	? dragSession.helper
-            	: $("#"+$.opts.ids.page.indicator).find("div."+$.cl.toggle.dragHelper);
+            	: ext.elm.indicator.find("div."+$.cl.toggle.dragHelper);
         	if(draggedElm){
 	    		if(dragSession && dragSession.ball){
 	    			dragSession.ball.removeClass($.cl.toggle.isDragged);
@@ -618,7 +618,7 @@
 	    		}
 	        	draggedElm.remove();
             }
-        	$("#"+$.opts.ids.page.indicator).find("div."+$.cl.toggle.isDragging).removeClass($.cl.toggle.isDragging);
+        	ext.elm.indicator.find("div."+$.cl.toggle.isDragging).removeClass($.cl.toggle.isDragging);
         	dragSession = null;
         	pendingDragPos = null;
         };
@@ -690,7 +690,7 @@
             });
             
             //鼠标点击
-            ext.elm.indicator.ball.on("click mousedown","div."+$.cl.toggle.collect,(e) => { 
+            ext.elm.indicator.ball.on("click","div."+$.cl.toggle.collect,(e) => { 
             	
             	//先同步登录信息
             	ext.helper.user.asyUserInfo().then(()=>{
@@ -725,7 +725,7 @@
                 }
             });
             
-            $(document).on("mouseup drop","div#"+$.opts.ids.page.indicator+" > div."+$.cl.toggle.indicator,(e) => { // drag end
+            ext.elm.indicator.on("mouseup drop","> div."+$.cl.toggle.indicator,(e) => { // drag end
             	
         		const diffX = Math.abs(e.pageX - startX);
 				const diffY = Math.abs(e.pageY - startY);

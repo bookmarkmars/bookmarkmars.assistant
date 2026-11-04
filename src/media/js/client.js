@@ -249,23 +249,26 @@
         const destroyOldInstance = () => {
             
             let ret = false;
-            const elements = [];
 
-            ["iframe#" + $.opts.ids.page.iframe, "iframe#" + $.opts.ids.page.overlay, "div#" + $.opts.ids.page.indicator,"div#" + $.opts.ids.confirm.toast].forEach((elm) => {
-                elements.push($(elm));
+            const root = document.getElementById("lds_be_root");
+            if (root) {
+                root.remove();
+                ret = true;
+            }
+            // Older builds left these on the page. A shadow host already took its children with it.
+            ["iframe#" + $.opts.ids.page.iframe, "iframe#" + $.opts.ids.page.overlay, "div#" + $.opts.ids.page.indicator, "div#" + $.opts.ids.page.panel, "div#" + $.opts.ids.confirm.toast].forEach((sel) => {
+                document.querySelectorAll(sel).forEach((node) => {
+                    node.remove();
+                    ret = true;
+                });
             });
-
-            const elmObj = $(elements);
+            this.elm.shadow = null;
+            this.elm.root = null;
 
 			//消除所有事件
             $(document).off("*.be");
             $(window).off("*.be");
 
-			//删除所有内容
-            if (elmObj.length() > 0) {
-                elmObj.remove();
-                ret = true;
-            }
             return ret;
         };
         
@@ -367,6 +370,12 @@
 	            }).then(()=>{
 	            	return this.helper.styleHelper.addStylesheets(["basic"]);//基本刷新
 	            }).then(()=>{
+	            	const hold = this.elm.shadow && this.elm.shadow.firstElementChild;
+	            	if (hold) {
+	            		return this.helper.styleHelper.readCss(["basic"], $(hold), false, "shadow");
+	            	}
+	            	return null;
+	            }).then(()=>{
 	            	return this.helper.ball.refreshBallSize();//刷新球大小
 	            });
 	        }
@@ -425,8 +434,11 @@
                 const htmlUid = $("html").attr($.attr.uid);
                 if (typeof htmlUid === "undefined" || uid === htmlUid) {
                     
-                    const iframe = $("iframe#" + $.opts.ids.page.iframe);
-                    if (iframe.length() === 0 || !iframe[0].contentDocument || !iframe[0].contentDocument.body || iframe[0].contentDocument.body.childElementCount === 0) {
+                    const iframe = this.elm.shadow
+                    	? this.elm.shadow.querySelector("iframe#" + $.opts.ids.page.iframe)
+                    	: null;
+                    const rootGone = !this.elm.root || !this.elm.root.isConnected;
+                    if (rootGone || !iframe || !iframe.contentDocument || !iframe.contentDocument.body || iframe.contentDocument.body.childElementCount === 0) {
                         
                         destroyOldInstance();//发现有残余，踢出
                         init(true);//强制再次初始化
@@ -477,56 +489,93 @@
          *
          * @returns {Promise}
          */
-        const initSidebarMarkup = async () => {
-        	
-            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\"></iframe>")
-                .addClass(["notranslate"])// 'notranslate' prevents Google translator from translating the content of the sidebar
-             .appendTo("body");
-             
-            $("body").attr($.attr.uid, uid); 
-            
-            
-            //添加toast
-            this.elm.toast=$("<div id=\"" + $.opts.ids.confirm.toast + "\" ></div>")
-      		.append($("<div></div>").addClass($.cl.confirm.toastText))
-      		.appendTo("body");
-  
-            //给头部加入css   
-            this.elm.iframeHeader=this.elm.iframe.find("head");
-            
-            this.helper.styleHelper.readCss(["helper"], this.elm.iframeHeader);
-            
-            //处理body
-            this.elm.iframeBody = this.elm.iframe.find("body");
+        const initSidebarMarkup = () => {
 
-			//section
-			const pageType = this.helper.util.getPageType();
-			let position = pageType === $.opts.attr.sidepanel ?"right":this.helper.dao.getData("b/position");
-
-            this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\"  "+$.attr.position+"=\"" + position + "\"></section>").appendTo(this.elm.iframeBody);
-
-			if(pageType === $.opts.attr.sidepanel){
-            	this.elm.sidebar.css("width","calc(100% - 2px)");//强制撑满
-            }
-
-            this.elm.header = $("<header></header>").prependTo(this.elm.sidebar);
-            
-            //sort
-            initSortBox();
-            
-            //搜索和展示框
-            this.elm.bookmarkBox = {};
-            ["all", "search"].forEach((val) => {
-                this.elm.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul></ul>").appendTo(this.elm.sidebar));
+            const host = document.createElement("div");
+            host.id = "lds_be_root";
+            host.className = "notranslate";
+            [
+                ["display", "block"],
+                ["position", "fixed"],
+                ["z-index", "2147483644"],
+                ["top", "0"],
+                ["right", "0"],
+                ["bottom", "0"],
+                ["left", "0"],
+                ["width", "auto"],
+                ["height", "auto"],
+                ["margin", "0"],
+                ["padding", "0"],
+                ["border", "0"],
+                ["background", "transparent"],
+                ["overflow", "visible"],
+                ["pointer-events", "none"],
+                ["transform", "none"],
+                ["filter", "none"],
+                ["contain", "none"],
+                ["opacity", "1"],
+                ["visibility", "visible"]
+            ].forEach((pair) => {
+                host.style.setProperty(pair[0], pair[1], "important");
             });
+            document.body.appendChild(host);
+            const shadow = host.attachShadow({mode: "closed"});
+            this.elm.root = host;
+            this.elm.shadow = shadow;
+            const styleHold = document.createElement("div");
+            shadow.appendChild(styleHold);
 
-            //触发自定义事件，在new Tab中使用
-            this.helper.util.triggerEvent("elementsCreated", {
-                elm: {
-                    iframe: this.elm.iframe,
-                    sidebar: this.elm.sidebar
-                },
-                helper: this.helper
+            return this.helper.styleHelper.readCss(["basic"], $(styleHold), false, "shadow").then(() => {
+
+                this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\"></iframe>")
+                    .addClass(["notranslate"])// 'notranslate' prevents Google translator from translating the content of the sidebar
+                    .appendTo($(shadow));
+
+                $("body").attr($.attr.uid, uid);
+
+
+                //添加toast
+                this.elm.toast=$("<div id=\"" + $.opts.ids.confirm.toast + "\" ></div>")
+                    .append($("<div></div>").addClass($.cl.confirm.toastText))
+                    .appendTo($(shadow));
+
+                //给头部加入css
+                this.elm.iframeHeader=this.elm.iframe.find("head");
+
+                this.helper.styleHelper.readCss(["helper"], this.elm.iframeHeader);
+
+                //处理body
+                this.elm.iframeBody = this.elm.iframe.find("body");
+
+                //section
+                const pageType = this.helper.util.getPageType();
+                let position = pageType === $.opts.attr.sidepanel ?"right":this.helper.dao.getData("b/position");
+
+                this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\"  "+$.attr.position+"=\"" + position + "\"></section>").appendTo(this.elm.iframeBody);
+
+                if(pageType === $.opts.attr.sidepanel){
+                    this.elm.sidebar.css("width","calc(100% - 2px)");//强制撑满
+                }
+
+                this.elm.header = $("<header></header>").prependTo(this.elm.sidebar);
+
+                //sort
+                initSortBox();
+
+                //搜索和展示框
+                this.elm.bookmarkBox = {};
+                ["all", "search"].forEach((val) => {
+                    this.elm.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul></ul>").appendTo(this.elm.sidebar));
+                });
+
+                //触发自定义事件，在new Tab中使用
+                this.helper.util.triggerEvent("elementsCreated", {
+                    elm: {
+                        iframe: this.elm.iframe,
+                        sidebar: this.elm.sidebar
+                    },
+                    helper: this.helper
+                });
             });
         };
         

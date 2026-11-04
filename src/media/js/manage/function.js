@@ -5,45 +5,6 @@
     	
     	let languages = {};
 
-        const themes = {
-            classcial: {
-                appearance: {
-                    styles: {
-                        colorScheme: "#4b2323",
-                        bodyColor: "#6e5454",
-                        textColor:"#e2dcdc",
-                        modalHeaderBgColor:"#762f2f",
-                        bookmarksDirColor:"#ecd6a3",
-                        bookmarksDirIcon:"dir-classcial",
-                    }
-                }
-            },
-            young: {
-                appearance: {
-                    styles: {
-                        colorScheme: "#16812a",
-                        bodyColor: "#def0db",
-                        textColor:"#181515",
-                        modalHeaderBgColor:"#229538",
-                        bookmarksDirColor:"#6f776f",
-                        bookmarksDirIcon:"dir-young",
-                    }
-                }
-            },
-            happy:{
-            	appearance: {
-                    styles: {
-                        colorScheme: "#bb3515",
-                        bodyColor: "#5b5050",
-                        textColor:"#fff6f6",
-                        modalHeaderBgColor:"#bd2323",
-                        bookmarksDirColor:"#f3f3f3",
-                        bookmarksDirIcon:"dir-happy",
-                    }
-                }
-            }
-        };
-
         /**
          * Initialises the appearance settings
          *
@@ -174,12 +135,12 @@
                 lang:lang
             };
             
+            const themePalette = s.helper.dao.getThemeStyles(ret.appearance.theme);
             if(ret.appearance.theme==="default"){
             	
-            	let defaultStyles = s.helper.dao.getData("a/styles",true);//默认值
+            	let defaultStyles = s.helper.dao.getData("a/styles",true);
             	
-            	//使用默认值
-            	Object.keys(themes.classcial.appearance.styles).forEach((key) => {
+            	Object.keys(s.helper.dao.getThemeStyles("classcial")).forEach((key) => {
             		styles[key]=defaultStyles[key];
             	});
             }
@@ -197,12 +158,8 @@
             		}
             	}
 
-				//theme
-                if(ret.appearance.theme!=="default"){
-                	let newSty=themes[ret.appearance.theme].appearance.styles[key];
-                	if(newSty){
-                		ret.appearance.styles[key]=newSty;
-                	}
+                if(themePalette && themePalette[key]){
+                	ret.appearance.styles[key]=themePalette[key];
                 }
                              
                 //indicatorStyle

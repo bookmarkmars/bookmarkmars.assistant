@@ -34,7 +34,7 @@
             ext.elm.panel = $("<div></div>")
                 .attr("id", $.opts.ids.page.panel)
                 .addClass("notranslate")
-                .appendTo("body["+$.attr.uid+"='"+ext.uid+"']");
+                .appendTo($(ext.elm.shadow));
 
             Object.entries(data.panel).forEach(([key, val]) => {
                 panel[key] = +val;

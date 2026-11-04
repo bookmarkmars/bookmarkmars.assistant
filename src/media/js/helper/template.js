@@ -26,10 +26,16 @@
         this.overlay = (type, title,id=null) => {
             const ret = {};
 
+            const shell = ext.elm && ext.elm.shadow ? $(ext.elm.shadow) : "body";
             ret.overlay = $("<iframe></iframe>")
                 .attr("id", id!=null?id:$.opts.ids.page.overlay)
                 .addClass("notranslate") // 'notranslate' prevents Google translator from translating the content of the overlay
-                .appendTo("body");
+                .appendTo(shell);
+
+            if (ret.overlay[0]) {
+                // Same compositing as the sidebar frame, so clicks are delivered to this frame.
+                ret.overlay[0].style.transform = "translate3d(0,0,0)";
+            }
 
             ext.helper.styleHelper.addStylesheets(["popup"], ret.overlay,id!=null?true:false);
 
