@@ -194,16 +194,14 @@
             const grid = $("<div></div>").addClass("nt-tools-grid").appendTo(box);
             // Four icons stay in view. The rest scroll inside the card.
             tools.forEach((tool, idx) => {
-                const provisional = tool.icon ? n.helper.util.normalizeRemoteIconUrl(tool.icon) : null;
+                const toolIcon = (tool.icon && String(tool.icon).indexOf("http") === 0)
+                    ? n.helper.util.normalizeRemoteIconUrl(tool.icon)
+                    : "";
                 const imgAttrs = {
                     alt: tool.title,
-                    "data-tool-icon": String(idx)
+                    "data-tool-icon": String(idx),
+                    src: toolIcon || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 };
-                if (provisional && (provisional.indexOf("data:") === 0 || provisional.indexOf("http") === 0)) {
-                    imgAttrs.src = provisional;
-                } else {
-                    imgAttrs.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-                }
 
                 const a = $("<a></a>")
                     .attr({ href: tool.url, title: tool.title })
@@ -214,6 +212,7 @@
 
                 n.helper.dao.call("getFavicon", {
                     url: tool.url,
+                    iconUrl: toolIcon,
                     icon: { size: 32, title: tool.title },
                     query: true
                 }).then((response) => {

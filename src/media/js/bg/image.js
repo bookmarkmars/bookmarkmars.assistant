@@ -545,6 +545,23 @@
 
                 const size = (opts.icon && opts.icon.size) || ICON_SIZE;
 
+                const preferCatalogIcon = () => {
+                	const iconUrl = opts.iconUrl;
+                	if (!iconUrl || typeof iconUrl !== "string" || iconUrl.indexOf("http") !== 0) {
+                		return Promise.resolve(null);
+                	}
+                	return fetchBlobWithTimeout(iconUrl, FAVICON_FETCH_TIMEOUT)
+                		.then((blob) => blobToPngDataUrl(blob, size))
+                		.then((dataUrl) => {
+                			if (!dataUrl) {
+                				return null;
+                			}
+                			updateImageCache("favicon", opts.url, dataUrl);
+                			return {img: dataUrl};
+                		})
+                		.catch(() => null);
+                };
+
                 const withRemoteFallback = () => {
                     fetchRemoteFaviconAsBase64(opts.url, size).then((remote) => {
                         finish(remote);
@@ -553,6 +570,11 @@
                     });
                 };
             	
+            	preferCatalogIcon().then((catalogHit) => {
+            		if (catalogHit && catalogHit.img) {
+            			finish(catalogHit);
+            			return;
+            		}
             	if($.browserCoreVersion < $.faviconLowestVersion){
                     withRemoteFallback();
             	}else if(opts.query){
@@ -569,6 +591,7 @@
             		}else{
             			this.fetchBase64Img(opts).then(finish).catch(() => finish(null));
             		}
+            	});
             });
         };
     };

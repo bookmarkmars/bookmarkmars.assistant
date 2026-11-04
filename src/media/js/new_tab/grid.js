@@ -595,10 +595,6 @@
          * The dragged tile takes that place, and the original shifts back one.
          * Pinned and locked shortcuts are never moved.
          */
-        this.reorderShortcut = (dragUrl, targetUrl) => {
-        	return this.reorderEntry({type: "link", url: dragUrl}, {type: "link", url: targetUrl});
-        };
-
         this.reorderEntry = (drag, target) => {
         	const links = (n.helper.dao.getData("n/links") || []).slice();
         	const norm = n.helper.util.normalizeShortcutUrl;
@@ -695,70 +691,6 @@
         	}
         	const copyOnly = !!(folder.locked || folder.role === "categoryPin");
         	return this.persistLinks(copyOnly ? links : remaining, {reload: false}).then(() => true);
-        };
-
-        /**
-         * Eject a child link from a folder back to the top-level grid.
-         */
-        this.ejectFromFolder = (folderId, childUrl) => {
-        	const links = n.helper.dao.getData("n/links") || [];
-        	const norm = n.helper.util.normalizeShortcutUrl;
-        	const targetUrl = norm(childUrl);
-        	let ejected = null;
-        	links.forEach((item) => {
-        		if (!item || item.type !== "folder") {
-        			return;
-        		}
-        		if (item.id !== folderId && item.categoryId !== folderId) {
-        			return;
-        		}
-        		const kids = Array.isArray(item.children) ? item.children : [];
-        		item.children = kids.filter((c) => {
-        			if (c && norm(c.url) === targetUrl) {
-        				ejected = c;
-        				return false;
-        			}
-        			return true;
-        		});
-        	});
-        	if (!ejected) {
-        		return Promise.resolve(false);
-        	}
-        	const exists = links.some((item) => {
-        		return item && item.type !== "folder" && norm(item.url) === targetUrl;
-        	});
-        	if (!exists) {
-        		links.unshift(Object.assign({}, ejected, {
-        			type: "link",
-        			selected: true,
-        			fixed: false
-        		}));
-        	}
-        	return this.persistLinks(links, {reload: true}).then(() => true);
-        };
-
-        /**
-         * Create an empty user folder at the front of the grid.
-         */
-        this.createFolder = (title) => {
-        	const links = n.helper.dao.getData("n/links") || [];
-        	const name = (title || "").trim() || "New folder";
-        	const folder = {
-        		id: "user-folder-" + Date.now(),
-        		type: "folder",
-        		title: name,
-        		url: "",
-        		icon: null,
-        		selected: true,
-        		fixed: false,
-        		locked: false,
-        		remove: false,
-        		origin: 0,
-        		categoryId: activeCategoryId || null,
-        		children: []
-        	};
-        	links.unshift(folder);
-        	return this.persistLinks(links, {reload: true});
         };
 
         /**
@@ -895,17 +827,14 @@
 
         const paintShortcutIcon = (entryLink, page) => {
             const icon = { size: 32, title: page.title || page.url };
-            const provisional = page.icon ? n.helper.util.normalizeRemoteIconUrl(page.icon) : null;
-            const imgAttrs = { alt: page.title || "" };
-            if (provisional && (provisional.indexOf("data:") === 0 || provisional.indexOf("http") === 0)) {
-                imgAttrs.src = provisional;
-            } else {
-                // Transparent 1x1 so Chrome never shows the broken-image glyph
-                imgAttrs.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-            }
-
+            const iconUrl = (page.icon && String(page.icon).indexOf("http") === 0)
+            	? n.helper.util.normalizeRemoteIconUrl(page.icon)
+            	: "";
             $("<div></div>")
-                .append($("<img />").attr(imgAttrs))
+                .append($("<img />").attr({
+                	alt: page.title || "",
+                	src: iconUrl || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                }))
                 .prependTo(entryLink);
 
             if (!page.url) {
@@ -914,6 +843,7 @@
 
             n.helper.dao.call("getFavicon", {
                 url: page.url,
+                iconUrl: iconUrl,
                 icon: icon,
                 query: true
             }).then((response) => {
@@ -928,16 +858,14 @@
             const preview = $("<div></div>").addClass("nt-folder-preview");
             const kids = (page.children || []).filter((c) => c && c.selected !== false).slice(0, 4);
             kids.forEach((child, idx) => {
-                const provisional = child.icon ? n.helper.util.normalizeRemoteIconUrl(child.icon) : null;
+                const childIcon = (child.icon && String(child.icon).indexOf("http") === 0)
+                	? n.helper.util.normalizeRemoteIconUrl(child.icon)
+                	: "";
                 const imgAttrs = {
                     alt: child.title || "",
-                    "data-folder-icon": String(idx)
+                    "data-folder-icon": String(idx),
+                    src: childIcon || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                 };
-                if (provisional && (provisional.indexOf("data:") === 0 || provisional.indexOf("http") === 0)) {
-                    imgAttrs.src = provisional;
-                } else {
-                    imgAttrs.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-                }
                 const cell = $("<div></div>");
                 if (child.url) {
                     cell.attr("data-href", child.url)
@@ -954,6 +882,7 @@
                 const childIdx = idx;
                 n.helper.dao.call("getFavicon", {
                     url: childUrl,
+                    iconUrl: childIcon,
                     icon: { size: 32, title: child.title || childUrl },
                     query: true
                 }).then((response) => {
@@ -1382,6 +1311,28 @@
 	        		pages.push(item);
 	        	})
 	        	
+	        	const catalogLinkIds = new Set();
+	        	const catalogLinkUrls = new Set();
+	        	const rememberCatalogLink = (node) => {
+	        		if (!node || node.type === "folder" || !node.url) {
+	        			return;
+	        		}
+	        		if (node.id) {
+	        			catalogLinkIds.add(node.id);
+	        		}
+	        		catalogLinkUrls.add(n.helper.util.normalizeShortcutUrl(node.url));
+	        	};
+	        	arr.forEach((entry) => {
+	        		if (!entry) {
+	        			return;
+	        		}
+	        		if (entry.type === "folder") {
+	        			(entry.children || []).forEach(rememberCatalogLink);
+	        			return;
+	        		}
+	        		rememberCatalogLink(entry);
+	        	});
+
 	        	//push
 	        	pages.forEach((item)=>{
 	        		
@@ -1395,22 +1346,25 @@
 	        			}
 	                }
 	        		
+	        		// A catalog child moved out of its folder keeps the catalog id.
+	        		if (item.type !== "folder" && item.id && catalogLinkIds.has(item.id)) {
+	        			item.origin = 1;
+	        		}
+
 	        		//本地缓存显示来源远程，但是实际上现在又没有了，则说明远程删除
-	        		// categoryPin folders are client-owned and are not catalog tiles
+	        		// categoryPin folders are client-owned and are not catalog tiles.
+	        		// A link inside a catalog folder still counts, so moving it out does not delete it.
 	        		if (item.origin === 1 && item.role !== "categoryPin" && !(item.type === "folder" && String(item.id || "").indexOf("pin:") === 0)) {
-	        			const stillInCatalog = arr.some((e) => {
-	        				if (!e) {
-	        					return false;
-	        				}
-	        				if (item.type === "folder") {
-	        						return e.type === "folder"
-	        							&& (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId);
-	        				}
-	        				if (e.type === "folder") {
-	        					return false;
-	        				}
-	        				return n.helper.util.normalizeShortcutUrl(e.url) === n.helper.util.normalizeShortcutUrl(item.url);
-	        			});
+	        			let stillInCatalog = false;
+	        			if (item.type === "folder") {
+	        				stillInCatalog = arr.some((e) => {
+	        					return e && e.type === "folder"
+	        						&& (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId);
+	        				});
+	        			} else {
+	        				const key = n.helper.util.normalizeShortcutUrl(item.url);
+	        				stillInCatalog = catalogLinkUrls.has(key) || !!(item.id && catalogLinkIds.has(item.id));
+	        			}
 	        			if (!stillInCatalog) {
 	        				return;
 	        			}

@@ -294,7 +294,38 @@
             $("<a></a>").addClass($.cl.confirm.action).text(n.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
         
-        const addEntry = (item,list)=>{
+        /**
+         * A new row sits after Pinned and any locked shortcut. The latest add is first.
+         */
+        const placeNewEditorRow = (list, entry) => {
+            const parent = list && list[0];
+            const node = entry && entry[0];
+            if (!parent || !node || node.parentNode !== parent) {
+                return;
+            }
+            let anchor = null;
+            const rows = parent.children;
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                if (row === node) {
+                    continue;
+                }
+                if (row.classList.contains("nt-edit-pin") || row.classList.contains($.cl.lock)) {
+                    anchor = row;
+                    continue;
+                }
+                break;
+            }
+            const before = anchor ? anchor.nextSibling : parent.firstChild;
+            if (before !== node) {
+                parent.insertBefore(node, before);
+            }
+            if (node.scrollIntoView) {
+                node.scrollIntoView({block: "nearest"});
+            }
+        };
+
+        const addEntry = (item,list,insertAfterLocked)=>{
 
         	// Folder row in the shortcut editor
         	if (item && item.type === "folder") {
@@ -335,6 +366,9 @@
         			entry.addClass($.cl.remove)
         				.append($("<span></span>").append(rm));
         		}
+        		if (insertAfterLocked) {
+        			placeNewEditorRow(list, entry);
+        		}
         		return;
         	}
         	 
@@ -350,6 +384,9 @@
             //指明来源
             entry.attr($.attr.origin,item.origin);
             entry.attr($.attr.type, "link");
+            if (item.icon && String(item.icon).indexOf("http") === 0) {
+            	entry.attr("data-icon", n.helper.util.normalizeRemoteIconUrl(item.icon));
+            }
             entry.attr("data-category", item.categoryId || "");
             if (item.id) {
             	entry.attr("data-id", item.id);
@@ -388,39 +425,45 @@
             	
             }
             
-            if(item.icon && item.icon!="undefined" && (item.icon.startsWith("http") || item.icon.startsWith("data:image"))){
-            	const favicon = $("<img />")
-            		.attr("src", n.helper.util.normalizeRemoteIconUrl(item.icon));
-                favicon.prependTo(entry.children("a"));
-                favicon[0].onerror = () => {
-                	// Broken http icon → first character of title
-                	n.helper.dao.call("getFavicon", {
-                		url: item.url,
-                		icon: {size: 32, title: item.title || item.url},
-                		query: true
-                	}).then((response) => {
-                		if (response && response.img) {
-                			favicon.attr("src", response.img);
-                			favicon[0].onerror = null;
-                		}
-                	});
-                };
-            }else{
+            if (insertAfterLocked) {
+            	placeNewEditorRow(list, entry);
+            }
+
+            const iconUrl = (item.icon && String(item.icon).indexOf("http") === 0)
+            	? n.helper.util.normalizeRemoteIconUrl(item.icon)
+            	: "";
+            const favicon = $("<img />").attr({
+            	alt: item.title || "",
+            	src: iconUrl || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            });
+            const liveIcon = favicon.prependTo(entry.children("a"));
+            if (item.url) {
             	n.helper.dao.call("getFavicon", {
             		url: item.url,
+            		iconUrl: iconUrl,
             		icon: {size: 32, title: item.title || item.url},
             		query: true
             	}).then((response) => {
-	                if (response && response.img) {
-	                    const favicon = $("<img />")
-	                    	.attr("src", response.img);
-	                    favicon.prependTo(entry.children("a"));
-	                }
-	            });
+            		if (response && response.img && liveIcon && liveIcon[0]) {
+            			liveIcon[0].src = response.img;
+            		}
+            	});
             }
         }
         
         
+        /**
+         * The dragged tile takes the target tile's place. The target shifts back one.
+         */
+        const placeDraggedTile = (dragged, target) => {
+            if (!dragged || !target || dragged === target || !target.parentNode) {
+                return;
+            }
+            const parent = target.parentNode;
+            const draggedIsAfter = (target.compareDocumentPosition(dragged) & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;
+            parent.insertBefore(dragged, draggedIsAfter ? target : target.nextSibling);
+        };
+
         /**
          * Open a shortcut folder — browse mode, or full organize mode (reorder / eject / add).
          * @param {object} payload folder object, or {folder, organize:true}
@@ -441,6 +484,27 @@
             let dirty = false;
             let draggedTile = null;
             const pendingEject = []; // children moved back to this tab; applied on CLOSE/X
+            let layout = (working.children || []).slice();
+            const syncLayout = () => {
+                const current = (working.children || []).slice();
+                const stillThere = new Set(current);
+                const next = current.slice();
+                layout.forEach((item, oldAt) => {
+                    if (!item || stillThere.has(item)) {
+                        return;
+                    }
+                    let insertAt = next.length;
+                    for (let i = oldAt + 1; i < layout.length; i++) {
+                        const follower = next.indexOf(layout[i]);
+                        if (follower >= 0) {
+                            insertAt = follower;
+                            break;
+                        }
+                    }
+                    next.splice(insertAt, 0, item);
+                });
+                layout = next;
+            };
             const categories = (n.helper.grid && typeof n.helper.grid.getNavCategories === "function")
                 ? n.helper.grid.getNavCategories()
                 : [];
@@ -600,6 +664,7 @@
                     }
                 });
                 working.children = ordered;
+                syncLayout();
             };
 
             const renderTiles = () => {
@@ -607,16 +672,14 @@
                 const kids = (working.children || []).filter((item) => item && item.selected !== false);
                 kids.forEach((item, idx) => {
                     // jsu clones on append — set img src (+ data attr) BEFORE any insert
-                    const provisional = item.icon ? n.helper.util.normalizeRemoteIconUrl(item.icon) : null;
+                    const folderIcon = (item.icon && String(item.icon).indexOf("http") === 0)
+                    	? n.helper.util.normalizeRemoteIconUrl(item.icon)
+                    	: "";
                     const imgAttrs = {
                         alt: item.title || "",
-                        "data-folder-open-icon": String(idx)
+                        "data-folder-open-icon": String(idx),
+                        src: folderIcon || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     };
-                    if (provisional && (provisional.indexOf("data:") === 0 || provisional.indexOf("http") === 0)) {
-                        imgAttrs.src = provisional;
-                    } else {
-                        imgAttrs.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-                    }
 
                     const tile = $("<a></a>")
                         .addClass("nt-folder-tile")
@@ -649,6 +712,7 @@
                     const childIdx = idx;
                     n.helper.dao.call("getFavicon", {
                         url: item.url,
+                        iconUrl: folderIcon,
                         icon: {size: 32, title: item.title || item.url},
                         query: true
                     }).then((response) => {
@@ -689,26 +753,38 @@
                     return c && c.url ? norm(c.url) : "";
                 }).filter(Boolean));
 
-                // Replace this folder only. Pinned copies stay on the tab.
+                // Replace this folder in place. Pinned copies stay on the tab.
                 // A normal folder still takes the shortcut off the grid.
-                const next = links.filter((item) => {
+                const next = [];
+                let folderAt = -1;
+                links.forEach((item) => {
                     if (!item) {
-                        return false;
+                        return;
                     }
-                    if (item.type === "folder" && (item.id === folderId
-                        || (isPin && item.role === "categoryPin" && item.categoryId === working.categoryId))) {
-                        return false;
+                    const isThisFolder = item.type === "folder" && (item.id === folderId
+                        || (isPin && item.role === "categoryPin" && item.categoryId === working.categoryId));
+                    if (isThisFolder) {
+                        folderAt = next.length;
+                        next.push(working);
+                        return;
                     }
                     if (!isPin && item.type !== "folder" && item.url && childKeys.has(norm(item.url))
                         && itemCategory(item) === tabId) {
-                        return false;
+                        return;
                     }
-                    return true;
+                    next.push(item);
                 });
-                next.unshift(working);
+                if (folderAt < 0) {
+                    folderAt = next.length;
+                    next.push(working);
+                }
 
-                // Restore ejected children to this tab
-                pendingEject.forEach((item) => {
+                // Released shortcuts return just after this folder, in folder order.
+                const released = pendingEject.slice().sort((a, b) => {
+                    return layout.indexOf(a) - layout.indexOf(b);
+                });
+                const block = [];
+                released.forEach((item) => {
                     if (!item || !item.url) {
                         return;
                     }
@@ -716,16 +792,20 @@
                     const exists = next.some((row) => {
                         return row && row.type !== "folder" && itemCategory(row) === tabId && norm(row.url) === key;
                     });
-                    if (!exists && !childKeys.has(key)) {
-                        next.push(Object.assign({}, item, {
-                            type: "link",
-                            selected: true,
-                            fixed: false,
-                            categoryId: item.categoryId || tabId,
-                            // User chose to keep it on this tab
-                            origin: 0
-                        }));
+                    if (exists || childKeys.has(key)) {
+                        return;
                     }
+                    const keptOrigin = (item.origin === 1 || item.origin === "1") ? 1 : 0;
+                    block.push(Object.assign({}, item, {
+                        type: "link",
+                        selected: true,
+                        fixed: false,
+                        categoryId: tabId,
+                        origin: keptOrigin
+                    }));
+                });
+                block.forEach((item, index) => {
+                    next.splice(folderAt + 1 + index, 0, item);
                 });
 
                 closeOverlay();
@@ -765,6 +845,7 @@
                 const url = tile.data("href");
                 const norm = n.helper.util.normalizeShortcutUrl;
                 const target = norm(url);
+                syncLayout();
                 const removed = [];
                 working.children = (working.children || []).filter((c) => {
                     if (c && norm(c.url) === target) {
@@ -806,11 +887,7 @@
                 if (!editMode || !draggedTile || draggedTile === e.currentTarget) {
                     return;
                 }
-                const parent = e.currentTarget.parentNode;
-                const first = parent.querySelector("a.nt-folder-tile");
-                if (first) {
-                    parent.insertBefore(draggedTile, first);
-                }
+                placeDraggedTile(draggedTile, e.currentTarget);
                 readOrderFromDom();
                 markDirty();
                 draggedTile = null;
@@ -1037,16 +1114,14 @@
                     if (!item || item.selected === false) {
                         return;
                     }
-                    const provisional = item.icon ? n.helper.util.normalizeRemoteIconUrl(item.icon) : null;
+                    const folderIcon = (item.icon && String(item.icon).indexOf("http") === 0)
+                    	? n.helper.util.normalizeRemoteIconUrl(item.icon)
+                    	: "";
                     const imgAttrs = {
                         alt: item.title || "",
-                        "data-folder-open-icon": String(idx)
+                        "data-folder-open-icon": String(idx),
+                        src: folderIcon || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     };
-                    if (provisional && (provisional.indexOf("data:") === 0 || provisional.indexOf("http") === 0)) {
-                        imgAttrs.src = provisional;
-                    } else {
-                        imgAttrs.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-                    }
 
                     const tile = $("<a></a>")
                         .addClass("nt-folder-tile")
@@ -1077,6 +1152,7 @@
                     const childIdx = idx;
                     n.helper.dao.call("getFavicon", {
                         url: item.url,
+                        iconUrl: folderIcon,
                         icon: {size: 32, title: item.title || item.url},
                         query: true
                     }).then((response) => {
@@ -1156,11 +1232,7 @@
                 if (!draggedTile || draggedTile === e.currentTarget) {
                     return;
                 }
-                const parent = e.currentTarget.parentNode;
-                const first = parent.querySelector("a.nt-folder-tile");
-                if (first) {
-                    parent.insertBefore(draggedTile, first);
-                }
+                placeDraggedTile(draggedTile, e.currentTarget);
                 readOrderFromDom();
                 markDirty();
                 draggedTile = null;
@@ -1547,10 +1619,14 @@
                 item['selected']=row.hasClass($.cl.lock) || (ch.length() > 0 && ch[0].checked) ? true : false;
                 item['fixed']=row.hasClass($.cl.lock)?true:false;
                 item['remove']=false;
-                // Never persist data: base64
-                // icons there — only http(s) URLs. Favicons are cached via getFavicon/imageCache.
+                // The row may show a cached data URL. Keep the catalog http address.
+                const storedIcon = row.attr("data-icon");
                 const iconSrc = img.length() > 0 ? img.attr("src") : null;
-                item['icon'] = (iconSrc && iconSrc.indexOf("http") === 0) ? iconSrc : null;
+                if (storedIcon && storedIcon.indexOf("http") === 0) {
+                	item.icon = storedIcon;
+                } else {
+                	item.icon = (iconSrc && iconSrc.indexOf("http") === 0) ? iconSrc : null;
+                }
                 item['origin']=!!row.attr($.attr.origin) ? parseInt(row.attr($.attr.origin)) : 0;
                 
                 links.push(item);
@@ -1691,7 +1767,7 @@
                     origin: 0,
                     categoryId: linkEditor ? linkEditor.categoryId : null,
                     children: []
-                }, list);
+                }, list, true);
                 initDraggableLinks(
                     elements.modal.find("div." + $.cl.scrollBox.wrapper),
                     "> ul." + $.cl.result + " > li"
@@ -1730,7 +1806,7 @@
                 }
                 
                 if(customNavigation.title && customNavigation.url){
-                	addEntry(customNavigation,elements.modal.find("ul."+$.cl.result));
+                	addEntry(customNavigation,elements.modal.find("ul."+$.cl.result), true);
                 }
 
                 if (titleInput) {
