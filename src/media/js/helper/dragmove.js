@@ -240,13 +240,26 @@
 
                 try {
                     if (!sort || sort.name === "default") {
-                        // The hidden placeholder still fills this row's old slot.
-                        // chrome.bookmarks.move counts that slot, then shifts the index
-                        // down when the destination is below the old one. Counting it
-                        // here keeps the saved position on the row the user dropped on.
-                        entryElm.prevAll("li").forEach(() => {
-                            index++;
-                        });
+                        // Default sort draws folders and separators above bookmarks, so
+                        // the visual row is not Chrome's child index. Save "after the
+                        // previous sibling" using that sibling's real index; Chrome then
+                        // decrements when the same-parent move goes downward.
+                        let prev = entryElm.prev("li");
+                        while (prev.length() && prev.hasClass($.cl.drag.dragInitial)) {
+                            prev = prev.prev("li");
+                        }
+                        if (prev.length()) {
+                            const prevData = ext.helper.entry.getDataById(prev.children("a").attr($.attr.id));
+                            if (prevData && prevData.index !== undefined && prevData.index !== null) {
+                                index = +prevData.index + 1;
+                            } else {
+                                entryElm.prevAll("li").forEach((node) => {
+                                    if (!$(node).hasClass($.cl.drag.dragInitial)) {
+                                        index++;
+                                    }
+                                });
+                            }
+                        }
                     } else {
                         index = await ext.helper.bookmark.getBookmarkIndexInDirectory(elmId, parentId);
 
