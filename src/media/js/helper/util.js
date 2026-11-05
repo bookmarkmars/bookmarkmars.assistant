@@ -315,18 +315,27 @@
                 
                 const collator = ext.helper.i18n.getLocaleSortCollator();
                 
+                const folderGroup = (entry) => {
+                    // Separators are bookmarks. Keep them in the folder run so one
+                    // inserted above a folder stays there under the default sort.
+                    if (entry.children || ext.helper.entry.looksLikeSeparator(entry)) {
+                        return 0;
+                    }
+                    return 1;
+                };
+
                 const doSort = (defaultDir, func) => {
                     
                     bookmarks.sort((a, b) => {
                        
-                        const aChildren = !!(a.children);
-                        const bChildren = !!(b.children);
-                        
-                        if (sortObj.name === "default" && aChildren !== bChildren) {
-                            return aChildren ? -1 : 1;
-                        } else {
-                            return (defaultDir === sortObj.dir ? 1 : -1) * func(a, b);
+                        if (sortObj.name === "default") {
+                            const groupDiff = folderGroup(a) - folderGroup(b);
+                            if (groupDiff !== 0) {
+                                return groupDiff;
+                            }
                         }
+
+                        return (defaultDir === sortObj.dir ? 1 : -1) * func(a, b);
                     });
                 };
 

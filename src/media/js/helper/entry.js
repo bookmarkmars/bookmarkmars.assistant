@@ -153,18 +153,29 @@
         };
 
         /**
-         * Returns whether the given entry is a separator,
-         * if the url is 'about:blank' and the title begins and ends with at least 3 dashes or underscores, the method will return true
+         * A separator is stored as a bookmark: url about:blank, title starting
+         * and ending with at least three dashes or underscores.
+         *
+         * @param {object} bookmark
+         * @returns {boolean}
+         */
+        this.looksLikeSeparator = (bookmark) => {
+            if (!bookmark) {
+                return false;
+            }
+            const title = bookmark.title || "";
+            return bookmark.url === "about:blank" && /^[-_]{3,}/.test(title) && /[-_]{3,}$/.test(title);
+        };
+
+        /**
+         * Returns whether the stored entry with this id is a separator
          *
          * @param {int} id
          * @returns {boolean}
          */
         this.isSeparator = (id) => {
-            let ret = false;
-            if (typeof entries.bookmarks[id] === "object") {
-                ret = entries.bookmarks[id].url === "about:blank" && /^[-_]{3,}/.test(entries.bookmarks[id].title) && /[-_]{3,}$/.test(entries.bookmarks[id].title);
-            }
-            return ret;
+            const bookmark = entries.bookmarks[id];
+            return typeof bookmark === "object" && this.looksLikeSeparator(bookmark);
         };
 
         /**

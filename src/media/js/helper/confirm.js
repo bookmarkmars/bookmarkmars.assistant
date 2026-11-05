@@ -685,9 +685,9 @@
                     list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
                 }
 
-				//插入位置
+				//插入位置。分隔线固定插在当前点击的书签或文件夹上面，不提供首尾选项。
                 const sort = ext.helper.dao.getData("u/sort");
-                if (sort.name === "default" && (!data.values || typeof data.values.index === "undefined")) { // only show positioning option when there is not already a given index (like when dragging an url into the sidebar)
+                if (type !== "separator" && sort.name === "default" && (!data.values || typeof data.values.index === "undefined")) { // only show positioning option when there is not already a given index (like when dragging an url into the sidebar)
                     list.append("<li>" +
                         "<label>" + ext.helper.i18n.get("overlay_add_position") + "</label>" +
                         "<select name='position'>" +
@@ -907,23 +907,38 @@
         };
 
         /**
-         * Adds a separator to the given directory
+         * The separator is a sibling placed directly above the bookmark or folder
+         * the user clicked, not a child inside that folder.
+         *
+         * @param {object} data
+         * @returns {{parentId: string|null, index: number}}
+         */
+        const separatorPlace = (data) => {
+            const index = data && data.index !== undefined && data.index !== null ? +data.index : 0;
+            return {
+                parentId: data && data.parentId ? data.parentId : null,
+                index: index < 0 ? 0 : index
+            };
+        };
+
+        /**
+         * Adds a separator above the bookmark or folder that was clicked
          *
          * @param {object} data
          */
         const addSeparator = (data) => {
-            const title = elements.modal.find("input[name='title']")[0].value.trim();
-            const position = elements.modal.find("select[name='position'")[0].value;
-            const parentId = data.id || null;
+            const titleInput = elements.modal.find("input[name='title']")[0];
+            const title = titleInput ? titleInput.value.trim() : "";
+            const place = separatorPlace(data);
 
             ext.helper.dao.call("createBookmark", {
                 title: title.length > 0 ? "---- " + title + " ----" : "----------",
                 url: "about:blank",
-                parentId: data.id || null,
-                index: getIndexOfNewEntry(parentId, position)
+                parentId: place.parentId,
+                index: place.index
             }).then((result) => {
             	
-            	if (result.error) {
+            	if (!result || result.error) {
             		
             		notSupportTip();
             		

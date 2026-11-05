@@ -191,6 +191,8 @@
 
                 this.api.move(opts.id, dest).then(() => {
                     resolve({moved: opts.id});
+                }, (error) => {
+                    resolve({error: error});
                 });
             });
         };

@@ -331,9 +331,10 @@
                 entryContent.attr($.attr.title,label.trim());
             }
             
-            if (!remote && ext.helper.entry.isSeparator(bookmark.id)) { // separator
+            const separatorTitle = bookmark.title || "";
+            if (!remote && (ext.helper.entry.looksLikeSeparator(bookmark) || ext.helper.entry.isSeparator(bookmark.id))) { // separator
                 entryContent.addClass($.cl.sidebar.separator);
-                const label = bookmark.title.replace(/(^[-_]+|[-_]+$)/g, "").trim();
+                const label = separatorTitle.replace(/(^[-_]+|[-_]+$)/g, "").trim();
                 if (label.length > 0) { // named separator (e.g. '---- Social ----')
                     labelElm.attr($.attr.name, label);
                 }
@@ -494,11 +495,11 @@
             const bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
 			
             //添加搜索条
+            const searchButtonClass = searchVal ? $.cl.sidebar.searchClear : $.cl.sidebar.searchButton;
             ext.elm.header.searchBox = $("<div></div>")
                 .addClass( $.cl.sidebar.searchBox)
                 .append("<input type='text' value='" + searchVal.replace(/'/g, "&#x27;") + "' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder", [bookmarkAmount], false) + "' />")
-                .append("<a class='" +  $.cl.sidebar.searchButton + "'></a>")
-                .append("<select class='" +  $.cl.header.choose + "'><option value='0' selected>"+ext.helper.i18n.get("header_search_box_local")+"</option><option value='1'>"+ext.helper.i18n.get("header_search_box_server")+"</option></select>")
+                .append("<a class='" + searchButtonClass + "'></a>")
                 .appendTo(ext.elm.header);
 
             ext.elm.header.toolBox = $("<div></div>")
@@ -515,7 +516,10 @@
             	.appendTo(ext.elm.header.toolBox);
             });
             
-            ext.elm.header.searchBox.find("input[type='text']")[0].focus();
+            const input = ext.elm.header.searchBox.find("input[type='text']")[0];
+            input.focus();
+            const caret = input.value.length;
+            input.setSelectionRange(caret, caret);
         };
 
          /**

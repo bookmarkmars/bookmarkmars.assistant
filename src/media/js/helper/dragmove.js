@@ -40,8 +40,10 @@
             const dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
             const entryElm = draggedElm.data("elm");
 
-            if (entryElm) {
+            if (entryElm && entryElm[0] && dragInitialElm && dragInitialElm[0] && entryElm[0] !== dragInitialElm[0]) {
                 entryElm.insertAfter(dragInitialElm).removeClass($.cl.drag.isDragged);
+            } else if (entryElm) {
+                entryElm.removeClass($.cl.drag.isDragged);
             }
 
             dragInitialElm.remove();
@@ -201,7 +203,7 @@
             
             let isPinned=draggedElm.hasClass($.cl.sidebar.pinned);
 
-            if (isDraggedElementOutside(draggedElm)) {// cancel drop if mouse position is outside the sidebar
+            if (!draggedElm.length() || isDraggedElementOutside(draggedElm)) {// cancel drop if mouse position is outside the sidebar
                 this.cancel();
             } else { // animate the helper back to the new position and save it
                 
@@ -211,12 +213,14 @@
                 
                 //被移动的原始元素>li
                 let entryElm = draggedElm.data("elm");
+
+                if (!entryElm || !entryElm[0] || !entryElm[0].isConnected) {
+                    this.cancel();
+                    return;
+                }
                 
                 //子元素>li > a
                 const elm = entryElm.children("a");
-                
-                //类型,by a
-                const type = getDragType(elm);
                 
                 //父节点、li的
                 const parentList = entryElm.parent("ul");
@@ -234,35 +238,64 @@
                 //初始位置0
                 let index = 0;
 
-                if (sort.name === "default") {
-                    entryElm.prevAll("li").forEach((el) => {
-                        if (el !== dragInitialElm) {
+                try {
+                    if (!sort || sort.name === "default") {
+                        // The hidden placeholder still fills this row's old slot.
+                        // chrome.bookmarks.move counts that slot, then shifts the index
+                        // down when the destination is below the old one. Counting it
+                        // here keeps the saved position on the row the user dropped on.
+                        entryElm.prevAll("li").forEach(() => {
                             index++;
-                        }
-                    });
-                } else {
-                	
-                    const index = await ext.helper.bookmark.getBookmarkIndexInDirectory(elmId, parentId);
-
-                    if (index === -1) {
-                        entryElm = entryElm.appendTo(parentList);
+                        });
                     } else {
-                        const prevElm = parentList.children(`li:not(.${$.cl.drag.dragInitial})`).eq(index);
-                        entryElm = entryElm.insertAfter(prevElm);
+                        index = await ext.helper.bookmark.getBookmarkIndexInDirectory(elmId, parentId);
+
+                        if (index === -1) {
+                            entryElm = entryElm.appendTo(parentList);
+                        } else {
+                            const prevElm = parentList.children("li:not(." + $.cl.drag.dragInitial + ")").eq(index);
+                            if (prevElm.length() > 0 && prevElm[0] !== entryElm[0]) {
+                                entryElm = entryElm.insertAfter(prevElm);
+                            } else if (prevElm.length() === 0) {
+                                entryElm = entryElm.appendTo(parentList);
+                            }
+
+                            const sameParent = String(parentId || "") === String(draggedElm.data("parentId") || "");
+                            const startIndex = +draggedElm.data("index") || 0;
+                            if (sameParent && index > startIndex) {
+                                index++;
+                            }
+                        }
                     }
-                }
-                
-                if (parentId < -1) { // save position of pinned entry
-                    ext.helper.bookmark.reorderPinnedEntries({
-                        id: elmId,
-                        prevId: entryElm.prev("li").children("a").attr($.attr.id)
-                    });//必须清空缓存
-                } else { // save bookmark/directory position
-                    await ext.helper.dao.call("moveBookmark", {
-                        id: elmId,
-                        parentId: parentId,
-                        index: index
-                    });//必须清空缓存，会在事件监听中处理
+
+                    if (!entryElm || !entryElm[0] || !entryElm[0].isConnected) {
+                        this.cancel();
+                        return;
+                    }
+
+                    if (parentId < -1) { // save position of pinned entry
+                        let prevEntry = entryElm.prev("li");
+                        if (prevEntry.hasClass($.cl.drag.dragInitial)) {
+                            prevEntry = prevEntry.prev("li");
+                        }
+                        await ext.helper.bookmark.reorderPinnedEntries({
+                            id: elmId,
+                            prevId: prevEntry.length() > 0 ? prevEntry.children("a").attr($.attr.id) : null
+                        });//必须清空缓存
+                    } else { // save bookmark/directory position
+                        const moved = await ext.helper.dao.call("moveBookmark", {
+                            id: elmId,
+                            parentId: parentId,
+                            index: index
+                        });//必须清空缓存，会在事件监听中处理
+                        if (!moved || moved.error) {
+                            this.cancel();
+                            return;
+                        }
+                    }
+                } catch (e) {
+                    this.cancel();
+                    return;
                 }
 
                 ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
@@ -359,7 +392,9 @@
                 list && list.forEach((node) => { // determine the element which is above the current drag position
                     const elmObj = $(node);
 
-                    if (elmObj[0] !== bookmarkElm[0] && !elmObj.hasClass($.cl.drag.dragInitial)) {
+                    // A folder contains its own open children. Dropping onto one of
+                    // them inserts the folder into itself and leaves a second copy behind.
+                    if (bookmarkElm[0] && !bookmarkElm[0].contains(elmObj[0]) && !elmObj.hasClass($.cl.drag.dragInitial)) {
                         const boundClientRect = elmObj[0].getBoundingClientRect();
                         const diff = topVal - boundClientRect.top;
 
@@ -388,13 +423,13 @@
 
                 clearDirOpenTimeout(newAboveLink);
 
-                if (newAboveElm.elm.nextAll("li:not(." + $.cl.drag.isDragged + ")").length() === 0 && hoverPosPercentage > 80) { // drag position is below the last element of a directory -> placeholder under the current directory
-                    if (draggedElm && parentElm.parents("ul")[0] !== ext.elm.bookmarkBox.all.find("> ul")[0]) {
-                        setDataElement(draggedElm, bookmarkElm.insertAfter(parentElm));
+                if (newAboveElm.elm.nextAll("li:not(." + $.cl.drag.isDragged + "):not(." + $.cl.drag.dragInitial + ")").length() === 0 && hoverPosPercentage > 80) { // drag position is below the last element of a directory -> placeholder under the current directory
+                    if (draggedElm && parentElm && parentElm.length() > 0 && parentElm.parents("ul")[0] !== ext.elm.bookmarkBox.all.find("> ul")[0]) {
+                        setDataElement(draggedElm, placeEntry(bookmarkElm, "after", parentElm));
                     }
                 } else if (aboveIsDir && (hoverPosPercentage < 60 || sort.name !== "default")) { // directory is hovered
                     if (newAboveLink.hasClass($.cl.sidebar.dirOpened)) { // opened directory
-                        setDataElement(draggedElm, bookmarkElm.prependTo(newAboveLink.next("ul")));
+                        setDataElement(draggedElm, placeEntry(bookmarkElm, "prepend", newAboveLink.next("ul")));
                     } else if (!newAboveLink.hasClass($.cl.sidebar.dirAnimated)) { // closed directory
                         if (dirOpenTimeout === null) {
                             dirOpenTimeout = {
@@ -413,12 +448,47 @@
                     }
                 } else if (!isTopLevel || type === "pinned") { // drag position is below a bookmark
                     clearDirOpenTimeout();
-                    setDataElement(draggedElm, bookmarkElm.insertAfter(newAboveElm.elm));
+                    setDataElement(draggedElm, placeEntry(bookmarkElm, "after", newAboveElm.elm));
                 }
             }
         };
 
+        /**
+         * Moves the dragged row only when the destination actually changes.
+         * insertAfter/prependTo clone the node, so repeating the same move
+         * leaves the previous copy in the list.
+         *
+         * @param {jsu} entry
+         * @param {string} where
+         * @param {jsu} target
+         * @returns {jsu}
+         */
+        const placeEntry = (entry, where, target) => {
+            const node = entry && entry[0];
+            const dest = target && target[0];
+
+            if (!node || !dest || node === dest || node.contains(dest)) {
+                return entry;
+            }
+
+            if (where === "after") {
+                if (node.previousElementSibling === dest) {
+                    return entry;
+                }
+                return entry.insertAfter(target);
+            }
+
+            if (dest.firstElementChild === node) {
+                return entry;
+            }
+
+            return entry.prependTo(target);
+        };
+
         const setDataElement = (draggedElm, dataElm) => {
+            if (!dataElm || !dataElm[0]) {
+                return;
+            }
             if (draggedElm) {
                 draggedElm.data("elm", dataElm);
             }
