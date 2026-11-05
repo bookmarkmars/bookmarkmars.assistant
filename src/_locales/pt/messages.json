@@ -273,7 +273,7 @@
         "message": "Voltar"
     },
     "onboarding_title": {
-        "message": "Escolher a bola mágica"
+        "message": "Painel lateral"
     },
     "onboarding_declaration": {
         "message": "*Aviso: esta extensão contém links de afiliados; ao clicar neles, podemos receber uma comissão"
@@ -285,7 +285,7 @@
         "message": "Configurar tamanho da bola mágica"
     },
     "onboarding_auth_newtab": {
-        "message": "Conceder permissão para a página de personalização"
+        "message": "Definir nova guia"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Recomenda-se conceder a permissão; o novo separador ficará mais bonito"
@@ -315,13 +315,22 @@
         "message": "Sol matinal"
     },
     "onboarding_desc": {
-        "message": "Vai configurar o método de abertura"
+        "message": "Abra os favoritos pela borda esquerda."
     },
     "onboarding_left_side_panel": {
-        "message": "Coloque o rato no lado esquerdo do navegador para invocá-la"
+        "message": "Mova o mouse para a borda esquerda"
+    },
+    "panel_guide_right": {
+        "message": "Mova o mouse para a borda direita e clique para abrir os favoritos."
+    },
+    "panel_guide_left": {
+        "message": "Mova o mouse para a borda esquerda e clique para abrir os favoritos."
+    },
+    "panel_guide_from": {
+        "message": "De {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "O navegador suporta autorização automática. Por favor, escolha \"Manter alterações\" para a página de personalização."
+        "message": "Clique em <strong>\"Manter alterações\"</strong> para usar a nova guia."
     },
     "manage_title": {
         "message": "Gestão"
@@ -474,7 +483,7 @@
         "message": "Com o painel mágico"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Aqui pode escolher como abrir o assistente. Recomendamos ativar ambos os métodos."
+        "message": "O painel lateral fica ativado por padrão. Ative a bola mágica aqui, se quiser."
     },
     "manage_setting_panel_width": {
         "message": "Largura do painel mágico"

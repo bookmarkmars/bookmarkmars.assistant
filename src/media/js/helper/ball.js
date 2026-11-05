@@ -284,6 +284,10 @@
         this.openSidebar = () => {
 
         	if(!ext.elm.iframe){return;}
+
+        	if (ext.helper.panel && ext.helper.panel.finishEdgeGuide) {
+        		ext.helper.panel.finishEdgeGuide();
+        	}
         	
         	ext.elm.iframe
         	.addClass([$.cl.sidebar.extLoaded,$.cl.sidebar.fadeIn]);

@@ -273,7 +273,7 @@
         "message": "Geri"
     },
     "onboarding_title": {
-        "message": "Sihirli topu seçin"
+        "message": "Yan panel"
     },
     "onboarding_declaration": {
         "message": "*Uyarı: bu uzantı ortaklık bağlantıları içerir; bu bağlantılara tıklamak bize komisyon kazandırabilir"
@@ -285,7 +285,7 @@
         "message": "Sihirli top boyutunu yapılandır"
     },
     "onboarding_auth_newtab": {
-        "message": "Kişiselleştirme sayfası için izin ver"
+        "message": "Yeni sekmeyi ayarla"
     },
     "onboarding_auth_newtab_tip": {
         "message": "İzin vermeniz önerilir; yeni sekme daha güzel olacaktır"
@@ -315,13 +315,22 @@
         "message": "Sabah güneşi"
     },
     "onboarding_desc": {
-        "message": "Açma yöntemini yapılandıracaksınız"
+        "message": "Yer imlerini sol kenardan açın."
     },
     "onboarding_left_side_panel": {
-        "message": "Çağırmak için fareyi tarayıcının sol tarafına getirin"
+        "message": "Fareyi sol kenara getirin"
+    },
+    "panel_guide_right": {
+        "message": "Yer imlerini açmak için fareyi sağ kenara getirip tıklayın."
+    },
+    "panel_guide_left": {
+        "message": "Yer imlerini açmak için fareyi sol kenara getirip tıklayın."
+    },
+    "panel_guide_from": {
+        "message": "{1} tarafından"
     },
     "onboarding_noneed_permission": {
-        "message": "Tarayıcı otomatik yetkilendirmeyi destekler. Kişiselleştirme sayfası için \"Değişiklikleri koru\" seçeneğini seçin."
+        "message": "Yeni sekmeyi kullanmak için <strong>\"Değişiklikleri koru\"</strong> seçeneğine tıklayın."
     },
     "manage_title": {
         "message": "Yönetim"
@@ -474,7 +483,7 @@
         "message": "Sihirli panel ile"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Asistanı açma yöntemini buradan seçebilirsiniz. Her iki yöntemi de etkinleştirmenizi öneririz."
+        "message": "Varsayılan olarak yan panel açıktır. Sihirli topu buradan açabilirsiniz."
     },
     "manage_setting_panel_width": {
         "message": "Sihirli panel genişliği"

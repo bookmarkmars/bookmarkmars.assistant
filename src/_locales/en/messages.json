@@ -273,7 +273,7 @@
         "message": "Back"
     },
     "onboarding_title": {
-        "message": "Choose magical ball"
+        "message": "Side panel"
     },
     "onboarding_declaration": {
         "message": "*Disclaimer: This extension contains affiliate links, and clicking on these links may earn us a commission"
@@ -285,7 +285,7 @@
         "message": "Configure magical ball size"
     },
     "onboarding_auth_newtab": {
-        "message": "Grant permission for beautification page"
+        "message": "Setting New Tab"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Permission allow is recommended, the new tab is more beautiful"
@@ -315,13 +315,22 @@
         "message": "Morning sun"
     },
     "onboarding_desc": {
-        "message": "You will configure open method"
+        "message": "Open bookmarks from the left edge."
     },
     "onboarding_left_side_panel": {
-        "message": "Place the mouse on the left side of the browser to summon"
+        "message": "Move the mouse to the left edge"
+    },
+    "panel_guide_right": {
+        "message": "Move the mouse to the right edge and click to open bookmarks."
+    },
+    "panel_guide_left": {
+        "message": "Move the mouse to the left edge and click to open bookmarks."
+    },
+    "panel_guide_from": {
+        "message": "From {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "Automatic authorization is supported by the browser. Please \"Keep changes\" for the beautification page."
+        "message": "Click <strong>\"Keep changes\"</strong> to use the new tab."
     },
     "manage_title": {
         "message": "manage"
@@ -474,7 +483,7 @@
         "message": "By the magical panel"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "You can set which method to use to open the helper here. We recommend that you enable both."
+        "message": "The side panel is on by default. Turn the magical ball on here if you want it."
     },
     "manage_setting_panel_width": {
         "message": "Magical panel width setting"

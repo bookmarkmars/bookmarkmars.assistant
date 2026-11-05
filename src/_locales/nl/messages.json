@@ -273,7 +273,7 @@
         "message": "Terug"
     },
     "onboarding_title": {
-        "message": "Kies de magische bal"
+        "message": "Zijpaneel"
     },
     "onboarding_declaration": {
         "message": "*Disclaimer: deze extensie bevat affiliate-links; door erop te klikken kunnen wij een commissie ontvangen"
@@ -285,7 +285,7 @@
         "message": "Grootte van magische bal configureren"
     },
     "onboarding_auth_newtab": {
-        "message": "Toestemming geven voor personalisatiepagina"
+        "message": "Nieuw tabblad instellen"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Toestemming geven wordt aanbevolen; het nieuwe tabblad wordt mooier"
@@ -315,13 +315,22 @@
         "message": "Ochtendzon"
     },
     "onboarding_desc": {
-        "message": "U configureert de openmethode"
+        "message": "Open bladwijzers vanaf de linkerrand."
     },
     "onboarding_left_side_panel": {
-        "message": "Plaats de muis aan de linkerkant van de browser om op te roepen"
+        "message": "Beweeg de muis naar de linkerrand"
+    },
+    "panel_guide_right": {
+        "message": "Beweeg de muis naar de rechterrand en klik om bladwijzers te openen."
+    },
+    "panel_guide_left": {
+        "message": "Beweeg de muis naar de linkerrand en klik om bladwijzers te openen."
+    },
+    "panel_guide_from": {
+        "message": "Van {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "De browser ondersteunt automatische autorisatie. Kies \"Wijzigingen behouden\" voor de personalisatiepagina."
+        "message": "Klik op <strong>\"Wijzigingen behouden\"</strong> om het nieuwe tabblad te gebruiken."
     },
     "manage_title": {
         "message": "Beheer"
@@ -474,7 +483,7 @@
         "message": "Via het magische paneel"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Hier kunt u kiezen hoe u de assistent opent. We raden aan beide methoden in te schakelen."
+        "message": "Het zijpaneel staat standaard aan. Zet de magische bal hier aan als u dat wilt."
     },
     "manage_setting_panel_width": {
         "message": "Breedte magisch paneel"

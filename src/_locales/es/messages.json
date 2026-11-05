@@ -273,7 +273,7 @@
         "message": "Volver"
     },
     "onboarding_title": {
-        "message": "Elige la bola mágica"
+        "message": "Panel lateral"
     },
     "onboarding_declaration": {
         "message": "*Aviso: esta extensión contiene enlaces de afiliados; al hacer clic en ellos podemos recibir una comisión"
@@ -285,7 +285,7 @@
         "message": "Configurar tamaño de la bola mágica"
     },
     "onboarding_auth_newtab": {
-        "message": "Conceder permiso para la página de personalización"
+        "message": "Configurar nueva pestaña"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Se recomienda conceder el permiso; la nueva pestaña será más bonita"
@@ -315,13 +315,22 @@
         "message": "Sol matutino"
     },
     "onboarding_desc": {
-        "message": "Configurarás el método de apertura"
+        "message": "Abre los marcadores desde el borde izquierdo."
     },
     "onboarding_left_side_panel": {
-        "message": "Coloca el ratón en el lado izquierdo del navegador para invocarla"
+        "message": "Mueve el ratón al borde izquierdo"
+    },
+    "panel_guide_right": {
+        "message": "Mueve el ratón al borde derecho y haz clic para abrir los marcadores."
+    },
+    "panel_guide_left": {
+        "message": "Mueve el ratón al borde izquierdo y haz clic para abrir los marcadores."
+    },
+    "panel_guide_from": {
+        "message": "De {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "El navegador admite autorización automática. Por favor, elige \"Conservar cambios\" para la página de personalización."
+        "message": "Haz clic en <strong>«Conservar cambios»</strong> para usar la nueva pestaña."
     },
     "manage_title": {
         "message": "Gestión"
@@ -474,7 +483,7 @@
         "message": "Con el panel mágico"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Aquí puedes elegir cómo abrir el asistente. Recomendamos activar ambos métodos."
+        "message": "El panel lateral está activado de forma predeterminada. Activa la bola mágica aquí si la quieres."
     },
     "manage_setting_panel_width": {
         "message": "Ancho del panel mágico"

@@ -273,7 +273,7 @@
         "message": "Retour"
     },
     "onboarding_title": {
-        "message": "Choisir la boule magique"
+        "message": "Panneau latéral"
     },
     "onboarding_declaration": {
         "message": "*Avis : cette extension contient des liens d'affiliation ; en cliquant dessus, nous pouvons recevoir une commission"
@@ -285,7 +285,7 @@
         "message": "Configurer la taille de la boule magique"
     },
     "onboarding_auth_newtab": {
-        "message": "Accorder l'autorisation pour la page de personnalisation"
+        "message": "Régler le nouvel onglet"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Il est recommandé d'accorder l'autorisation ; le nouvel onglet sera plus agréable"
@@ -315,13 +315,22 @@
         "message": "Soleil matinal"
     },
     "onboarding_desc": {
-        "message": "Vous allez configurer la méthode d'ouverture"
+        "message": "Ouvrez les favoris depuis le bord gauche."
     },
     "onboarding_left_side_panel": {
-        "message": "Placez la souris sur le côté gauche du navigateur pour l'invoquer"
+        "message": "Déplacez la souris vers le bord gauche"
+    },
+    "panel_guide_right": {
+        "message": "Déplacez la souris vers le bord droit et cliquez pour ouvrir les favoris."
+    },
+    "panel_guide_left": {
+        "message": "Déplacez la souris vers le bord gauche et cliquez pour ouvrir les favoris."
+    },
+    "panel_guide_from": {
+        "message": "De {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "Le navigateur prend en charge l'autorisation automatique. Veuillez choisir « Conserver les modifications » pour la page de personnalisation."
+        "message": "Cliquez sur <strong>« Conserver les modifications »</strong> pour utiliser le nouvel onglet."
     },
     "manage_title": {
         "message": "Gestion"
@@ -474,7 +483,7 @@
         "message": "Avec le panneau magique"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Vous pouvez choisir ici comment ouvrir l'assistant. Nous recommandons d'activer les deux méthodes."
+        "message": "Le panneau latéral est activé par défaut. Activez la boule magique ici si vous le souhaitez."
     },
     "manage_setting_panel_width": {
         "message": "Largeur du panneau magique"

@@ -145,6 +145,11 @@
                 
                 delete obj.newtab.gridMaxCols;
                 delete obj.newtab.gridMaxRows;
+
+                // The old default showed the floating ball as well as the side panel.
+                if (!obj.behaviour.openWay || obj.behaviour.openWay === "all") {
+                    obj.behaviour.openWay = "panel";
+                }
                 
             } catch (e) {
                 //

@@ -4,8 +4,6 @@
     const Onboarding = function () {
 
         let configChanged = false;
-        
-        const configData = {};
 
         /*
          * ################################
@@ -37,34 +35,11 @@
                 return this.helper.i18n.init();
             }).then(() => {
             	
-            	const toggleArea=this.helper.dao.getDefaults().b.toggleArea;
-
 				this.helper.fontAdd.init();
 				this.helper.fontAdd.addStylesheet($(document));//添加字体
 
 				//字符串替换
                 this.helper.i18n.parseHtml(document);
-
-                //出去text并转移到title
-                let i=0;
-                $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='choose'] > div.ball > div").children("a").forEach((_self) => {
-                    const aTag = $(_self);
-                    aTag.attr($.attr.title,aTag.html());
-                    aTag.html(this.helper.util.initCircle());//clear
-                    aTag.removeClass($.cl.active);
-                    if(i==0){
-                    	aTag.addClass($.cl.active);
-                    }
-                    
-                    aTag.css("width",toggleArea.width+"px");
-                    aTag.css("height",toggleArea.height+"px");
-                    
-                    //即时存储
-					configData['width']=parseInt(toggleArea.width+"");
-					configData['height']=parseInt(toggleArea.height+"");
-                    
-                    i++;
-                });
 
                 this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 				
@@ -77,7 +52,6 @@
 
                 initGeneralEvents();
                 initIntroEvents();
-                initChooseEvents();
                 initIndicatorStyleEvents();
                 initFinishEvents();
 
@@ -143,103 +117,20 @@
         
         
         /**
-         * Initialises the eventhandlers for the intro slide
-         */
-        const initChooseEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='choose'] > div.ball > div.choose >  a").on("click", (e) => {
-               
-                e.preventDefault();
-                
-                $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='choose'] > div.ball > div.choose > a").removeClass($.cl.active);
-
-				const elm = $(e.target);
-				
-				elm.addClass($.cl.active);
-            });
-        };
-        
-        /**
-         * Initialises the eventhandlers for the intro slide
-         */
-        const initBallSizeEvents = () => {
-            $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='size'] > div > a").on("click", (e) => {
-               
-                e.preventDefault();
-
-                $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='size'] > div > a").removeClass($.cl.active);
-
-				const elm = $(e.target);
-				
-				//即时存储
-				configData['width']=parseInt(elm.css("width").replace("px",""));
-				configData['height']=parseInt(elm.css("height").replace("px",""));
-				
-				elm.addClass($.cl.active);
-            });
-        };
-       
-        /**
-         * Initialises the eventhandlers for the last slide
+         * The panel step only continues. Ball style and size are not part of setup.
          */
         const initIndicatorStyleEvents = () => {
             $("section." + $.cl.onboarding.slide + " a.next-step").on("click", (e) => {
                 e.preventDefault();
-
-                const elm = $(e.target);
-                
-                let type=elm.prev("div").find("a."+$.cl.active).attr($.attr.type);
-                initBallSize(type);//ball size
-                initBallSizeEvents();//监听事件
-                
-                type=type.slice(0,1).toUpperCase() +type.slice(1).toLowerCase();
-
-                const styles = this.helper.dao.getData("a/styles");
-                styles.indicatorStyle=styles.indicatorColor["indicator"+type];
-
-                this.helper.dao.setData({
-                    "a/styles": styles
-                }).then(() => {
-                    configChanged = true;
-                }).then(()=>{
-                	this.helper.dao.call("reload",//重新加载刷新
-                		{
-	            			scrollTop: true, 
-	            			type: "Sort"
-                		}
-                	);
-                }).then(()=>{
-                	gotoNextSlide();
-                })
+                gotoNextSlide();
             });
         };
-        
-        const initBallSize = (type) =>{
-        	
-        	$("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='size'] > div").html("");
-        	const data=this.helper.dao.getDefaults()
-        	for(let i=data.b.minBall;i<=data.b.maxBall;i=i+10){
-        		let a=$("<a></a>")
-        				.attr($.attr.type,type)
-        				.css("width",i+"px")
-        				.css("height",i+"px")
-        				.attr($.attr.title,i +"*"+ i)
-        				.html(this.helper.util.initCircle());
-        				
-        		if(i==data.b.toggleArea.width){
-        			a.addClass($.cl.active);
-        		}
-        		a.appendTo($("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='size'] > div"));	
-        	}
-        }
-        
+
         const saveStartConfig = (grantState)=>{
-    		
-            const toggleArea = this.helper.dao.getData("b/toggleArea");
-            toggleArea.width=configData.width;
-            toggleArea.height=configData.height;
 
             this.helper.dao.setData({
-                "b/toggleArea": toggleArea
+                "b/openWay": "panel",
+                "u/openWayPanelDefault": true
             }).then(() => {
                 configChanged = true;
             }).then(()=>{

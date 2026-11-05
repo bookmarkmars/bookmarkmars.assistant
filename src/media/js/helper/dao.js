@@ -48,7 +48,7 @@
                 },
                 showPanelIcon:true,
                 panelPos: "left",
-                openWay:"all",
+                openWay:"panel",
                 openAction: "mousedown",
                 minBall:30,
                 maxBall:90,
@@ -309,10 +309,55 @@
          *
          * @returns {Promise}
          */
+        // People who were still on the old "open both" default move to the side panel once.
+        // Choosing "Open all" again after that is kept.
+        const applyPanelDefault = () => {
+            if (!data || !data.behaviour || (data.utility && data.utility.openWayPanelDefault)) {
+                return;
+            }
+            const openWay = data.behaviour.openWay;
+            const moveToPanel = !openWay || openWay === "all";
+            if (!data.utility) {
+                data.utility = {};
+            }
+            data.utility.openWayPanelDefault = true;
+            if (moveToPanel) {
+                data.behaviour.openWay = "panel";
+            }
+            const revert = () => {
+                if (moveToPanel) {
+                    data.behaviour.openWay = openWay;
+                }
+                data.utility.openWayPanelDefault = false;
+            };
+            try {
+                const persistFlag = () => {
+                    $.api.storage.local.set({utility: data.utility});
+                };
+                if (!moveToPanel) {
+                    persistFlag();
+                    return;
+                }
+                $.api.storage.sync.set({behaviour: data.behaviour}, () => {
+                    const error = $.api.runtime.lastError;
+                    if (error && error.message) {
+                        revert();
+                        return;
+                    }
+                    persistFlag();
+                });
+            } catch (e) {
+                revert();
+            }
+        };
+
         const refresh = () => {
             return new Promise((resolve) => {
             	
-            	if($.api.runtime.id == undefined) resolve();
+            	if($.api.runtime.id == undefined) {
+                    resolve();
+                    return;
+                }
                 
                 const keys = ["utility", "behaviour", "appearance","newtab"];
                 const newData = {};
@@ -328,6 +373,7 @@
                             loadShortcutLinks(newData.newtab).then((newtab) => {
                                 newData.newtab = newtab || {};
                                 data = newData;
+                                applyPanelDefault();
                                 resolve();
                             });
                         }

@@ -273,7 +273,7 @@
         "message": "Wstecz"
     },
     "onboarding_title": {
-        "message": "Wybierz magiczną kulę"
+        "message": "Panel boczny"
     },
     "onboarding_declaration": {
         "message": "*Uwaga: to rozszerzenie zawiera linki partnerskie; kliknięcie w nie może przynieść nam prowizję"
@@ -285,7 +285,7 @@
         "message": "Skonfiguruj rozmiar magicznej kuli"
     },
     "onboarding_auth_newtab": {
-        "message": "Przyznaj uprawnienie do strony personalizacji"
+        "message": "Ustaw nową kartę"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Zalecamy przyznanie uprawnienia; nowa karta będzie ładniejsza"
@@ -315,13 +315,22 @@
         "message": "Poranne słońce"
     },
     "onboarding_desc": {
-        "message": "Skonfigurujesz sposób otwierania"
+        "message": "Otwieraj zakładki od lewej krawędzi."
     },
     "onboarding_left_side_panel": {
-        "message": "Umieść kursor po lewej stronie przeglądarki, aby ją przywołać"
+        "message": "Przesuń mysz do lewej krawędzi"
+    },
+    "panel_guide_right": {
+        "message": "Przesuń mysz do prawej krawędzi i kliknij, aby otworzyć zakładki."
+    },
+    "panel_guide_left": {
+        "message": "Przesuń mysz do lewej krawędzi i kliknij, aby otworzyć zakładki."
+    },
+    "panel_guide_from": {
+        "message": "Od {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "Przeglądarka obsługuje automatyczną autoryzację. Wybierz „Zachowaj zmiany” dla strony personalizacji."
+        "message": "Kliknij <strong>„Zachowaj zmiany”</strong>, aby użyć nowej karty."
     },
     "manage_title": {
         "message": "Zarządzanie"
@@ -474,7 +483,7 @@
         "message": "Magicznym panelem"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Tutaj możesz wybrać sposób otwierania asystenta. Zalecamy włączenie obu metod."
+        "message": "Panel boczny jest włączony domyślnie. Magiczną kulę możesz włączyć tutaj."
     },
     "manage_setting_panel_width": {
         "message": "Szerokość magicznego panelu"

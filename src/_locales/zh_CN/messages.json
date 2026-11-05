@@ -273,7 +273,7 @@
         "message": "返回"
     },
     "onboarding_title": {
-        "message": "选择召唤球"
+        "message": "侧边面板"
     },
     "onboarding_declaration": {
         "message": "*申明：本扩展程序包含联属营销链接，点击这些链接可能为我们带来佣金"
@@ -285,7 +285,7 @@
         "message": "配置召唤球大小"
     },
     "onboarding_auth_newtab": {
-        "message": "授权美化页"
+        "message": "设置新标签页"
     },
     "onboarding_auth_newtab_tip": {
         "message": "建议授权，新标签更加美丽"
@@ -315,13 +315,22 @@
         "message": "晨时日光"
     },
     "onboarding_desc": {
-        "message": "您即将配置召唤方式"
+        "message": "从浏览器左侧边缘打开书签。"
     },
     "onboarding_left_side_panel": {
-        "message": "鼠标放在浏览器左侧召唤"
+        "message": "鼠标移到左侧边缘即可打开"
+    },
+    "panel_guide_right": {
+        "message": "把鼠标移到右侧边缘并点击，打开书签。"
+    },
+    "panel_guide_left": {
+        "message": "把鼠标移到左侧边缘并点击，打开书签。"
+    },
+    "panel_guide_from": {
+        "message": "来自{1}"
     },
     "onboarding_noneed_permission": {
-        "message": "该浏览器支持自动授权，请对美化页「保持现状」"
+        "message": "请点<strong>「保留更改」</strong>，即可使用新标签页。"
     },
     "manage_title": {
         "message": "管理"
@@ -474,7 +483,7 @@
         "message": "召唤面板打开"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "您可以在这里设置使用那种方式打开助手，我们建议您都开启"
+        "message": "默认用侧边面板打开。需要时可以在这里打开召唤球。"
     },
     "manage_setting_panel_width": {
         "message": "召唤面板宽度设置"

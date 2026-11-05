@@ -220,6 +220,96 @@ body > div#lds_be_panel {
   }
 }
 
+@keyframes lds-be-guide-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-8px); }
+}
+
+@keyframes lds-be-guide-nudge-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+@keyframes lds-be-guide-beam {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+body > div.lds-be-panel-guide {
+  position: fixed;
+  z-index: #{2147483647 - 8};
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+
+  > span.beam {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: $__bookmarksDirColor;
+    box-shadow: 0 0 18px 3px $__bookmarksDirColor;
+    animation: lds-be-guide-beam 1.3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  > div.card {
+    position: fixed;
+    top: calc(50% - 46px);
+    left: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 340px;
+    margin: 0;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: #ffffff;
+    color: #2c2c2c;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+  }
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 140%;
+    color: #f6ae0d;
+  }
+
+  span.arrow {
+    flex-shrink: 0;
+    width: 0;
+    height: 0;
+    border: 9px solid transparent;
+    border-right: 12px solid $__bookmarksDirColor;
+    animation: lds-be-guide-nudge 1.1s ease-in-out infinite;
+  }
+
+  &[data-pos='right'] {
+    > span.beam {
+      left: auto;
+      right: 0;
+    }
+
+    > div.card {
+      left: auto;
+      right: 28px;
+    }
+
+    span.arrow {
+      border-right: 9px solid transparent;
+      border-left: 12px solid $__bookmarksDirColor;
+      animation-name: lds-be-guide-nudge-right;
+    }
+  }
+}
+
 // Sidebar
 body > iframe#lds_be_helper {
   

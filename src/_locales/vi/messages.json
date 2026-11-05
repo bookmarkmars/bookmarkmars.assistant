@@ -273,7 +273,7 @@
         "message": "Quay lại"
     },
     "onboarding_title": {
-        "message": "Chọn quả cầu ma thuật"
+        "message": "Bảng bên"
     },
     "onboarding_declaration": {
         "message": "*Lưu ý: tiện ích này chứa liên kết liên kết; nhấp vào chúng có thể mang lại hoa hồng cho chúng tôi"
@@ -285,7 +285,7 @@
         "message": "Cấu hình kích thước quả cầu ma thuật"
     },
     "onboarding_auth_newtab": {
-        "message": "Cấp quyền cho trang cá nhân hóa"
+        "message": "Đặt tab mới"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Nên cấp quyền; tab mới sẽ đẹp hơn"
@@ -315,13 +315,22 @@
         "message": "Nắng sớm"
     },
     "onboarding_desc": {
-        "message": "Bạn sẽ cấu hình cách mở"
+        "message": "Mở dấu trang từ mép trái."
     },
     "onboarding_left_side_panel": {
-        "message": "Đặt chuột ở bên trái trình duyệt để gọi"
+        "message": "Đưa chuột đến mép trái"
+    },
+    "panel_guide_right": {
+        "message": "Đưa chuột đến mép phải và nhấp để mở dấu trang."
+    },
+    "panel_guide_left": {
+        "message": "Đưa chuột đến mép trái và nhấp để mở dấu trang."
+    },
+    "panel_guide_from": {
+        "message": "Từ {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "Trình duyệt hỗ trợ ủy quyền tự động. Vui lòng chọn \"Giữ thay đổi\" cho trang cá nhân hóa."
+        "message": "Bấm <strong>\"Giữ thay đổi\"</strong> để dùng tab mới."
     },
     "manage_title": {
         "message": "Quản lý"
@@ -474,7 +483,7 @@
         "message": "Bằng bảng ma thuật"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Bạn có thể chọn cách mở trợ lý tại đây. Chúng tôi khuyên bật cả hai phương thức."
+        "message": "Bảng bên được bật mặc định. Bạn có thể bật quả bóng phép thuật tại đây."
     },
     "manage_setting_panel_width": {
         "message": "Chiều rộng bảng ma thuật"

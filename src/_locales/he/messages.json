@@ -273,7 +273,7 @@
         "message": "חזרה"
     },
     "onboarding_title": {
-        "message": "בחירת הכדור הקסום"
+        "message": "חלונית צד"
     },
     "onboarding_declaration": {
         "message": "*הודעה: תוסף זה מכיל קישורי שותפים; לחיצה עליהם עשויה להניב לנו עמלה"
@@ -285,7 +285,7 @@
         "message": "הגדרת גודל הכדור הקסום"
     },
     "onboarding_auth_newtab": {
-        "message": "מתן הרשאה לדף ההתאמה האישית"
+        "message": "הגדרת כרטיסייה חדשה"
     },
     "onboarding_auth_newtab_tip": {
         "message": "מומלץ לתת הרשאה; לשונית חדשה תהיה יפה יותר"
@@ -315,13 +315,22 @@
         "message": "שמש בוקר"
     },
     "onboarding_desc": {
-        "message": "תגדיר את שיטת הפתיחה"
+        "message": "פתחו סימניות מהקצה השמאלי."
     },
     "onboarding_left_side_panel": {
-        "message": "הנח את העכבר בצד השמאלי של הדפדפן כדי לזמן אותו"
+        "message": "הזיזו את העכבר לקצה השמאלי"
+    },
+    "panel_guide_right": {
+        "message": "הזיזו את העכבר לקצה הימני ולחצו כדי לפתוח סימניות."
+    },
+    "panel_guide_left": {
+        "message": "הזיזו את העכבר לקצה השמאלי ולחצו כדי לפתוח סימניות."
+    },
+    "panel_guide_from": {
+        "message": "מאת {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "הדפדפן תומך באישור אוטומטי. בחר \"שמירת שינויים\" לדף ההתאמה האישית."
+        "message": "לחצו על <strong>\"שמור על השינויים\"</strong> כדי להשתמש בכרטיסייה החדשה."
     },
     "manage_title": {
         "message": "ניהול"
@@ -474,7 +483,7 @@
         "message": "באמצעות הפאנל הקסום"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "כאן ניתן לבחור כיצד לפתוח את העוזר. מומלץ להפעיל את שתי השיטות."
+        "message": "חלונית הצד פעילה כברירת מחדל. אפשר להפעיל כאן את הכדור הקסום."
     },
     "manage_setting_panel_width": {
         "message": "רוחב הפאנל הקסום"

@@ -273,7 +273,7 @@
         "message": "Zurück"
     },
     "onboarding_title": {
-        "message": "Magische Kugel wählen"
+        "message": "Seitenleiste"
     },
     "onboarding_declaration": {
         "message": "*Hinweis: Diese Erweiterung enthält Affiliate-Links; beim Klicken können wir eine Provision erhalten"
@@ -285,7 +285,7 @@
         "message": "Größe der magischen Kugel konfigurieren"
     },
     "onboarding_auth_newtab": {
-        "message": "Berechtigung für die Personalisierungsseite erteilen"
+        "message": "Neuen Tab einrichten"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Es wird empfohlen, die Berechtigung zu erteilen; der neue Tab wird schöner"
@@ -315,13 +315,22 @@
         "message": "Morgensonne"
     },
     "onboarding_desc": {
-        "message": "Sie konfigurieren die Öffnungsmethode"
+        "message": "Lesezeichen vom linken Rand öffnen."
     },
     "onboarding_left_side_panel": {
-        "message": "Bewegen Sie die Maus an die linke Seite des Browsers, um sie aufzurufen"
+        "message": "Maus an den linken Rand bewegen"
+    },
+    "panel_guide_right": {
+        "message": "Bewegen Sie die Maus an den rechten Rand und klicken Sie, um die Lesezeichen zu öffnen."
+    },
+    "panel_guide_left": {
+        "message": "Bewegen Sie die Maus an den linken Rand und klicken Sie, um die Lesezeichen zu öffnen."
+    },
+    "panel_guide_from": {
+        "message": "Von {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "Der Browser unterstützt automatische Autorisierung. Bitte wählen Sie „Änderungen beibehalten“ für die Personalisierungsseite."
+        "message": "Klicken Sie auf <strong>„Änderungen beibehalten“</strong>, um den neuen Tab zu verwenden."
     },
     "manage_title": {
         "message": "Verwaltung"
@@ -474,7 +483,7 @@
         "message": "Über das magische Panel"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Hier können Sie wählen, wie der Assistent geöffnet wird. Wir empfehlen, beide Methoden zu aktivieren."
+        "message": "Die Seitenleiste ist standardmäßig aktiv. Die magische Kugel können Sie hier einschalten."
     },
     "manage_setting_panel_width": {
         "message": "Breite des magischen Panels"

@@ -273,7 +273,7 @@
         "message": "Indietro"
     },
     "onboarding_title": {
-        "message": "Scegli la sfera magica"
+        "message": "Pannello laterale"
     },
     "onboarding_declaration": {
         "message": "*Avviso: questa estensione contiene link di affiliazione; cliccandoli potremmo ricevere una commissione"
@@ -285,7 +285,7 @@
         "message": "Configura dimensione sfera magica"
     },
     "onboarding_auth_newtab": {
-        "message": "Concedi permesso per la pagina di personalizzazione"
+        "message": "Imposta nuova scheda"
     },
     "onboarding_auth_newtab_tip": {
         "message": "Si consiglia di concedere il permesso; la nuova scheda sarà più bella"
@@ -315,13 +315,22 @@
         "message": "Sole del mattino"
     },
     "onboarding_desc": {
-        "message": "Configurerai il metodo di apertura"
+        "message": "Apri i segnalibri dal bordo sinistro."
     },
     "onboarding_left_side_panel": {
-        "message": "Posiziona il mouse sul lato sinistro del browser per richiamarla"
+        "message": "Sposta il mouse sul bordo sinistro"
+    },
+    "panel_guide_right": {
+        "message": "Sposta il mouse sul bordo destro e fai clic per aprire i segnalibri."
+    },
+    "panel_guide_left": {
+        "message": "Sposta il mouse sul bordo sinistro e fai clic per aprire i segnalibri."
+    },
+    "panel_guide_from": {
+        "message": "Da {1}"
     },
     "onboarding_noneed_permission": {
-        "message": "Il browser supporta l'autorizzazione automatica. Scegli \"Mantieni modifiche\" per la pagina di personalizzazione."
+        "message": "Fai clic su <strong>«Mantieni le modifiche»</strong> per usare la nuova scheda."
     },
     "manage_title": {
         "message": "Gestione"
@@ -474,7 +483,7 @@
         "message": "Con il pannello magico"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "Qui puoi scegliere come aprire l'assistente. Consigliamo di attivare entrambi i metodi."
+        "message": "Il pannello laterale è attivo per impostazione predefinita. Attiva qui la sfera magica se la desideri."
     },
     "manage_setting_panel_width": {
         "message": "Larghezza pannello magico"

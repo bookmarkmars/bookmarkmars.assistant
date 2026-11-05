@@ -20,6 +20,7 @@
         let sidebarWidth = null;
         let inPixelToleranceTime = null;
         let keypressed = null;
+        let guideElm = null;
 
         /**
          * Initializes the sidebar toggle
@@ -87,7 +88,56 @@
                 
                 //有召唤面板再监听事件
                 initEvents();
+                showEdgeGuide();
             }
+        };
+
+        /**
+         * Drops the first-visit hint after the sidebar has been opened once
+         */
+        this.finishEdgeGuide = () => {
+            if (guideElm) {
+                guideElm.remove();
+                guideElm = null;
+            }
+            if (ext.helper.dao.getData("u/panelGuideDone")) {
+                return;
+            }
+            ext.helper.dao.setData({"u/panelGuideDone": true});
+        };
+
+        /**
+         * On the first normal page, point at the edge until the user opens the sidebar
+         */
+        const showEdgeGuide = () => {
+            const pageType = ext.helper.util.getPageType();
+            if (pageType !== "website" && pageType !== "local") {
+                return;
+            }
+            if (ext.helper.dao.getData("u/panelGuideDone")) {
+                return;
+            }
+            const side = panelPos === "right" ? "right" : "left";
+            const text = ext.helper.i18n.get(side === "right" ? "panel_guide_right" : "panel_guide_left");
+            if (!text) {
+                return;
+            }
+            const arrow = $("<span></span>").addClass("arrow");
+            const copy = $("<div></div>")
+                .addClass("copy")
+                .append($("<p></p>").text(text));
+            const card = $("<div></div>").addClass("card");
+            if (side === "right") {
+                card.append(copy).append(arrow);
+            } else {
+                card.append(arrow).append(copy);
+            }
+            guideElm = $("<div></div>")
+                .addClass("lds-be-panel-guide")
+                .attr($.attr.position, side)
+                .append($("<span></span>").addClass("beam"))
+                .append(card)
+                .appendTo($(ext.elm.shadow));
         };
 
 
@@ -233,6 +283,11 @@
 
                     if (ext.elm.panel.hasClass($.cl.page.hover) && panelWidth > area.w) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
                         area.w = panelWidth;
+                    }
+
+                    // The hint bar sits on the edge. Count that strip so the panel still opens.
+                    if (guideElm && area.w < 24) {
+                        area.w = 24;
                     }
 
                     ret = clientX < area.w && (area.h >= panel.top && area.h <= panel.top + panel.height);

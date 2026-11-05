@@ -273,7 +273,7 @@
         "message": "返回"
     },
     "onboarding_title": {
-        "message": "選擇召喚球"
+        "message": "側邊面板"
     },
     "onboarding_declaration": {
         "message": "*聲明：本擴展程序包含聯屬營銷鏈接，點擊這些鏈接可能為我們帶來佣金"
@@ -285,7 +285,7 @@
         "message": "配置召喚球大小"
     },
     "onboarding_auth_newtab": {
-        "message": "授權美化頁"
+        "message": "設定新分頁"
     },
     "onboarding_auth_newtab_tip": {
         "message": "建議授權，新標籤更加美麗"
@@ -315,13 +315,22 @@
         "message": "晨時日光"
     },
     "onboarding_desc": {
-        "message": "您即將配置召方式"
+        "message": "從瀏覽器左側邊緣打開書籤。"
     },
     "onboarding_left_side_panel": {
-        "message": "滑鼠放在瀏覽器左側召喚"
+        "message": "滑鼠移到左側邊緣即可打開"
+    },
+    "panel_guide_right": {
+        "message": "把滑鼠移到右側邊緣並點擊，打開書籤。"
+    },
+    "panel_guide_left": {
+        "message": "把滑鼠移到左側邊緣並點擊，打開書籤。"
+    },
+    "panel_guide_from": {
+        "message": "來自{1}"
     },
     "onboarding_noneed_permission": {
-        "message": "該瀏覽器支援自動授權，請對美化頁面「保留變更」"
+        "message": "請點<strong>「保留變更」</strong>，即可使用新分頁。"
     },
     "manage_title": {
         "message": "管理"
@@ -474,7 +483,7 @@
         "message": "召喚面板打開"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "您可以在這裡設定使用那種方式開啟助手，我們建議您都開啟"
+        "message": "預設用側邊面板開啟。需要時可以在這裡打開召喚球。"
     },
     "manage_setting_panel_width": {
         "message": "召喚面板寬度設定"

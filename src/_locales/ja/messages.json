@@ -273,7 +273,7 @@
         "message": "戻る"
     },
     "onboarding_title": {
-        "message": "マジックボールを選択"
+        "message": "サイドパネル"
     },
     "onboarding_declaration": {
         "message": "*免責事項：この拡張機能にはアフィリエイトリンクが含まれており、クリックすると当社が手数料を得る場合があります"
@@ -285,7 +285,7 @@
         "message": "マジックボールのサイズを設定"
     },
     "onboarding_auth_newtab": {
-        "message": "カスタマイズページの権限を付与"
+        "message": "新しいタブを設定"
     },
     "onboarding_auth_newtab_tip": {
         "message": "権限の付与をおすすめします。新しいタブがより美しくなります"
@@ -315,13 +315,22 @@
         "message": "朝日"
     },
     "onboarding_desc": {
-        "message": "開き方を設定します"
+        "message": "左端からブックマークを開きます。"
     },
     "onboarding_left_side_panel": {
-        "message": "ブラウザの左側にマウスを置くと呼び出せます"
+        "message": "マウスを左端へ移動"
+    },
+    "panel_guide_right": {
+        "message": "マウスを右端へ動かしてクリックすると、ブックマークが開きます。"
+    },
+    "panel_guide_left": {
+        "message": "マウスを左端へ動かしてクリックすると、ブックマークが開きます。"
+    },
+    "panel_guide_from": {
+        "message": "{1} より"
     },
     "onboarding_noneed_permission": {
-        "message": "ブラウザは自動承認をサポートしています。カスタマイズページで「変更を保持」を選択してください。"
+        "message": "新しいタブを使うには<strong>「変更を維持」</strong>をクリックしてください。"
     },
     "manage_title": {
         "message": "管理"
@@ -474,7 +483,7 @@
         "message": "マジックパネルで"
     },
     "manage_menu_setting_ball_panel_desc": {
-        "message": "アシスタントの開き方をここで設定できます。両方を有効にすることをおすすめします。"
+        "message": "初期設定ではサイドパネルで開きます。マジックボールはここからオンにできます。"
     },
     "manage_setting_panel_width": {
         "message": "マジックパネルの幅"
