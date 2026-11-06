@@ -152,6 +152,7 @@
                 dao: new $.DaoHelper(this),
                 template: new $.TemplateHelper(this),
                 confirm: new $.ConfirmHelper(this),
+                subscribe: new $.SubscribeHelper(this),
                 i18n: new $.I18nHelper(this),
                 fontAdd: new $.FontAddHelper(this),
                 styleHelper: new $.StyleHelper(this),

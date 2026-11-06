@@ -101,8 +101,9 @@
         			if (!res || res.allowed) {
         				wallpaperAllowed = true;
         				input.click();
-        			} else if (window.confirm(n.helper.i18n.get("subscribe_required"))) {
-        				window.open(res.subscribeUrl, "_blank");
+        			} else {
+        				const href = res.subscribeUrl || ($.opts.website.main.official + $.opts.website.scope + $.opts.website.servletMain.vip);
+        				n.helper.subscribe.show("wallpaper", href);
         			}
         		});
         	});

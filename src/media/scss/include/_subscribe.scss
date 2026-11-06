@@ -28,6 +28,15 @@ body > div.subscribe-modal {
     transform: translateY(16px) scale(0.96);
     transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.3, 1.2);
     user-select: none;
+    box-sizing: border-box;
+    text-align: left;
+    line-height: 1.4;
+    color: $textColor;
+
+    * {
+      box-sizing: border-box;
+      font-family: inherit;
+    }
 
     > a.subscribe-close {
       position: absolute;
