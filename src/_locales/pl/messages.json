@@ -630,7 +630,7 @@
         "message": "O BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars zainspirowało Zhihu. Gdy projektant zobaczył post o zasobach, przyjaciel podzielił się swoimi zakładkami przeglądarki i pomyślał o stworzeniu platformy do udostępniania zakładek. Zakładki zwykle organizują przydatne strony według kategorii; Twoje również mogą być przydatne innym. Projektant nie wiedział, czy zostanie to zaakceptowane przez wszystkich, więc była to odważna próba."
+        "message": "BookmarkMars to platforma do udostępniania zakładek przeglądarki. Zakładki zwykle zbierają strony, które ktoś uważa za przydatne, i porządkują je w kategorie. Według tej samej idei Twoje zakładki też mogą być przydatne innym. Nie wiadomo jeszcze, czy wszyscy to przyjmą, więc to odważna próba."
     },
     "about_bookmarkmars_helper_function": {
         "message": "Asystent BookmarkMars"
@@ -639,7 +639,7 @@
         "message": "{1}、Zaawansowane zarządzanie zakładkami, w tym dodawanie, usuwanie i modyfikacja"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Zaawansowane wyszukiwanie zakładek lokalnych i zdalnych"
+        "message": "{1}、Wyszukiwanie zakładek"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Zaawansowana synchronizacja zapobiegająca utracie zakładek"

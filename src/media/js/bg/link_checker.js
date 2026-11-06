@@ -3,7 +3,8 @@
 
     $.LinkCheckerHelper = function (b) {
     	
-		//重点保护网站，这些网站的搜索词不同认为地址不同
+		// 这些站点只保留检索参数，避免把同一次搜索的附加参数当成不同链接。
+        // 其它站点保留查询串里除跟踪参数以外的部分，避免把不同视频、文章误判成重复。
         const importantURLParameters = {
             "bookmarkmars.com": ["q"],
             "google.com": ["q"],
@@ -15,7 +16,14 @@
             "sogou.com": ["query"],
             "zhihu.com": ["q"],
             "bilibili.com": ["keyword"],
-            "youtube.com": ["search_query"],
+            "youtube.com": ["search_query", "v", "list"],
+        };
+
+        const trackingParam = {
+            "utm_source": 1, "utm_medium": 1, "utm_campaign": 1, "utm_term": 1, "utm_content": 1,
+            "utm_id": 1, "utm_name": 1, "fbclid": 1, "gclid": 1, "gclsrc": 1, "dclid": 1,
+            "msclkid": 1, "mc_cid": 1, "mc_eid": 1, "igshid": 1, "spm": 1, "si": 1,
+            "yclid": 1, "twclid": 1, "gbraid": 1, "wbraid": 1, "_ga": 1, "_gl": 1, "cmpid": 1
         };
 
        this.check = (opts) => {
@@ -38,79 +46,122 @@
 
 
         /**
-         * 对于指定的几种状态，我们认为是链接已经失效
+         * 只有页面明确不存在时才算失效。超时、502、504 多半是暂时的，不记成失效。
          */
-        const unacceptStatus =(res) => {
-        	
-        	/**
-        	 * 502 明显的后端错误，可能需要前后端配合来修复
-        	 * 504 网关超时
-        	 */
-        	const invalidStatusCodes = [404,502,504];
-  			return invalidStatusCodes.some(code => code === res.status);
-        }
+        const brokenStatus = {404: 1, 410: 1};
 
-		/*2024.04.15重新调整*/
-        const getHTTPInfo = async (rawUrl, timeout = 7000, method = "HEAD", times = 0) => {
-        	
-	    	const controller = new AbortController();
-			const timeoutId = setTimeout(() => controller.abort(), timeout);
-			let response =null;
-			
-			try {
-			    
-			    response = await fetch(rawUrl, {
-			      method,
-			      redirect: 'follow',
-			      signal: controller.signal,
-			    });
-			    
-			    //非不可接受状态
-			    if (!unacceptStatus(response)) {
-			      return { url: rawUrl, ok: true, status: response.status };
-			    }
-			
-				//尝试https
-			    const httpsUrl = rawUrl.startsWith('http:') ? rawUrl.replace(/^http:/, 'https:') : rawUrl;
-			    response = await fetch(httpsUrl, {
-			      method,
-			      redirect: 'follow',
-			      signal: controller.signal,
-			    });
-			
-			    if (!unacceptStatus(response)) {
-			      return { url: httpsUrl, ok: true, status: response.status };
-			    }
-			
-			    return { url: rawUrl, ok: false, status: response.status };
-			    
-			} catch (error) {
+        const stopBody = (response) => {
+            try {
+                if (response && response.body && response.body.cancel) {
+                    response.body.cancel().catch(() => {});
+                }
+            } catch (e) {
+                //
+            }
+        };
 
-				// 请求因超时而中止
-			    if (error.name === 'AbortError') {  
-			    	
-			    	// 如果是超时错误，并且还有重试次数，则重试  
-				    if (times < 2) {  
-			           return await getHTTPInfo(rawUrl, timeout, method, times + 1);  
-			        } else {  
-			          
-			          // 如果尝试了两次还是超时，则认为链接无效
-			          return { url: rawUrl, ok: false, status: !!response?response.status:null, errorType: 'timeout' };  
-			        }  
-			    }
-			    
-			    else {
-			        // 对于其他未知错误，根据业务需求决定是否认为是链接有效
-			        // 这里默认返回链接有效，但实际应用中可能需要更严谨的处理  
-			        return { url: rawUrl, ok: true, status: !!response?response.status:null, errorType: 'unknown' };  
-			    } 
-			    
-			} finally {
-			    
-			    if(timeoutId!=null){
-			    	clearTimeout(timeoutId);
-			    }
-			}
+        const probe = async (url, method, timeout) => {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeout);
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    redirect: "follow",
+                    cache: "no-store",
+                    signal: controller.signal
+                });
+                stopBody(response);
+                return {response: response};
+            } catch (error) {
+                return {error: error};
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        };
+
+        const netKind = (error) => {
+            const msg = String((error && (error.message || error.name)) || "");
+            if (!error || error.name === "AbortError" || /ERR_TIMED_OUT|ERR_CONNECTION_TIMED_OUT|Timeout/i.test(msg)) {
+                return "timeout";
+            }
+            if (/ERR_NAME_NOT_RESOLVED|ERR_NAME_RESOLUTION_FAILED|ERR_DNS/i.test(msg)) {
+                return "dns";
+            }
+            if (/ERR_CONNECTION_REFUSED|ERR_ADDRESS_UNREACHABLE|ERR_TOO_MANY_REDIRECTS|ERR_CERT_|ERR_SSL_/i.test(msg)) {
+                return "dead";
+            }
+            return "unknown";
+        };
+
+        const finalUrl = (response, fallback) => {
+            return response && response.url ? response.url : fallback;
+        };
+
+        const httpsUpgrade = (rawUrl) => {
+            return /^http:\/\//i.test(rawUrl) ? rawUrl.replace(/^http:/i, "https:") : null;
+        };
+
+        /**
+         * HEAD 很快，但不少站点对 HEAD 返回 404/405。那种结果再用一次 GET 确认。
+         * 超时不再连试三次，也不把超时记成失效。
+         */
+        const getHTTPInfo = async (rawUrl, timeout = 5000) => {
+            if (!rawUrl || !/^https?:\/\//i.test(rawUrl)) {
+                return {url: rawUrl, ok: true, status: null, skipped: true};
+            }
+
+            const limit = timeout || 5000;
+
+            const tryHttps = async () => {
+                const httpsUrl = httpsUpgrade(rawUrl);
+                if (!httpsUrl) {
+                    return null;
+                }
+                const again = await probe(httpsUrl, "GET", limit);
+                if (again.response && !brokenStatus[again.response.status]) {
+                    return {url: finalUrl(again.response, httpsUrl), ok: true, status: again.response.status};
+                }
+                if (again.response && brokenStatus[again.response.status]) {
+                    return {url: rawUrl, ok: false, status: again.response.status};
+                }
+                return null;
+            };
+
+            const head = await probe(rawUrl, "HEAD", limit);
+
+            if (head.response && !brokenStatus[head.response.status] && head.response.status !== 405 && head.response.status !== 501) {
+                return {url: finalUrl(head.response, rawUrl), ok: true, status: head.response.status};
+            }
+
+            // 域名不存在或连接被拒绝时，同一地址再 GET 一次没有意义。
+            if (head.error) {
+                const headKind = netKind(head.error);
+                if (headKind === "dns" || headKind === "dead") {
+                    return await tryHttps() || {url: rawUrl, ok: false, status: null, errorType: headKind};
+                }
+            }
+
+            const got = await probe(rawUrl, "GET", limit);
+            if (got.response && !brokenStatus[got.response.status]) {
+                return {url: finalUrl(got.response, rawUrl), ok: true, status: got.response.status};
+            }
+
+            if (got.response && brokenStatus[got.response.status]) {
+                return await tryHttps() || {url: rawUrl, ok: false, status: got.response.status};
+            }
+
+            const kind = netKind(got.error || head.error);
+            if (kind === "dns" || kind === "dead" || kind === "unknown") {
+                // unknown：扩展请求失败且浏览器没给出状态码，多半是域名失效或连接失败。
+                // 超时不走这里，避免把慢站点记成失效。
+                return await tryHttps() || {url: rawUrl, ok: false, status: null, errorType: kind};
+            }
+
+            if (head.response && brokenStatus[head.response.status]) {
+                return {url: rawUrl, ok: false, status: head.response.status};
+            }
+
+            return {url: rawUrl, ok: true, status: null, errorType: kind};
         };
 
         /**
@@ -121,35 +172,31 @@
          */
         const getDuplicateInfo = async (rawUrl) => {
 
-            const getFilteredUrl = (url) => { // filters the given url -> e.g. https://www.google.com/?q=123#top -> google.com
+            const getFilteredUrl = (url) => { // https://www.google.com/search?q=123&utm_source=x#top -> google.com/search?q=123
                 let urlObj = null;
                 try {
                     urlObj = new URL(url);
                 } catch (e) {
-                    //
+                    return url;
                 }
 
-                url = url.split("?")[0];
-                url = url.split("#")[0];
-                url = url.replace(/^https?:\/\//, "");
-                url = url.replace(/^www\./, "");
-                url = url.replace(/\/$/, "");
+                const hostname = urlObj.hostname.replace(/^www\./i, "").toLowerCase();
+                const path = urlObj.pathname.replace(/\/+$/, "");
+                const keep = importantURLParameters[hostname];
+                const params = [];
 
-                const hostname = url.split("/")[0];
+                urlObj.searchParams.forEach((val, key) => {
+                    const name = key.toLowerCase();
+                    if (!val || trackingParam[name]) {
+                        return;
+                    }
+                    if (keep && keep.indexOf(name) === -1 && keep.indexOf(key) === -1) {
+                        return;
+                    }
+                    params.push(key + "=" + val);
+                });
 
-				//对于一些重要网站，去掉不重要参数
-                if (urlObj && importantURLParameters[hostname]) { // keep important parameters of known urls -> e.g. https://www.youtube.com/?v=abcdefg&list=xyz -> youtube.com/?v=abcdefg
-                    const params = [];
-                    importantURLParameters[hostname].forEach((param) => {
-                        const val = urlObj.searchParams.get(param);
-                        if (val) {
-                            params.push(param + "=" + val);
-                        }
-                    });
-                    url += "?" + params.join("&");
-                }
-
-                return url;
+                return hostname + path + (params.length ? "?" + params.join("&") : "");
             };
 
 			//过滤

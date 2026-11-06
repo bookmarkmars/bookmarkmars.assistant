@@ -630,7 +630,7 @@
         "message": "BookmarkMars について"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars は Zhihu に触発されました。デザイナーがリソース関連の投稿を見たとき、友人がブラウザのブックマークを共有し、ブックマーク共有プラットフォームを作ろうと考えました。ブラウザのブックマークは通常、有用なサイトをカテゴリ別に整理します。したがって、あなたのブックマークも他の人に役立つ可能性があります。デザイナーは皆に受け入れられるかわからなかったので、大胆な試みでした。"
+        "message": "BookmarkMars は、ブラウザのブックマークを共有するプラットフォームです。ブックマークは、役立つと感じたサイトを集め、カテゴリに整理するものです。同じ考えで、あなたのブックマークもほかの人の役に立つ可能性があります。みんなに受け入れられるかはまだわかりません。大胆な試みです。"
     },
     "about_bookmarkmars_helper_function": {
         "message": "BookmarkMars アシスタント"
@@ -639,7 +639,7 @@
         "message": "{1}、追加・削除・変更を含む強力なブックマーク管理"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、ローカルおよびリモートブックマークの強力な検索"
+        "message": "{1}、ブックマークを検索"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、ブックマークの紛失を防ぐ強力な同期"

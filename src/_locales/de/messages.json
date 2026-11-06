@@ -630,7 +630,7 @@
         "message": "Über BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars wurde von Zhihu inspiriert. Als der Designer einen ressourcenbezogenen Beitrag sah, teilte ein Freund seine Browser-Lesezeichen, und er dachte an eine Plattform zum Teilen von Lesezeichen. Browser-Lesezeichen organisieren nützliche Websites in der Regel nach Kategorien; daher könnten Ihre auch für andere nützlich sein. Der Designer wusste nicht, ob es von allen akzeptiert würde, daher war es ein mutiger Versuch."
+        "message": "BookmarkMars ist eine Plattform zum Teilen von Browser-Lesezeichen. Lesezeichen sammeln meist Websites, die jemand nützlich findet, und ordnen sie in Kategorien. Nach derselben Idee können auch Ihre Lesezeichen für andere nützlich sein. Ob alle das annehmen, ist noch offen, deshalb ist es ein mutiger Versuch."
     },
     "about_bookmarkmars_helper_function": {
         "message": "BookmarkMars Assistent"
@@ -639,7 +639,7 @@
         "message": "{1}、Leistungsstarke Lesezeichen-Verwaltung, einschließlich Hinzufügen, Löschen und Bearbeiten"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Leistungsstarke Suche nach lokalen und Remote-Lesezeichen"
+        "message": "{1}、Lesezeichen durchsuchen"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Leistungsstarke Synchronisation zum Schutz vor Lesezeichenverlust"

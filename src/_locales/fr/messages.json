@@ -630,7 +630,7 @@
         "message": "À propos de BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars s'est inspiré de Zhihu. Lorsque le concepteur a vu une publication sur les ressources, un ami a partagé ses marque-pages du navigateur et il a pensé à créer une plateforme de partage de marque-pages. Les marque-pages organisent généralement les sites utiles par catégories ; les vôtres pourraient donc aussi être utiles à d'autres. Le concepteur ne savait pas s'il serait accepté par tous, c'était donc une tentative audacieuse."
+        "message": "BookmarkMars est une plateforme de partage de favoris. Les favoris rassemblent en général les sites que l'on trouve utiles et les classent par catégories. Selon la même idée, vos favoris peuvent aussi être utiles aux autres. On ne sait pas encore si tout le monde l'acceptera, c'est donc une tentative audacieuse."
     },
     "about_bookmarkmars_helper_function": {
         "message": "Assistant BookmarkMars"
@@ -639,7 +639,7 @@
         "message": "{1}、Gestion puissante des marque-pages, incluant l'ajout, la suppression et la modification"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Recherche puissante de marque-pages locaux et distants"
+        "message": "{1}、Rechercher des favoris"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Synchronisation puissante pour éviter la perte de marque-pages"

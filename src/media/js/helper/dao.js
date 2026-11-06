@@ -68,7 +68,7 @@
                 preventWindowed: false,
                 preventWebapp: false,
                 rememberState: "openStatesAndPos",
-                rememberOpenStatesSubDirectories: true,
+                rememberOpenStatesSubDirectories: false,
                 newEntryPosition: "prepend",
                 dndCreationDialog: false,
                 openChildrenWarnLimit: 10,
@@ -351,6 +351,46 @@
             }
         };
 
+        // The old default reopened child folders. New installs, and this one change, keep them closed.
+        const applySubDirDefault = () => {
+            if (!data || !data.behaviour || (data.utility && data.utility.rememberSubsDefault)) {
+                return;
+            }
+            if (!data.utility) {
+                data.utility = {};
+            }
+            data.utility.rememberSubsDefault = true;
+            const alreadyClosed = data.behaviour.rememberOpenStatesSubDirectories === false;
+            if (!alreadyClosed) {
+                data.behaviour.rememberOpenStatesSubDirectories = false;
+            }
+            const revert = () => {
+                if (!alreadyClosed) {
+                    data.behaviour.rememberOpenStatesSubDirectories = true;
+                }
+                data.utility.rememberSubsDefault = false;
+            };
+            try {
+                const persistFlag = () => {
+                    $.api.storage.local.set({utility: data.utility});
+                };
+                if (alreadyClosed) {
+                    persistFlag();
+                    return;
+                }
+                $.api.storage.sync.set({behaviour: data.behaviour}, () => {
+                    const error = $.api.runtime.lastError;
+                    if (error && error.message) {
+                        revert();
+                        return;
+                    }
+                    persistFlag();
+                });
+            } catch (e) {
+                revert();
+            }
+        };
+
         const refresh = () => {
             return new Promise((resolve) => {
             	
@@ -374,6 +414,7 @@
                                 newData.newtab = newtab || {};
                                 data = newData;
                                 applyPanelDefault();
+                                applySubDirDefault();
                                 resolve();
                             });
                         }

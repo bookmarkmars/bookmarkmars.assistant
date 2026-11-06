@@ -630,7 +630,7 @@
         "message": "Informazioni su BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars è stato ispirato da Zhihu. Quando il designer vide un post sulle risorse, un amico condivise i suoi segnalibri del browser e pensò di creare una piattaforma per condividere segnalibri. I segnalibri di solito organizzano siti utili per categorie; quindi anche i tuoi potrebbero essere utili ad altri. Il designer non sapeva se sarebbe stato accettato da tutti, quindi fu un tentativo audace."
+        "message": "BookmarkMars è una piattaforma per condividere i segnalibri del browser. I segnalibri di solito raccolgono i siti che ognuno trova utili e li ordinano per categorie. Con la stessa idea, anche i tuoi segnalibri possono essere utili agli altri. Non si sa ancora se tutti lo accetteranno, quindi è un tentativo audace."
     },
     "about_bookmarkmars_helper_function": {
         "message": "Assistente BookmarkMars"
@@ -639,7 +639,7 @@
         "message": "{1}、Potente gestione segnalibri, inclusa aggiunta, eliminazione e modifica"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Potente ricerca di segnalibri locali e remoti"
+        "message": "{1}、Cercare i segnalibri"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Potente sincronizzazione per evitare la perdita dei segnalibri"

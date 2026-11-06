@@ -630,7 +630,7 @@
         "message": "BookmarkMars 소개"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars는 Zhihu에서 영감을 받았습니다. 디자이너가 리소스 관련 게시물을 보았을 때 친구가 브라우저 북마크를 공유했고, 북마크 공유 플랫폼을 만들 생각을 했습니다. 브라우저 북마크는 일반적으로 유용한 사이트를 카테고리별로 정리합니다. 따라서 여러분의 북마크도 다른 사람에게 유용할 수 있습니다. 디자이너는 모두가 받아들일지 몰라 대담한 시도였습니다."
+        "message": "BookmarkMars는 브라우저 북마크를 공유하는 플랫폼입니다. 북마크는 보통 유용하다고 느낀 사이트를 모아 분류합니다. 같은 생각으로, 여러분의 북마크도 다른 사람에게 도움이 될 수 있습니다. 모두가 받아들일지는 아직 모르므로, 대담한 시도입니다."
     },
     "about_bookmarkmars_helper_function": {
         "message": "BookmarkMars 어시스턴트"
@@ -639,7 +639,7 @@
         "message": "{1}、추가·삭제·수정을 포함한 강력한 북마크 관리"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、로컬 및 원격 북마크의 강력한 검색"
+        "message": "{1}、북마크 검색"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、북마크 손실을 방지하는 강력한 동기화"

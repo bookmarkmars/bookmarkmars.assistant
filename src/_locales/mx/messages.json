@@ -630,7 +630,7 @@
         "message": "Acerca de BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars se inspiró en Zhihu. Cuando el diseñador vio una publicación sobre recursos, un amigo compartió sus marcadores del navegador y pensó en crear una plataforma para compartir marcadores. Los marcadores suelen organizar sitios útiles por categorías; por ello, los tuyos también podrían ser útiles para otros. El diseñador no sabía si sería aceptado por todos, así que fue un intento audaz."
+        "message": "BookmarkMars es una plataforma para compartir marcadores del navegador. Los marcadores suelen reunir los sitios que cada persona encuentra útiles y ordenarlos por categorías. Con la misma idea, tus marcadores también pueden ser útiles para otros. Aún no se sabe si todos lo aceptarán, así que es un intento audaz."
     },
     "about_bookmarkmars_helper_function": {
         "message": "Asistente BookmarkMars"
@@ -639,7 +639,7 @@
         "message": "{1}、Potente gestión de marcadores, incluida adición, eliminación y modificación"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Potente búsqueda de marcadores locales y remotos"
+        "message": "{1}、Buscar marcadores"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Potente sincronización para evitar la pérdida de marcadores"

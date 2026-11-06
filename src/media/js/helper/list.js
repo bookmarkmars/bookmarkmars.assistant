@@ -547,15 +547,16 @@
                 const close = elm.hasClass($.cl.sidebar.dirOpened) && childrenLoaded;
                 
                 const rememberState = ext.helper.dao.getData("b/rememberState");
+                const rememberSubs = ext.helper.dao.getData("b/rememberOpenStatesSubDirectories") === true;
                 if (typeof instant === "undefined") {
                     instant = initial || ext.helper.dao.getData("b/animations") === false;
                 }
 
                 const preResolve = () => {
-                	
-                	//已初始化、展开、并且配置记录展开状态
-                    if (initial === false && close === false && ext.helper.dao.getData("b/rememberOpenStatesSubDirectories") === true) {
-                        this.restoreOpenStates(childrenList);//记录
+
+                    // 记住子目录展开状态时，打开文件夹后恢复上次展开的子文件夹
+                    if (initial === false && close === false && rememberSubs) {
+                        this.restoreOpenStates(childrenList);
                     }
 
 					//要开启cache、已经初始化、无搜索结果，则do cache
@@ -578,18 +579,22 @@
                 if (close) { // close children
                     this.expandCollapseDir(elm, childrenList, false, instant).then(preResolve);
                 } else { // open children
-                	
+
+                    const showOneLevel = (list) => {
+                        this.expandCollapseDir(elm, list, true, instant).then(preResolve);
+                    };
+
                     if (!childrenLoaded) { // not yet loaded -> load and expand afterwards
                         ext.helper.dao.call("bookmarks", {id: dirId}).then((response) => {
                             if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) {
 
                                 childrenList = $("<ul></ul>").insertAfter(elm);
                                 this.addBookmarkDir(response.bookmarks[0].children, childrenList);
-                                this.expandCollapseDir(elm, childrenList, true, instant).then(preResolve);
+                                showOneLevel(childrenList);
                             }
                         });
                     } else { // already loaded -> just expand
-                        this.expandCollapseDir(elm, childrenList, true, instant).then(preResolve);
+                        showOneLevel(childrenList);
                     }
                 }
             });
@@ -625,7 +630,14 @@
         this.expandCollapseDir = (elm, list, open, instant) => {
             
             return new Promise((resolve) => {
-                
+
+                const rememberSubs = ext.helper.dao.getData("b/rememberOpenStatesSubDirectories") === true;
+                // Close nested folders before reading the height, or the list
+                // opens to their full size and then snaps shut.
+                if (open && !rememberSubs) {
+                    collapseChildDirs(list);
+                }
+
                 list.css("height", list[0].scrollHeight + "px");
 
                 if (open === false) { // parameter false -> close list
@@ -672,6 +684,31 @@
          * @param {jsu} elm
          * @param {object} openStates
          */
+        const collapseChildDirs = (list) => {
+            if (!list || list.length() === 0) {
+                return;
+            }
+            const openStates = ext.helper.dao.getData("u/openStates") || {};
+            let changed = false;
+            list.find("a." + $.cl.sidebar.bookmarkDir).forEach((node) => {
+                const child = $(node);
+                child.removeClass($.cl.sidebar.dirOpened);
+                const sub = child.next("ul");
+                if (sub[0]) {
+                    sub[0].style.transition = "none";
+                    sub[0].style.height = "0px";
+                }
+                const id = child.attr($.attr.id);
+                if (id && openStates[id]) {
+                    openStates[id] = false;
+                    changed = true;
+                }
+            });
+            if (changed && ext.helper.search.isResultsVisible() === false) {
+                ext.helper.dao.setData({"u/openStates": openStates});
+            }
+        };
+
         const closeAllChildDirs = (elm, openStates) => {
             elm.next("ul").find("a." + $.cl.sidebar.bookmarkDir).forEach((node) => {
                 openStates[$(node).attr($.attr.id)] = false;

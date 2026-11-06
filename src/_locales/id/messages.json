@@ -630,7 +630,7 @@
         "message": "Tentang BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars terinspirasi oleh Zhihu. Ketika desainer melihat posting tentang sumber daya, seorang teman membagikan bookmark browsernya dan ia terpikir untuk membuat platform berbagi bookmark. Bookmark biasanya mengorganisir situs berguna menurut kategori; bookmark Anda juga mungkin berguna bagi orang lain. Desainer tidak tahu apakah ini akan diterima semua orang, jadi ini adalah percobaan yang berani."
+        "message": "BookmarkMars adalah platform untuk berbagi markah browser. Markah biasanya mengumpulkan situs yang dianggap berguna dan mengelompokkannya. Dengan gagasan yang sama, markah Anda juga bisa berguna bagi orang lain. Belum diketahui apakah semua orang akan menerimanya, jadi ini adalah percobaan yang berani."
     },
     "about_bookmarkmars_helper_function": {
         "message": "Asisten BookmarkMars"
@@ -639,7 +639,7 @@
         "message": "{1}、Manajemen bookmark canggih, termasuk penambahan, penghapusan, dan pengubahan"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Pencarian bookmark lokal dan jarak jauh yang canggih"
+        "message": "{1}、Mencari markah"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Sinkronisasi canggih untuk mencegah kehilangan bookmark"

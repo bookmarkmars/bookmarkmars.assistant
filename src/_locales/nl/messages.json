@@ -630,7 +630,7 @@
         "message": "Over BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars is geïnspireerd door Zhihu. Toen de ontwerper een bericht over bronnen zag, deelde een vriend zijn browserbladwijzers en toen dacht hij aan een platform om bladwijzers te delen. Bladwijzers ordenen doorgaans nuttige websites per categorie; uw bladwijzers kunnen dus ook nuttig zijn voor anderen. De ontwerper wist niet of iedereen dit zou accepteren, dus het was een gewaagde poging."
+        "message": "BookmarkMars is een platform om browserbladwijzers te delen. Bladwijzers verzamelen meestal websites die iemand nuttig vindt en ordenen ze in categorieën. Volgens hetzelfde idee kunnen ook uw bladwijzers nuttig zijn voor anderen. Of iedereen dit accepteert is nog onbekend, dus het is een gewaagde poging."
     },
     "about_bookmarkmars_helper_function": {
         "message": "BookmarkMars Assistent"
@@ -639,7 +639,7 @@
         "message": "{1}、Krachtig bladwijzerbeheer, inclusief toevoegen, verwijderen en wijzigen"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Krachtig zoeken in lokale en externe bladwijzers"
+        "message": "{1}、Bladwijzers zoeken"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Krachtige synchronisatie om verlies van bladwijzers te voorkomen"

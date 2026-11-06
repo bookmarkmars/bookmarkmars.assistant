@@ -627,10 +627,10 @@
         "message": "Deve compreender bem esta função. Ao ativá-la, o seu histórico de visitas será guardado na nuvem. Estes dados não serão tornados públicos. Decida se deseja permiti-lo"
     },
     "about_bookmarkmars_intro": {
-        "message": "Acerca do BookmarkMars"
+        "message": "Sobre o BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "O BookmarkMars foi inspirado no Zhihu. Quando o designer viu uma publicação sobre recursos, um amigo partilhou os seus marcadores do navegador e pensou em criar uma plataforma para partilhar marcadores. Os marcadores organizam geralmente sites úteis por categorias; por isso, os seus também podem ser úteis para outros. O designer não sabia se seria aceite por todos, por isso foi uma tentativa ousada."
+        "message": "O BookmarkMars é uma plataforma para partilhar favoritos do navegador. Os favoritos costumam reunir os sites que cada pessoa considera úteis e organizá-los por categorias. Pela mesma ideia, os seus favoritos também podem ser úteis para outras pessoas. Ainda não se sabe se todos vão aceitar, por isso é uma tentativa ousada."
     },
     "about_bookmarkmars_helper_function": {
         "message": "Assistente BookmarkMars"
@@ -639,7 +639,7 @@
         "message": "{1}、Gestão poderosa de marcadores, incluindo adição, eliminação e modificação"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Pesquisa poderosa de marcadores locais e remotos"
+        "message": "{1}、Pesquisar favoritos"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Sincronização poderosa para evitar a perda de marcadores"

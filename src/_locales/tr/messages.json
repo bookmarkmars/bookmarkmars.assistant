@@ -627,10 +627,10 @@
         "message": "Bu işlevi iyi anlamalısınız. Etkinleştirildiğinde ziyaret geçmişiniz bulutta yedeklenir. Bu veriler herkese açıklanmaz. İzin verip vermeyeceğinize siz karar verin"
     },
     "about_bookmarkmars_intro": {
-        "message": "BookmarkMars Hakkında"
+        "message": "BookmarkMars hakkında"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars, Zhihu'dan ilham aldı. Tasarımcı kaynaklarla ilgili bir gönderi gördüğünde bir arkadaşının tarayıcı yer imlerini paylaştığını gördü ve bir yer imi paylaşım platformu kurmayı düşündü. Yer imleri genellikle faydalı siteleri kategorilere ayırır; bu nedenle sizinkiler de başkaları için faydalı olabilir. Tasarımcı herkes tarafından kabul edilip edilmeyeceğini bilmiyordu, bu yüzden cesur bir denemeydi."
+        "message": "BookmarkMars, tarayıcı yer imlerini paylaşmak için bir platformdur. Yer imleri genellikle kişinin yararlı bulduğu siteleri toplar ve kategorilere ayırır. Aynı düşünceyle, sizin yer imleriniz de başkaları için yararlı olabilir. Herkesin kabul edip etmeyeceği henüz bilinmiyor, bu yüzden cesur bir denemedir."
     },
     "about_bookmarkmars_helper_function": {
         "message": "BookmarkMars Asistanı"
@@ -639,7 +639,7 @@
         "message": "{1}、Ekleme, silme ve düzenleme dahil güçlü yer imi yönetimi"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Yerel ve uzak yer imlerinde güçlü arama"
+        "message": "{1}、Yer imlerinde arama"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Yer imlerinin kaybolmasını önleyen güçlü senkronizasyon"

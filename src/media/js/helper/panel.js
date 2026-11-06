@@ -89,6 +89,7 @@
                 //有召唤面板再监听事件
                 initEvents();
                 showEdgeGuide();
+                syncEdgeHit();
             }
         };
 
@@ -178,6 +179,20 @@
                 clearSidebarTimeout("close");
             });
 
+            // Leaving the strip onto a covering iframe never reaches document mousemove.
+            ext.elm.panel.on("mouseleave", () => {
+                clearSidebarTimeout("open");
+                clearSidebarTimeout("panel");
+                ext.elm.panel.removeClass($.cl.page.hover);
+            });
+
+            $(window).on("resize.be", () => {
+                syncEdgeHit();
+            });
+            $(document).on("fullscreenchange.be webkitfullscreenchange.be", () => {
+                syncEdgeHit();
+            });
+
             $(document).on("mouseleave.be", (e) => {
             	
             	//使用 `mouseleave`事件的延迟属性来解决 Edge 浏览器和 Chrome 浏览器中行为不同的问题
@@ -188,6 +203,7 @@
 			    }
             })
             .on("mousemove.be", (e) => { // check mouse position
+                syncEdgeHit();
             	
                 if (e.isTrusted && isMousePosInPixelTolerance(e.clientX, e.clientY) && !ext.elm.iframe.hasClass($.cl.sidebar.extLoaded)) {
                     const inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
@@ -243,6 +259,74 @@
         };
 
         /**
+         * Width of the invisible edge strip. Matches the open gesture, and widens
+         * while the first-visit hint is on screen.
+         *
+         * @returns {number}
+         */
+        const entryHitWidth = () => {
+            let w = parseInt(panel.width);
+
+            if (ext.helper.util.isWindowed()) {
+                w = parseInt(panel.widthWindowed);
+            }
+            if (guideElm && w < 24) {
+                w = 24;
+            }
+            return w;
+        };
+
+        /**
+         * The strip must not eat clicks when the sidebar is already open, or when
+         * the gesture itself is disabled.
+         *
+         * @returns {boolean}
+         */
+        const edgeHitBlocked = () => {
+            if (ext.elm.iframe && ext.elm.iframe.hasClass($.cl.sidebar.extLoaded)) {
+                return true;
+            }
+            if (preventWebapp && ext.helper.util.isWebapp()) {
+                return true;
+            }
+            if (preventWindowed && ext.helper.util.isWindowed()) {
+                return true;
+            }
+            if (document.fullscreen || document.webkitIsFullScreen) {
+                return true;
+            }
+            return false;
+        };
+
+        /**
+         * Keeps a real hit target on the screen edge. A covering iframe never
+         * delivers mousemove to this document, so the strip has to catch it.
+         */
+        let edgeHitState = "";
+        const syncEdgeHit = () => {
+            if (!ext.elm.panel) {
+                return;
+            }
+            const next = edgeHitBlocked() ? "off" : ("on:" + entryHitWidth());
+            if (next === edgeHitState) {
+                return;
+            }
+            edgeHitState = next;
+            if (next === "off") {
+                ext.elm.panel.css({
+                    pointerEvents: "none",
+                    width: ""
+                });
+            } else {
+                ext.elm.panel.css({
+                    pointerEvents: "auto",
+                    width: entryHitWidth() + "px"
+                });
+            }
+        };
+        this.syncEdgeHit = syncEdgeHit;
+
+        /**
          * Checks whether the given mouse position is in the configured pixel tolence
          *
          * @param {int} clientX
@@ -270,24 +354,13 @@
                         clientX = window.innerWidth - clientX - 1;
                     }
 
-                    let w = parseInt(panel.width);
-                    
-                    if (ext.helper.util.isWindowed()) { // return different values for the panel area width in window mode
-                        w = parseInt(panel.widthWindowed);
-                    }
-
                     const area = {
-                        w: w,
+                        w: entryHitWidth(),
                         h: clientY / window.innerHeight * 100
                     };
 
                     if (ext.elm.panel.hasClass($.cl.page.hover) && panelWidth > area.w) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
                         area.w = panelWidth;
-                    }
-
-                    // The hint bar sits on the edge. Count that strip so the panel still opens.
-                    if (guideElm && area.w < 24) {
-                        area.w = 24;
                     }
 
                     ret = clientX < area.w && (area.h >= panel.top && area.h <= panel.top + panel.height);

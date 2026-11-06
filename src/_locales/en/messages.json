@@ -630,7 +630,7 @@
         "message": "About BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars was inspired by Zhihu. When the designer saw a resource-related post, he saw a friend share his browser bookmark, and then thought of building a browser bookmark sharing platform. Browser bookmarks generally organize the websites that everyone finds useful, and usually organize them into categories. According to this reasoning, your own bookmarks are also likely to be useful to others. The designer doesn't know whether it will be accepted by everyone, so it is a bold attempt."
+        "message": "BookmarkMars is a platform for sharing browser bookmarks. Bookmarks usually collect the websites people find useful and sort them into categories. By the same idea, your own bookmarks can be useful to others too. Whether everyone will accept it is still unknown, so this is a bold attempt."
     },
     "about_bookmarkmars_helper_function": {
         "message": "BookmarkMars Assistant"
@@ -639,7 +639,7 @@
         "message": "{1}、Powerful bookmark management function, including addition, deletion and modification of bookmarks"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Powerful query function to query local and remote bookmarks"
+        "message": "{1}、Powerful search of your bookmarks"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Powerful bookmark synchronization function, which can keep your bookmarks from being lost"

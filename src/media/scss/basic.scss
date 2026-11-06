@@ -125,6 +125,9 @@ body > div#lds_be_panel{
   height: 100%;
   margin: 0;
   padding: 0;
+  // The host ignores hits so the page stays clickable. This strip must take them,
+  // or a full-size iframe (RapidAPI Studio) swallows the edge gesture.
+  pointer-events: auto;
   z-index: #{2147483647 - 2};
 
   &.visible {
@@ -216,6 +219,7 @@ body > div#lds_be_panel {
     > div {
       transform: translate3d(0, 0, 0);
       opacity: 1;
+      pointer-events: auto;
     }
   }
 }

@@ -630,7 +630,7 @@
         "message": "Giới thiệu BookmarkMars"
     },
     "about_bookmarkmars_intro_desc": {
-        "message": "BookmarkMars lấy cảm hứng từ Zhihu. Khi nhà thiết kế thấy bài viết về tài nguyên, một người bạn chia sẻ dấu trang trình duyệt và anh ấy nghĩ đến việc xây dựng nền tảng chia sẻ dấu trang. Dấu trang thường sắp xếp các trang web hữu ích theo danh mục; vì vậy dấu trang của bạn cũng có thể hữu ích cho người khác. Nhà thiết kế không biết liệu mọi người có chấp nhận hay không, nên đây là một thử nghiệm táo bạo."
+        "message": "BookmarkMars là nền tảng chia sẻ dấu trang trình duyệt. Dấu trang thường gom các trang web mà mỗi người thấy hữu ích và sắp xếp theo danh mục. Theo ý đó, dấu trang của bạn cũng có thể hữu ích cho người khác. Chưa biết mọi người có chấp nhận hay không, nên đây là một thử nghiệm táo bạo."
     },
     "about_bookmarkmars_helper_function": {
         "message": "Trợ lý BookmarkMars"
@@ -639,7 +639,7 @@
         "message": "{1}、Quản lý dấu trang mạnh mẽ, bao gồm thêm, xóa và sửa"
     },
     "about_bookmarkmars_helper_funtion_2": {
-        "message": "{1}、Tìm kiếm dấu trang cục bộ và từ xa mạnh mẽ"
+        "message": "{1}、Tìm dấu trang"
     },
     "about_bookmarkmars_helper_funtion_3": {
         "message": "{1}、Đồng bộ mạnh mẽ để tránh mất dấu trang"

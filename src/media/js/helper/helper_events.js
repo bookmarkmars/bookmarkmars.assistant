@@ -185,25 +185,6 @@
                         }
                     }
 
-                }).on("dblclick", "> ul a", (e) => { // double click on a directory will open the directory + all sub directories
-                    
-                    const _self = $(e.currentTarget);
-                    ext.helper.contextmenu.close();
-                    const isRoot = _self.parents("ul").eq(0).prev("a").length()>0?false:true;
-
-					//根节点数据太多，全部打开太多内容，所以禁止root打开
-                    if (_self.hasClass($.cl.sidebar.bookmarkDir) && !_self.hasClass($.cl.sidebar.dirOpened) && !isRoot) {
-                        const openChildren = (elm) => {
-                            $.delay().then(() => {
-                                elm.next("ul").find("> li > a." + $.cl.sidebar.bookmarkDir + ":not(." + $.cl.sidebar.dirOpened + ")").forEach((childDir) => {
-                                    ext.helper.list.toggleBookmarkDir($(childDir), false, false).then(() => {
-                                        openChildren($(childDir));
-                                    });
-                                });
-                            });
-                        };
-                        openChildren(_self);
-                    }
                 }).on("contextmenu", "> ul a", (e) => { //preven pop up of sys
                     e.preventDefault();
                 })

@@ -7,12 +7,20 @@
 	 */
     $.LinkCheckerHelper = function (s) {
     	
-    	/**
-         * Amount of bookmarks to check in parallel. A too high number will cause more faulty requests, so we keep that a bit lower, but still more than 1 after 1
+        /**
+         * How many links are checked at once. Each check now stops on its own timeout,
+         * so a few more can stay in flight without one slow site holding the rest.
          *
          * @type {number}
          */
-        const CHUNK_SIZE = 5;
+        const POOL_SIZE = 8;
+
+        /**
+         * Per-request limit passed to the background checker (HEAD, then one GET if needed).
+         *
+         * @type {number}
+         */
+        const CHECK_TIMEOUT = 4500;
     	
     	/**
          *
@@ -535,6 +543,60 @@
         };
         
         /**
+         * 比较用的地址：去掉锚点、末尾斜杠和跟踪参数。loose 为 true 时连协议也忽略，用来认重复书签。
+         */
+        const trackingParam = {
+            "utm_source": 1, "utm_medium": 1, "utm_campaign": 1, "utm_term": 1, "utm_content": 1,
+            "utm_id": 1, "utm_name": 1, "fbclid": 1, "gclid": 1, "gclsrc": 1, "dclid": 1,
+            "msclkid": 1, "mc_cid": 1, "mc_eid": 1, "igshid": 1, "spm": 1, "si": 1,
+            "yclid": 1, "twclid": 1, "gbraid": 1, "wbraid": 1, "_ga": 1, "_gl": 1, "cmpid": 1
+        };
+
+        const searchParam = {
+            "bookmarkmars.com": ["q"],
+            "google.com": ["q"],
+            "google.de": ["q"],
+            "baidu.com": ["q"],
+            "bing.com": ["q"],
+            "so.com": ["q"],
+            "toutiao.com": ["keyword"],
+            "sogou.com": ["query"],
+            "zhihu.com": ["q"],
+            "bilibili.com": ["keyword"],
+            "youtube.com": ["search_query", "v", "list"]
+        };
+
+        const urlKey = (raw, loose) => {
+            try {
+                const url = new URL(raw);
+                const host = url.hostname.replace(/^www\./i, "").toLowerCase();
+                const path = url.pathname.replace(/\/+$/, "");
+                const keep = searchParam[host];
+                const params = [];
+
+                url.searchParams.forEach((val, key) => {
+                    const name = key.toLowerCase();
+                    if (!val || trackingParam[name]) {
+                        return;
+                    }
+                    if (keep && keep.indexOf(name) === -1 && keep.indexOf(key) === -1) {
+                        return;
+                    }
+                    params.push(name + "=" + val);
+                });
+                params.sort();
+
+                const tail = host + path + (params.length ? "?" + params.join("&") : "");
+                if (loose) {
+                    return tail;
+                }
+                return (url.protocol === "http:" ? "http" : "https") + "://" + tail;
+            } catch (e) {
+                return String(raw || "");
+            }
+        };
+
+        /**
          * Checks the urls of the given bookmarks and returns the check results
          *
          * @param {Array} bookmarks
@@ -544,92 +606,204 @@
         const checkListOfBookmarks = (allBookmarks, results) => {
             return new Promise((resolve) => {
                 let finished = 0;
-                const duplicateLabels = [];
+                let cursor = 0;
+                let openJobs = 0;
                 const totalBookmarks = allBookmarks.length;
+                const httpCache = new Map();
+                const networkBroken = [];
+                const checkedIds = {};
 
-                const checkChunk = (bookmarks) => {
-                    return new Promise((rslv) => {
-                        let resolved = 0;
-                        for (const bookmark of bookmarks) {
-                        	
-                        	let done = false;
-                            const callback = () => {
-                                if (done) {
-                                    return;
-                                }
+                allBookmarks.forEach((bookmark) => {
+                    checkedIds[bookmark.id] = true;
+                });
 
-                                done = true;
-                                finished++;
-                                resolved++;
+                const bump = () => {
+                    finished++;
+                    if (totalBookmarks > 0) {
+                        elements.progressBar.children("div").css("width", (finished / totalBookmarks * 100) + "%");
+                    }
+                    elements.progressLabel.children("span").eq(0).text(finished.toLocaleString());
+                };
 
-                                elements.progressBar.children("div").css("width", (finished / totalBookmarks * 100) + "%");
-                                elements.progressLabel.children("span").eq(0).text(finished.toLocaleString());
+                const hostUp = (url) => {
+                    const controller = new AbortController();
+                    const timer = setTimeout(() => controller.abort(), 4000);
+                    return fetch(url, {method: "HEAD", cache: "no-store", signal: controller.signal}).then((res) => {
+                        clearTimeout(timer);
+                        try {
+                            if (res.body && res.body.cancel) {
+                                res.body.cancel().catch(() => {});
+                            }
+                        } catch (e) {
+                            //
+                        }
+                        return res.status > 0 && res.status < 500;
+                    }).catch(() => {
+                        clearTimeout(timer);
+                        return false;
+                    });
+                };
 
-                                if (resolved >= bookmarks.length) {
-                                    rslv();
-                                }
-                            };
+                // 两个都失败才认为当前网络不可用，避免把整库都标成失效。
+                const networkUp = Promise.all([
+                    hostUp("https://www.gstatic.com/generate_204"),
+                    hostUp("https://www.baidu.com/")
+                ]).then((flags) => flags.some(Boolean));
 
-                            const waitTimeout = setTimeout(callback, 15000); //如果阻塞，15m后释放
+                const classify = (bookmark, response) => {
+                    const httpInfo = response && response.httpInfo;
+                    if (!httpInfo) {
+                        return;
+                    }
 
-                            s.helper.dao.call("checkUrl", {url: bookmark.url,all:true}).then((response) => {
+                    if (httpInfo.ok === false) {
+                        const entry = {
+                            id: bookmark.id,
+                            title: bookmark.title,
+                            url: bookmark.url,
+                            broken: true
+                        };
+                        if (httpInfo.status) {
+                            results.broken.push(entry);
+                            results.count++;
+                        } else {
+                            networkBroken.push(entry);
+                        }
+                        return;
+                    }
 
-                                if (response.duplicateInfo.duplicates.length > 0) {
-                                    if (duplicateLabels.indexOf(response.duplicateInfo.label) === -1) {//过滤，只要一份
-                                        results.duplicate.push({
-                                            label: response.duplicateInfo.label,
-                                            url: bookmark.url,
-                                            duplicates: response.duplicateInfo.duplicates
-                                        });
-                                        duplicateLabels.push(response.duplicateInfo.label);
-                                        results.count++;
-                                    }
-                                }
+                    const status = httpInfo.status;
+                    const nextUrl = httpInfo.url;
+                    if (status >= 200 && status < 400 && nextUrl && urlKey(bookmark.url, false) !== urlKey(nextUrl, false)) {
+                        results.changed.push({
+                            id: bookmark.id,
+                            title: bookmark.title,
+                            url: bookmark.url,
+                            newUrl: nextUrl,
+                            additionalInfo: bookmark.additionalInfo
+                        });
+                        results.count++;
+                    }
+                };
 
-								let burl=bookmark.url;
-								let curl=burl.substr(0,burl.indexOf("#"));
-								
-                                if (response.httpInfo.ok === false) { //失效内容
-                                    results.broken.push({
-                                        id: bookmark.id,
-                                        title: bookmark.title,
-                                        url: bookmark.url,
-                                        broken: true
-                                    });
-                                    results.count++;
-                                } else if (response.httpInfo.url !== burl && response.httpInfo.url !== curl) { //重定向了,有些网站有锚点，这种我们不认为是重定向
-                                    results.changed.push({
-                                        id: bookmark.id,
-                                        title: bookmark.title,
-                                        url: bookmark.url,
-                                        newUrl: response.httpInfo.url,
-                                        additionalInfo: bookmark.additionalInfo
-                                    });
-                                    results.count++;
-                                }
-                            })["finally"](callback);
+                const checkOne = (bookmark) => {
+                    let job = httpCache.get(bookmark.url);
+                    if (!job) {
+                        job = s.helper.dao.call("checkUrl", {url: bookmark.url, all: false, timeout: CHECK_TIMEOUT}).catch(() => {
+                            return {httpInfo: null};
+                        });
+                        httpCache.set(bookmark.url, job);
+                    }
+
+                    return new Promise((resolveJob) => {
+                        let released = false;
+                        const release = () => {
+                            if (released) {
+                                return;
+                            }
+                            released = true;
+                            bump();
+                            resolveJob();
+                        };
+                        const timer = setTimeout(release, 16000);
+                        openJobs++;
+                        job.then((response) => {
+                            classify(bookmark, response);
+                        }).finally(() => {
+                            clearTimeout(timer);
+                            openJobs--;
+                            release();
+                        });
+                    });
+                };
+
+                const collect = (nodes, out) => {
+                    (nodes || []).forEach((node) => {
+                        if (node.url && s.helper.util.isUrlOnBlacklist(node.url) === false) {
+                            out.push(node);
+                        }
+                        if (node.children) {
+                            collect(node.children, out);
                         }
                     });
                 };
 
-
-                (async () => {
-                    let i = 0;
-                    let chunk = [];
-                    for (const bookmark of allBookmarks) {
-                        i++;
-                        chunk.push(bookmark);
-
-                        if (Object.keys(chunk).length >= CHUNK_SIZE || i === allBookmarks.length) { // check multiple urls at once
-                            await checkChunk(chunk);
-                            chunk = [];
+                const duplicatePromise = s.helper.dao.call("bookmarks", {id: 0}).then((data) => {
+                    const all = [];
+                    collect(data && data.bookmarks, all);
+                    return all.length ? all : allBookmarks;
+                }).catch(() => {
+                    return allBookmarks;
+                }).then((nodes) => {
+                    const groups = new Map();
+                    nodes.forEach((node) => {
+                        const key = urlKey(node.url, true);
+                        if (!key) {
+                            return;
                         }
-                    }
+                        let list = groups.get(key);
+                        if (!list) {
+                            list = [];
+                            groups.set(key, list);
+                        }
+                        if (!list.some((item) => item.id === node.id)) {
+                            list.push(node);
+                        }
+                    });
+                    groups.forEach((list, key) => {
+                        if (list.length < 2 || !list.some((item) => checkedIds[item.id])) {
+                            return;
+                        }
+                        results.duplicate.push({
+                            label: key,
+                            url: list[0].url,
+                            duplicates: list
+                        });
+                        results.count++;
+                    });
+                });
 
+                const worker = async () => {
+                    while (cursor < allBookmarks.length) {
+                        const bookmark = allBookmarks[cursor++];
+                        await checkOne(bookmark);
+                    }
+                };
+
+                const workers = [];
+                const pool = Math.min(POOL_SIZE, totalBookmarks);
+                for (let i = 0; i < pool; i++) {
+                    workers.push(worker());
+                }
+
+                Promise.all(workers).then(() => {
+                    if (openJobs === 0) {
+                        return null;
+                    }
+                    return new Promise((done) => {
+                        const watch = setInterval(() => {
+                            if (openJobs === 0) {
+                                clearInterval(watch);
+                                done();
+                            }
+                        }, 200);
+                        setTimeout(() => {
+                            clearInterval(watch);
+                            done();
+                        }, 20000);
+                    });
+                }).then(() => networkUp).then((up) => {
+                    if (up) {
+                        networkBroken.forEach((entry) => {
+                            results.broken.push(entry);
+                            results.count++;
+                        });
+                    }
+                }).then(() => duplicatePromise).then(() => {
                     $.delay(500).then(() => {
                         resolve(results);
                     });
-                })();
+                });
             });
         };
         

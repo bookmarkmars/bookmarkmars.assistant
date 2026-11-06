@@ -250,7 +250,10 @@
         	
             ext.elm.iframe.removeClass($.cl.sidebar.extLoaded);
             ext.elm.iframe.removeClass($.cl.sidebar.fadeIn);
-            ext.elm.panel.removeClass($.cl.toggle.fadeOut)
+            ext.elm.panel.removeClass($.cl.toggle.fadeOut);
+            if (ext.helper.panel && ext.helper.panel.syncEdgeHit) {
+                ext.helper.panel.syncEdgeHit();
+            }
             
             ext.helper.dao.call("setSidebarState",{state:"close"})
             .then(()=>{
@@ -293,6 +296,12 @@
         	.addClass([$.cl.sidebar.extLoaded,$.cl.sidebar.fadeIn]);
         	
     		ext.elm.panel.removeClass($.cl.page.hover);//确保不要打开
+            // Keep the edge strip through this click, then drop it so it does not cover the sidebar.
+            $.delay(0).then(() => {
+                if (ext.helper.panel && ext.helper.panel.syncEdgeHit) {
+                    ext.helper.panel.syncEdgeHit();
+                }
+            });
         	if(ext.elm.iframe.hasClass($.cl.sidebar.extLoaded)){
         		ext.elm.indicator.addClass($.cl.hidden);//立马消失
         		ext.elm.panel.addClass($.cl.toggle.fadeOut);//逐渐消失

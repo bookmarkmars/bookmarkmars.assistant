@@ -9,7 +9,9 @@
 
         let sidebarPos = null;
         let showCreationDialog = false;
-        let oldAboveElm = null;
+        let oldAboveNode = null;
+        let oldZone = null;
+        let nestSeq = 0;
         let oldTopVal = 0;
         let dirOpenTimeout = null;
         let sort = null;
@@ -36,6 +38,7 @@
          * Cancels the dragging and resets the position of the dragged element
          */
         this.cancel = () => {
+            nestSeq++;
             const draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
             const dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
             const entryElm = draggedElm.data("elm");
@@ -48,8 +51,11 @@
 
             dragInitialElm.remove();
             draggedElm.remove();
+            clearNestPreview();
             ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
             ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
+            oldAboveNode = null;
+            oldZone = null;
 
             $.delay(500).then(() => {
                 ext.helper.ball.removeSidebarHoverClass();
@@ -123,6 +129,9 @@
             }
 
             sort = ext.helper.dao.getData("u/sort");
+            oldAboveNode = null;
+            oldZone = null;
+            nestSeq++;
             const elmParent = elm.parent("li");
             const parentTrigger = elmParent.parent("ul").prev("a");
 
@@ -198,6 +207,7 @@
          * Stop dragging an element (bookmark or directory)
          */
         const dragend = async () => {
+            nestSeq++;
             clearDirOpenTimeout();
             const draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
             
@@ -426,44 +436,146 @@
                 });
             });
 
-            if (newAboveElm.elm && newAboveElm.elm !== oldAboveElm) {
-                oldAboveElm = newAboveElm.elm;
+            if (newAboveElm.elm) {
                 const newAboveLink = newAboveElm.elm.children("a").eq(0);
                 const parentElm = newAboveElm.elm.parents("li").eq(0);
                 const isTopLevel = !parentElm || parentElm.length() === 0;
                 const aboveIsDir = newAboveLink.hasClass($.cl.sidebar.bookmarkDir);
                 const hoverPosPercentage = newAboveElm.diff / newAboveElm.height * 100;
+                const nestZone = aboveIsDir && (hoverPosPercentage < 60 || (sort && sort.name !== "default"));
+                // in: indented inside the folder. after: same left edge, next to that folder.
+                // out: below the last row, pop out to the parent.
+                const zone = nestZone ? "in" : (hoverPosPercentage > 80 ? "out" : "after");
+                const aboveNode = newAboveElm.elm[0];
 
-                clearDirOpenTimeout(newAboveLink);
+                if (aboveNode !== oldAboveNode || zone !== oldZone) {
+                    oldAboveNode = aboveNode;
+                    oldZone = zone;
+                    clearDirOpenTimeout(newAboveLink);
 
-                if (newAboveElm.elm.nextAll("li:not(." + $.cl.drag.isDragged + "):not(." + $.cl.drag.dragInitial + ")").length() === 0 && hoverPosPercentage > 80) { // drag position is below the last element of a directory -> placeholder under the current directory
-                    if (draggedElm && parentElm && parentElm.length() > 0 && parentElm.parents("ul")[0] !== ext.elm.bookmarkBox.all.find("> ul")[0]) {
-                        setDataElement(draggedElm, placeEntry(bookmarkElm, "after", parentElm));
-                    }
-                } else if (aboveIsDir && (hoverPosPercentage < 60 || sort.name !== "default")) { // directory is hovered
-                    if (newAboveLink.hasClass($.cl.sidebar.dirOpened)) { // opened directory
-                        setDataElement(draggedElm, placeEntry(bookmarkElm, "prepend", newAboveLink.next("ul")));
-                    } else if (!newAboveLink.hasClass($.cl.sidebar.dirAnimated)) { // closed directory
-                        if (dirOpenTimeout === null) {
-                            dirOpenTimeout = {
-                                id: newAboveLink.attr($.attr.id),
-                                elm: newAboveLink.addClass($.cl.drag.dragHover)
-                            };
-
-                            const dndOpenDirDelayRaw = ext.helper.dao.getData("b/dndOpenDirDelay");
-                            dirOpenTimeout.instance = setTimeout(() => { // open closed directory after short delay -> possibility for user to cancel timeout
-                                ext.helper.list.toggleBookmarkDir(newAboveLink);
-                            }, +dndOpenDirDelayRaw * 1000);
+                    if (newAboveElm.elm.nextAll("li:not(." + $.cl.drag.isDragged + "):not(." + $.cl.drag.dragInitial + ")").length() === 0 && hoverPosPercentage > 80) { // drag position is below the last element of a directory -> placeholder under the current directory
+                        nestSeq++;
+                        clearDirOpenTimeout();
+                        if (draggedElm && parentElm && parentElm.length() > 0 && parentElm.parents("ul")[0] !== ext.elm.bookmarkBox.all.find("> ul")[0]) {
+                            const placed = placeEntry(draggedElm ? draggedElm.data("elm") : bookmarkElm, "after", parentElm);
+                            clearNestPreview();
+                            setDataElement(draggedElm, placed);
                         }
-                    } else if (newAboveLink.next("ul").length() === 0) { // empty directory
-                        newAboveLink.addClass($.cl.sidebar.dirOpened);
-                        $("<ul></ul>").insertAfter(newAboveLink);
+                    } else if (nestZone) { // upper part of a folder -> dashed box indented inside it
+                        showNestedPlaceholder(draggedElm, draggedElm && draggedElm.data("elm") ? draggedElm.data("elm") : bookmarkElm, newAboveLink, newAboveElm.height);
+                    } else if (!isTopLevel || type === "pinned" || aboveIsDir) { // same level: dashed box lines up with this row
+                        nestSeq++;
+                        clearDirOpenTimeout();
+                        const placed = placeEntry(draggedElm && draggedElm.data("elm") ? draggedElm.data("elm") : bookmarkElm, "after", newAboveElm.elm);
+                        clearNestPreview();
+                        setDataElement(draggedElm, placed);
                     }
-                } else if (!isTopLevel || type === "pinned") { // drag position is below a bookmark
-                    clearDirOpenTimeout();
-                    setDataElement(draggedElm, placeEntry(bookmarkElm, "after", newAboveElm.elm));
                 }
             }
+        };
+
+        /**
+         * Puts the dashed row inside the folder so its left edge is indented.
+         * A closed folder has no room to show that, so the child list is opened
+         * just enough for one row until the real folder opens.
+         *
+         * @param {jsu} draggedElm
+         * @param {jsu} link
+         * @param {number} rowHeight
+         */
+        const showNestedPlaceholder = (draggedElm, source, link, rowHeight) => {
+            if (!source || !source.length() || !link || !link.length()) {
+                return;
+            }
+            let childList = link.next("ul");
+            if (!childList.length()) {
+                childList = $("<ul></ul>").addClass("drag-nest-made").insertAfter(link);
+            }
+            const placed = placeEntry(source, "prepend", childList);
+            const opened = link.hasClass($.cl.sidebar.dirOpened);
+            if (!opened && childList[0]) {
+                childList.addClass("drag-nest-preview");
+                childList[0].style.overflow = "hidden";
+                childList[0].style.height = ((rowHeight || 32) + 6) + "px";
+            } else if (childList[0]) {
+                childList[0].style.height = "";
+                childList[0].style.overflow = "";
+                childList.removeClass("drag-nest-preview");
+            }
+            clearNestPreview(childList);
+            setDataElement(draggedElm, placed);
+
+            if (!draggedElm || opened || link.hasClass($.cl.sidebar.dirAnimated)) {
+                return;
+            }
+            if (dirOpenTimeout && dirOpenTimeout.id === link.attr($.attr.id)) {
+                return;
+            }
+            clearDirOpenTimeout();
+            const seq = ++nestSeq;
+            dirOpenTimeout = {
+                id: link.attr($.attr.id),
+                elm: link.addClass($.cl.drag.dragHover)
+            };
+            const dndOpenDirDelayRaw = ext.helper.dao.getData("b/dndOpenDirDelay");
+            dirOpenTimeout.instance = setTimeout(() => {
+                if (seq !== nestSeq || !ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) {
+                    return;
+                }
+                const made = link.next("ul.drag-nest-made");
+                const parkedFrom = draggedElm.data("elm");
+                if (made.length() && parkedFrom && parkedFrom[0] && made[0].contains(parkedFrom[0])) {
+                    const parked = parkedFrom.insertAfter(link.parent("li"));
+                    draggedElm.data("elm", parked);
+                }
+                if (made.length()) {
+                    made.remove();
+                }
+                ext.helper.list.toggleBookmarkDir(link, true).then(() => {
+                    if (seq !== nestSeq || !ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) {
+                        return;
+                    }
+                    const list = link.next("ul");
+                    if (!list.length()) {
+                        return;
+                    }
+                    const elmNow = draggedElm.data("elm");
+                    const nested = placeEntry(elmNow, "prepend", list);
+                    if (list[0]) {
+                        list[0].style.height = "";
+                        list[0].style.overflow = "";
+                    }
+                    list.removeClass("drag-nest-preview");
+                    setDataElement(draggedElm, nested);
+                });
+                dirOpenTimeout = null;
+            }, +dndOpenDirDelayRaw * 1000);
+        };
+
+        /**
+         * Drops the one-row preview used while a closed folder is the nest target.
+         *
+         * @param {jsu} keep
+         */
+        const clearNestPreview = (keep) => {
+            const keepNode = keep && keep[0];
+            if (!ext.elm.bookmarkBox || !ext.elm.bookmarkBox.all) {
+                return;
+            }
+            ext.elm.bookmarkBox.all.find("ul.drag-nest-preview, ul.drag-nest-made").forEach((node) => {
+                if (keepNode && node === keepNode) {
+                    return;
+                }
+                node.style.height = "";
+                node.style.overflow = "";
+                node.classList.remove("drag-nest-preview");
+                if (node.classList.contains("drag-nest-made")) {
+                    if (node.querySelector("li.is-dragged")) {
+                        return;
+                    }
+                    node.remove();
+                }
+            });
         };
 
         /**
