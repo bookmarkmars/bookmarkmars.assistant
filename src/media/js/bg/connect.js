@@ -52,6 +52,8 @@
               	getBg:b.helper.serverExchange.getBg,
               	logout:b.helper.serverExchange.userLogout,
               	getPrivilegeRemote:b.helper.serverExchange.getPrivilegeRemote,
+              	subscription:b.helper.serverExchange.getSubscription,
+              	checkFeature:b.helper.serverExchange.checkFeature,
               	uploadBookmark:b.helper.serverExchange.uploadBookmark,
               	saveShortcuts:b.helper.serverExchange.saveShortcuts,
               	loadShortcuts:b.helper.serverExchange.loadShortcuts,

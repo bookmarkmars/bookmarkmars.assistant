@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Registriert seit"
     },
+    "subscribe_title": {
+        "message": "BookmarkMars Pro freischalten"
+    },
+    "subscribe_locked": {
+        "message": "„{1}“ ist eine Pro-Funktion."
+    },
+    "subscribe_desc": {
+        "message": "Mit einem Abo erhältst du alle Pro-Funktionen:"
+    },
+    "subscribe_view_plans": {
+        "message": "Tarife ansehen"
+    },
+    "subscribe_later": {
+        "message": "Später"
+    },
+    "subscribe_f_sync": {
+        "message": "Cloud-Synchronisierung"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Mehr Cloud-Backups"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Automatische Synchronisierung"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Eigenes Hintergrundbild"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Linkprüfung"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Als HTML exportieren"
+    },
+    "subscription_days_left": {
+        "message": "Noch {1} Tage"
+    },
+    "subscription_free_desc": {
+        "message": "Schalte Cloud-Synchronisierung, automatische Synchronisierung, Linkprüfung und mehr frei."
+    },
+    "subscription_renew": {
+        "message": "Verlängern"
+    },
+    "subscribe_required": {
+        "message": "Dies ist eine Pro-Funktion. Abonniere, um sie freizuschalten."
+    },
+    "subscribe_button": {
+        "message": "Abonnieren"
+    },
+    "subscription_manage": {
+        "message": "Abo verwalten"
+    },
+    "ucenter_subscription": {
+        "message": "Abonnement"
+    },
+    "subscription_free": {
+        "message": "Kostenlos"
+    },
+    "subscription_until": {
+        "message": "Pro, bis {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (lebenslang)"
+    },
+    "subscription_all_free": {
+        "message": "Alle Funktionen sind derzeit kostenlos"
+    },
     "ucenter_account_type": {
         "message": "Kontotyp"
     },

@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "पंजीकरण अवधि"
     },
+    "subscribe_title": {
+        "message": "BookmarkMars Pro अनलॉक करें"
+    },
+    "subscribe_locked": {
+        "message": "“{1}” एक Pro सुविधा है।"
+    },
+    "subscribe_desc": {
+        "message": "सभी Pro सुविधाएँ पाने के लिए सदस्यता लें:"
+    },
+    "subscribe_view_plans": {
+        "message": "प्लान देखें"
+    },
+    "subscribe_later": {
+        "message": "अभी नहीं"
+    },
+    "subscribe_f_sync": {
+        "message": "क्लाउड सिंक"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "अधिक क्लाउड बैकअप"
+    },
+    "subscribe_f_autoSync": {
+        "message": "ऑटो सिंक"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "कस्टम वॉलपेपर"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "लिंक जाँच"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "HTML में निर्यात"
+    },
+    "subscription_days_left": {
+        "message": "{1} दिन शेष"
+    },
+    "subscription_free_desc": {
+        "message": "क्लाउड सिंक, ऑटो सिंक, लिंक जाँच और बहुत कुछ अनलॉक करें।"
+    },
+    "subscription_renew": {
+        "message": "नवीनीकरण करें"
+    },
+    "subscribe_required": {
+        "message": "यह एक Pro सुविधा है। इसे अनलॉक करने के लिए सदस्यता लें।"
+    },
+    "subscribe_button": {
+        "message": "सदस्यता लें"
+    },
+    "subscription_manage": {
+        "message": "सदस्यता प्रबंधित करें"
+    },
+    "ucenter_subscription": {
+        "message": "सदस्यता"
+    },
+    "subscription_free": {
+        "message": "निःशुल्क"
+    },
+    "subscription_until": {
+        "message": "Pro, {1} तक"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (आजीवन)"
+    },
+    "subscription_all_free": {
+        "message": "अभी सभी सुविधाएँ निःशुल्क हैं"
+    },
     "ucenter_account_type": {
         "message": "खाता प्रकार"
     },

@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Inscrit depuis"
     },
+    "subscribe_title": {
+        "message": "Débloquez BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "« {1} » est une fonctionnalité Pro."
+    },
+    "subscribe_desc": {
+        "message": "Abonnez-vous pour profiter de toutes les fonctionnalités Pro :"
+    },
+    "subscribe_view_plans": {
+        "message": "Voir les offres"
+    },
+    "subscribe_later": {
+        "message": "Plus tard"
+    },
+    "subscribe_f_sync": {
+        "message": "Synchronisation cloud"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Plus de sauvegardes"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Synchronisation auto"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Fond d'écran personnalisé"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Vérification des liens"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Exporter en HTML"
+    },
+    "subscription_days_left": {
+        "message": "Encore {1} jours"
+    },
+    "subscription_free_desc": {
+        "message": "Débloquez la synchronisation cloud, la synchronisation auto, la vérification des liens et plus encore."
+    },
+    "subscription_renew": {
+        "message": "Renouveler"
+    },
+    "subscribe_required": {
+        "message": "Cette fonctionnalité est réservée aux abonnés Pro. Abonnez-vous pour la débloquer."
+    },
+    "subscribe_button": {
+        "message": "S'abonner"
+    },
+    "subscription_manage": {
+        "message": "Gérer l'abonnement"
+    },
+    "ucenter_subscription": {
+        "message": "Abonnement"
+    },
+    "subscription_free": {
+        "message": "Gratuit"
+    },
+    "subscription_until": {
+        "message": "Pro, jusqu'au {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (à vie)"
+    },
+    "subscription_all_free": {
+        "message": "Toutes les fonctionnalités sont gratuites pour le moment"
+    },
     "ucenter_account_type": {
         "message": "Type de compte"
     },

@@ -78,6 +78,16 @@
 	        		return;
 	        	}
 
+        		s.requireFeature("sync", "#tool_backup").then((allowed) => {
+        			if(allowed){
+        				upload(e);
+        			}
+        		});
+        	});
+        }
+
+        const upload = (e) => {
+
         		let that=$(e.target);
 	        	let oText=that.text();
 	        	
@@ -105,6 +115,9 @@
 	        				rs.find("div.stress").html(tip);
 	        				rs.addClass($.cl.visible);
 						    s.createToast(tip);
+						}
+						else if(obj.code==="subscription_required"){
+							s.showSubscribeDialog("sync", "#tool_backup");
 						}
 						else if(obj.code && obj.reason){
 							
@@ -140,7 +153,6 @@
 	        			loader.remove();
 	        		})
         		});
-        	});
         }
     };
     

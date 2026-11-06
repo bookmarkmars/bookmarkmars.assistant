@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "가입 기간"
     },
+    "subscribe_title": {
+        "message": "BookmarkMars Pro 잠금 해제"
+    },
+    "subscribe_locked": {
+        "message": "'{1}'은(는) Pro 기능입니다."
+    },
+    "subscribe_desc": {
+        "message": "구독하면 모든 Pro 기능을 이용할 수 있습니다:"
+    },
+    "subscribe_view_plans": {
+        "message": "요금제 보기"
+    },
+    "subscribe_later": {
+        "message": "나중에"
+    },
+    "subscribe_f_sync": {
+        "message": "클라우드 동기화"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "추가 클라우드 백업"
+    },
+    "subscribe_f_autoSync": {
+        "message": "자동 동기화"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "사용자 배경화면"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "링크 검사"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "HTML로 내보내기"
+    },
+    "subscription_days_left": {
+        "message": "{1}일 남음"
+    },
+    "subscription_free_desc": {
+        "message": "클라우드 동기화, 자동 동기화, 링크 검사 등을 사용할 수 있습니다."
+    },
+    "subscription_renew": {
+        "message": "갱신"
+    },
+    "subscribe_required": {
+        "message": "Pro 기능입니다. 구독하면 사용할 수 있습니다."
+    },
+    "subscribe_button": {
+        "message": "구독하기"
+    },
+    "subscription_manage": {
+        "message": "구독 관리"
+    },
+    "ucenter_subscription": {
+        "message": "구독"
+    },
+    "subscription_free": {
+        "message": "무료"
+    },
+    "subscription_until": {
+        "message": "Pro, {1}까지"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (평생)"
+    },
+    "subscription_all_free": {
+        "message": "현재 모든 기능을 무료로 이용할 수 있습니다"
+    },
     "ucenter_account_type": {
         "message": "계정 유형"
     },

@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Geregistreerd sinds"
     },
+    "subscribe_title": {
+        "message": "Ontgrendel BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "‘{1}’ is een Pro-functie."
+    },
+    "subscribe_desc": {
+        "message": "Neem een abonnement voor alle Pro-functies:"
+    },
+    "subscribe_view_plans": {
+        "message": "Bekijk abonnementen"
+    },
+    "subscribe_later": {
+        "message": "Niet nu"
+    },
+    "subscribe_f_sync": {
+        "message": "Cloudsynchronisatie"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Meer cloudback-ups"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Automatisch synchroniseren"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Eigen achtergrond"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Linkcontrole"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Exporteren naar HTML"
+    },
+    "subscription_days_left": {
+        "message": "Nog {1} dagen"
+    },
+    "subscription_free_desc": {
+        "message": "Ontgrendel cloudsynchronisatie, automatisch synchroniseren, linkcontrole en meer."
+    },
+    "subscription_renew": {
+        "message": "Verlengen"
+    },
+    "subscribe_required": {
+        "message": "Dit is een Pro-functie. Neem een abonnement om deze te ontgrendelen."
+    },
+    "subscribe_button": {
+        "message": "Abonneren"
+    },
+    "subscription_manage": {
+        "message": "Abonnement beheren"
+    },
+    "ucenter_subscription": {
+        "message": "Abonnement"
+    },
+    "subscription_free": {
+        "message": "Gratis"
+    },
+    "subscription_until": {
+        "message": "Pro, tot {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (levenslang)"
+    },
+    "subscription_all_free": {
+        "message": "Alle functies zijn momenteel gratis"
+    },
     "ucenter_account_type": {
         "message": "Accounttype"
     },

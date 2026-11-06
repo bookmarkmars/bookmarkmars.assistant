@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Зарегистрирован"
     },
+    "subscribe_title": {
+        "message": "Откройте BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "«{1}» — функция Pro."
+    },
+    "subscribe_desc": {
+        "message": "Оформите подписку, чтобы получить все функции Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "Посмотреть тарифы"
+    },
+    "subscribe_later": {
+        "message": "Не сейчас"
+    },
+    "subscribe_f_sync": {
+        "message": "Облачная синхронизация"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Больше резервных копий"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Автосинхронизация"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Свои обои"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Проверка ссылок"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Экспорт в HTML"
+    },
+    "subscription_days_left": {
+        "message": "Осталось дней: {1}"
+    },
+    "subscription_free_desc": {
+        "message": "Откройте облачную синхронизацию, автосинхронизацию, проверку ссылок и многое другое."
+    },
+    "subscription_renew": {
+        "message": "Продлить"
+    },
+    "subscribe_required": {
+        "message": "Это функция Pro. Оформите подписку, чтобы её разблокировать."
+    },
+    "subscribe_button": {
+        "message": "Подписаться"
+    },
+    "subscription_manage": {
+        "message": "Управление подпиской"
+    },
+    "ucenter_subscription": {
+        "message": "Подписка"
+    },
+    "subscription_free": {
+        "message": "Бесплатно"
+    },
+    "subscription_until": {
+        "message": "Pro, до {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (навсегда)"
+    },
+    "subscription_all_free": {
+        "message": "Сейчас все функции бесплатны"
+    },
     "ucenter_account_type": {
         "message": "Тип аккаунта"
     },

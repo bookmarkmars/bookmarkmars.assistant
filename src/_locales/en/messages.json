@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Registered for"
     },
+    "subscribe_title": {
+        "message": "Unlock BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "“{1}” is a Pro feature."
+    },
+    "subscribe_desc": {
+        "message": "Subscribe to get every Pro feature:"
+    },
+    "subscribe_view_plans": {
+        "message": "View plans"
+    },
+    "subscribe_later": {
+        "message": "Not now"
+    },
+    "subscribe_f_sync": {
+        "message": "Cloud sync"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "More cloud backups"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Auto sync"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Custom wallpaper"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Link check"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Export to HTML"
+    },
+    "subscription_days_left": {
+        "message": "{1} days left"
+    },
+    "subscription_free_desc": {
+        "message": "Unlock cloud sync, auto sync, link check and more."
+    },
+    "subscription_renew": {
+        "message": "Renew"
+    },
+    "subscribe_required": {
+        "message": "This is a Pro feature. Subscribe to unlock it."
+    },
+    "subscribe_button": {
+        "message": "Subscribe"
+    },
+    "subscription_manage": {
+        "message": "Manage subscription"
+    },
+    "ucenter_subscription": {
+        "message": "Subscription"
+    },
+    "subscription_free": {
+        "message": "Free"
+    },
+    "subscription_until": {
+        "message": "Pro, until {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (lifetime)"
+    },
+    "subscription_all_free": {
+        "message": "All features are free for now"
+    },
     "ucenter_account_type": {
         "message": "Account type"
     },

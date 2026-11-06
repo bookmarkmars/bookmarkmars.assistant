@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Zarejestrowany od"
     },
+    "subscribe_title": {
+        "message": "Odblokuj BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "„{1}” to funkcja Pro."
+    },
+    "subscribe_desc": {
+        "message": "Subskrybuj, aby korzystać ze wszystkich funkcji Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "Zobacz plany"
+    },
+    "subscribe_later": {
+        "message": "Nie teraz"
+    },
+    "subscribe_f_sync": {
+        "message": "Synchronizacja w chmurze"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Więcej kopii zapasowych"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Automatyczna synchronizacja"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Własna tapeta"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Sprawdzanie linków"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Eksport do HTML"
+    },
+    "subscription_days_left": {
+        "message": "Pozostało dni: {1}"
+    },
+    "subscription_free_desc": {
+        "message": "Odblokuj synchronizację w chmurze, automatyczną synchronizację, sprawdzanie linków i więcej."
+    },
+    "subscription_renew": {
+        "message": "Odnów"
+    },
+    "subscribe_required": {
+        "message": "To funkcja Pro. Wykup subskrypcję, aby ją odblokować."
+    },
+    "subscribe_button": {
+        "message": "Subskrybuj"
+    },
+    "subscription_manage": {
+        "message": "Zarządzaj subskrypcją"
+    },
+    "ucenter_subscription": {
+        "message": "Subskrypcja"
+    },
+    "subscription_free": {
+        "message": "Darmowy"
+    },
+    "subscription_until": {
+        "message": "Pro, do {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (dożywotnio)"
+    },
+    "subscription_all_free": {
+        "message": "Wszystkie funkcje są obecnie bezpłatne"
+    },
     "ucenter_account_type": {
         "message": "Typ konta"
     },

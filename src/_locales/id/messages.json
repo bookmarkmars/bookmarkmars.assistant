@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Lama terdaftar"
     },
+    "subscribe_title": {
+        "message": "Buka BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "“{1}” adalah fitur Pro."
+    },
+    "subscribe_desc": {
+        "message": "Berlangganan untuk mendapatkan semua fitur Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "Lihat paket"
+    },
+    "subscribe_later": {
+        "message": "Nanti saja"
+    },
+    "subscribe_f_sync": {
+        "message": "Sinkronisasi cloud"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Lebih banyak cadangan"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Sinkronisasi otomatis"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Wallpaper kustom"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Pemeriksaan tautan"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Ekspor ke HTML"
+    },
+    "subscription_days_left": {
+        "message": "Sisa {1} hari"
+    },
+    "subscription_free_desc": {
+        "message": "Buka sinkronisasi cloud, sinkronisasi otomatis, pemeriksaan tautan, dan lainnya."
+    },
+    "subscription_renew": {
+        "message": "Perpanjang"
+    },
+    "subscribe_required": {
+        "message": "Ini fitur Pro. Berlangganan untuk membukanya."
+    },
+    "subscribe_button": {
+        "message": "Berlangganan"
+    },
+    "subscription_manage": {
+        "message": "Kelola langganan"
+    },
+    "ucenter_subscription": {
+        "message": "Langganan"
+    },
+    "subscription_free": {
+        "message": "Gratis"
+    },
+    "subscription_until": {
+        "message": "Pro, hingga {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (seumur hidup)"
+    },
+    "subscription_all_free": {
+        "message": "Semua fitur gratis untuk saat ini"
+    },
     "ucenter_account_type": {
         "message": "Jenis akun"
     },

@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "註冊時長"
     },
+    "subscribe_title": {
+        "message": "解鎖 BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "「{1}」是訂閱專屬功能。"
+    },
+    "subscribe_desc": {
+        "message": "訂閱後即可暢享全部 Pro 功能："
+    },
+    "subscribe_view_plans": {
+        "message": "查看訂閱方案"
+    },
+    "subscribe_later": {
+        "message": "暫不需要"
+    },
+    "subscribe_f_sync": {
+        "message": "雲端同步"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "更多雲端備份"
+    },
+    "subscribe_f_autoSync": {
+        "message": "自動同步"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "自訂桌布"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "連結檢測"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "匯出為 HTML"
+    },
+    "subscription_days_left": {
+        "message": "剩餘 {1} 天"
+    },
+    "subscription_free_desc": {
+        "message": "解鎖雲端同步、自動同步、連結檢測等更多功能。"
+    },
+    "subscription_renew": {
+        "message": "續訂"
+    },
+    "subscribe_required": {
+        "message": "這是訂閱專屬功能，訂閱後即可使用。"
+    },
+    "subscribe_button": {
+        "message": "立即訂閱"
+    },
+    "subscription_manage": {
+        "message": "管理訂閱"
+    },
+    "ucenter_subscription": {
+        "message": "訂閱狀態"
+    },
+    "subscription_free": {
+        "message": "免費版"
+    },
+    "subscription_until": {
+        "message": "已訂閱，有效期至 {1}"
+    },
+    "subscription_lifetime": {
+        "message": "終身訂閱"
+    },
+    "subscription_all_free": {
+        "message": "目前所有功能免費開放"
+    },
     "ucenter_account_type": {
         "message": "賬號類型"
     },

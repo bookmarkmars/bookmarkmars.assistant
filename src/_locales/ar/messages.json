@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "مدة التسجيل"
     },
+    "subscribe_title": {
+        "message": "افتح BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "«{1}» ميزة Pro."
+    },
+    "subscribe_desc": {
+        "message": "اشترك للحصول على جميع ميزات Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "عرض الخطط"
+    },
+    "subscribe_later": {
+        "message": "ليس الآن"
+    },
+    "subscribe_f_sync": {
+        "message": "المزامنة السحابية"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "نسخ احتياطية إضافية"
+    },
+    "subscribe_f_autoSync": {
+        "message": "مزامنة تلقائية"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "خلفية مخصصة"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "فحص الروابط"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "تصدير إلى HTML"
+    },
+    "subscription_days_left": {
+        "message": "متبقٍ {1} يومًا"
+    },
+    "subscription_free_desc": {
+        "message": "افتح المزامنة السحابية والمزامنة التلقائية وفحص الروابط والمزيد."
+    },
+    "subscription_renew": {
+        "message": "تجديد"
+    },
+    "subscribe_required": {
+        "message": "هذه ميزة Pro. اشترك لفتحها."
+    },
+    "subscribe_button": {
+        "message": "اشترك"
+    },
+    "subscription_manage": {
+        "message": "إدارة الاشتراك"
+    },
+    "ucenter_subscription": {
+        "message": "الاشتراك"
+    },
+    "subscription_free": {
+        "message": "مجاني"
+    },
+    "subscription_until": {
+        "message": "Pro حتى {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (مدى الحياة)"
+    },
+    "subscription_all_free": {
+        "message": "جميع الميزات مجانية حاليًا"
+    },
     "ucenter_account_type": {
         "message": "نوع الحساب"
     },

@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Registrato da"
     },
+    "subscribe_title": {
+        "message": "Sblocca BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "«{1}» è una funzione Pro."
+    },
+    "subscribe_desc": {
+        "message": "Abbonati per avere tutte le funzioni Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "Vedi i piani"
+    },
+    "subscribe_later": {
+        "message": "Non ora"
+    },
+    "subscribe_f_sync": {
+        "message": "Sincronizzazione cloud"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Più backup nel cloud"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Sincronizzazione automatica"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Sfondo personalizzato"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Controllo link"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Esporta in HTML"
+    },
+    "subscription_days_left": {
+        "message": "Ancora {1} giorni"
+    },
+    "subscription_free_desc": {
+        "message": "Sblocca la sincronizzazione cloud, la sincronizzazione automatica, il controllo dei link e altro ancora."
+    },
+    "subscription_renew": {
+        "message": "Rinnova"
+    },
+    "subscribe_required": {
+        "message": "Questa è una funzione Pro. Abbonati per sbloccarla."
+    },
+    "subscribe_button": {
+        "message": "Abbonati"
+    },
+    "subscription_manage": {
+        "message": "Gestisci abbonamento"
+    },
+    "ucenter_subscription": {
+        "message": "Abbonamento"
+    },
+    "subscription_free": {
+        "message": "Gratis"
+    },
+    "subscription_until": {
+        "message": "Pro, fino al {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (a vita)"
+    },
+    "subscription_all_free": {
+        "message": "Tutte le funzioni sono gratuite per ora"
+    },
     "ucenter_account_type": {
         "message": "Tipo di account"
     },

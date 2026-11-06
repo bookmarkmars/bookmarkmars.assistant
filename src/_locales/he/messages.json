@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "משך הרישום"
     },
+    "subscribe_title": {
+        "message": "פתחו את BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "„{1}” היא תכונת Pro."
+    },
+    "subscribe_desc": {
+        "message": "הירשמו למנוי כדי לקבל את כל תכונות Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "הצגת תוכניות"
+    },
+    "subscribe_later": {
+        "message": "לא עכשיו"
+    },
+    "subscribe_f_sync": {
+        "message": "סנכרון בענן"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "יותר גיבויים בענן"
+    },
+    "subscribe_f_autoSync": {
+        "message": "סנכרון אוטומטי"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "טפט מותאם אישית"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "בדיקת קישורים"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "ייצוא ל-HTML"
+    },
+    "subscription_days_left": {
+        "message": "נותרו {1} ימים"
+    },
+    "subscription_free_desc": {
+        "message": "פתחו סנכרון בענן, סנכרון אוטומטי, בדיקת קישורים ועוד."
+    },
+    "subscription_renew": {
+        "message": "חידוש"
+    },
+    "subscribe_required": {
+        "message": "זוהי תכונת Pro. הירשמו למנוי כדי לפתוח אותה."
+    },
+    "subscribe_button": {
+        "message": "הרשמה למנוי"
+    },
+    "subscription_manage": {
+        "message": "ניהול מנוי"
+    },
+    "ucenter_subscription": {
+        "message": "מנוי"
+    },
+    "subscription_free": {
+        "message": "חינם"
+    },
+    "subscription_until": {
+        "message": "Pro, עד {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (לכל החיים)"
+    },
+    "subscription_all_free": {
+        "message": "כל התכונות חינמיות כרגע"
+    },
     "ucenter_account_type": {
         "message": "סוג חשבון"
     },

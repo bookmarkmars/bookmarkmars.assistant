@@ -313,8 +313,12 @@
 	                }
 	                case "export": {
 	                    
-	                    let ignore=ignoreNodes();
-	                    this.bookmarExport();
+	                    s.requireFeature("exportHtml", "#tool_iexport").then((allowed) => {
+	                    	if(allowed){
+	                    		ignoreNodes();
+	                    		this.bookmarExport();
+	                    	}
+	                    });
 	                    break;
 	                }
 	            }

@@ -100,22 +100,7 @@ section#content {
           }
 
           > span.notify {
-            position: absolute;
-            top: -3px;
-            right: -8px;
-            text-align: center;
-            border-radius: 3px;
-            background: #1cd421;
-            width: 17px;
-            height: 17px;
-
-            &[data-type='vip'] {
-              @include mask('icon/header/vip', $__headerIconBadgeColor, 14px);
-            }
-
-            &[data-type='supervip'] {
-              @include mask('icon/header/supervip', $__headerIconBadgeColor, 14px);
-            }
+            @include proBadge(18px);
           }
 
           > img {

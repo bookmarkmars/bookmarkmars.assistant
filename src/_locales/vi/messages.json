@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Thời gian đăng ký"
     },
+    "subscribe_title": {
+        "message": "Mở khóa BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "“{1}” là tính năng Pro."
+    },
+    "subscribe_desc": {
+        "message": "Đăng ký để dùng mọi tính năng Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "Xem các gói"
+    },
+    "subscribe_later": {
+        "message": "Để sau"
+    },
+    "subscribe_f_sync": {
+        "message": "Đồng bộ đám mây"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Thêm bản sao lưu"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Tự động đồng bộ"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Hình nền tùy chỉnh"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Kiểm tra liên kết"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Xuất sang HTML"
+    },
+    "subscription_days_left": {
+        "message": "Còn {1} ngày"
+    },
+    "subscription_free_desc": {
+        "message": "Mở khóa đồng bộ đám mây, tự động đồng bộ, kiểm tra liên kết và nhiều hơn nữa."
+    },
+    "subscription_renew": {
+        "message": "Gia hạn"
+    },
+    "subscribe_required": {
+        "message": "Đây là tính năng Pro. Hãy đăng ký để mở khóa."
+    },
+    "subscribe_button": {
+        "message": "Đăng ký"
+    },
+    "subscription_manage": {
+        "message": "Quản lý gói đăng ký"
+    },
+    "ucenter_subscription": {
+        "message": "Gói đăng ký"
+    },
+    "subscription_free": {
+        "message": "Miễn phí"
+    },
+    "subscription_until": {
+        "message": "Pro, đến {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (trọn đời)"
+    },
+    "subscription_all_free": {
+        "message": "Hiện tại mọi tính năng đều miễn phí"
+    },
     "ucenter_account_type": {
         "message": "Loại tài khoản"
     },

@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Registrado desde"
     },
+    "subscribe_title": {
+        "message": "Desbloquea BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "«{1}» es una función Pro."
+    },
+    "subscribe_desc": {
+        "message": "Suscríbete para disfrutar de todas las funciones Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "Ver planes"
+    },
+    "subscribe_later": {
+        "message": "Ahora no"
+    },
+    "subscribe_f_sync": {
+        "message": "Sincronización en la nube"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Más copias de seguridad"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Sincronización automática"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Fondo personalizado"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Comprobación de enlaces"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Exportar a HTML"
+    },
+    "subscription_days_left": {
+        "message": "Quedan {1} días"
+    },
+    "subscription_free_desc": {
+        "message": "Desbloquea la sincronización en la nube, la sincronización automática, la comprobación de enlaces y más."
+    },
+    "subscription_renew": {
+        "message": "Renovar"
+    },
+    "subscribe_required": {
+        "message": "Esta es una función Pro. Suscríbete para desbloquearla."
+    },
+    "subscribe_button": {
+        "message": "Suscribirse"
+    },
+    "subscription_manage": {
+        "message": "Gestionar suscripción"
+    },
+    "ucenter_subscription": {
+        "message": "Suscripción"
+    },
+    "subscription_free": {
+        "message": "Gratis"
+    },
+    "subscription_until": {
+        "message": "Pro, hasta el {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (de por vida)"
+    },
+    "subscription_all_free": {
+        "message": "Todas las funciones son gratuitas por ahora"
+    },
     "ucenter_account_type": {
         "message": "Tipo de cuenta"
     },

@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "ระยะเวลาสมาชิก"
     },
+    "subscribe_title": {
+        "message": "ปลดล็อก BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "“{1}” เป็นฟีเจอร์ Pro"
+    },
+    "subscribe_desc": {
+        "message": "สมัครสมาชิกเพื่อใช้ฟีเจอร์ Pro ทั้งหมด:"
+    },
+    "subscribe_view_plans": {
+        "message": "ดูแพ็กเกจ"
+    },
+    "subscribe_later": {
+        "message": "ไว้ทีหลัง"
+    },
+    "subscribe_f_sync": {
+        "message": "ซิงค์บนคลาวด์"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "สำรองข้อมูลเพิ่มเติม"
+    },
+    "subscribe_f_autoSync": {
+        "message": "ซิงค์อัตโนมัติ"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "วอลเปเปอร์ที่กำหนดเอง"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "ตรวจสอบลิงก์"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "ส่งออกเป็น HTML"
+    },
+    "subscription_days_left": {
+        "message": "เหลืออีก {1} วัน"
+    },
+    "subscription_free_desc": {
+        "message": "ปลดล็อกการซิงค์บนคลาวด์ ซิงค์อัตโนมัติ ตรวจสอบลิงก์ และอื่น ๆ"
+    },
+    "subscription_renew": {
+        "message": "ต่ออายุ"
+    },
+    "subscribe_required": {
+        "message": "นี่คือฟีเจอร์ Pro สมัครสมาชิกเพื่อปลดล็อก"
+    },
+    "subscribe_button": {
+        "message": "สมัครสมาชิก"
+    },
+    "subscription_manage": {
+        "message": "จัดการการสมัครสมาชิก"
+    },
+    "ucenter_subscription": {
+        "message": "การสมัครสมาชิก"
+    },
+    "subscription_free": {
+        "message": "ฟรี"
+    },
+    "subscription_until": {
+        "message": "Pro ถึง {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (ตลอดชีพ)"
+    },
+    "subscription_all_free": {
+        "message": "ขณะนี้ทุกฟีเจอร์ใช้งานได้ฟรี"
+    },
     "ucenter_account_type": {
         "message": "ประเภทบัญชี"
     },

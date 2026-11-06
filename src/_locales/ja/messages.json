@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "登録期間"
     },
+    "subscribe_title": {
+        "message": "BookmarkMars Pro を解放"
+    },
+    "subscribe_locked": {
+        "message": "「{1}」は Pro 機能です。"
+    },
+    "subscribe_desc": {
+        "message": "購読するとすべての Pro 機能が使えます："
+    },
+    "subscribe_view_plans": {
+        "message": "プランを見る"
+    },
+    "subscribe_later": {
+        "message": "今はしない"
+    },
+    "subscribe_f_sync": {
+        "message": "クラウド同期"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "バックアップ追加"
+    },
+    "subscribe_f_autoSync": {
+        "message": "自動同期"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "カスタム壁紙"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "リンクチェック"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "HTML にエクスポート"
+    },
+    "subscription_days_left": {
+        "message": "残り {1} 日"
+    },
+    "subscription_free_desc": {
+        "message": "クラウド同期、自動同期、リンクチェックなどが使えるようになります。"
+    },
+    "subscription_renew": {
+        "message": "更新する"
+    },
+    "subscribe_required": {
+        "message": "これは Pro 機能です。購読するとご利用いただけます。"
+    },
+    "subscribe_button": {
+        "message": "購読する"
+    },
+    "subscription_manage": {
+        "message": "購読を管理"
+    },
+    "ucenter_subscription": {
+        "message": "購読"
+    },
+    "subscription_free": {
+        "message": "無料"
+    },
+    "subscription_until": {
+        "message": "Pro（{1} まで）"
+    },
+    "subscription_lifetime": {
+        "message": "Pro（永久）"
+    },
+    "subscription_all_free": {
+        "message": "現在すべての機能を無料でご利用いただけます"
+    },
     "ucenter_account_type": {
         "message": "アカウントタイプ"
     },

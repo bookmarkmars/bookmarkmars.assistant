@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Registado há"
     },
+    "subscribe_title": {
+        "message": "Desbloqueie o BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "“{1}” é um recurso Pro."
+    },
+    "subscribe_desc": {
+        "message": "Assine para ter todos os recursos Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "Ver planos"
+    },
+    "subscribe_later": {
+        "message": "Agora não"
+    },
+    "subscribe_f_sync": {
+        "message": "Sincronização na nuvem"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Mais backups na nuvem"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Sincronização automática"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Papel de parede personalizado"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Verificação de links"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Exportar para HTML"
+    },
+    "subscription_days_left": {
+        "message": "Faltam {1} dias"
+    },
+    "subscription_free_desc": {
+        "message": "Desbloqueie a sincronização na nuvem, a sincronização automática, a verificação de links e muito mais."
+    },
+    "subscription_renew": {
+        "message": "Renovar"
+    },
+    "subscribe_required": {
+        "message": "Este é um recurso Pro. Assine para desbloqueá-lo."
+    },
+    "subscribe_button": {
+        "message": "Assinar"
+    },
+    "subscription_manage": {
+        "message": "Gerenciar assinatura"
+    },
+    "ucenter_subscription": {
+        "message": "Assinatura"
+    },
+    "subscription_free": {
+        "message": "Grátis"
+    },
+    "subscription_until": {
+        "message": "Pro, até {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (vitalício)"
+    },
+    "subscription_all_free": {
+        "message": "Todos os recursos estão gratuitos por enquanto"
+    },
     "ucenter_account_type": {
         "message": "Tipo de conta"
     },

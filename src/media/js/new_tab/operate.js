@@ -89,6 +89,23 @@
         const setUploadImgBg = (tools)=>{
         	
         	const wapper=tools.find("input[type='file']");
+        	let wallpaperAllowed = false;
+
+        	wapper.off("click").on("click", (e) => {
+        		if (wallpaperAllowed) {
+        			return;
+        		}
+        		e.preventDefault();
+        		const input = e.currentTarget;
+        		n.helper.dao.call("checkFeature", {feature: "wallpaper"}).then((res) => {
+        			if (!res || res.allowed) {
+        				wallpaperAllowed = true;
+        				input.click();
+        			} else if (window.confirm(n.helper.i18n.get("subscribe_required"))) {
+        				window.open(res.subscribeUrl, "_blank");
+        			}
+        		});
+        	});
 
         	wapper.off("change").on("change",(e) => {
 

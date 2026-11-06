@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Зареєстрований"
     },
+    "subscribe_title": {
+        "message": "Відкрийте BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "«{1}» — функція Pro."
+    },
+    "subscribe_desc": {
+        "message": "Оформіть підписку, щоб отримати всі функції Pro:"
+    },
+    "subscribe_view_plans": {
+        "message": "Переглянути тарифи"
+    },
+    "subscribe_later": {
+        "message": "Не зараз"
+    },
+    "subscribe_f_sync": {
+        "message": "Хмарна синхронізація"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Більше резервних копій"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Автосинхронізація"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Власні шпалери"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Перевірка посилань"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "Експорт у HTML"
+    },
+    "subscription_days_left": {
+        "message": "Залишилося днів: {1}"
+    },
+    "subscription_free_desc": {
+        "message": "Відкрийте хмарну синхронізацію, автосинхронізацію, перевірку посилань і багато іншого."
+    },
+    "subscription_renew": {
+        "message": "Продовжити"
+    },
+    "subscribe_required": {
+        "message": "Це функція Pro. Оформіть підписку, щоб її розблокувати."
+    },
+    "subscribe_button": {
+        "message": "Підписатися"
+    },
+    "subscription_manage": {
+        "message": "Керувати підпискою"
+    },
+    "ucenter_subscription": {
+        "message": "Підписка"
+    },
+    "subscription_free": {
+        "message": "Безкоштовно"
+    },
+    "subscription_until": {
+        "message": "Pro, до {1}"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (назавжди)"
+    },
+    "subscription_all_free": {
+        "message": "Зараз усі функції безкоштовні"
+    },
     "ucenter_account_type": {
         "message": "Тип облікового запису"
     },

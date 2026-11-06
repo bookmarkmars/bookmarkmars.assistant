@@ -895,16 +895,19 @@
   	    
   	    const beginCheck = (e)=>{
   	    	
-	    	// VIP temporarily disabled — allow link check for all users
-    		
     		let li=$(e.currentTarget).parent("li");
     		const opts={
     			id:li.attr($.attr.id),
     			title:li.find(">span").text(),
     		}
     		
-    		s.helper.dao.call("bookmarks", {id: opts.id}).then((data) => {
-    			createOverlay("check", s.helper.i18n.get("manage_check_modal_name",[opts.title],false),data.bookmarks[0].children);
+    		s.requireFeature("linkCheck", "#tool_linkcheck").then((allowed) => {
+    			if(!allowed){
+    				return;
+    			}
+    			s.helper.dao.call("bookmarks", {id: opts.id}).then((data) => {
+    				createOverlay("check", s.helper.i18n.get("manage_check_modal_name",[opts.title],false),data.bookmarks[0].children);
+    			});
     		});
 		}
   	    

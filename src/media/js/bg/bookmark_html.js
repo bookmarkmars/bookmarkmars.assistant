@@ -144,13 +144,18 @@
         	
         	return new Promise((resolve) => {
 
-				b.helper.serverExchange.getPrivilegeRemote()
-				.then((data)=>{
+				Promise.all([
+					b.helper.serverExchange.getPrivilegeRemote(),
+					b.helper.serverExchange.checkFeature({feature: "autoSync", noRetry: true})
+				])
+				.then(([data, gate])=>{
 					
 					$.api.storage.sync.get(["behaviour"], (conf) => {
 						
-						// VIP temporarily disabled — auto sync for any user who enabled it
-	        			if(conf.behaviour.autoBackup){
+						if(!gate.allowed){
+							resolve({success:false,reason:"noSubscription"});
+						}
+	        			else if(conf.behaviour.autoBackup){
 	        				
 	        				$.api.storage.local.get(["utility"], (obj) => {//数量判断
 	        					

@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "Kayıt süresi"
     },
+    "subscribe_title": {
+        "message": "BookmarkMars Pro'nun kilidini açın"
+    },
+    "subscribe_locked": {
+        "message": "“{1}” bir Pro özelliğidir."
+    },
+    "subscribe_desc": {
+        "message": "Tüm Pro özellikleri için abone olun:"
+    },
+    "subscribe_view_plans": {
+        "message": "Planları gör"
+    },
+    "subscribe_later": {
+        "message": "Şimdi değil"
+    },
+    "subscribe_f_sync": {
+        "message": "Bulut senkronizasyonu"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "Daha fazla yedek"
+    },
+    "subscribe_f_autoSync": {
+        "message": "Otomatik senkronizasyon"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "Özel duvar kağıdı"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "Bağlantı kontrolü"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "HTML olarak dışa aktar"
+    },
+    "subscription_days_left": {
+        "message": "{1} gün kaldı"
+    },
+    "subscription_free_desc": {
+        "message": "Bulut senkronizasyonu, otomatik senkronizasyon, bağlantı kontrolü ve daha fazlasının kilidini açın."
+    },
+    "subscription_renew": {
+        "message": "Yenile"
+    },
+    "subscribe_required": {
+        "message": "Bu bir Pro özelliğidir. Kilidini açmak için abone olun."
+    },
+    "subscribe_button": {
+        "message": "Abone ol"
+    },
+    "subscription_manage": {
+        "message": "Aboneliği yönet"
+    },
+    "ucenter_subscription": {
+        "message": "Abonelik"
+    },
+    "subscription_free": {
+        "message": "Ücretsiz"
+    },
+    "subscription_until": {
+        "message": "Pro, {1} tarihine kadar"
+    },
+    "subscription_lifetime": {
+        "message": "Pro (ömür boyu)"
+    },
+    "subscription_all_free": {
+        "message": "Şu anda tüm özellikler ücretsiz"
+    },
     "ucenter_account_type": {
         "message": "Hesap türü"
     },

@@ -146,6 +146,9 @@
 					
 					res.json().then((data)=>{
 						userInfo=data;
+						if (userInfo && userInfo.code === "ok" && subscription && !subscription.login) {
+							this.getSubscription({force: true});
+						}
 						resolve(userInfo);
 					})
 					
@@ -181,6 +184,8 @@
         //退出
         this.userLogout = () => {
             return new Promise((resolve) => {
+                subscription = null;
+                b.helper.dao.setData(SUBSCRIPTION_KEY, null);
                 b.helper.dao.setData($.opts.cookie,null).then(() => {//清空缓存
                     const domain = $.opts.website.main.official;
                     $.api.cookies.getAll({url:domain}, (cookies) => {
@@ -367,6 +372,75 @@
 			});
 		}
 		
+		const SUBSCRIPTION_KEY = "subscription";
+		const SUBSCRIPTION_TTL = 5 * 60 * 1000;
+		let subscription = null;
+
+		/**
+		 * Subscription state from the server, cached for 5 minutes. When the server cannot be reached
+		 * the last known state is used, so paid features keep working offline.
+		 * @param {object} opts { force: true } skips the cache
+		 */
+		this.getSubscription = (opts = {}) => {
+			if (!subscription) {
+				subscription = b.helper.dao.getData(SUBSCRIPTION_KEY);
+			}
+			if (subscription && !opts.force && Date.now() - (subscription.checkedAt || 0) < SUBSCRIPTION_TTL) {
+				return Promise.resolve(subscription);
+			}
+			return new Promise((resolve) => {
+				$.fetch(
+					mainHost + $.opts.website.servletMain.subscription,
+					{
+						method: "POST",
+						headers: headers,
+						credentials: "include"
+					},
+					timeout
+				)
+				.then((res) => res.json())
+				.then((obj) => {
+					if (obj && obj.code === "ok" && obj.data) {
+						subscription = Object.assign({}, obj.data, {checkedAt: Date.now()});
+						b.helper.dao.setData(SUBSCRIPTION_KEY, subscription);
+					}
+					resolve(subscription);
+				})
+				.catch(() => resolve(subscription));
+			});
+		};
+
+		/**
+		 * @param {object} opts { feature: "sync" | "backupExtra" | "autoSync" | "wallpaper" | "linkCheck" | "exportHtml", force, noRetry }
+		 * @returns {Promise<{allowed:boolean, login:boolean, subscribeUrl:string}>}
+		 */
+		this.checkFeature = (opts = {}) => {
+			const evaluate = (s) => {
+				const subscribeUrl = mainHost + $.opts.website.servletMain.vip;
+				if (!s) { // never reached the server: do not lock anyone out of local features
+					return {allowed: true, login: false, subscribeUrl: subscribeUrl};
+				}
+				let unlocked = !!s.unlocked;
+				if (unlocked && s.chargeEnabled && !s.lifetime && s.expireAt && s.expireAt < Date.now()) {
+					unlocked = false;
+				}
+				const locked = Array.isArray(s.lockedFeatures) ? s.lockedFeatures : [];
+				return {
+					allowed: unlocked || locked.indexOf(opts.feature) === -1,
+					login: !!s.login,
+					subscribeUrl: subscribeUrl
+				};
+			};
+			return this.getSubscription({force: !!opts.force}).then((s) => {
+				const result = evaluate(s);
+				// A stale "locked" answer may predate a payment or a login: ask the server once more.
+				if (!result.allowed && !opts.force && !opts.noRetry) {
+					return this.getSubscription({force: true}).then(evaluate);
+				}
+				return result;
+			});
+		};
+
 		this.uploadBookmark = (opts)=>{
 
 			return new Promise((resolve,reject) => {
@@ -401,7 +475,12 @@
 
 						if(obj.code.indexOf("ok")!==-1){
 							resolve({success:true});
-						}else{ resolve({success:false,code:obj.code,reason:obj.codeMsg});}
+						}else{
+							if(obj.code==="subscription_required"){
+								this.getSubscription({force:true});
+							}
+							resolve({success:false,code:obj.code,reason:obj.codeMsg});
+						}
 					})
 	           }).catch((err)=>{
 	            	resolve({success:false});

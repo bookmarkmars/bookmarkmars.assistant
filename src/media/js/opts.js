@@ -393,6 +393,7 @@
             	},
             	privacy:"privacy",
                 vip: "vip/privilege",
+                subscription: "api/subscription/status",
                 live:"server/live",
                 uninstall:"uninstall",
                 serverBookmark:"api/bookmark/search",

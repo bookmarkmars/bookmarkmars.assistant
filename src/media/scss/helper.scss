@@ -235,30 +235,42 @@ section#helper {
            text-align: center;
            
            >span.notify{
-                
-                position: absolute;
-                top: -3px;
-                right: -10px;
-                text-align: center;
-                border-radius: 3px;
-                background: #1cd421;
-                width: 17px;
-                height: 17px;
-                
-                &[data-type='vip']{
-                    @include mask('icon/header/vip', $__headerIconBadgeColor, 14px);
-                }
-                
-                &[data-type='supervip']{
-                    @include mask('icon/header/supervip', $__headerIconBadgeColor, 14px);
-                }
+                @include proBadge(16px);
            }
            
+           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+           transition: transform 0.2s, box-shadow 0.2s;
+
+           &:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+           }
+
            >img {
+                display: block;
+                width: 24px !important;
+                height: 24px !important;
+                margin: 8px auto 0 !important;
+                object-fit: contain;
+           }
+
+           &[data-name='official'] > img {
                 width: 30px !important;
                 height: 30px !important;
                 margin-top: 5px !important;
-                border-radius: 50% !important;
+           }
+
+           &[data-name='ucenter']:has(> img:not([src*='icon/header/'])) {
+                background-color: transparent;
+                box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.22), 0 2px 6px rgba(0, 0, 0, 0.3);
+
+                > img {
+                    width: 40px !important;
+                    height: 40px !important;
+                    margin: 0 !important;
+                    border-radius: 50% !important;
+                    object-fit: cover;
+                }
            } 
 
            &::after{

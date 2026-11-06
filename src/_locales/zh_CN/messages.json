@@ -701,6 +701,72 @@
     "ucenter_register_days": {
         "message": "注册时长"
     },
+    "subscribe_title": {
+        "message": "解锁 BookmarkMars Pro"
+    },
+    "subscribe_locked": {
+        "message": "「{1}」是订阅专享功能。"
+    },
+    "subscribe_desc": {
+        "message": "订阅后即可畅享全部 Pro 功能："
+    },
+    "subscribe_view_plans": {
+        "message": "查看订阅方案"
+    },
+    "subscribe_later": {
+        "message": "暂不需要"
+    },
+    "subscribe_f_sync": {
+        "message": "云端同步"
+    },
+    "subscribe_f_backupExtra": {
+        "message": "更多云备份"
+    },
+    "subscribe_f_autoSync": {
+        "message": "自动同步"
+    },
+    "subscribe_f_wallpaper": {
+        "message": "自定义壁纸"
+    },
+    "subscribe_f_linkCheck": {
+        "message": "链接检测"
+    },
+    "subscribe_f_exportHtml": {
+        "message": "导出为 HTML"
+    },
+    "subscription_days_left": {
+        "message": "剩余 {1} 天"
+    },
+    "subscription_free_desc": {
+        "message": "解锁云端同步、自动同步、链接检测等更多功能。"
+    },
+    "subscription_renew": {
+        "message": "续费"
+    },
+    "subscribe_required": {
+        "message": "这是订阅专享功能，订阅后即可使用。"
+    },
+    "subscribe_button": {
+        "message": "立即订阅"
+    },
+    "subscription_manage": {
+        "message": "管理订阅"
+    },
+    "ucenter_subscription": {
+        "message": "订阅状态"
+    },
+    "subscription_free": {
+        "message": "免费版"
+    },
+    "subscription_until": {
+        "message": "已订阅，有效期至 {1}"
+    },
+    "subscription_lifetime": {
+        "message": "终身订阅"
+    },
+    "subscription_all_free": {
+        "message": "当前所有功能免费开放"
+    },
     "ucenter_account_type": {
         "message": "账号类型"
     },
