@@ -220,6 +220,10 @@
     }
   }
   
+  > span.drag, > span.add, > span.edit {
+    bottom: 4px;
+  }
+
   > span.drag {
     right: 15px;
     cursor: grab;

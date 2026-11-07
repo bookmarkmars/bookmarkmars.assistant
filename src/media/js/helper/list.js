@@ -207,7 +207,7 @@
 
                     this.restoreOpenStates(list, true);//恢复打开状态
 
-					ext.helper.freUsed.addRecommend(entries).then(resolve);
+					resolve();
                 })
                 .catch((error) => {
 			        resolve(); // Ensure the promise resolves even on error
@@ -633,8 +633,9 @@
 
                 const rememberSubs = ext.helper.dao.getData("b/rememberOpenStatesSubDirectories") === true;
                 // Close nested folders before reading the height, or the list
-                // opens to their full size and then snaps shut.
-                if (open && !rememberSubs) {
+                // opens to their full size and then snaps shut. Not while a
+                // refresh restores open states, or the saved states get wiped.
+                if (open && !rememberSubs && ext.refreshRun !== true) {
                     collapseChildDirs(list);
                 }
 
