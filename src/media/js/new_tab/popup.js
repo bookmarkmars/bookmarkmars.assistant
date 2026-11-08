@@ -79,7 +79,7 @@
             if (n.helper.grid && typeof n.helper.grid.persistLinks === "function") {
                 return n.helper.grid.persistLinks(links, opts);
             }
-            return n.helper.dao.setData({"n/links": links}).then(() => {
+            return n.helper.dao.setData({"n/links": links, "u/shortcutsSeeded": false}).then(() => {
                 return n.helper.dao.call("saveShortcuts", {links: links}).catch(() => null);
             }).then(() => {
                 location.reload(true);

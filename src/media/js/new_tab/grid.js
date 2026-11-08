@@ -993,34 +993,69 @@
 
         const loadNavigation = () => {
 
-            const tryRemote = async () => {
-                let res = await n.helper.dao.call("getValue", { key: "navigation_v2" });
+            // The server sends the global or the Chinese catalog; "catalog" tells which.
+            // Anything else (old cache, legacy v1, bundled seed) is global.
+            const readV2 = async () => {
+                const res = await n.helper.dao.call("getValue", { key: "navigation_v2" });
                 if (res && (res.data || res.schemaVersion === 2)) {
-                    return parseCatalogPayload(res);
+                    const catalog = parseCatalogPayload(res);
+                    if (catalog) {
+                        return { catalog: catalog, id: res.catalog === "cn" ? "cn" : "global" };
+                    }
                 }
-                // Brief dual-read for sunset window
-                res = await n.helper.dao.call("getValue", { key: "navigation" });
+                return null;
+            };
+            const readLegacy = async () => {
+                const res = await n.helper.dao.call("getValue", { key: "navigation" });
                 if (res && (res.data || res.children)) {
-                    return parseCatalogPayload(res);
+                    const catalog = parseCatalogPayload(res);
+                    if (catalog) {
+                        return { catalog: catalog, id: "global" };
+                    }
                 }
                 return null;
             };
 
+            const savedLinks = n.helper.dao.getData("n/links") || [];
+            const hasGrid = savedLinks.length > 0;
+            // Once the user edits the grid (or restores one from the cloud), it stays on the
+            // catalog it holds. Only Chinese catalog entries have cn_ ids.
+            const holdsChinese = savedLinks.some((item) => {
+                return item && (String(item.id || "").indexOf("cn_") === 0
+                    || (item.children || []).some((c) => c && String(c.id || "").indexOf("cn_") === 0));
+            });
+            const lockCatalog = hasGrid && !n.helper.dao.getData("u/shortcutsSeeded")
+                ? (holdsChinese ? "cn" : "global")
+                : undefined;
+            const fits = (remote) => !!remote && (!lockCatalog || remote.id === lockCatalog);
+
             return new Promise((resolve) => {
-                const readCatalog = () => {
-                	return tryRemote().then((remote) => {
-                		if (remote) {
-                			return remote;
-                		}
-                		// One fetch if local cache is empty (startup request may still be in flight)
-                		return n.helper.dao.call("cacheRemote", { name: "navigation_v2" }).then(() => {
-                			return tryRemote();
-                		}).catch(() => null);
-                	});
+                const readCatalog = async () => {
+                    // The background refresh sends this lock with every request.
+                    if (lockCatalog && n.helper.dao.getData("u/navCatalogSent") !== lockCatalog) {
+                        await n.helper.dao.call("setValue", { key: "u/navCatalog", value: lockCatalog }).catch(() => null);
+                        await n.helper.dao.setData({ "u/navCatalogSent": lockCatalog });
+                    }
+                    const cached = await readV2().catch(() => null);
+                    if (fits(cached)) {
+                        return cached;
+                    }
+                    // No cache yet, or the cache is the other catalog. A first run waits a little
+                    // longer, so a new user is seeded from the server instead of the bundled list.
+                    await n.helper.dao.call("cacheRemote", {
+                        name: "navigation_v2",
+                        timeout: hasGrid ? undefined : 3000
+                    }).catch(() => null);
+                    const fresh = await readV2().catch(() => null);
+                    if (fresh) {
+                        return fresh;
+                    }
+                    return cached || readLegacy().catch(() => null);
                 };
 
                 readCatalog().then((remote) => {
-                    let catalog = remote;
+                    const catalogId = (remote && remote.id) || "global";
+                    let catalog = remote && remote.catalog;
                     if (!catalog) {
                         catalog = parseCatalogPayload(n.helper.dao.getData("n/topLinks"));
                     }
@@ -1032,32 +1067,37 @@
                     	}
                     	return Promise.resolve();
                     };
+                    // A grid locked to the other catalog (offline, or the server could not
+                    // serve it) shows what it has. Merging would swap the user's sites.
+                    const apply = (source, id) => {
+                    	const lang = n.helper.i18n.getLanguage();
+                    	navCategories = n.helper.catalog.listTabs(source, lang);
+                    	if (!activeCategoryId) {
+                    		activeCategoryId = n.helper.dao.getData("n/activeCategory")
+                    			|| (navCategories[0] && navCategories[0].id)
+                    			|| null;
+                    	}
+                    	if (lockCatalog && id !== lockCatalog) {
+                    		navTiles = [];
+                    		return Promise.resolve();
+                    	}
+                    	const tiles = n.helper.catalog.flattenToTiles(source, lang);
+                    	navTiles = tiles;
+                    	return appendNewLinks(tiles, id);
+                    };
+
                     if (!catalog) {
-                        // Emergency seed (no affiliates)
+                        // Emergency seed (no affiliates), global
                         $.fetch($.api.runtime.getURL("media/conf/navigation_seed.json"), { method: "GET" }).then((obj) => {
                             obj.text().then((data) => {
-                                const catalogSeed = parseCatalogPayload(data);
-                                const lang = n.helper.i18n.getLanguage();
-                                navCategories = n.helper.catalog.listTabs(catalogSeed, lang);
-                                const tiles = n.helper.catalog.flattenToTiles(catalogSeed, lang);
-                                navTiles = tiles;
-                                appendNewLinks(tiles).then(resolve);
+                                apply(parseCatalogPayload(data), "global").then(resolve);
                             });
                         }).catch(() => resolve());
                         return;
                     }
 
-                    const lang = n.helper.i18n.getLanguage();
-                    navCategories = n.helper.catalog.listTabs(catalog, lang);
-                    if (!activeCategoryId) {
-                    	activeCategoryId = n.helper.dao.getData("n/activeCategory")
-                    		|| (navCategories[0] && navCategories[0].id)
-                    		|| null;
-                    }
-                    const tiles = n.helper.catalog.flattenToTiles(catalog, lang);
-                    navTiles = tiles;
                     dropTopLinks().then(() => {
-                    	return appendNewLinks(tiles);
+                    	return apply(catalog, remote ? catalogId : "global");
                     }).then(resolve);
                 }).catch(() => resolve());
             });
@@ -1088,8 +1128,16 @@
         		return catalog.map((c) => Object.assign({}, c));
         	}
 
+        	// Catalog children the catalog dropped go too (e.g. a switch to the Chinese catalog).
+        	// If that leaves nothing, the folder seeds again from the new catalog.
+        	const fromCatalog = (u) => u && (u.origin === 1 || u.origin === "1");
+        	const kept = user.filter((u) => !fromCatalog(u) || catalog.some((c) => keyOf(c) === keyOf(u)));
+        	if (user.length && !kept.length) {
+        		return catalog.map((c) => Object.assign({}, c));
+        	}
+
         	// User list wins: keep order, refresh catalog meta only for survivors
-        	return user.map((u) => {
+        	return kept.map((u) => {
         		if (!u) {
         			return u;
         		}
@@ -1105,12 +1153,18 @@
         	}).filter(Boolean);
         };
 
-        const appendNewLinks = (arr)=>{
+        const appendNewLinks = (arr, catalogId)=>{
         	
         	return new Promise((resolve) => {
         		
         		const lang = n.helper.i18n.getLanguage();
-	        	const pages = n.helper.dao.getData("n/links") || [];
+	        	let pages = n.helper.dao.getData("n/links") || [];
+	        	// An untouched seed from the other catalog is replaced, not merged
+	        	// (e.g. the bundled global list was used before the server answered).
+	        	if (pages.length && catalogId && n.helper.dao.getData("u/shortcutsSeeded")
+	        		&& (n.helper.dao.getData("u/seedCatalog") || "global") !== catalogId) {
+	        		pages = [];
+	        	}
 	        	promoteCategoryFolders(pages);
 	        	// First seed may follow catalog weight. After that, saved order wins.
 	        	const seeding = pages.length === 0;
@@ -1333,6 +1387,28 @@
 	        		rememberCatalogLink(entry);
 	        	});
 
+	        	// Pin folders copy catalog links when seeded. Drop copies the catalog no longer has
+	        	// (e.g. the user moved to the Chinese catalog); an emptied folder seeds again.
+	        	pages.forEach((item) => {
+	        		if (!item || item.type !== "folder" || !(item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0)) {
+	        			return;
+	        		}
+	        		const kids = item.children || [];
+	        		const kept = kids.filter((c) => {
+	        			if (!c || !(c.origin === 1 || c.origin === "1")) {
+	        				return true;
+	        			}
+	        			return (c.id && catalogLinkIds.has(c.id))
+	        				|| catalogLinkUrls.has(n.helper.util.normalizeShortcutUrl(c.url || ""));
+	        		});
+	        		if (kept.length !== kids.length) {
+	        			item.children = kept;
+	        			if (!kept.length) {
+	        				item.pinSeeded = false;
+	        			}
+	        		}
+	        	});
+
 	        	//push
 	        	pages.forEach((item)=>{
 	        		
@@ -1357,9 +1433,15 @@
 	        		if (item.origin === 1 && item.role !== "categoryPin" && !(item.type === "folder" && String(item.id || "").indexOf("pin:") === 0)) {
 	        			let stillInCatalog = false;
 	        			if (item.type === "folder") {
+	        				// Match by id. Two catalog folders can share a tab (ai / cn_ai both in Home).
 	        				stillInCatalog = arr.some((e) => {
-	        					return e && e.type === "folder"
-	        						&& (e.id === item.id || e.categoryId === item.categoryId || e.id === item.categoryId);
+	        					if (!e || e.type !== "folder") {
+	        						return false;
+	        					}
+	        					if (item.id) {
+	        						return e.id === item.id;
+	        					}
+	        					return e.categoryId === item.categoryId || e.id === item.categoryId;
 	        				});
 	        			} else {
 	        				const key = n.helper.util.normalizeShortcutUrl(item.url);
@@ -1400,6 +1482,7 @@
 			    const payload = {"n/links": list};
 			    if (seeding) {
 			    	payload["u/shortcutsSeeded"] = true;
+			    	payload["u/seedCatalog"] = catalogId || "global";
 			    }
 			    n.helper.dao.setData(payload).then(resolve);
         	});

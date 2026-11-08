@@ -123,15 +123,19 @@
             if (!text) {
                 return;
             }
-            const arrow = $("<span></span>").addClass("arrow");
+            const icon = $("<span></span>").addClass("icon").html(
+                "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\">"
+                + "<path d=\"M6 3.5l12.5 7.2-5.6 1.4-2.6 5.4L6 3.5z\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/>"
+                + "</svg>"
+            );
             const copy = $("<div></div>")
                 .addClass("copy")
                 .append($("<p></p>").text(text));
             const card = $("<div></div>").addClass("card");
             if (side === "right") {
-                card.append(copy).append(arrow);
+                card.append(copy).append(icon);
             } else {
-                card.append(arrow).append(copy);
+                card.append(icon).append(copy);
             }
             guideElm = $("<div></div>")
                 .addClass("lds-be-panel-guide")

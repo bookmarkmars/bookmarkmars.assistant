@@ -17,6 +17,8 @@
 		let intervalHandler=null;
 		
 		const timer = 2 * 60; //单位 second
+
+		const NAV_CATALOG_KEY = "u/navCatalog";
 	
     	const mainHost=$.opts.website.main.official+$.opts.website.scope;
     	const extHost=$.opts.website.main.extension+$.opts.website.scope;
@@ -247,15 +249,23 @@
 		const cacheRemoteData = (opts)=>{
 			
 			return new Promise((resolve) => {
-        	
+
+				// navigation_v2: the server picks the global or the Chinese catalog. A locked choice
+				// (from the server, or set by the new tab once the grid is edited) is sent back.
+				const body = {name:opts.name};
+				if (opts.name === "navigation_v2") {
+					body.lang = b.helper.language.getLanguage();
+					body.catalog = b.helper.dao.getData(NAV_CATALOG_KEY) || undefined;
+				}
+
 	        	$.fetch(
 	                extHost+$.opts.website.servletExt.api.remoteDataCache,
 	                {
 	                	method:"POST",
 	                	headers:headers,
-	                	body: JSON.stringify({name:opts.name})
+	                	body: JSON.stringify(body)
 	                },
-	                configTimeout
+	                opts.timeout || configTimeout
 	            )
 				.then((res)=>{
 
@@ -265,6 +275,9 @@
 						// bebeauty.conf is returned with pics at the top, not under data.
 						const cat = data && data.cat;
 						const usable = cat && (data.data || data.pics);
+						if (cat === "navigation_v2" && data.locked && data.catalog && data.catalog !== body.catalog) {
+							b.helper.dao.setData(NAV_CATALOG_KEY, data.catalog);
+						}
 						if (usable) {
 							const save = (cat === "navigation" || cat === "navigation_v2" || cat === "bebeauty")
 								? b.helper.dao.setLocalConfig(cat, data)
