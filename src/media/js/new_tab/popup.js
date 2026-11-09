@@ -165,7 +165,6 @@
                         || source.children("a").text();
                     const url = source.attr($.attr.href)
                         || source.find("input[type='checkbox']").attr($.attr.href);
-                    const origin = source.attr($.attr.origin);
                     if (!url) {
                         return;
                     }
@@ -178,7 +177,7 @@
                         selected: true,
                         fixed: false,
                         remove: false,
-                        origin: origin !== null && origin !== undefined ? parseInt(origin, 10) || 0 : 0,
+                        origin: 0,
                         type: "link",
                         icon: null
                     };
@@ -918,11 +917,14 @@
                 if (!match) {
                     return;
                 }
-                // Memory-only until CLOSE — then persist + refresh
+                // Memory-only until CLOSE — then persist + refresh.
+                // origin 0: the user placed this here. Catalog merge must not treat it as a
+                // dropped child of this folder and dump it back onto the grid tail.
                 working.children.push(Object.assign({}, match, {
                     type: "link",
                     selected: true,
-                    categoryId: tabId
+                    categoryId: tabId,
+                    origin: 0
                 }));
                 // If it was pending eject, cancel that
                 const norm = n.helper.util.normalizeShortcutUrl;
@@ -1257,7 +1259,8 @@
                 }
                 working.children.push(Object.assign({}, match, {
                     type: "link",
-                    selected: true
+                    selected: true,
+                    origin: 0
                 }));
                 markDirty();
                 renderTiles();

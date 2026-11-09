@@ -54,12 +54,17 @@
                     this.helper.styleHelper.addStylesheets(["basic","new_tab"], $(document)),//添加样式
                 ]);
             })
-            .then(()=>{//需要call函数，尽可能多的给时间建立连接
-            	return this.helper.user.asyUserInfo();//同步数据
-            }).then(() => {
+            .then(() => {
             	
                 this.helper.i18n.parseHtml(document);
                 initHeroClock();
+                // Avatar / VIP can fill in after first paint. Waiting on user-info kept
+                // the whole page hidden for up to 3s whenever the network was slow.
+                this.helper.user.asyUserInfo().then(() => {
+                    if (this.helper.topUrls && typeof this.helper.topUrls.refreshEntries === "function") {
+                        this.helper.topUrls.refreshEntries();
+                    }
+                });
                 
                 return Promise.all(
                     [
@@ -70,7 +75,6 @@
                         this.helper.operate.init(),
                         this.helper.widgets.init(),
                         initEvents(),
-                        $.delay(200),
                     ]
                 );
             }).then(([background]) => {

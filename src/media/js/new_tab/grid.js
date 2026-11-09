@@ -37,7 +37,9 @@
                 maxRows = 2;
             }
             
-            // Local-first: render from local/cache immediately; cloud restore is background-only
+            // Local-first: paint saved shortcuts now. Catalog / cloud run after.
+            getLinkList();
+            updateEntries();
             loadNavigation().then(()=>{
             	getLinkList();
             	updateEntries();
@@ -686,7 +688,8 @@
         	const child = Object.assign({}, moving, {
         		type: "link",
         		selected: true,
-        		fixed: false
+        		fixed: false,
+        		origin: 0
         	});
         	const alreadyAt = folder.children.findIndex((c) => c && norm(c.url) === targetUrl);
         	if (alreadyAt >= 0) {
