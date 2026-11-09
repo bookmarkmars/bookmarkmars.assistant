@@ -102,8 +102,10 @@
         				wallpaperAllowed = true;
         				input.click();
         			} else {
-        				const href = res.subscribeUrl || ($.opts.website.main.official + $.opts.website.scope + $.opts.website.servletMain.vip);
-        				n.helper.subscribe.show("wallpaper", href);
+        				const href = n.helper.user.getExtensionReturnUrl("#ucenter_basic");
+        				const plans = $.opts.website.main.official + $.opts.website.scope + $.opts.website.servletMain.vip
+        					+ "?callback=" + encodeURIComponent(href);
+        				n.helper.subscribe.show("wallpaper", plans);
         			}
         		});
         	});

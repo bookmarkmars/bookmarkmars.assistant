@@ -76,7 +76,7 @@ div.checkbox {
   &[data-style="switch"] {
     
     &::before{
-        content: $__switchOpenTag;
+        content: $__switchCloseTag;
         position: absolute;
         font-weight:$__fontWeightSemiBold;
         top: 8px;
@@ -115,7 +115,7 @@ div.checkbox {
     &.active {
         
       &::before{
-          content:$__switchCloseTag;
+          content:$__switchOpenTag;
           left:5px;
       }
 

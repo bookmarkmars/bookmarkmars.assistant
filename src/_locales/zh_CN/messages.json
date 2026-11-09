@@ -549,7 +549,7 @@
         "message": "刷新书签树"
     },
     "manage_tool_iexport_downloadname": {
-        "message": "BookmarkMars_Mars_"
+        "message": "书签火星_Mars_"
     },
     "manage_tool_import": {
         "message": "导入书签"
@@ -702,7 +702,7 @@
         "message": "注册时长"
     },
     "subscribe_title": {
-        "message": "解锁 BookmarkMars Pro"
+        "message": "解锁书签火星 Pro"
     },
     "subscribe_locked": {
         "message": "「{1}」是订阅专享功能。"

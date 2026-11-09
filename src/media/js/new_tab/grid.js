@@ -460,7 +460,7 @@
          * Sanitize one shortcut / folder for sync storage (no data: icons).
          */
         const sanitizeCloudItem = (item) => {
-        	if (!item || !item.title) {
+        	if (!item || !item.title || item.remove === true || item.remove === "true") {
         		return null;
         	}
         	const origin = (item.origin === 1 || item.origin === "1") ? 1 : 0;
@@ -514,7 +514,13 @@
          * Sanitize icons; never keep data: URLs in sync storage.
          */
         const sanitizeCloudLinks = (serverLinks) => {
-        	return (serverLinks || []).map(sanitizeCloudItem).filter(Boolean);
+        	const legacy = isLegacyGrid(serverLinks);
+        	return (serverLinks || []).map(sanitizeCloudItem).filter(Boolean).map((item) => {
+        		if (legacy) {
+        			item.legacy = true;
+        		}
+        		return item;
+        	});
         };
 
         /**
@@ -1024,7 +1030,8 @@
                 return item && (String(item.id || "").indexOf("cn_") === 0
                     || (item.children || []).some((c) => c && String(c.id || "").indexOf("cn_") === 0));
             });
-            const lockCatalog = hasGrid && !n.helper.dao.getData("u/shortcutsSeeded")
+            // An old-extension grid carries no catalog ids, so the server picks the catalog.
+            const lockCatalog = hasGrid && !n.helper.dao.getData("u/shortcutsSeeded") && !isLegacyGrid(savedLinks)
                 ? (holdsChinese ? "cn" : "global")
                 : undefined;
             const fits = (remote) => !!remote && (!lockCatalog || remote.id === lockCatalog);
@@ -1164,6 +1171,9 @@
 	        	if (pages.length && catalogId && n.helper.dao.getData("u/shortcutsSeeded")
 	        		&& (n.helper.dao.getData("u/seedCatalog") || "global") !== catalogId) {
 	        		pages = [];
+	        	}
+	        	if (isLegacyGrid(pages)) {
+	        		pages = migrateLegacyLinks(pages, arr);
 	        	}
 	        	promoteCategoryFolders(pages);
 	        	// First seed may follow catalog weight. After that, saved order wins.
@@ -1516,6 +1526,55 @@
         /**
          * Old category containers (id === tab id) become shortcuts on that tab.
          */
+        // Old extension data: a flat list with no id or type on any row (cloud restores are flagged).
+        const isLegacyGrid = (pages) => {
+        	return Array.isArray(pages) && pages.length > 0
+        		&& pages.every((item) => item && (item.legacy || (!item.id && !item.type)));
+        };
+
+        /**
+         * Runs once on old data. 书签地球 became BookmarkMars. A catalog row the current
+         * catalog no longer has stays as the user's own shortcut instead of being dropped.
+         */
+        const migrateLegacyLinks = (pages, catalog) => {
+        	const norm = n.helper.util.normalizeShortcutUrl;
+        	const known = new Set();
+        	const remember = (node) => {
+        		if (!node) {
+        			return;
+        		}
+        		[node.url].concat(Object.keys(node.lang || {}).map((key) => node.lang[key] && node.lang[key].url))
+        			.forEach((url) => {
+        				if (url) {
+        					known.add(norm(url));
+        				}
+        			});
+        		(node.children || []).forEach(remember);
+        	};
+        	(catalog || []).forEach(remember);
+
+        	const hostOf = (url) => {
+        		try {
+        			return new URL(url).hostname;
+        		} catch (e) {
+        			return "";
+        		}
+        	};
+        	return pages.filter((item) => {
+        		return item && item.url && item.remove !== true && item.remove !== "true";
+        	}).map((item) => {
+        		const link = Object.assign({}, item, {type: "link"});
+        		delete link.legacy;
+        		if (/(^|\.)bookmarkearth\.(cn|com)$/i.test(hostOf(link.url))) {
+        			link.url = "https://www.bookmarkmars.com/";
+        		}
+        		if ((link.origin === 1 || link.origin === "1") && !known.has(norm(link.url))) {
+        			link.origin = 0;
+        		}
+        		return link;
+        	});
+        };
+
         const promoteCategoryFolders = (pages) => {
         	const ids = new Set((navCategories || []).map((cat) => cat.id));
         	if (!ids.size) {

@@ -23,7 +23,7 @@
      */
     let packageJson = {};
     
-    let release= false;
+    let release= true;
     
     //demo deploy positon
     const target = "C:/Users/Carmen.Y/Downloads/bookmarkmars_assistant";
@@ -323,6 +323,7 @@
                 return Func.minify([
                     path.tmp + "manage_basic.js",
                     path.src + "media/js/helper/confirm.js",
+                    path.src + "media/js/helper/subscribe.js",
                     path.src + "media/js/helper/user.js",
                     path.src + "media/js/helper/checkbox.js",
                     path.src + "media/js/helper/bookmark.js",
