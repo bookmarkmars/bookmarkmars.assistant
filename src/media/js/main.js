@@ -51,7 +51,8 @@
         };
 
         /**
-         * 重新初始化content script，这里处理js代码
+         * Ask already-injected pages to reload. New navigations still pick up
+         * content_scripts from the manifest; scripting is not used.
          *
          * @param {object} opts
          * @returns {Promise}
@@ -61,11 +62,6 @@
             return new Promise((resolve) => {
                
                this.reinitialized = +new Date();
-
-                const types = {
-                    css: "insertCSS",
-                    js: "executeScript"
-                };
 
                 Promise.all([
                     this.helper.language.init(),
@@ -83,26 +79,10 @@
                     $.api.tabs.query({}, (tabs) => {
                         
                         tabs.forEach((tab, i) => {
-                        	
-                            if (tab.url && (tab.url.startsWith("http://") || tab.url.startsWith("https://") || tab.url.startsWith("file://"))) {
-                                const delay = tab.active ? 0 : (i * 100); // stagger script injection for all tabs which are not currently visible
-
-                                $.delay(delay).then(() => {
-                                    Object.entries(types).forEach(([type, func]) => {
-                                  
-                                        const files = $.opts.manifest.content_scripts[0][type];
-                                        $.api.scripting[func]({
-				                            target: {tabId: tab.id},
-				                            files: files
-				                        })["catch"](() => { // send a notification instead to let the page deal with it
-				                            notifyReinitialization(tab.id, type);
-				                        });
-														
-                                    });
-                                });
-                            }else { // send a notification instead of loading the scripts to let the page deal with the reinitialization
-			                    //notifyReinitialization(tab.id, type);
-			                }
+                            const delay = tab.active ? 0 : (i * 100);
+                            $.delay(delay).then(() => {
+                                notifyReinitialization(tab.id, type);
+                            });
                         });
                         
                         resolve();
@@ -112,21 +92,22 @@
         };
         
          /**
-         * Sends a message to the given tab to notify it that a reinitialization needs to be performed,
-         * will be called if script injection failed (like on the newtab replacement page)
+         * Sends a message to the given tab to notify it that a reinitialization needs to be performed
          *
          * @param {int} tabId
          * @param {string} type
          */
         const notifyReinitialization = (tabId, type) => {
         	
-        	this.helper.action.reloadSidepanel();
-        	
             $.api.tabs.sendMessage(tabId, {
                 action: "reinitialize",
-                type: type
-            })["catch"](() => {
-                $.api.runtime.lastError;
+                type: type,
+                reinitialized: this.reinitialized
+            }, () => {
+                const lastError = $.api.runtime.lastError;
+                if (typeof lastError === "undefined") {
+                    ;//do nothing
+                }
             });
         };
 
@@ -264,8 +245,6 @@
                 return this.helper.statistics.trackUserData();//记录用户信息，启动插件的时候
             }).then(() => {
             	this.helper.newtab.reload();
-                return this.reinitialize();
-            }).then(() => {
                 this.log("Finished bg script loading ", +new Date() - start);
             });
         };

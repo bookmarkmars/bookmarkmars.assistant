@@ -188,16 +188,7 @@
         const autoSaveNewtabConf = (val)=>{
         	
         	if(val && val==="true"){
-    			$.api.permissions.request({ //申请权限，覆盖新标签页和查询历史
-                    permissions: ["tabs","history"]
-                }, (granted) => {
-                	
-                	s.helper.util.setAsNewtab(false,null).then(()=>{
-                		if (granted) {
-	                        s.helper.util.setAsNewtab(true,null);
-	                    }
-                	})
-                });
+    			s.helper.util.setAsNewtab(true,null);
     		}else{
     			s.helper.util.setAsNewtab(false,null);
     		}

@@ -319,7 +319,7 @@
         	
             if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
                 
-                if (message.action === "reload") { // reload the current instance of the extension
+                if (message.action === "reload" || message.action === "reinitialize") { // reload the current instance of the extension
                     
                     let performReload = true;
                     if (message.type === "Removed" || (message.type === "Created" && isRestoring === true)) { // removed or created from undo -> prevent reload when it was performed on this browser tab

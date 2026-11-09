@@ -168,21 +168,10 @@
         	let grantState=0;
         	
         	if(type==="1"){//只有1代表授权
-                	
-            	$.api.permissions.request({ //申请权限，覆盖新标签页和查询历史
-                    permissions: ["tabs","history"]
-                }, (granted) => {
-
-					this.helper.util.setAsNewtab(false,null).then(()=>{
-						if (granted) {
-	                        this.helper.util.setAsNewtab(true,null).then(()=>{
-	                        	grantState=1;//已授权
-	                        	saveStartConfig(grantState);
-	                        })
-	                    }
-					});    
+                this.helper.util.setAsNewtab(true,null).then(()=>{
+                    grantState=1;//已授权
+                    saveStartConfig(grantState);
                 });
-                
                 return;
             }
         	

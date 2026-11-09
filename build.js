@@ -423,7 +423,6 @@
     	//basic
     	let basicPermissions=[
     		"\"storage\"",
-	    	"\"scripting\"",
 	    	"\"contextMenus\"",
 	    	"\"unlimitedStorage\"",
     	]
@@ -435,11 +434,7 @@
 		permissions.push("\"cookies\"");
 		permissions.push("\"search\"");// NTP: chrome.search.query (all platforms)
 		
-		//options
-		let optional_permissions =[ 
-			"\"tabs\"", 
-			"\"history\""
-		]
+		let optional_permissions =[]
 		
 		const platforms=[];
 		platforms.push({

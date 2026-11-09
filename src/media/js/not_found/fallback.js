@@ -31,16 +31,7 @@
             n.elm.fallbackInfo.children("a").on("click", (e) => {
                 e.preventDefault();
                 
-                $.api.permissions.request({ //申请权限，覆盖新标签页和查询历史
-                    permissions: ["tabs","history"]
-                }, (granted) => {
-                	
-                	n.helper.util.setAsNewtab(false,null).then(()=>{
-                		if (granted) {
-	                        n.helper.util.setAsNewtab(true,$.api.runtime.getURL("html/new_tab.html"));
-	                    }
-                	})
-                });
+                n.helper.util.setAsNewtab(true, $.api.runtime.getURL("html/new_tab.html"));
                 
             });
         };

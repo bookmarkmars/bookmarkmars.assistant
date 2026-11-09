@@ -196,7 +196,8 @@
         initField.font = (opts) => {
             return new Promise((resolve) => {
                 s.elm.select[opts.name] = $("<select></select>").insertAfter(opts.label);
-                $.api.fontSettings.getFontList((fontList) => {
+
+                const addFonts = (fontList) => {
                     fontList.unshift({
                         fontId: "default",
                         displayName: s.helper.i18n.get("manage_setting_font_family_default")
@@ -207,7 +208,16 @@
                             $("<option></option>").attr("value", font.fontId).text(font.displayName).appendTo(s.elm.select[opts.name]);
                         }
                     });
-                });
+                };
+
+                // Literal chrome.fontSettings.getFontList so CWS usage detection sees the permission.
+                if (typeof chrome !== "undefined" && chrome.fontSettings && chrome.fontSettings.getFontList) {
+                    chrome.fontSettings.getFontList(addFonts);
+                } else if ($.api.fontSettings && $.api.fontSettings.getFontList) {
+                    $.api.fontSettings.getFontList(addFonts);
+                } else {
+                    addFonts([]);
+                }
 
                 resolve();
             });

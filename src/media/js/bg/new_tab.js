@@ -24,22 +24,15 @@
         this.getConfig = ()=> config;
 
         /**
-         * Reloads all extension new tab pages,
-         * only works, if the user granted the 'tabs' permission
+         * Reloads all extension new tab pages
          */
         this.reload = () => {
-            $.api.permissions.contains({
-                permissions: ["tabs"]
-            }, (result) => {
-                if (result) { // user granted the 'tabs' permission -> reload all extension new tab pages
-                    $.api.tabs.query({}, (tabs) => {
-                        tabs.forEach((tab) => {
-                            if(tab){
-                            	this.openNewTab(tab);
-                            };
-                        });
-                    });
-                }
+            $.api.tabs.query({}, (tabs) => {
+                tabs.forEach((tab) => {
+                    if(tab){
+                        this.openNewTab(tab);
+                    };
+                });
             });
         };
 
