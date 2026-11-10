@@ -187,6 +187,8 @@
         this.userLogout = () => {
             return new Promise((resolve) => {
                 subscription = null;
+                userInfo = {};
+                $.api.storage.local.remove(["sidebarUserView"]);
                 b.helper.dao.setData(SUBSCRIPTION_KEY, null);
                 b.helper.dao.setData($.opts.cookie,null).then(() => {//清空缓存
                     const domain = $.opts.website.main.official;

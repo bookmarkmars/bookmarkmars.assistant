@@ -98,7 +98,7 @@
                     const link = $(e.currentTarget);
                     if (link.attr($.attr.type) === "folder" || link.data("folder")) {
                         // Mini icon in 2×2 preview → open that site. Big tile → organize popup.
-                        const directUrl = findFolderPreviewHref(e.target);
+                        const directUrl = findFolderPreviewHref(e.target, e);
                         if (directUrl) {
                             n.helper.dao.call("openLink", {
                                 href: directUrl,
@@ -198,73 +198,109 @@
             });
             n.elm.grid.on("dragend", "> ul > li", () => {
                 gridDragUrl = null;
-                n.elm.grid.find("li").removeClass("nt-dragging nt-drop-target");
+                n.elm.grid.find("li").removeClass("nt-dragging nt-drop-nest nt-drop-before nt-drop-after nt-drop-target");
             });
-            n.elm.grid.on("dragenter dragover", "> ul > li.nt-folder", (e) => {
-                if (!gridDragUrl) {
+            const clearDropMarks = () => {
+                n.elm.grid.find("li").removeClass("nt-drop-nest nt-drop-before nt-drop-after nt-drop-target");
+            };
+            // Nest only when the pointer is inside the folder icon square.
+            // Before/after uses that square's center, so the wide tile padding is a gap.
+            const dropIntent = (li, event) => {
+                if (!li) {
+                    return null;
+                }
+                const square = li.querySelector("a > div");
+                if (!square) {
+                    return null;
+                }
+                const rect = square.getBoundingClientRect();
+                const point = event.originalEvent || event;
+                const x = point.clientX;
+                const y = point.clientY;
+                const inside = x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+                const side = x < rect.left + rect.width / 2 ? "before" : "after";
+                if (li.classList.contains("nt-folder") && inside) {
+                    return {action: "nest", side: side};
+                }
+                return {action: "reorder", side: side};
+            };
+            const markDrop = (li, event) => {
+                clearDropMarks();
+                const intent = dropIntent(li, event);
+                if (!intent) {
+                    return null;
+                }
+                $(li).addClass(intent.action === "nest"
+                    ? "nt-drop-nest"
+                    : (intent.side === "before" ? "nt-drop-before" : "nt-drop-after"));
+                return intent;
+            };
+            n.elm.grid.on("dragenter dragover", "> ul > li", (e) => {
+                if (!gridDragUrl || $(e.currentTarget).hasClass("nt-dragging")) {
                     return;
                 }
                 e.preventDefault();
-                $(e.currentTarget).addClass("nt-drop-target");
+                markDrop(e.currentTarget, e);
             });
-            n.elm.grid.on("dragleave", "> ul > li.nt-folder", (e) => {
-                $(e.currentTarget).removeClass("nt-drop-target");
-            });
-            n.elm.grid.on("dragenter dragover", "> ul > li:not(.nt-folder):not(.is-locked)", (e) => {
-                if (!gridDragUrl) {
-                    return;
-                }
+            n.elm.grid.on("drop", "> ul > li", (e) => {
                 e.preventDefault();
-                $(e.currentTarget).addClass("nt-drop-target");
-            });
-            n.elm.grid.on("dragleave", "> ul > li:not(.nt-folder)", (e) => {
-                $(e.currentTarget).removeClass("nt-drop-target");
-            });
-            n.elm.grid.on("drop", "> ul > li:not(.nt-folder):not(.is-locked)", (e) => {
-                e.preventDefault();
-                if ($(e.currentTarget).hasClass("is-locked")) {
-                    gridDragUrl = null;
-                    return;
-                }
-                const targetUrl = $(e.currentTarget).children("a").attr("href") || "";
+                e.stopPropagation();
+                const li = e.currentTarget;
+                const selfDrop = $(li).hasClass("nt-dragging");
+                const intent = dropIntent(li, e);
                 const token = gridDragUrl
                     || (e.originalEvent.dataTransfer && e.originalEvent.dataTransfer.getData("text/plain"));
-                n.elm.grid.find("li").removeClass("nt-dragging nt-drop-target");
+                n.elm.grid.find("li").removeClass("nt-dragging nt-drop-nest nt-drop-before nt-drop-after nt-drop-target");
                 gridDragUrl = null;
-                if (!token || !targetUrl || token === targetUrl) {
+                if (!intent || !token || selfDrop) {
+                    return;
+                }
+                const link = $(li).children("a");
+                const isFolder = $(li).hasClass("nt-folder");
+                if (intent.action === "nest" && String(token).indexOf("folder:") !== 0) {
+                    const folderId = link.attr("data-folder-id") || link.data("folderId");
+                    if (folderId) {
+                        this.moveLinkIntoFolder(token, folderId);
+                    }
+                    return;
+                }
+                if (isFolder) {
+                    const folderId = link.attr("data-folder-id") || link.data("folderId");
+                    if (!folderId) {
+                        return;
+                    }
+                    if (String(token).indexOf("folder:") === 0) {
+                        const dragId = String(token).slice(7);
+                        if (dragId === folderId) {
+                            return;
+                        }
+                        this.reorderEntry(
+                            {type: "folder", id: dragId},
+                            {type: "folder", id: folderId},
+                            intent.side
+                        );
+                        return;
+                    }
+                    this.reorderEntry(
+                        {type: "link", url: token},
+                        {type: "folder", id: folderId},
+                        intent.side
+                    );
+                    return;
+                }
+                const targetUrl = link.attr("href") || link.data("href") || "";
+                if (!targetUrl || token === targetUrl) {
                     return;
                 }
                 if (String(token).indexOf("folder:") === 0) {
                     this.reorderEntry(
                         {type: "folder", id: String(token).slice(7)},
-                        {type: "link", url: targetUrl}
+                        {type: "link", url: targetUrl},
+                        intent.side
                     );
                     return;
                 }
-                this.reorderEntry({type: "link", url: token}, {type: "link", url: targetUrl});
-            });
-            n.elm.grid.on("drop", "> ul > li.nt-folder", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const folderLink = $(e.currentTarget).children("a");
-                const folderId = folderLink.attr("data-folder-id") || folderLink.data("folderId");
-                const token = gridDragUrl
-                    || (e.originalEvent.dataTransfer && e.originalEvent.dataTransfer.getData("text/plain"));
-                const targetLocked = $(e.currentTarget).hasClass("is-locked");
-                n.elm.grid.find("li").removeClass("nt-dragging nt-drop-target");
-                gridDragUrl = null;
-                if (!folderId || !token) {
-                    return;
-                }
-                if (String(token).indexOf("folder:") === 0) {
-                    const dragId = String(token).slice(7);
-                    if (targetLocked || dragId === folderId) {
-                        return;
-                    }
-                    this.reorderEntry({type: "folder", id: dragId}, {type: "folder", id: folderId});
-                    return;
-                }
-                this.moveLinkIntoFolder(token, folderId);
+                this.reorderEntry({type: "link", url: token}, {type: "link", url: targetUrl}, intent.side);
             });
         };
 
@@ -603,7 +639,7 @@
          * The dragged tile takes that place, and the original shifts back one.
          * Pinned and locked shortcuts are never moved.
          */
-        this.reorderEntry = (drag, target) => {
+        this.reorderEntry = (drag, target, side) => {
         	const links = (n.helper.dao.getData("n/links") || []).slice();
         	const norm = n.helper.util.normalizeShortcutUrl;
         	const homeId = (navCategories[0] && navCategories[0].id) || "pinned";
@@ -612,8 +648,11 @@
         		return !!(item && item.type === "folder"
         			&& (item.role === "categoryPin" || String(item.id || "").indexOf("pin:") === 0));
         	};
-        	const matchRef = (item, ref) => {
-        		if (!item || !ref || catOf(item) !== activeCategoryId || isPin(item)) {
+        	const matchRef = (item, ref, asAnchor) => {
+        		if (!item || !ref || catOf(item) !== activeCategoryId) {
+        			return false;
+        		}
+        		if (isPin(item) && !asAnchor) {
         			return false;
         		}
         		if (ref.type === "folder") {
@@ -621,7 +660,7 @@
         		}
         		return item.type !== "folder" && norm(item.url) === norm(ref.url);
         	};
-        	let from = links.findIndex((item) => matchRef(item, drag));
+        	let from = links.findIndex((item) => matchRef(item, drag, false));
         	if (from < 0) {
         		const tile = (navTiles || []).find((item) => matchRef(item, drag));
         		if (!tile) {
@@ -634,15 +673,26 @@
         		from = links.length - 1;
         	}
         	const moving = links.splice(from, 1)[0];
-        	const targetItem = links.find((item) => matchRef(item, target));
-        	if (isPin(moving) || (moving && moving.fixed) || (targetItem && targetItem.fixed)) {
+        	if (isPin(moving) || (moving && moving.fixed)) {
         		links.splice(from, 0, moving);
         		return Promise.resolve(false);
         	}
-        	let to = links.findIndex((item) => matchRef(item, target));
+        	let to = links.findIndex((item) => matchRef(item, target, true));
         	if (to < 0) {
         		links.push(moving);
+        	} else if (isPin(links[to])) {
+        		// Pinned always renders first. The slot beside it is the first other row in that tab.
+        		const cat = catOf(links[to]);
+        		const slot = links.findIndex((item) => item && !isPin(item) && catOf(item) === cat);
+        		if (slot < 0) {
+        			links.push(moving);
+        		} else {
+        			links.splice(slot, 0, moving);
+        		}
         	} else {
+        		if (side === "after") {
+        			to += 1;
+        		}
         		links.splice(to, 0, moving);
         	}
         	return this.persistLinks(links, {reload: false});
@@ -921,24 +971,56 @@
         };
 
         /**
-         * Walk up from the click target to a preview cell that carries data-href.
+         * A click on a preview quadrant opens that site.
+         * The folder name, and an empty quadrant, open the folder popup.
+         * A click on the preview box itself (the seam between icons) snaps to the nearest site.
          */
-        const findFolderPreviewHref = (target) => {
+        const findFolderPreviewHref = (target, event) => {
             let node = target;
             while (node && node.nodeType === 1) {
+                if (node.classList && node.classList.contains("nt-folder-empty")) {
+                    return null;
+                }
                 if (node.getAttribute && node.getAttribute("data-href")
                     && node.parentNode
                     && node.parentNode.classList
                     && node.parentNode.classList.contains("nt-folder-preview")) {
                     return node.getAttribute("data-href");
                 }
-                // Stop at the folder <a> — anything outside preview cells is "big box"
+                if (node.classList && node.classList.contains("nt-folder-preview")) {
+                    return nearestPreviewHref(node, event);
+                }
                 if (node.getAttribute && node.getAttribute($.attr.type) === "folder") {
                     break;
                 }
                 node = node.parentNode;
             }
             return null;
+        };
+
+        const nearestPreviewHref = (preview, event) => {
+            if (!event || !preview || !preview.querySelectorAll) {
+                return null;
+            }
+            const x = event.clientX;
+            const y = event.clientY;
+            let best = null;
+            let bestDist = Infinity;
+            preview.querySelectorAll("[data-href]").forEach((cell) => {
+                const href = cell.getAttribute("data-href");
+                if (!href) {
+                    return;
+                }
+                const rect = cell.getBoundingClientRect();
+                const dx = x - (rect.left + rect.width / 2);
+                const dy = y - (rect.top + rect.height / 2);
+                const dist = dx * dx + dy * dy;
+                if (dist < bestDist) {
+                    bestDist = dist;
+                    best = href;
+                }
+            });
+            return best;
         };
 
         /**

@@ -515,6 +515,10 @@
             	.append('<img src="'+$.api.runtime.getURL("media/img/icon/header/"+icon+".png")+'" />')
             	.appendTo(ext.elm.header.toolBox);
             });
+
+            if (ext.helper.user && ext.helper.user.applyCachedHeader) {
+            	ext.helper.user.applyCachedHeader();
+            }
             
             const input = ext.elm.header.searchBox.find("input[type='text']")[0];
             input.focus();

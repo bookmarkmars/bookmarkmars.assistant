@@ -308,51 +308,22 @@
         	}
         	
         	ext.initImages();//对于没有加载的图片，重新加载一遍
+        	$("body").addClass($.cl.page.noscroll);
+        	// Cached avatar paints with the panel. user-info runs only when that cache is older than 10 minutes.
+        	ext.helper.user.warmHeader();
         	
         	ext.helper.dao.call("setSidebarState",{state:"open"})
             .then(()=>{
-            	$.delay(100)
-	        	.then(()=>{
-	        		return ext.helper.entry.initOnce();//同步一次数据
-	        	}).then(()=>{
-	        		return ext.helper.user.asyUserInfo();//用户信息更新，减少消耗
-	        	}).then(()=>{
-		        	if (ext.elm.iframe.hasClass($.cl.sidebar.extLoaded)) {
-		                
-		                $("body").addClass($.cl.page.noscroll);
-		                
-		                //开始改变头像，vip标识等
-		                const user=ext.helper.user.getUser();
-		                if(user!=null){
-		                	
-		                	if(ext.helper.util.getNoticeFromBall()===ext.helper.i18n.get("not_login_notice")){
-		                		ext.helper.util.removeNoticeFromBall();
-		                	}
-		                	
-		                	const ucenter=ext.elm.header.toolBox.find("a[" + $.attr.name + "='ucenter']");
-		                	const img=ucenter.find("> img");
-		                	
-		                	ucenter.attr($.attr.title,user.username);
-		                	img.attr("src",user.avatar);
-		                	
-		                	ucenter.find("> span").remove();//踢除
-		                	if(ext.helper.user.isVip()){
-
-		                		$("<span></span>")
-		                		.attr($.attr.title,user.vipTypeDesc)
-		                		.attr($.attr.type,user.vipType===1?"vip":"supervip")
-		                		.addClass($.cl.header.notify)
-		                		.insertBefore(img);
-		                	}
-		                }
-		                
-		                ext.helper.dao.call("statistics", {
-	                        name: "action",
-	                        value: {name: "open", value: ext.helper.util.getPageType()}
-	                    });
-
-		            }
-		        })
+            	$.delay(100).then(()=>{
+            		if (!ext.elm.iframe.hasClass($.cl.sidebar.extLoaded)) {
+            			return;
+            		}
+            		ext.helper.entry.initOnce();
+            		ext.helper.dao.call("statistics", {
+                        name: "action",
+                        value: {name: "open", value: ext.helper.util.getPageType()}
+                    });
+		        });
             });
         };
 
