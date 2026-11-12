@@ -57,6 +57,8 @@
               	uploadBookmark:b.helper.serverExchange.uploadBookmark,
               	saveShortcuts:b.helper.serverExchange.saveShortcuts,
               	loadShortcuts:b.helper.serverExchange.loadShortcuts,
+              	savePins:b.helper.serverExchange.savePins,
+              	loadPins:b.helper.serverExchange.loadPins,
               	searchBookmarkServer:b.helper.serverExchange.searchBookmarkFromServer,
               	getKeyword:b.helper.serverExchange.getKeyword,
               	asyBookmark:b.helper.bookmarkHtml.asyBookmark,

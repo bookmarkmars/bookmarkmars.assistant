@@ -181,8 +181,116 @@
                 Promise.all([
                     ext.helper.dao.call("removeCache", {name: "htmlList"}),
                     ext.helper.dao.setData({"u/pinnedEntries": entries})
-                ]).then(resolve);
+                ]).then(() => {
+                    try {
+                        uploadPins(entries);
+                    } catch (e) {
+                        // Local pin already saved. A backup failure must not block the sidebar.
+                    }
+                    resolve();
+                });
             });
+        };
+
+        const pinKey = (url) => {
+            return String(url || "").trim().replace(/#.*$/, "").replace(/\/+$/, "");
+        };
+
+        const uploadPins = (entries) => {
+            const pins = [];
+            const stored = entries || {};
+            Object.keys(stored).forEach((id) => {
+                const data = ext.helper.entry.getDataById(id);
+                if (!data || !data.url || data.url === "about:blank") {
+                    return;
+                }
+                pins.push({
+                    url: String(data.url).slice(0, 2000),
+                    title: String(data.title || "").slice(0, 300),
+                    index: Number(stored[id] && stored[id].index) || 0
+                });
+            });
+            if (Object.keys(stored).length && !pins.length) {
+                return;
+            }
+            pins.sort((a, b) => a.index - b.index);
+            ext.helper.dao.call("savePins", {pins: pins});
+        };
+
+        let restoreTask = null;
+
+        /**
+         * When this browser has no pins, rebuild Frequently use from the account backup.
+         * When this browser has pins and the account has none yet, upload them.
+         * Returns true when the local pin list changed.
+         */
+        this.restorePins = () => {
+            if (restoreTask) {
+                return restoreTask;
+            }
+            restoreTask = new Promise((resolve) => {
+                ext.helper.dao.call("loadPins").then((res) => {
+                    const local = ext.helper.dao.getData("u/pinnedEntries") || {};
+                    const localIds = Object.keys(local);
+                    if (!res || res.code === "not_login" || res.code === "error" || res.codeMsg === "networkFail") {
+                        resolve(false);
+                        return;
+                    }
+                    if (res.code === "not_found" || !res.data) {
+                        if (localIds.length) {
+                            uploadPins(local);
+                        }
+                        resolve(false);
+                        return;
+                    }
+                    if (localIds.length) {
+                        resolve(false);
+                        return;
+                    }
+                    const cloud = Array.isArray(res.data.pins) ? res.data.pins.slice() : [];
+                    cloud.sort((a, b) => (Number(a.index) || 0) - (Number(b.index) || 0));
+                    const byUrl = {};
+                    ext.helper.entry.getAllDataByType("bookmarks").forEach((item) => {
+                        const key = pinKey(item && item.url);
+                        if (key && !byUrl[key]) {
+                            byUrl[key] = item.id;
+                        }
+                    });
+                    const next = {};
+                    const used = {};
+                    cloud.forEach((pin) => {
+                        const id = byUrl[pinKey(pin && pin.url)];
+                        if (!id || used[id]) {
+                            return;
+                        }
+                        used[id] = true;
+                        next[id] = {index: Number(pin.index) || 0};
+                    });
+                    if (!Object.keys(next).length) {
+                        resolve(false);
+                        return;
+                    }
+                    const again = ext.helper.dao.getData("u/pinnedEntries") || {};
+                    if (Object.keys(again).length) {
+                        resolve(false);
+                        return;
+                    }
+                    ext.helper.dao.setData({"u/pinnedEntries": next}).then(() => {
+                        return ext.helper.entry.update();
+                    }).then(() => {
+                        if (ext.helper.freUsed && ext.helper.freUsed.refresh) {
+                            return ext.helper.freUsed.refresh();
+                        }
+                        return null;
+                    }).then(() => {
+                        resolve(true);
+                    }).catch(() => resolve(false));
+                }).catch(() => resolve(false));
+            }).then((changed) => {
+                restoreTask = null;
+                return changed;
+            });
+            return restoreTask;
         };
         
     };

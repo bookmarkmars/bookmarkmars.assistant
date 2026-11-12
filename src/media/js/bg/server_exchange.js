@@ -673,6 +673,57 @@
 				});
 			});
 		};
+
+		/**
+		 * Backup Frequently use pins. Chrome bookmark ids do not survive reinstall,
+		 * so each pin is {url, title, index}.
+		 */
+		this.savePins = (opts) => {
+			return new Promise((resolve) => {
+				const pins = (opts && opts.pins) ? opts.pins : [];
+				$.fetch(
+					mainHost + $.opts.website.servletMain.user.pinsSave,
+					{
+						method: "POST",
+						headers: headers,
+						credentials: "include",
+						body: JSON.stringify({pins: pins})
+					},
+					8000
+				)
+				.then((res) => {
+					res.json().then((obj) => {
+						resolve(obj);
+					}).catch(() => resolve($.opts.netWorkError));
+				}).catch(() => {
+					resolve($.opts.netWorkError);
+				});
+			});
+		};
+
+		/**
+		 * Load Frequently use pin backup for the logged-in user.
+		 */
+		this.loadPins = () => {
+			return new Promise((resolve) => {
+				$.fetch(
+					mainHost + $.opts.website.servletMain.user.pinsLoad,
+					{
+						method: "POST",
+						headers: headers,
+						credentials: "include"
+					},
+					8000
+				)
+				.then((res) => {
+					res.json().then((obj) => {
+						resolve(obj);
+					}).catch(() => resolve($.opts.netWorkError));
+				}).catch(() => {
+					resolve($.opts.netWorkError);
+				});
+			});
+		};
 		
     };
 })(jsu);

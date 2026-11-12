@@ -15,6 +15,41 @@
 	 		sort = ext.helper.dao.getData("u/sort");
     	 	await initFrequentlyUsed(list);
     	}
+
+        /**
+         * Repaint Frequently use from the current pin list.
+         * Leaves the rest of the bookmark tree on screen.
+         */
+        this.refresh = () => {
+            sort = ext.helper.dao.getData("u/sort") || {};
+            const root = ext.elm.bookmarkBox && ext.elm.bookmarkBox.all;
+            const list = root && root.children("ul");
+            if (!list || list.length() === 0) {
+                return ext.helper.dao.call("removeCache", {name: "htmlList"}).then(() => false);
+            }
+
+            const folder = list.children("li." + $.cl.sidebar.freUsed);
+            if (!folder || folder.length() === 0) {
+                return initFrequentlyUsed(list).then(() => rememberList());
+            }
+
+            ext.elm.freUsed = folder.eq(0);
+            const title = ext.helper.i18n.get("sidebar_fre_used_folder", [ext.helper.entry.getAmount("pinned")], false);
+            const link = ext.elm.freUsed.children("a");
+            link.children("span." + $.cl.sidebar.bookmarkLabel).text(title);
+            link.attr($.attr.title, title);
+            ext.elm.freUsed.children("ul").remove();
+            addFreUsed();
+            return rememberList();
+        };
+
+        const rememberList = () => {
+            const sortNow = ext.helper.dao.getData("u/sort") || {};
+            if (!sortNow.name || sortNow.name === "default") {
+                return ext.helper.list.cacheList().then(() => true);
+            }
+            return Promise.resolve(true);
+        };
     	
     	 const initFrequentlyUsed = (list) =>{
         	

@@ -378,6 +378,8 @@
             		upload: "user/bookmark/upload",
             		shortcutsSave: "user/shortcuts/save",
             		shortcutsLoad: "user/shortcuts/load",
+            		pinsSave: "user/pins/save",
+            		pinsLoad: "user/pins/load",
             		
             	},
             	collect:{

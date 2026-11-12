@@ -23,7 +23,7 @@
      */
     let packageJson = {};
     
-    let release= true;
+    let release= false;
     
     //demo deploy positon
     const target = "C:/Users/Carmen.Y/Downloads/bookmarkmars_assistant";

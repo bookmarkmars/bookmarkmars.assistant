@@ -367,6 +367,8 @@
 	                ]);
 	            }).then(() => {
 	                return this.helper.list.updateBookmarkBox();
+	            }).then(() => {
+	            	this.helper.bookmark.restorePins();
 	            }).then(()=>{
 	            	return this.helper.styleHelper.addStylesheets(["basic"]);//基本刷新
 	            }).then(()=>{

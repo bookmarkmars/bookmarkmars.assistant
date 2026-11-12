@@ -318,7 +318,9 @@
             		if (!ext.elm.iframe.hasClass($.cl.sidebar.extLoaded)) {
             			return;
             		}
-            		ext.helper.entry.initOnce();
+            		ext.helper.entry.initOnce().then(() => {
+            			return ext.helper.bookmark.restorePins();
+            		});
             		ext.helper.dao.call("statistics", {
                         name: "action",
                         value: {name: "open", value: ext.helper.util.getPageType()}
