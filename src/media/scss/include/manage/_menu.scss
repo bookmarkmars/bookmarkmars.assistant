@@ -54,19 +54,19 @@ body > section#wrapper {
         > li {
 
           &[data-name='setting'] > a {
-            @include mask('icon/header/setting', $textColorLight, 20px);
+            @include mask('icon/header/setting', $manageMenuText, 20px);
           }
 
           &[data-name='tool'] > a {
-            @include mask('icon/header/tool', $textColorLight, 20px);
+            @include mask('icon/header/tool', $manageMenuText, 20px);
           }
 
           &[data-name='ucenter'] > a {
-            @include mask('icon/header/ucenter', $textColorLight, 20px);
+            @include mask('icon/header/ucenter', $manageMenuText, 20px);
           }
 
           &[data-name='about'] > a {
-            @include mask('icon/header/about', $textColorLight, 20px);
+            @include mask('icon/header/about', $manageMenuText, 20px);
           }
 
           &.active {
@@ -86,7 +86,7 @@ body > section#wrapper {
               background: $manageMenuHoverBackground;
 
               &::before {
-                background-color: $textColorLight2;
+                background-color: $manageMenuTextActive;
               }
             }
           }
@@ -105,7 +105,7 @@ body > section#wrapper {
             display: block;
             width: 100%;
             padding: 0 10px 0 52px;
-            color: $textColorLight;
+            color: $manageMenuText;
             transition: background 0.5s;
             
             &::before {
@@ -120,7 +120,7 @@ body > section#wrapper {
 
             > a {
               font-weight: $__fontWeightMedium;
-              color: $textColorLight2;
+              color: $manageMenuTextActive;
               
                &::before {
                    content: "∨";

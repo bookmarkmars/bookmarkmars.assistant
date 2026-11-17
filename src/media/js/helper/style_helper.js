@@ -41,12 +41,12 @@
 	        	
 	        	let loaded=0;
 	        	const styles = Object.assign({}, ext.helper.dao.getData("a/styles", deft));
-	        	if (!deft && ext.helper.dao.getThemeStyles) {
+	        	if (ext.helper.dao.getThemeStyles) {
 	        		const theme = ext.helper.dao.getData("a/theme");
 	        		const palette = theme && theme !== "default" ? ext.helper.dao.getThemeStyles(theme) : null;
 	        		if (palette) {
 	        			Object.assign(styles, palette);
-	        		} else {
+	        		} else if (!deft) {
 	        			if (styles.hoverColor === "#908b8b66") {
 	        				styles.hoverColor = "#ffffff7a";
 	        			}
@@ -54,6 +54,24 @@
 	        				styles.headerIconBackground = "#dbcfcfcc";
 	        			}
 	        		}
+	        	}
+	        	if (!styles.manageMenuBackground) {
+	        		styles.manageMenuBackground = "#322e2f";
+	        	}
+	        	if (!styles.manageBodyBackground) {
+	        		styles.manageBodyBackground = "#f5f5f5";
+	        	}
+	        	if (!styles.manageCardBackground) {
+	        		styles.manageCardBackground = "#efefef";
+	        	}
+	        	if (!styles.manageMenuText) {
+	        		styles.manageMenuText = "#918f8f";
+	        	}
+	        	if (!styles.manageMenuTextActive) {
+	        		styles.manageMenuTextActive = "#ccc";
+	        	}
+	        	if (!styles.manageAccent) {
+	        		styles.manageAccent = "#322e2f";
 	        	}
 
 	            files.forEach((file) => {
@@ -63,11 +81,12 @@
 	                    res.text().then((data)=>{
 
                     		let css = data;
+                    		const tokens = [];
                     		Object.keys(styles).forEach((key) => {
 
                     			if(typeof styles[key] === "object" ){
                     				Object.keys(styles[key]).forEach((k)=>{
-                    					css = css.replace(new RegExp("\"?%" + k + "\"?", "g"),styles[key][k]);
+                    					tokens.push([k, styles[key][k]]);
                     				});
                     			}else{
                     				
@@ -79,9 +98,15 @@
 										let tag=key.indexOf("Open")!==-1?"open":"close";
                     					styles[key]="'"+ext.helper.i18n.get("manage_switch_"+tag+"_tag")+"'";
                     				}
-                    				css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), styles[key]);
+                    				tokens.push([key, styles[key]]);
                     			}
                            });
+                    		// Longer names first, and never match a name that is only the start of another.
+                    		tokens.sort((a, b) => b[0].length - a[0].length);
+                    		tokens.forEach((pair) => {
+                    			const value = String(pair[1]);
+                    			css = css.replace(new RegExp("\"?%" + pair[0] + "(?![A-Za-z0-9])\"?", "g"), () => value);
+                    		});
                     		if (scope === "shadow") {
                     			css = css.replace(/body\s*>/g, ":host >");
                     			// The host does not take clicks. The visible ball must, or it cannot open.
