@@ -1,10 +1,19 @@
 @import "include/vars";
 @import "include/mixins";
+
+// Set before the button placeholder is compiled, so Save uses the theme color.
+$manageAccent: "%manageAccent";
+
 @import "include/manage_mixins";
 
 //
 $__colorScheme: $mainColor2;
 $__textColor: $textColor;
+$manageMenuBackground: "%manageMenuBackground";
+$manageMenuText: "%manageMenuText";
+$manageMenuTextActive: "%manageMenuTextActive";
+$bodyBackground: "%manageBodyBackground";
+$contentBackground: "%manageCardBackground";
 //$__fontFamily:default,Microsoft YaHei;
 
 @import "include/loading";

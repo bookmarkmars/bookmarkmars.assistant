@@ -141,11 +141,19 @@
             	let defaultStyles = s.helper.dao.getData("a/styles",true);
             	
             	Object.keys(s.helper.dao.getThemeStyles("classcial")).forEach((key) => {
-            		styles[key]=defaultStyles[key];
+            		if (typeof defaultStyles[key] === "undefined") {
+            			delete styles[key];
+            		} else {
+            			styles[key]=defaultStyles[key];
+            		}
             	});
             }
 
             Object.keys(styles).forEach((key) => {
+
+            	if (typeof styles[key] === "undefined") {
+            		return;
+            	}
 
 				//copy
             	ret.appearance.styles[key]=styles[key];
