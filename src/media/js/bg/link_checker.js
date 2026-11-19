@@ -30,7 +30,7 @@
             return new Promise((resolve) => {
             	
                 Promise.all([
-                    getHTTPInfo(opts.url,opts.timeout),
+                    getHTTPInfo(opts.url, opts.timeout, opts.light === true),
                     !opts.all?Promise.resolve(null):getDuplicateInfo(opts.url),
                 ]).then(([httpInfo, duplicateInfo]) => {
                     resolve({
@@ -102,11 +102,21 @@
         };
 
         /**
-         * HEAD 很快，但不少站点对 HEAD 返回 404/405。那种结果再用一次 GET 确认。
-         * 超时不再连试三次，也不把超时记成失效。
+         * HEAD first. Full mode may confirm with GET / https upgrade.
+         * light=true (Powerful check on web pages): single HEAD only — avoids CPU spikes
+         * from HEAD+GET+https cascades on slow/obscure hosts.
          */
-        const getHTTPInfo = async (rawUrl, timeout = 5000) => {
+        const getHTTPInfo = async (rawUrl, timeout = 5000, light = false) => {
             if (!rawUrl || !/^https?:\/\//i.test(rawUrl)) {
+                return {url: rawUrl, ok: true, status: null, skipped: true};
+            }
+
+            try {
+                const host = new URL(rawUrl).hostname.toLowerCase();
+                if (host.endsWith(".onion") || host.endsWith(".i2p")) {
+                    return {url: rawUrl, ok: true, status: null, skipped: true};
+                }
+            } catch (e) {
                 return {url: rawUrl, ok: true, status: null, skipped: true};
             }
 
@@ -131,6 +141,23 @@
 
             if (head.response && !brokenStatus[head.response.status] && head.response.status !== 405 && head.response.status !== 501) {
                 return {url: finalUrl(head.response, rawUrl), ok: true, status: head.response.status};
+            }
+
+            // Powerful-check light path: do not cascade into GET / https retries.
+            if (light) {
+                if (head.response && brokenStatus[head.response.status]) {
+                    return {url: rawUrl, ok: false, status: head.response.status};
+                }
+                if (head.error) {
+                    const headKind = netKind(head.error);
+                    if (headKind === "dns" || headKind === "dead") {
+                        return {url: rawUrl, ok: false, status: null, errorType: headKind};
+                    }
+                    // timeout / unknown → treat as ok (avoid false broken + extra probes)
+                    return {url: rawUrl, ok: true, status: null, errorType: headKind};
+                }
+                // 405/501 HEAD not allowed — assume ok in light mode
+                return {url: rawUrl, ok: true, status: head.response ? head.response.status : null, light: true};
             }
 
             // 域名不存在或连接被拒绝时，同一地址再 GET 一次没有意义。

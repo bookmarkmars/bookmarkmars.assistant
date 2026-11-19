@@ -245,30 +245,37 @@
                 return true;
             }
 
-            let ret = false;
-
-            [
+            const prefixBlocked = [
                 "about:",
-                "https?://192\.168\.",
-                "192\.168\.",
+                "https?://192\\.168\\.",
+                "192\\.168\\.",
                 "https?://localhost",
                 "localhost",
-                "https?://127\.0\.0\.",
-                "127\.0\.0\.",
+                "https?://127\\.0\\.0\\.",
+                "127\\.0\\.0\\.",
                 "javascript:",
                 "file://",
                 "chrome://",
                 "edge://",
                 "extension://",
-                "chrome\-extension://",
-            ].some((str) => {
-                if (url.search(new RegExp(str, "gi")) === 0) {
-                    ret = true;
+                "chrome\\-extension://",
+            ].some((str) => url.search(new RegExp(str, "gi")) === 0);
+
+            if (prefixBlocked) {
+                return true;
+            }
+
+            // Darknet / non-clearnet — fetch hangs and burns CPU (folder Powerful check)
+            try {
+                const host = new URL(url).hostname.toLowerCase();
+                if (host.endsWith(".onion") || host.endsWith(".i2p")) {
                     return true;
                 }
-            });
+            } catch (e) {
+                //
+            }
 
-            return ret;
+            return false;
         };
 
         /**
